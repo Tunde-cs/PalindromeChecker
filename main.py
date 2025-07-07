@@ -84,17 +84,22 @@ def buildPalindrome(a, b):
                         candidate = get_best_palindrome(sa_start, sa_len, sb_start, sb_len, order)
                         
                         if candidate:
-                            # Update best based on lexicographic preference
+                            # Update best: prioritize length first, then lexicographic order
                             is_longer = len(candidate) > max_length
+                            is_same_length = len(candidate) == max_length
                             is_lexicographically_smaller = best_palindrome is None or candidate < best_palindrome
                             
                             debug_print(f"DEBUG: DP comparison:")
                             debug_print(f"  - Current candidate: '{candidate}' (length {len(candidate)})")
                             debug_print(f"  - Current best: '{best_palindrome}' (length {max_length})")
                             debug_print(f"  - Is longer? {is_longer}")
+                            debug_print(f"  - Is same length? {is_same_length}")
                             debug_print(f"  - Is lexicographically smaller? {is_lexicographically_smaller}")
                             
-                            if is_lexicographically_smaller or (candidate == best_palindrome and is_longer):
+                            # Update if: longer OR (same length AND lexicographically smaller)
+                            should_update = is_longer or (is_same_length and is_lexicographically_smaller)
+                            
+                            if should_update:
                                 old_best = best_palindrome
                                 best_palindrome = candidate
                                 max_length = len(candidate)
