@@ -41,18 +41,18 @@ def buildPalindrome(a, b):
         print("[DEBUG] No palindromes found. Returning '-1'")
         return "-1"
 
-    # Remove duplicates and find the longest palindromes
+    # Remove duplicates and find the shortest palindromes
     palindromes = list(set(palindromes))
-    max_length = max(len(p) for p in palindromes)
-    longest_palindromes = [p for p in palindromes if len(p) == max_length]
+    min_length = min(len(p) for p in palindromes)
+    shortest_palindromes = [p for p in palindromes if len(p) == min_length]
     
-    # Among longest palindromes, choose lexicographically smallest
-    longest_palindromes.sort()
-    result = longest_palindromes[0]
+    # Among shortest palindromes, choose lexicographically smallest
+    shortest_palindromes.sort()
+    result = shortest_palindromes[0]
     
     print(f"[DEBUG] All palindromes: {sorted(palindromes)}")
-    print(f"[DEBUG] Max length: {max_length}")
-    print(f"[DEBUG] Longest palindromes: {longest_palindromes}")
+    print(f"[DEBUG] Min length: {min_length}")
+    print(f"[DEBUG] Shortest palindromes: {shortest_palindromes}")
     print(f"[DEBUG] Final result: '{result}'")
     return result
 
