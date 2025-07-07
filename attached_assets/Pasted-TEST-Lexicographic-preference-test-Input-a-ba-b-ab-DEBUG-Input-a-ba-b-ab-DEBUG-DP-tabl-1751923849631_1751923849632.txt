@@ -1,0 +1,236 @@
+TEST: Lexicographic preference test
+Input: a='ba', b='ab'
+DEBUG: Input a='ba', b='ab'
+DEBUG: DP table limits: max_a_len=2, max_b_len=2
+DEBUG: DP[0][1][0][1][0] = 'ba'
+DEBUG: DP[0][1][0][1][1] = 'ab'
+DEBUG: DP[0][1][0][2][0] = 'bab'
+DEBUG: Found palindrome: 'bab' (length 3)
+DEBUG: ✓ NEW BEST: 'bab' (length 3)
+DEBUG: DP[0][1][0][2][1] = 'abb'
+DEBUG: DP[0][1][1][1][0] = 'bb'
+DEBUG: Found palindrome: 'bb' (length 2)
+DEBUG: DP[0][1][1][1][1] = 'bb'
+DEBUG: Found palindrome: 'bb' (length 2)
+DEBUG: DP[0][2][0][1][0] = 'baa'
+DEBUG: DP[0][2][0][1][1] = 'aba'
+DEBUG: Found palindrome: 'aba' (length 3)
+DEBUG: Same length palindrome 'aba' found but keeping first one
+DEBUG: DP[0][2][0][2][0] = 'baab'
+DEBUG: Found palindrome: 'baab' (length 4)
+DEBUG: ✓ NEW BEST: 'baab' (length 4)
+DEBUG: DP[0][2][0][2][1] = 'abba'
+DEBUG: Found palindrome: 'abba' (length 4)
+DEBUG: Same length palindrome 'abba' found but keeping first one
+DEBUG: DP[0][2][1][1][0] = 'bab'
+DEBUG: Found palindrome: 'bab' (length 3)
+DEBUG: DP[0][2][1][1][1] = 'bba'
+DEBUG: DP[1][1][0][1][0] = 'aa'
+DEBUG: Found palindrome: 'aa' (length 2)
+DEBUG: DP[1][1][0][1][1] = 'aa'
+DEBUG: Found palindrome: 'aa' (length 2)
+DEBUG: DP[1][1][0][2][0] = 'aab'
+DEBUG: DP[1][1][0][2][1] = 'aba'
+DEBUG: Found palindrome: 'aba' (length 3)
+DEBUG: DP[1][1][1][1][0] = 'ab'
+DEBUG: DP[1][1][1][1][1] = 'ba'
+DEBUG: DP table size: 18
+DEBUG: Final result: 'baab'
+Result: 'baab'
+Expected: 'abba' - ✗ FAIL
+Time: 0.000s
+
+============================================================
+TEST: Multiple same-length palindromes
+Input: a='cab', b='bac'
+DEBUG: Input a='cab', b='bac'
+DEBUG: DP table limits: max_a_len=3, max_b_len=3
+DEBUG: DP[0][1][0][1][0] = 'cb'
+DEBUG: DP[0][1][0][1][1] = 'bc'
+DEBUG: DP[0][1][0][2][0] = 'cba'
+DEBUG: DP[0][1][0][2][1] = 'bac'
+DEBUG: DP[0][1][0][3][0] = 'cbac'
+DEBUG: DP[0][1][0][3][1] = 'bacc'
+DEBUG: DP[0][1][1][1][0] = 'ca'
+DEBUG: DP[0][1][1][1][1] = 'ac'
+DEBUG: DP[0][1][1][2][0] = 'cac'
+DEBUG: Found palindrome: 'cac' (length 3)
+DEBUG: ✓ NEW BEST: 'cac' (length 3)
+DEBUG: DP[0][1][1][2][1] = 'acc'
+DEBUG: DP[0][1][2][1][0] = 'cc'
+DEBUG: Found palindrome: 'cc' (length 2)
+DEBUG: DP[0][1][2][1][1] = 'cc'
+DEBUG: Found palindrome: 'cc' (length 2)
+DEBUG: DP[0][2][0][1][0] = 'cab'
+DEBUG: DP[0][2][0][1][1] = 'bca'
+DEBUG: DP[0][2][0][2][0] = 'caba'
+DEBUG: DP[0][2][0][2][1] = 'baca'
+DEBUG: DP[0][2][0][3][0] = 'cabac'
+DEBUG: Found palindrome: 'cabac' (length 5)
+DEBUG: ✓ NEW BEST: 'cabac' (length 5)
+DEBUG: DP[0][2][0][3][1] = 'bacca'
+DEBUG: DP[0][2][1][1][0] = 'caa'
+DEBUG: DP[0][2][1][1][1] = 'aca'
+DEBUG: Found palindrome: 'aca' (length 3)
+DEBUG: DP[0][2][1][2][0] = 'caac'
+DEBUG: Found palindrome: 'caac' (length 4)
+DEBUG: DP[0][2][1][2][1] = 'acca'
+DEBUG: Found palindrome: 'acca' (length 4)
+DEBUG: DP[0][2][2][1][0] = 'cac'
+DEBUG: Found palindrome: 'cac' (length 3)
+DEBUG: DP[0][2][2][1][1] = 'cca'
+DEBUG: DP[0][3][0][1][0] = 'cabb'
+DEBUG: DP[0][3][0][1][1] = 'bcab'
+DEBUG: DP[0][3][0][2][0] = 'cabba'
+DEBUG: DP[0][3][0][2][1] = 'bacab'
+DEBUG: Found palindrome: 'bacab' (length 5)
+DEBUG: Same length palindrome 'bacab' found but keeping first one
+DEBUG: DP[0][3][0][3][0] = 'cabbac'
+DEBUG: Found palindrome: 'cabbac' (length 6)
+DEBUG: ✓ NEW BEST: 'cabbac' (length 6)
+DEBUG: DP[0][3][0][3][1] = 'baccab'
+DEBUG: Found palindrome: 'baccab' (length 6)
+DEBUG: Same length palindrome 'baccab' found but keeping first one
+DEBUG: DP[0][3][1][1][0] = 'caba'
+DEBUG: DP[0][3][1][1][1] = 'acab'
+DEBUG: DP[0][3][1][2][0] = 'cabac'
+DEBUG: Found palindrome: 'cabac' (length 5)
+DEBUG: DP[0][3][1][2][1] = 'accab'
+DEBUG: DP[0][3][2][1][0] = 'cabc'
+DEBUG: DP[0][3][2][1][1] = 'ccab'
+DEBUG: DP[1][1][0][1][0] = 'ab'
+DEBUG: DP[1][1][0][1][1] = 'ba'
+DEBUG: DP[1][1][0][2][0] = 'aba'
+DEBUG: Found palindrome: 'aba' (length 3)
+DEBUG: DP[1][1][0][2][1] = 'baa'
+DEBUG: DP[1][1][0][3][0] = 'abac'
+DEBUG: DP[1][1][0][3][1] = 'baca'
+DEBUG: DP[1][1][1][1][0] = 'aa'
+DEBUG: Found palindrome: 'aa' (length 2)
+DEBUG: DP[1][1][1][1][1] = 'aa'
+DEBUG: Found palindrome: 'aa' (length 2)
+DEBUG: DP[1][1][1][2][0] = 'aac'
+DEBUG: DP[1][1][1][2][1] = 'aca'
+DEBUG: Found palindrome: 'aca' (length 3)
+DEBUG: DP[1][1][2][1][0] = 'ac'
+DEBUG: DP[1][1][2][1][1] = 'ca'
+DEBUG: DP[1][2][0][1][0] = 'abb'
+DEBUG: DP[1][2][0][1][1] = 'bab'
+DEBUG: Found palindrome: 'bab' (length 3)
+DEBUG: DP[1][2][0][2][0] = 'abba'
+DEBUG: Found palindrome: 'abba' (length 4)
+DEBUG: DP[1][2][0][2][1] = 'baab'
+DEBUG: Found palindrome: 'baab' (length 4)
+DEBUG: DP[1][2][0][3][0] = 'abbac'
+DEBUG: DP[1][2][0][3][1] = 'bacab'
+DEBUG: Found palindrome: 'bacab' (length 5)
+DEBUG: DP[1][2][1][1][0] = 'aba'
+DEBUG: Found palindrome: 'aba' (length 3)
+DEBUG: DP[1][2][1][1][1] = 'aab'
+DEBUG: DP[1][2][1][2][0] = 'abac'
+DEBUG: DP[1][2][1][2][1] = 'acab'
+DEBUG: DP[1][2][2][1][0] = 'abc'
+DEBUG: DP[1][2][2][1][1] = 'cab'
+DEBUG: DP[2][1][0][1][0] = 'bb'
+DEBUG: Found palindrome: 'bb' (length 2)
+DEBUG: DP[2][1][0][1][1] = 'bb'
+DEBUG: Found palindrome: 'bb' (length 2)
+DEBUG: DP[2][1][0][2][0] = 'bba'
+DEBUG: DP[2][1][0][2][1] = 'bab'
+DEBUG: Found palindrome: 'bab' (length 3)
+DEBUG: DP[2][1][0][3][0] = 'bbac'
+DEBUG: DP[2][1][0][3][1] = 'bacb'
+DEBUG: DP[2][1][1][1][0] = 'ba'
+DEBUG: DP[2][1][1][1][1] = 'ab'
+DEBUG: DP[2][1][1][2][0] = 'bac'
+DEBUG: DP[2][1][1][2][1] = 'acb'
+DEBUG: DP[2][1][2][1][0] = 'bc'
+DEBUG: DP[2][1][2][1][1] = 'cb'
+DEBUG: DP table size: 72
+DEBUG: Final result: 'cabbac'
+Result: 'cabbac'
+Expected: 'aba' - ✗ FAIL
+Time: 0.001s
+
+============================================================
+TEST: No common characters
+Input: a='xyz', b='abc'
+DEBUG: Input a='xyz', b='abc'
+DEBUG: DP table limits: max_a_len=3, max_b_len=3
+DEBUG: DP[0][1][0][1][0] = 'xa'
+DEBUG: DP[0][1][0][1][1] = 'ax'
+DEBUG: DP[0][1][0][2][0] = 'xab'
+DEBUG: DP[0][1][0][2][1] = 'abx'
+DEBUG: DP[0][1][0][3][0] = 'xabc'
+DEBUG: DP[0][1][0][3][1] = 'abcx'
+DEBUG: DP[0][1][1][1][0] = 'xb'
+DEBUG: DP[0][1][1][1][1] = 'bx'
+DEBUG: DP[0][1][1][2][0] = 'xbc'
+DEBUG: DP[0][1][1][2][1] = 'bcx'
+DEBUG: DP[0][1][2][1][0] = 'xc'
+DEBUG: DP[0][1][2][1][1] = 'cx'
+DEBUG: DP[0][2][0][1][0] = 'xya'
+DEBUG: DP[0][2][0][1][1] = 'axy'
+DEBUG: DP[0][2][0][2][0] = 'xyab'
+DEBUG: DP[0][2][0][2][1] = 'abxy'
+DEBUG: DP[0][2][0][3][0] = 'xyabc'
+DEBUG: DP[0][2][0][3][1] = 'abcxy'
+DEBUG: DP[0][2][1][1][0] = 'xyb'
+DEBUG: DP[0][2][1][1][1] = 'bxy'
+DEBUG: DP[0][2][1][2][0] = 'xybc'
+DEBUG: DP[0][2][1][2][1] = 'bcxy'
+DEBUG: DP[0][2][2][1][0] = 'xyc'
+DEBUG: DP[0][2][2][1][1] = 'cxy'
+DEBUG: DP[0][3][0][1][0] = 'xyza'
+DEBUG: DP[0][3][0][1][1] = 'axyz'
+DEBUG: DP[0][3][0][2][0] = 'xyzab'
+DEBUG: DP[0][3][0][2][1] = 'abxyz'
+DEBUG: DP[0][3][0][3][0] = 'xyzabc'
+DEBUG: DP[0][3][0][3][1] = 'abcxyz'
+DEBUG: DP[0][3][1][1][0] = 'xyzb'
+DEBUG: DP[0][3][1][1][1] = 'bxyz'
+DEBUG: DP[0][3][1][2][0] = 'xyzbc'
+DEBUG: DP[0][3][1][2][1] = 'bcxyz'
+DEBUG: DP[0][3][2][1][0] = 'xyzc'
+DEBUG: DP[0][3][2][1][1] = 'cxyz'
+DEBUG: DP[1][1][0][1][0] = 'ya'
+DEBUG: DP[1][1][0][1][1] = 'ay'
+DEBUG: DP[1][1][0][2][0] = 'yab'
+DEBUG: DP[1][1][0][2][1] = 'aby'
+DEBUG: DP[1][1][0][3][0] = 'yabc'
+DEBUG: DP[1][1][0][3][1] = 'abcy'
+DEBUG: DP[1][1][1][1][0] = 'yb'
+DEBUG: DP[1][1][1][1][1] = 'by'
+DEBUG: DP[1][1][1][2][0] = 'ybc'
+DEBUG: DP[1][1][1][2][1] = 'bcy'
+DEBUG: DP[1][1][2][1][0] = 'yc'
+DEBUG: DP[1][1][2][1][1] = 'cy'
+DEBUG: DP[1][2][0][1][0] = 'yza'
+DEBUG: DP[1][2][0][1][1] = 'ayz'
+DEBUG: DP[1][2][0][2][0] = 'yzab'
+DEBUG: DP[1][2][0][2][1] = 'abyz'
+DEBUG: DP[1][2][0][3][0] = 'yzabc'
+DEBUG: DP[1][2][0][3][1] = 'abcyz'
+DEBUG: DP[1][2][1][1][0] = 'yzb'
+DEBUG: DP[1][2][1][1][1] = 'byz'
+DEBUG: DP[1][2][1][2][0] = 'yzbc'
+DEBUG: DP[1][2][1][2][1] = 'bcyz'
+DEBUG: DP[1][2][2][1][0] = 'yzc'
+DEBUG: DP[1][2][2][1][1] = 'cyz'
+DEBUG: DP[2][1][0][1][0] = 'za'
+DEBUG: DP[2][1][0][1][1] = 'az'
+DEBUG: DP[2][1][0][2][0] = 'zab'
+DEBUG: DP[2][1][0][2][1] = 'abz'
+DEBUG: DP[2][1][0][3][0] = 'zabc'
+DEBUG: DP[2][1][0][3][1] = 'abcz'
+DEBUG: DP[2][1][1][1][0] = 'zb'
+DEBUG: DP[2][1][1][1][1] = 'bz'
+DEBUG: DP[2][1][1][2][0] = 'zbc'
+DEBUG: DP[2][1][1][2][1] = 'bcz'
+DEBUG: DP[2][1][2][1][0] = 'zc'
+DEBUG: DP[2][1][2][1][1] = 'cz'
+DEBUG: DP table size: 72
+DEBUG: Final result: '-1'
+Result: '-1'
+Expected: '-1' - ✓ PASS
+Time: 0.000s
