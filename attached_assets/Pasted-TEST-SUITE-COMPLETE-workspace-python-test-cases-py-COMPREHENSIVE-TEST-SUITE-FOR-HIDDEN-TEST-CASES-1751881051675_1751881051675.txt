@@ -1,0 +1,1087 @@
+TEST SUITE COMPLETE
+~/workspace$ python test_cases.py
+COMPREHENSIVE TEST SUITE FOR HIDDEN TEST CASES
+============================================================
+
+============================================================
+TEST: Basic case from problem
+Input: a='bac', b='bac'
+DEBUG: Processing a='bac', b='bac'
+DEBUG: Found 6 substrings from a: ['b', 'ba', 'bac', 'a', 'ac', 'c']
+DEBUG: Found 6 substrings from b: ['b', 'ba', 'bac', 'a', 'ac', 'c']
+DEBUG: Found palindrome: 'bb' (sa='b', sb='b')
+DEBUG: New best: 'bb' (was 'None')
+DEBUG: Found palindrome: 'bb' (sa='b', sb='b')
+DEBUG: Found palindrome: 'bab' (sa='b', sb='ba')
+DEBUG: New best: 'bab' (was 'bb')
+DEBUG: Found palindrome: 'bab' (sa='ba', sb='b')
+DEBUG: Found palindrome: 'aba' (sa='ba', sb='a')
+DEBUG: New best: 'aba' (was 'bab')
+DEBUG: Found palindrome: 'aba' (sa='a', sb='ba')
+DEBUG: Found palindrome: 'aa' (sa='a', sb='a')
+DEBUG: Found palindrome: 'aa' (sa='a', sb='a')
+DEBUG: Found palindrome: 'aca' (sa='a', sb='ac')
+DEBUG: Found palindrome: 'aca' (sa='ac', sb='a')
+DEBUG: Found palindrome: 'cac' (sa='ac', sb='c')
+DEBUG: Found palindrome: 'cac' (sa='c', sb='ac')
+DEBUG: Found palindrome: 'cc' (sa='c', sb='c')
+DEBUG: Found palindrome: 'cc' (sa='c', sb='c')
+DEBUG: All palindromes found: ['aa', 'aba', 'aca', 'bab', 'bb', 'cac', 'cc']
+DEBUG: Final best: 'aba'
+Result: 'aba'
+Expected: 'aba' - ✓ PASS
+Time: 0.000s
+
+============================================================
+TEST: No palindrome possible
+Input: a='abc', b='def'
+DEBUG: Processing a='abc', b='def'
+DEBUG: Found 6 substrings from a: ['a', 'ab', 'abc', 'b', 'bc', 'c']
+DEBUG: Found 6 substrings from b: ['d', 'de', 'def', 'e', 'ef', 'f']
+DEBUG: All palindromes found: []
+DEBUG: Final best: 'None'
+Result: '-1'
+Expected: '-1' - ✓ PASS
+Time: 0.000s
+
+============================================================
+TEST: Complex case
+Input: a='jdfh', b='fds'
+DEBUG: Processing a='jdfh', b='fds'
+DEBUG: Found 10 substrings from a: ['j', 'jd', 'jdf', 'jdfh', 'd', 'df', 'dfh', 'f', 'fh', 'h']
+DEBUG: Found 6 substrings from b: ['f', 'fd', 'fds', 'd', 'ds', 's']
+DEBUG: Found palindrome: 'djd' (sa='jd', sb='d')
+DEBUG: New best: 'djd' (was 'None')
+DEBUG: Found palindrome: 'fdjdf' (sa='jdf', sb='fd')
+DEBUG: New best: 'fdjdf' (was 'djd')
+DEBUG: Found palindrome: 'dfd' (sa='d', sb='fd')
+DEBUG: Found palindrome: 'dd' (sa='d', sb='d')
+DEBUG: Found palindrome: 'dd' (sa='d', sb='d')
+DEBUG: Found palindrome: 'dsd' (sa='d', sb='ds')
+DEBUG: Found palindrome: 'fdf' (sa='df', sb='f')
+DEBUG: Found palindrome: 'dffd' (sa='df', sb='fd')
+DEBUG: Found palindrome: 'fddf' (sa='df', sb='fd')
+DEBUG: Found palindrome: 'fdsdf' (sa='df', sb='fds')
+DEBUG: Found palindrome: 'dfd' (sa='df', sb='d')
+DEBUG: Found palindrome: 'dfhfd' (sa='dfh', sb='fd')
+DEBUG: New best: 'dfhfd' (was 'fdjdf')
+DEBUG: Found palindrome: 'ff' (sa='f', sb='f')
+DEBUG: Found palindrome: 'ff' (sa='f', sb='f')
+DEBUG: Found palindrome: 'fdf' (sa='f', sb='fd')
+DEBUG: Found palindrome: 'fhf' (sa='fh', sb='f')
+DEBUG: All palindromes found: ['dd', 'dfd', 'dffd', 'dfhfd', 'djd', 'dsd', 'fddf', 'fdf', 'fdjdf', 'fdsdf', 'ff', 'fhf']
+DEBUG: Final best: 'dfhfd'
+Result: 'dfhfd'
+Expected: 'dfhfd' - ✓ PASS
+Time: 0.000s
+
+============================================================
+TEST: Both empty strings
+Input: a='', b=''
+DEBUG: Processing a='', b=''
+DEBUG: One or both strings empty, returning -1
+Result: '-1'
+Expected: '-1' - ✓ PASS
+Time: 0.000s
+
+============================================================
+TEST: One empty string
+Input: a='a', b=''
+DEBUG: Processing a='a', b=''
+DEBUG: One or both strings empty, returning -1
+Result: '-1'
+Expected: '-1' - ✓ PASS
+Time: 0.000s
+
+============================================================
+TEST: Other empty string
+Input: a='', b='b'
+DEBUG: Processing a='', b='b'
+DEBUG: One or both strings empty, returning -1
+Result: '-1'
+Expected: '-1' - ✓ PASS
+Time: 0.000s
+
+============================================================
+TEST: Same single character
+Input: a='a', b='a'
+DEBUG: Processing a='a', b='a'
+DEBUG: Found 1 substrings from a: ['a']
+DEBUG: Found 1 substrings from b: ['a']
+DEBUG: Found palindrome: 'aa' (sa='a', sb='a')
+DEBUG: New best: 'aa' (was 'None')
+DEBUG: Found palindrome: 'aa' (sa='a', sb='a')
+DEBUG: All palindromes found: ['aa']
+DEBUG: Final best: 'aa'
+Result: 'aa'
+Expected: 'aa' - ✓ PASS
+Time: 0.000s
+
+============================================================
+TEST: Different single characters
+Input: a='a', b='b'
+DEBUG: Processing a='a', b='b'
+DEBUG: Found 1 substrings from a: ['a']
+DEBUG: Found 1 substrings from b: ['b']
+DEBUG: All palindromes found: []
+DEBUG: Final best: 'None'
+Result: '-1'
+Expected: '-1' - ✓ PASS
+Time: 0.000s
+
+============================================================
+TEST: Identical strings
+Input: a='abc', b='abc'
+DEBUG: Processing a='abc', b='abc'
+DEBUG: Found 6 substrings from a: ['a', 'ab', 'abc', 'b', 'bc', 'c']
+DEBUG: Found 6 substrings from b: ['a', 'ab', 'abc', 'b', 'bc', 'c']
+DEBUG: Found palindrome: 'aa' (sa='a', sb='a')
+DEBUG: New best: 'aa' (was 'None')
+DEBUG: Found palindrome: 'aa' (sa='a', sb='a')
+DEBUG: Found palindrome: 'aba' (sa='a', sb='ab')
+DEBUG: New best: 'aba' (was 'aa')
+DEBUG: Found palindrome: 'aba' (sa='ab', sb='a')
+DEBUG: Found palindrome: 'bab' (sa='ab', sb='b')
+DEBUG: Found palindrome: 'bab' (sa='b', sb='ab')
+DEBUG: Found palindrome: 'bb' (sa='b', sb='b')
+DEBUG: Found palindrome: 'bb' (sa='b', sb='b')
+DEBUG: Found palindrome: 'bcb' (sa='b', sb='bc')
+DEBUG: Found palindrome: 'bcb' (sa='bc', sb='b')
+DEBUG: Found palindrome: 'cbc' (sa='bc', sb='c')
+DEBUG: Found palindrome: 'cbc' (sa='c', sb='bc')
+DEBUG: Found palindrome: 'cc' (sa='c', sb='c')
+DEBUG: Found palindrome: 'cc' (sa='c', sb='c')
+DEBUG: All palindromes found: ['aa', 'aba', 'bab', 'bb', 'bcb', 'cbc', 'cc']
+DEBUG: Final best: 'aba'
+Result: 'aba'
+Expected: 'abccba' - ✗ FAIL
+Time: 0.000s
+
+============================================================
+TEST: Longer identical strings
+Input: a='palindrome', b='palindrome'
+DEBUG: Processing a='palindrome', b='palindrome'
+DEBUG: Found 55 substrings from a: ['p', 'pa', 'pal', 'pali', 'palin', 'palind', 'palindr', 'palindro', 'palindrom', 'palindrome', 'a', 'al', 'ali', 'alin', 'alind', 'alindr', 'alindro', 'alindrom', 'alindrome', 'l', 'li', 'lin', 'lind', 'lindr', 'lindro', 'lindrom', 'lindrome', 'i', 'in', 'ind', 'indr', 'indro', 'indrom', 'indrome', 'n', 'nd', 'ndr', 'ndro', 'ndrom', 'ndrome', 'd', 'dr', 'dro', 'drom', 'drome', 'r', 'ro', 'rom', 'rome', 'o', 'om', 'ome', 'm', 'me', 'e']
+DEBUG: Found 55 substrings from b: ['p', 'pa', 'pal', 'pali', 'palin', 'palind', 'palindr', 'palindro', 'palindrom', 'palindrome', 'a', 'al', 'ali', 'alin', 'alind', 'alindr', 'alindro', 'alindrom', 'alindrome', 'l', 'li', 'lin', 'lind', 'lindr', 'lindro', 'lindrom', 'lindrome', 'i', 'in', 'ind', 'indr', 'indro', 'indrom', 'indrome', 'n', 'nd', 'ndr', 'ndro', 'ndrom', 'ndrome', 'd', 'dr', 'dro', 'drom', 'drome', 'r', 'ro', 'rom', 'rome', 'o', 'om', 'ome', 'm', 'me', 'e']
+DEBUG: Found palindrome: 'pp' (sa='p', sb='p')
+DEBUG: New best: 'pp' (was 'None')
+DEBUG: Found palindrome: 'pp' (sa='p', sb='p')
+DEBUG: Found palindrome: 'pap' (sa='p', sb='pa')
+DEBUG: New best: 'pap' (was 'pp')
+DEBUG: Found palindrome: 'pap' (sa='pa', sb='p')
+DEBUG: Found palindrome: 'apa' (sa='pa', sb='a')
+DEBUG: New best: 'apa' (was 'pap')
+DEBUG: Found palindrome: 'apa' (sa='a', sb='pa')
+DEBUG: Found palindrome: 'aa' (sa='a', sb='a')
+DEBUG: Found palindrome: 'aa' (sa='a', sb='a')
+DEBUG: Found palindrome: 'ala' (sa='a', sb='al')
+DEBUG: New best: 'ala' (was 'apa')
+DEBUG: Found palindrome: 'ala' (sa='al', sb='a')
+DEBUG: Found palindrome: 'lal' (sa='al', sb='l')
+DEBUG: Found palindrome: 'lal' (sa='l', sb='al')
+DEBUG: Found palindrome: 'll' (sa='l', sb='l')
+DEBUG: Found palindrome: 'll' (sa='l', sb='l')
+DEBUG: Found palindrome: 'lil' (sa='l', sb='li')
+DEBUG: Found palindrome: 'lil' (sa='li', sb='l')
+DEBUG: Found palindrome: 'ili' (sa='li', sb='i')
+DEBUG: Found palindrome: 'ili' (sa='i', sb='li')
+DEBUG: Found palindrome: 'ii' (sa='i', sb='i')
+DEBUG: Found palindrome: 'ii' (sa='i', sb='i')
+DEBUG: Found palindrome: 'ini' (sa='i', sb='in')
+DEBUG: Found palindrome: 'ini' (sa='in', sb='i')
+DEBUG: Found palindrome: 'nin' (sa='in', sb='n')
+DEBUG: Found palindrome: 'nin' (sa='n', sb='in')
+DEBUG: Found palindrome: 'nn' (sa='n', sb='n')
+DEBUG: Found palindrome: 'nn' (sa='n', sb='n')
+DEBUG: Found palindrome: 'ndn' (sa='n', sb='nd')
+DEBUG: Found palindrome: 'ndn' (sa='nd', sb='n')
+DEBUG: Found palindrome: 'dnd' (sa='nd', sb='d')
+DEBUG: Found palindrome: 'dnd' (sa='d', sb='nd')
+DEBUG: Found palindrome: 'dd' (sa='d', sb='d')
+DEBUG: Found palindrome: 'dd' (sa='d', sb='d')
+DEBUG: Found palindrome: 'drd' (sa='d', sb='dr')
+DEBUG: Found palindrome: 'drd' (sa='dr', sb='d')
+DEBUG: Found palindrome: 'rdr' (sa='dr', sb='r')
+DEBUG: Found palindrome: 'rdr' (sa='r', sb='dr')
+DEBUG: Found palindrome: 'rr' (sa='r', sb='r')
+DEBUG: Found palindrome: 'rr' (sa='r', sb='r')
+DEBUG: Found palindrome: 'ror' (sa='r', sb='ro')
+DEBUG: Found palindrome: 'ror' (sa='ro', sb='r')
+DEBUG: Found palindrome: 'oro' (sa='ro', sb='o')
+DEBUG: Found palindrome: 'oro' (sa='o', sb='ro')
+DEBUG: Found palindrome: 'oo' (sa='o', sb='o')
+DEBUG: Found palindrome: 'oo' (sa='o', sb='o')
+DEBUG: Found palindrome: 'omo' (sa='o', sb='om')
+DEBUG: Found palindrome: 'omo' (sa='om', sb='o')
+DEBUG: Found palindrome: 'mom' (sa='om', sb='m')
+DEBUG: Found palindrome: 'mom' (sa='m', sb='om')
+DEBUG: Found palindrome: 'mm' (sa='m', sb='m')
+DEBUG: Found palindrome: 'mm' (sa='m', sb='m')
+DEBUG: Found palindrome: 'mem' (sa='m', sb='me')
+DEBUG: Found palindrome: 'mem' (sa='me', sb='m')
+DEBUG: Found palindrome: 'eme' (sa='me', sb='e')
+DEBUG: Found palindrome: 'eme' (sa='e', sb='me')
+DEBUG: Found palindrome: 'ee' (sa='e', sb='e')
+DEBUG: Found palindrome: 'ee' (sa='e', sb='e')
+DEBUG: All palindromes found: ['aa', 'ala', 'apa', 'dd', 'dnd', 'drd', 'ee', 'eme', 'ii', 'ili', 'ini', 'lal', 'lil', 'll', 'mem', 'mm', 'mom', 'ndn', 'nin', 'nn', 'omo', 'oo', 'oro', 'pap', 'pp', 'rdr', 'ror', 'rr']
+DEBUG: Final best: 'ala'
+Result: 'ala'
+Time: 0.002s
+
+============================================================
+TEST: String and its reverse
+Input: a='abc', b='cba'
+DEBUG: Processing a='abc', b='cba'
+DEBUG: Found 6 substrings from a: ['a', 'ab', 'abc', 'b', 'bc', 'c']
+DEBUG: Found 6 substrings from b: ['c', 'cb', 'cba', 'b', 'ba', 'a']
+DEBUG: Found palindrome: 'aba' (sa='a', sb='ba')
+DEBUG: New best: 'aba' (was 'None')
+DEBUG: Found palindrome: 'aa' (sa='a', sb='a')
+DEBUG: Found palindrome: 'aa' (sa='a', sb='a')
+DEBUG: Found palindrome: 'abcba' (sa='ab', sb='cba')
+DEBUG: New best: 'abcba' (was 'aba')
+DEBUG: Found palindrome: 'bab' (sa='ab', sb='b')
+DEBUG: Found palindrome: 'abba' (sa='ab', sb='ba')
+DEBUG: Found palindrome: 'baab' (sa='ab', sb='ba')
+DEBUG: Found palindrome: 'aba' (sa='ab', sb='a')
+DEBUG: Found palindrome: 'cbabc' (sa='abc', sb='cb')
+DEBUG: Found palindrome: 'abccba' (sa='abc', sb='cba')
+DEBUG: New best: 'abccba' (was 'abcba')
+DEBUG: Found palindrome: 'cbaabc' (sa='abc', sb='cba')
+DEBUG: Found palindrome: 'abcba' (sa='abc', sb='ba')
+DEBUG: Found palindrome: 'bcb' (sa='b', sb='cb')
+DEBUG: Found palindrome: 'bb' (sa='b', sb='b')
+DEBUG: Found palindrome: 'bb' (sa='b', sb='b')
+DEBUG: Found palindrome: 'bab' (sa='b', sb='ba')
+DEBUG: Found palindrome: 'cbc' (sa='bc', sb='c')
+DEBUG: Found palindrome: 'bccb' (sa='bc', sb='cb')
+DEBUG: Found palindrome: 'cbbc' (sa='bc', sb='cb')
+DEBUG: Found palindrome: 'cbabc' (sa='bc', sb='cba')
+DEBUG: Found palindrome: 'bcb' (sa='bc', sb='b')
+DEBUG: Found palindrome: 'cc' (sa='c', sb='c')
+DEBUG: Found palindrome: 'cc' (sa='c', sb='c')
+DEBUG: Found palindrome: 'cbc' (sa='c', sb='cb')
+DEBUG: All palindromes found: ['aa', 'aba', 'abba', 'abcba', 'abccba', 'baab', 'bab', 'bb', 'bcb', 'bccb', 'cbaabc', 'cbabc', 'cbbc', 'cbc', 'cc']
+DEBUG: Final best: 'abccba'
+Result: 'abccba'
+Expected: 'abccba' - ✓ PASS
+Time: 0.000s
+
+============================================================
+TEST: Short reverse case
+Input: a='ab', b='ba'
+DEBUG: Processing a='ab', b='ba'
+DEBUG: Found 3 substrings from a: ['a', 'ab', 'b']
+DEBUG: Found 3 substrings from b: ['b', 'ba', 'a']
+DEBUG: Found palindrome: 'aba' (sa='a', sb='ba')
+DEBUG: New best: 'aba' (was 'None')
+DEBUG: Found palindrome: 'aa' (sa='a', sb='a')
+DEBUG: Found palindrome: 'aa' (sa='a', sb='a')
+DEBUG: Found palindrome: 'bab' (sa='ab', sb='b')
+DEBUG: Found palindrome: 'abba' (sa='ab', sb='ba')
+DEBUG: New best: 'abba' (was 'aba')
+DEBUG: Found palindrome: 'baab' (sa='ab', sb='ba')
+DEBUG: Found palindrome: 'aba' (sa='ab', sb='a')
+DEBUG: Found palindrome: 'bb' (sa='b', sb='b')
+DEBUG: Found palindrome: 'bb' (sa='b', sb='b')
+DEBUG: Found palindrome: 'bab' (sa='b', sb='ba')
+DEBUG: All palindromes found: ['aa', 'aba', 'abba', 'baab', 'bab', 'bb']
+DEBUG: Final best: 'abba'
+Result: 'abba'
+Expected: 'abba' - ✓ PASS
+Time: 0.000s
+
+============================================================
+TEST: All same character
+Input: a='aaa', b='aaa'
+DEBUG: Processing a='aaa', b='aaa'
+DEBUG: Found 6 substrings from a: ['a', 'aa', 'aaa', 'a', 'aa', 'a']
+DEBUG: Found 6 substrings from b: ['a', 'aa', 'aaa', 'a', 'aa', 'a']
+DEBUG: Found palindrome: 'aa' (sa='a', sb='a')
+DEBUG: New best: 'aa' (was 'None')
+DEBUG: Found palindrome: 'aa' (sa='a', sb='a')
+DEBUG: Found palindrome: 'aaa' (sa='a', sb='aa')
+DEBUG: New best: 'aaa' (was 'aa')
+DEBUG: Found palindrome: 'aaa' (sa='a', sb='aa')
+DEBUG: Found palindrome: 'aaaa' (sa='a', sb='aaa')
+DEBUG: New best: 'aaaa' (was 'aaa')
+DEBUG: Found palindrome: 'aaaa' (sa='a', sb='aaa')
+DEBUG: Found palindrome: 'aa' (sa='a', sb='a')
+DEBUG: Found palindrome: 'aa' (sa='a', sb='a')
+DEBUG: Found palindrome: 'aaa' (sa='a', sb='aa')
+DEBUG: Found palindrome: 'aaa' (sa='a', sb='aa')
+DEBUG: Found palindrome: 'aa' (sa='a', sb='a')
+DEBUG: Found palindrome: 'aa' (sa='a', sb='a')
+DEBUG: Found palindrome: 'aaa' (sa='aa', sb='a')
+DEBUG: Found palindrome: 'aaa' (sa='aa', sb='a')
+DEBUG: Found palindrome: 'aaaa' (sa='aa', sb='aa')
+DEBUG: Found palindrome: 'aaaa' (sa='aa', sb='aa')
+DEBUG: Found palindrome: 'aaaaa' (sa='aa', sb='aaa')
+DEBUG: New best: 'aaaaa' (was 'aaaa')
+DEBUG: Found palindrome: 'aaaaa' (sa='aa', sb='aaa')
+DEBUG: Found palindrome: 'aaa' (sa='aa', sb='a')
+DEBUG: Found palindrome: 'aaa' (sa='aa', sb='a')
+DEBUG: Found palindrome: 'aaaa' (sa='aa', sb='aa')
+DEBUG: Found palindrome: 'aaaa' (sa='aa', sb='aa')
+DEBUG: Found palindrome: 'aaa' (sa='aa', sb='a')
+DEBUG: Found palindrome: 'aaa' (sa='aa', sb='a')
+DEBUG: Found palindrome: 'aaaa' (sa='aaa', sb='a')
+DEBUG: Found palindrome: 'aaaa' (sa='aaa', sb='a')
+DEBUG: Found palindrome: 'aaaaa' (sa='aaa', sb='aa')
+DEBUG: Found palindrome: 'aaaaa' (sa='aaa', sb='aa')
+DEBUG: Found palindrome: 'aaaaaa' (sa='aaa', sb='aaa')
+DEBUG: New best: 'aaaaaa' (was 'aaaaa')
+DEBUG: Found palindrome: 'aaaaaa' (sa='aaa', sb='aaa')
+DEBUG: Found palindrome: 'aaaa' (sa='aaa', sb='a')
+DEBUG: Found palindrome: 'aaaa' (sa='aaa', sb='a')
+DEBUG: Found palindrome: 'aaaaa' (sa='aaa', sb='aa')
+DEBUG: Found palindrome: 'aaaaa' (sa='aaa', sb='aa')
+DEBUG: Found palindrome: 'aaaa' (sa='aaa', sb='a')
+DEBUG: Found palindrome: 'aaaa' (sa='aaa', sb='a')
+DEBUG: Found palindrome: 'aa' (sa='a', sb='a')
+DEBUG: Found palindrome: 'aa' (sa='a', sb='a')
+DEBUG: Found palindrome: 'aaa' (sa='a', sb='aa')
+DEBUG: Found palindrome: 'aaa' (sa='a', sb='aa')
+DEBUG: Found palindrome: 'aaaa' (sa='a', sb='aaa')
+DEBUG: Found palindrome: 'aaaa' (sa='a', sb='aaa')
+DEBUG: Found palindrome: 'aa' (sa='a', sb='a')
+DEBUG: Found palindrome: 'aa' (sa='a', sb='a')
+DEBUG: Found palindrome: 'aaa' (sa='a', sb='aa')
+DEBUG: Found palindrome: 'aaa' (sa='a', sb='aa')
+DEBUG: Found palindrome: 'aa' (sa='a', sb='a')
+DEBUG: Found palindrome: 'aa' (sa='a', sb='a')
+DEBUG: Found palindrome: 'aaa' (sa='aa', sb='a')
+DEBUG: Found palindrome: 'aaa' (sa='aa', sb='a')
+DEBUG: Found palindrome: 'aaaa' (sa='aa', sb='aa')
+DEBUG: Found palindrome: 'aaaa' (sa='aa', sb='aa')
+DEBUG: Found palindrome: 'aaaaa' (sa='aa', sb='aaa')
+DEBUG: Found palindrome: 'aaaaa' (sa='aa', sb='aaa')
+DEBUG: Found palindrome: 'aaa' (sa='aa', sb='a')
+DEBUG: Found palindrome: 'aaa' (sa='aa', sb='a')
+DEBUG: Found palindrome: 'aaaa' (sa='aa', sb='aa')
+DEBUG: Found palindrome: 'aaaa' (sa='aa', sb='aa')
+DEBUG: Found palindrome: 'aaa' (sa='aa', sb='a')
+DEBUG: Found palindrome: 'aaa' (sa='aa', sb='a')
+DEBUG: Found palindrome: 'aa' (sa='a', sb='a')
+DEBUG: Found palindrome: 'aa' (sa='a', sb='a')
+DEBUG: Found palindrome: 'aaa' (sa='a', sb='aa')
+DEBUG: Found palindrome: 'aaa' (sa='a', sb='aa')
+DEBUG: Found palindrome: 'aaaa' (sa='a', sb='aaa')
+DEBUG: Found palindrome: 'aaaa' (sa='a', sb='aaa')
+DEBUG: Found palindrome: 'aa' (sa='a', sb='a')
+DEBUG: Found palindrome: 'aa' (sa='a', sb='a')
+DEBUG: Found palindrome: 'aaa' (sa='a', sb='aa')
+DEBUG: Found palindrome: 'aaa' (sa='a', sb='aa')
+DEBUG: Found palindrome: 'aa' (sa='a', sb='a')
+DEBUG: Found palindrome: 'aa' (sa='a', sb='a')
+DEBUG: All palindromes found: ['aa', 'aaa', 'aaaa', 'aaaaa', 'aaaaaa']
+DEBUG: Final best: 'aaaaaa'
+Result: 'aaaaaa'
+Expected: 'aaaaaa' - ✓ PASS
+Time: 0.000s
+
+============================================================
+TEST: Repeating with variation
+Input: a='aab', b='baa'
+DEBUG: Processing a='aab', b='baa'
+DEBUG: Found 6 substrings from a: ['a', 'aa', 'aab', 'a', 'ab', 'b']
+DEBUG: Found 6 substrings from b: ['b', 'ba', 'baa', 'a', 'aa', 'a']
+DEBUG: Found palindrome: 'aba' (sa='a', sb='ba')
+DEBUG: New best: 'aba' (was 'None')
+DEBUG: Found palindrome: 'aa' (sa='a', sb='a')
+DEBUG: Found palindrome: 'aa' (sa='a', sb='a')
+DEBUG: Found palindrome: 'aaa' (sa='a', sb='aa')
+DEBUG: New best: 'aaa' (was 'aba')
+DEBUG: Found palindrome: 'aaa' (sa='a', sb='aa')
+DEBUG: Found palindrome: 'aa' (sa='a', sb='a')
+DEBUG: Found palindrome: 'aa' (sa='a', sb='a')
+DEBUG: Found palindrome: 'aabaa' (sa='aa', sb='baa')
+DEBUG: New best: 'aabaa' (was 'aaa')
+DEBUG: Found palindrome: 'aaa' (sa='aa', sb='a')
+DEBUG: Found palindrome: 'aaa' (sa='aa', sb='a')
+DEBUG: Found palindrome: 'aaaa' (sa='aa', sb='aa')
+DEBUG: Found palindrome: 'aaaa' (sa='aa', sb='aa')
+DEBUG: Found palindrome: 'aaa' (sa='aa', sb='a')
+DEBUG: Found palindrome: 'aaa' (sa='aa', sb='a')
+DEBUG: Found palindrome: 'baab' (sa='aab', sb='b')
+DEBUG: Found palindrome: 'baaab' (sa='aab', sb='ba')
+DEBUG: Found palindrome: 'aabbaa' (sa='aab', sb='baa')
+DEBUG: New best: 'aabbaa' (was 'aabaa')
+DEBUG: Found palindrome: 'baaaab' (sa='aab', sb='baa')
+DEBUG: Found palindrome: 'aabaa' (sa='aab', sb='aa')
+DEBUG: Found palindrome: 'aba' (sa='a', sb='ba')
+DEBUG: Found palindrome: 'aa' (sa='a', sb='a')
+DEBUG: Found palindrome: 'aa' (sa='a', sb='a')
+DEBUG: Found palindrome: 'aaa' (sa='a', sb='aa')
+DEBUG: Found palindrome: 'aaa' (sa='a', sb='aa')
+DEBUG: Found palindrome: 'aa' (sa='a', sb='a')
+DEBUG: Found palindrome: 'aa' (sa='a', sb='a')
+DEBUG: Found palindrome: 'bab' (sa='ab', sb='b')
+DEBUG: Found palindrome: 'abba' (sa='ab', sb='ba')
+DEBUG: Found palindrome: 'baab' (sa='ab', sb='ba')
+DEBUG: Found palindrome: 'baaab' (sa='ab', sb='baa')
+DEBUG: Found palindrome: 'aba' (sa='ab', sb='a')
+DEBUG: Found palindrome: 'aba' (sa='ab', sb='a')
+DEBUG: Found palindrome: 'bb' (sa='b', sb='b')
+DEBUG: Found palindrome: 'bb' (sa='b', sb='b')
+DEBUG: Found palindrome: 'bab' (sa='b', sb='ba')
+DEBUG: Found palindrome: 'baab' (sa='b', sb='baa')
+DEBUG: All palindromes found: ['aa', 'aaa', 'aaaa', 'aabaa', 'aabbaa', 'aba', 'abba', 'baaaab', 'baaab', 'baab', 'bab', 'bb']
+DEBUG: Final best: 'aabbaa'
+Result: 'aabbaa'
+Time: 0.000s
+
+============================================================
+TEST: Long strings (25 chars each)
+Input: a='aaaaaaaaaaaaaaaaaaaaaaaaa', b='bbbbbbbbbbbbbbbbbbbbbbbbb'
+DEBUG: Processing a='aaaaaaaaaaaaaaaaaaaaaaaaa', b='bbbbbbbbbbbbbbbbbbbbbbbbb'
+DEBUG: Found 325 substrings from a: ['a', 'aa', 'aaa', 'aaaa', 'aaaaa', 'aaaaaa', 'aaaaaaa', 'aaaaaaaa', 'aaaaaaaaa', 'aaaaaaaaaa', 'aaaaaaaaaaa', 'aaaaaaaaaaaa', 'aaaaaaaaaaaaa', 'aaaaaaaaaaaaaa', 'aaaaaaaaaaaaaaa', 'aaaaaaaaaaaaaaaa', 'aaaaaaaaaaaaaaaaa', 'aaaaaaaaaaaaaaaaaa', 'aaaaaaaaaaaaaaaaaaa', 'aaaaaaaaaaaaaaaaaaaa', 'aaaaaaaaaaaaaaaaaaaaa', 'aaaaaaaaaaaaaaaaaaaaaa', 'aaaaaaaaaaaaaaaaaaaaaaa', 'aaaaaaaaaaaaaaaaaaaaaaaa', 'aaaaaaaaaaaaaaaaaaaaaaaaa', 'a', 'aa', 'aaa', 'aaaa', 'aaaaa', 'aaaaaa', 'aaaaaaa', 'aaaaaaaa', 'aaaaaaaaa', 'aaaaaaaaaa', 'aaaaaaaaaaa', 'aaaaaaaaaaaa', 'aaaaaaaaaaaaa', 'aaaaaaaaaaaaaa', 'aaaaaaaaaaaaaaa', 'aaaaaaaaaaaaaaaa', 'aaaaaaaaaaaaaaaaa', 'aaaaaaaaaaaaaaaaaa', 'aaaaaaaaaaaaaaaaaaa', 'aaaaaaaaaaaaaaaaaaaa', 'aaaaaaaaaaaaaaaaaaaaa', 'aaaaaaaaaaaaaaaaaaaaaa', 'aaaaaaaaaaaaaaaaaaaaaaa', 'aaaaaaaaaaaaaaaaaaaaaaaa', 'a', 'aa', 'aaa', 'aaaa', 'aaaaa', 'aaaaaa', 'aaaaaaa', 'aaaaaaaa', 'aaaaaaaaa', 'aaaaaaaaaa', 'aaaaaaaaaaa', 'aaaaaaaaaaaa', 'aaaaaaaaaaaaa', 'aaaaaaaaaaaaaa', 'aaaaaaaaaaaaaaa', 'aaaaaaaaaaaaaaaa', 'aaaaaaaaaaaaaaaaa', 'aaaaaaaaaaaaaaaaaa', 'aaaaaaaaaaaaaaaaaaa', 'aaaaaaaaaaaaaaaaaaaa', 'aaaaaaaaaaaaaaaaaaaaa', 'aaaaaaaaaaaaaaaaaaaaaa', 'aaaaaaaaaaaaaaaaaaaaaaa', 'a', 'aa', 'aaa', 'aaaa', 'aaaaa', 'aaaaaa', 'aaaaaaa', 'aaaaaaaa', 'aaaaaaaaa', 'aaaaaaaaaa', 'aaaaaaaaaaa', 'aaaaaaaaaaaa', 'aaaaaaaaaaaaa', 'aaaaaaaaaaaaaa', 'aaaaaaaaaaaaaaa', 'aaaaaaaaaaaaaaaa', 'aaaaaaaaaaaaaaaaa', 'aaaaaaaaaaaaaaaaaa', 'aaaaaaaaaaaaaaaaaaa', 'aaaaaaaaaaaaaaaaaaaa', 'aaaaaaaaaaaaaaaaaaaaa', 'aaaaaaaaaaaaaaaaaaaaaa', 'a', 'aa', 'aaa', 'aaaa', 'aaaaa', 'aaaaaa', 'aaaaaaa', 'aaaaaaaa', 'aaaaaaaaa', 'aaaaaaaaaa', 'aaaaaaaaaaa', 'aaaaaaaaaaaa', 'aaaaaaaaaaaaa', 'aaaaaaaaaaaaaa', 'aaaaaaaaaaaaaaa', 'aaaaaaaaaaaaaaaa', 'aaaaaaaaaaaaaaaaa', 'aaaaaaaaaaaaaaaaaa', 'aaaaaaaaaaaaaaaaaaa', 'aaaaaaaaaaaaaaaaaaaa', 'aaaaaaaaaaaaaaaaaaaaa', 'a', 'aa', 'aaa', 'aaaa', 'aaaaa', 'aaaaaa', 'aaaaaaa', 'aaaaaaaa', 'aaaaaaaaa', 'aaaaaaaaaa', 'aaaaaaaaaaa', 'aaaaaaaaaaaa', 'aaaaaaaaaaaaa', 'aaaaaaaaaaaaaa', 'aaaaaaaaaaaaaaa', 'aaaaaaaaaaaaaaaa', 'aaaaaaaaaaaaaaaaa', 'aaaaaaaaaaaaaaaaaa', 'aaaaaaaaaaaaaaaaaaa', 'aaaaaaaaaaaaaaaaaaaa', 'a', 'aa', 'aaa', 'aaaa', 'aaaaa', 'aaaaaa', 'aaaaaaa', 'aaaaaaaa', 'aaaaaaaaa', 'aaaaaaaaaa', 'aaaaaaaaaaa', 'aaaaaaaaaaaa', 'aaaaaaaaaaaaa', 'aaaaaaaaaaaaaa', 'aaaaaaaaaaaaaaa', 'aaaaaaaaaaaaaaaa', 'aaaaaaaaaaaaaaaaa', 'aaaaaaaaaaaaaaaaaa', 'aaaaaaaaaaaaaaaaaaa', 'a', 'aa', 'aaa', 'aaaa', 'aaaaa', 'aaaaaa', 'aaaaaaa', 'aaaaaaaa', 'aaaaaaaaa', 'aaaaaaaaaa', 'aaaaaaaaaaa', 'aaaaaaaaaaaa', 'aaaaaaaaaaaaa', 'aaaaaaaaaaaaaa', 'aaaaaaaaaaaaaaa', 'aaaaaaaaaaaaaaaa', 'aaaaaaaaaaaaaaaaa', 'aaaaaaaaaaaaaaaaaa', 'a', 'aa', 'aaa', 'aaaa', 'aaaaa', 'aaaaaa', 'aaaaaaa', 'aaaaaaaa', 'aaaaaaaaa', 'aaaaaaaaaa', 'aaaaaaaaaaa', 'aaaaaaaaaaaa', 'aaaaaaaaaaaaa', 'aaaaaaaaaaaaaa', 'aaaaaaaaaaaaaaa', 'aaaaaaaaaaaaaaaa', 'aaaaaaaaaaaaaaaaa', 'a', 'aa', 'aaa', 'aaaa', 'aaaaa', 'aaaaaa', 'aaaaaaa', 'aaaaaaaa', 'aaaaaaaaa', 'aaaaaaaaaa', 'aaaaaaaaaaa', 'aaaaaaaaaaaa', 'aaaaaaaaaaaaa', 'aaaaaaaaaaaaaa', 'aaaaaaaaaaaaaaa', 'aaaaaaaaaaaaaaaa', 'a', 'aa', 'aaa', 'aaaa', 'aaaaa', 'aaaaaa', 'aaaaaaa', 'aaaaaaaa', 'aaaaaaaaa', 'aaaaaaaaaa', 'aaaaaaaaaaa', 'aaaaaaaaaaaa', 'aaaaaaaaaaaaa', 'aaaaaaaaaaaaaa', 'aaaaaaaaaaaaaaa', 'a', 'aa', 'aaa', 'aaaa', 'aaaaa', 'aaaaaa', 'aaaaaaa', 'aaaaaaaa', 'aaaaaaaaa', 'aaaaaaaaaa', 'aaaaaaaaaaa', 'aaaaaaaaaaaa', 'aaaaaaaaaaaaa', 'aaaaaaaaaaaaaa', 'a', 'aa', 'aaa', 'aaaa', 'aaaaa', 'aaaaaa', 'aaaaaaa', 'aaaaaaaa', 'aaaaaaaaa', 'aaaaaaaaaa', 'aaaaaaaaaaa', 'aaaaaaaaaaaa', 'aaaaaaaaaaaaa', 'a', 'aa', 'aaa', 'aaaa', 'aaaaa', 'aaaaaa', 'aaaaaaa', 'aaaaaaaa', 'aaaaaaaaa', 'aaaaaaaaaa', 'aaaaaaaaaaa', 'aaaaaaaaaaaa', 'a', 'aa', 'aaa', 'aaaa', 'aaaaa', 'aaaaaa', 'aaaaaaa', 'aaaaaaaa', 'aaaaaaaaa', 'aaaaaaaaaa', 'aaaaaaaaaaa', 'a', 'aa', 'aaa', 'aaaa', 'aaaaa', 'aaaaaa', 'aaaaaaa', 'aaaaaaaa', 'aaaaaaaaa', 'aaaaaaaaaa', 'a', 'aa', 'aaa', 'aaaa', 'aaaaa', 'aaaaaa', 'aaaaaaa', 'aaaaaaaa', 'aaaaaaaaa', 'a', 'aa', 'aaa', 'aaaa', 'aaaaa', 'aaaaaa', 'aaaaaaa', 'aaaaaaaa', 'a', 'aa', 'aaa', 'aaaa', 'aaaaa', 'aaaaaa', 'aaaaaaa', 'a', 'aa', 'aaa', 'aaaa', 'aaaaa', 'aaaaaa', 'a', 'aa', 'aaa', 'aaaa', 'aaaaa', 'a', 'aa', 'aaa', 'aaaa', 'a', 'aa', 'aaa', 'a', 'aa', 'a']
+DEBUG: Found 325 substrings from b: ['b', 'bb', 'bbb', 'bbbb', 'bbbbb', 'bbbbbb', 'bbbbbbb', 'bbbbbbbb', 'bbbbbbbbb', 'bbbbbbbbbb', 'bbbbbbbbbbb', 'bbbbbbbbbbbb', 'bbbbbbbbbbbbb', 'bbbbbbbbbbbbbb', 'bbbbbbbbbbbbbbb', 'bbbbbbbbbbbbbbbb', 'bbbbbbbbbbbbbbbbb', 'bbbbbbbbbbbbbbbbbb', 'bbbbbbbbbbbbbbbbbbb', 'bbbbbbbbbbbbbbbbbbbb', 'bbbbbbbbbbbbbbbbbbbbb', 'bbbbbbbbbbbbbbbbbbbbbb', 'bbbbbbbbbbbbbbbbbbbbbbb', 'bbbbbbbbbbbbbbbbbbbbbbbb', 'bbbbbbbbbbbbbbbbbbbbbbbbb', 'b', 'bb', 'bbb', 'bbbb', 'bbbbb', 'bbbbbb', 'bbbbbbb', 'bbbbbbbb', 'bbbbbbbbb', 'bbbbbbbbbb', 'bbbbbbbbbbb', 'bbbbbbbbbbbb', 'bbbbbbbbbbbbb', 'bbbbbbbbbbbbbb', 'bbbbbbbbbbbbbbb', 'bbbbbbbbbbbbbbbb', 'bbbbbbbbbbbbbbbbb', 'bbbbbbbbbbbbbbbbbb', 'bbbbbbbbbbbbbbbbbbb', 'bbbbbbbbbbbbbbbbbbbb', 'bbbbbbbbbbbbbbbbbbbbb', 'bbbbbbbbbbbbbbbbbbbbbb', 'bbbbbbbbbbbbbbbbbbbbbbb', 'bbbbbbbbbbbbbbbbbbbbbbbb', 'b', 'bb', 'bbb', 'bbbb', 'bbbbb', 'bbbbbb', 'bbbbbbb', 'bbbbbbbb', 'bbbbbbbbb', 'bbbbbbbbbb', 'bbbbbbbbbbb', 'bbbbbbbbbbbb', 'bbbbbbbbbbbbb', 'bbbbbbbbbbbbbb', 'bbbbbbbbbbbbbbb', 'bbbbbbbbbbbbbbbb', 'bbbbbbbbbbbbbbbbb', 'bbbbbbbbbbbbbbbbbb', 'bbbbbbbbbbbbbbbbbbb', 'bbbbbbbbbbbbbbbbbbbb', 'bbbbbbbbbbbbbbbbbbbbb', 'bbbbbbbbbbbbbbbbbbbbbb', 'bbbbbbbbbbbbbbbbbbbbbbb', 'b', 'bb', 'bbb', 'bbbb', 'bbbbb', 'bbbbbb', 'bbbbbbb', 'bbbbbbbb', 'bbbbbbbbb', 'bbbbbbbbbb', 'bbbbbbbbbbb', 'bbbbbbbbbbbb', 'bbbbbbbbbbbbb', 'bbbbbbbbbbbbbb', 'bbbbbbbbbbbbbbb', 'bbbbbbbbbbbbbbbb', 'bbbbbbbbbbbbbbbbb', 'bbbbbbbbbbbbbbbbbb', 'bbbbbbbbbbbbbbbbbbb', 'bbbbbbbbbbbbbbbbbbbb', 'bbbbbbbbbbbbbbbbbbbbb', 'bbbbbbbbbbbbbbbbbbbbbb', 'b', 'bb', 'bbb', 'bbbb', 'bbbbb', 'bbbbbb', 'bbbbbbb', 'bbbbbbbb', 'bbbbbbbbb', 'bbbbbbbbbb', 'bbbbbbbbbbb', 'bbbbbbbbbbbb', 'bbbbbbbbbbbbb', 'bbbbbbbbbbbbbb', 'bbbbbbbbbbbbbbb', 'bbbbbbbbbbbbbbbb', 'bbbbbbbbbbbbbbbbb', 'bbbbbbbbbbbbbbbbbb', 'bbbbbbbbbbbbbbbbbbb', 'bbbbbbbbbbbbbbbbbbbb', 'bbbbbbbbbbbbbbbbbbbbb', 'b', 'bb', 'bbb', 'bbbb', 'bbbbb', 'bbbbbb', 'bbbbbbb', 'bbbbbbbb', 'bbbbbbbbb', 'bbbbbbbbbb', 'bbbbbbbbbbb', 'bbbbbbbbbbbb', 'bbbbbbbbbbbbb', 'bbbbbbbbbbbbbb', 'bbbbbbbbbbbbbbb', 'bbbbbbbbbbbbbbbb', 'bbbbbbbbbbbbbbbbb', 'bbbbbbbbbbbbbbbbbb', 'bbbbbbbbbbbbbbbbbbb', 'bbbbbbbbbbbbbbbbbbbb', 'b', 'bb', 'bbb', 'bbbb', 'bbbbb', 'bbbbbb', 'bbbbbbb', 'bbbbbbbb', 'bbbbbbbbb', 'bbbbbbbbbb', 'bbbbbbbbbbb', 'bbbbbbbbbbbb', 'bbbbbbbbbbbbb', 'bbbbbbbbbbbbbb', 'bbbbbbbbbbbbbbb', 'bbbbbbbbbbbbbbbb', 'bbbbbbbbbbbbbbbbb', 'bbbbbbbbbbbbbbbbbb', 'bbbbbbbbbbbbbbbbbbb', 'b', 'bb', 'bbb', 'bbbb', 'bbbbb', 'bbbbbb', 'bbbbbbb', 'bbbbbbbb', 'bbbbbbbbb', 'bbbbbbbbbb', 'bbbbbbbbbbb', 'bbbbbbbbbbbb', 'bbbbbbbbbbbbb', 'bbbbbbbbbbbbbb', 'bbbbbbbbbbbbbbb', 'bbbbbbbbbbbbbbbb', 'bbbbbbbbbbbbbbbbb', 'bbbbbbbbbbbbbbbbbb', 'b', 'bb', 'bbb', 'bbbb', 'bbbbb', 'bbbbbb', 'bbbbbbb', 'bbbbbbbb', 'bbbbbbbbb', 'bbbbbbbbbb', 'bbbbbbbbbbb', 'bbbbbbbbbbbb', 'bbbbbbbbbbbbb', 'bbbbbbbbbbbbbb', 'bbbbbbbbbbbbbbb', 'bbbbbbbbbbbbbbbb', 'bbbbbbbbbbbbbbbbb', 'b', 'bb', 'bbb', 'bbbb', 'bbbbb', 'bbbbbb', 'bbbbbbb', 'bbbbbbbb', 'bbbbbbbbb', 'bbbbbbbbbb', 'bbbbbbbbbbb', 'bbbbbbbbbbbb', 'bbbbbbbbbbbbb', 'bbbbbbbbbbbbbb', 'bbbbbbbbbbbbbbb', 'bbbbbbbbbbbbbbbb', 'b', 'bb', 'bbb', 'bbbb', 'bbbbb', 'bbbbbb', 'bbbbbbb', 'bbbbbbbb', 'bbbbbbbbb', 'bbbbbbbbbb', 'bbbbbbbbbbb', 'bbbbbbbbbbbb', 'bbbbbbbbbbbbb', 'bbbbbbbbbbbbbb', 'bbbbbbbbbbbbbbb', 'b', 'bb', 'bbb', 'bbbb', 'bbbbb', 'bbbbbb', 'bbbbbbb', 'bbbbbbbb', 'bbbbbbbbb', 'bbbbbbbbbb', 'bbbbbbbbbbb', 'bbbbbbbbbbbb', 'bbbbbbbbbbbbb', 'bbbbbbbbbbbbbb', 'b', 'bb', 'bbb', 'bbbb', 'bbbbb', 'bbbbbb', 'bbbbbbb', 'bbbbbbbb', 'bbbbbbbbb', 'bbbbbbbbbb', 'bbbbbbbbbbb', 'bbbbbbbbbbbb', 'bbbbbbbbbbbbb', 'b', 'bb', 'bbb', 'bbbb', 'bbbbb', 'bbbbbb', 'bbbbbbb', 'bbbbbbbb', 'bbbbbbbbb', 'bbbbbbbbbb', 'bbbbbbbbbbb', 'bbbbbbbbbbbb', 'b', 'bb', 'bbb', 'bbbb', 'bbbbb', 'bbbbbb', 'bbbbbbb', 'bbbbbbbb', 'bbbbbbbbb', 'bbbbbbbbbb', 'bbbbbbbbbbb', 'b', 'bb', 'bbb', 'bbbb', 'bbbbb', 'bbbbbb', 'bbbbbbb', 'bbbbbbbb', 'bbbbbbbbb', 'bbbbbbbbbb', 'b', 'bb', 'bbb', 'bbbb', 'bbbbb', 'bbbbbb', 'bbbbbbb', 'bbbbbbbb', 'bbbbbbbbb', 'b', 'bb', 'bbb', 'bbbb', 'bbbbb', 'bbbbbb', 'bbbbbbb', 'bbbbbbbb', 'b', 'bb', 'bbb', 'bbbb', 'bbbbb', 'bbbbbb', 'bbbbbbb', 'b', 'bb', 'bbb', 'bbbb', 'bbbbb', 'bbbbbb', 'b', 'bb', 'bbb', 'bbbb', 'bbbbb', 'b', 'bb', 'bbb', 'bbbb', 'b', 'bb', 'bbb', 'b', 'bb', 'b']
+DEBUG: All palindromes found: []
+DEBUG: Final best: 'None'
+Result: '-1'
+Time: 0.047s
+
+============================================================
+TEST: 20+ char strings
+Input: a='abcdefghijklmnopqrstu', b='uvwxyzabcdefghijklmno'
+DEBUG: Processing a='abcdefghijklmnopqrstu', b='uvwxyzabcdefghijklmno'
+DEBUG: Found 231 substrings from a: ['a', 'ab', 'abc', 'abcd', 'abcde', 'abcdef', 'abcdefg', 'abcdefgh', 'abcdefghi', 'abcdefghij', 'abcdefghijk', 'abcdefghijkl', 'abcdefghijklm', 'abcdefghijklmn', 'abcdefghijklmno', 'abcdefghijklmnop', 'abcdefghijklmnopq', 'abcdefghijklmnopqr', 'abcdefghijklmnopqrs', 'abcdefghijklmnopqrst', 'abcdefghijklmnopqrstu', 'b', 'bc', 'bcd', 'bcde', 'bcdef', 'bcdefg', 'bcdefgh', 'bcdefghi', 'bcdefghij', 'bcdefghijk', 'bcdefghijkl', 'bcdefghijklm', 'bcdefghijklmn', 'bcdefghijklmno', 'bcdefghijklmnop', 'bcdefghijklmnopq', 'bcdefghijklmnopqr', 'bcdefghijklmnopqrs', 'bcdefghijklmnopqrst', 'bcdefghijklmnopqrstu', 'c', 'cd', 'cde', 'cdef', 'cdefg', 'cdefgh', 'cdefghi', 'cdefghij', 'cdefghijk', 'cdefghijkl', 'cdefghijklm', 'cdefghijklmn', 'cdefghijklmno', 'cdefghijklmnop', 'cdefghijklmnopq', 'cdefghijklmnopqr', 'cdefghijklmnopqrs', 'cdefghijklmnopqrst', 'cdefghijklmnopqrstu', 'd', 'de', 'def', 'defg', 'defgh', 'defghi', 'defghij', 'defghijk', 'defghijkl', 'defghijklm', 'defghijklmn', 'defghijklmno', 'defghijklmnop', 'defghijklmnopq', 'defghijklmnopqr', 'defghijklmnopqrs', 'defghijklmnopqrst', 'defghijklmnopqrstu', 'e', 'ef', 'efg', 'efgh', 'efghi', 'efghij', 'efghijk', 'efghijkl', 'efghijklm', 'efghijklmn', 'efghijklmno', 'efghijklmnop', 'efghijklmnopq', 'efghijklmnopqr', 'efghijklmnopqrs', 'efghijklmnopqrst', 'efghijklmnopqrstu', 'f', 'fg', 'fgh', 'fghi', 'fghij', 'fghijk', 'fghijkl', 'fghijklm', 'fghijklmn', 'fghijklmno', 'fghijklmnop', 'fghijklmnopq', 'fghijklmnopqr', 'fghijklmnopqrs', 'fghijklmnopqrst', 'fghijklmnopqrstu', 'g', 'gh', 'ghi', 'ghij', 'ghijk', 'ghijkl', 'ghijklm', 'ghijklmn', 'ghijklmno', 'ghijklmnop', 'ghijklmnopq', 'ghijklmnopqr', 'ghijklmnopqrs', 'ghijklmnopqrst', 'ghijklmnopqrstu', 'h', 'hi', 'hij', 'hijk', 'hijkl', 'hijklm', 'hijklmn', 'hijklmno', 'hijklmnop', 'hijklmnopq', 'hijklmnopqr', 'hijklmnopqrs', 'hijklmnopqrst', 'hijklmnopqrstu', 'i', 'ij', 'ijk', 'ijkl', 'ijklm', 'ijklmn', 'ijklmno', 'ijklmnop', 'ijklmnopq', 'ijklmnopqr', 'ijklmnopqrs', 'ijklmnopqrst', 'ijklmnopqrstu', 'j', 'jk', 'jkl', 'jklm', 'jklmn', 'jklmno', 'jklmnop', 'jklmnopq', 'jklmnopqr', 'jklmnopqrs', 'jklmnopqrst', 'jklmnopqrstu', 'k', 'kl', 'klm', 'klmn', 'klmno', 'klmnop', 'klmnopq', 'klmnopqr', 'klmnopqrs', 'klmnopqrst', 'klmnopqrstu', 'l', 'lm', 'lmn', 'lmno', 'lmnop', 'lmnopq', 'lmnopqr', 'lmnopqrs', 'lmnopqrst', 'lmnopqrstu', 'm', 'mn', 'mno', 'mnop', 'mnopq', 'mnopqr', 'mnopqrs', 'mnopqrst', 'mnopqrstu', 'n', 'no', 'nop', 'nopq', 'nopqr', 'nopqrs', 'nopqrst', 'nopqrstu', 'o', 'op', 'opq', 'opqr', 'opqrs', 'opqrst', 'opqrstu', 'p', 'pq', 'pqr', 'pqrs', 'pqrst', 'pqrstu', 'q', 'qr', 'qrs', 'qrst', 'qrstu', 'r', 'rs', 'rst', 'rstu', 's', 'st', 'stu', 't', 'tu', 'u']
+DEBUG: Found 231 substrings from b: ['u', 'uv', 'uvw', 'uvwx', 'uvwxy', 'uvwxyz', 'uvwxyza', 'uvwxyzab', 'uvwxyzabc', 'uvwxyzabcd', 'uvwxyzabcde', 'uvwxyzabcdef', 'uvwxyzabcdefg', 'uvwxyzabcdefgh', 'uvwxyzabcdefghi', 'uvwxyzabcdefghij', 'uvwxyzabcdefghijk', 'uvwxyzabcdefghijkl', 'uvwxyzabcdefghijklm', 'uvwxyzabcdefghijklmn', 'uvwxyzabcdefghijklmno', 'v', 'vw', 'vwx', 'vwxy', 'vwxyz', 'vwxyza', 'vwxyzab', 'vwxyzabc', 'vwxyzabcd', 'vwxyzabcde', 'vwxyzabcdef', 'vwxyzabcdefg', 'vwxyzabcdefgh', 'vwxyzabcdefghi', 'vwxyzabcdefghij', 'vwxyzabcdefghijk', 'vwxyzabcdefghijkl', 'vwxyzabcdefghijklm', 'vwxyzabcdefghijklmn', 'vwxyzabcdefghijklmno', 'w', 'wx', 'wxy', 'wxyz', 'wxyza', 'wxyzab', 'wxyzabc', 'wxyzabcd', 'wxyzabcde', 'wxyzabcdef', 'wxyzabcdefg', 'wxyzabcdefgh', 'wxyzabcdefghi', 'wxyzabcdefghij', 'wxyzabcdefghijk', 'wxyzabcdefghijkl', 'wxyzabcdefghijklm', 'wxyzabcdefghijklmn', 'wxyzabcdefghijklmno', 'x', 'xy', 'xyz', 'xyza', 'xyzab', 'xyzabc', 'xyzabcd', 'xyzabcde', 'xyzabcdef', 'xyzabcdefg', 'xyzabcdefgh', 'xyzabcdefghi', 'xyzabcdefghij', 'xyzabcdefghijk', 'xyzabcdefghijkl', 'xyzabcdefghijklm', 'xyzabcdefghijklmn', 'xyzabcdefghijklmno', 'y', 'yz', 'yza', 'yzab', 'yzabc', 'yzabcd', 'yzabcde', 'yzabcdef', 'yzabcdefg', 'yzabcdefgh', 'yzabcdefghi', 'yzabcdefghij', 'yzabcdefghijk', 'yzabcdefghijkl', 'yzabcdefghijklm', 'yzabcdefghijklmn', 'yzabcdefghijklmno', 'z', 'za', 'zab', 'zabc', 'zabcd', 'zabcde', 'zabcdef', 'zabcdefg', 'zabcdefgh', 'zabcdefghi', 'zabcdefghij', 'zabcdefghijk', 'zabcdefghijkl', 'zabcdefghijklm', 'zabcdefghijklmn', 'zabcdefghijklmno', 'a', 'ab', 'abc', 'abcd', 'abcde', 'abcdef', 'abcdefg', 'abcdefgh', 'abcdefghi', 'abcdefghij', 'abcdefghijk', 'abcdefghijkl', 'abcdefghijklm', 'abcdefghijklmn', 'abcdefghijklmno', 'b', 'bc', 'bcd', 'bcde', 'bcdef', 'bcdefg', 'bcdefgh', 'bcdefghi', 'bcdefghij', 'bcdefghijk', 'bcdefghijkl', 'bcdefghijklm', 'bcdefghijklmn', 'bcdefghijklmno', 'c', 'cd', 'cde', 'cdef', 'cdefg', 'cdefgh', 'cdefghi', 'cdefghij', 'cdefghijk', 'cdefghijkl', 'cdefghijklm', 'cdefghijklmn', 'cdefghijklmno', 'd', 'de', 'def', 'defg', 'defgh', 'defghi', 'defghij', 'defghijk', 'defghijkl', 'defghijklm', 'defghijklmn', 'defghijklmno', 'e', 'ef', 'efg', 'efgh', 'efghi', 'efghij', 'efghijk', 'efghijkl', 'efghijklm', 'efghijklmn', 'efghijklmno', 'f', 'fg', 'fgh', 'fghi', 'fghij', 'fghijk', 'fghijkl', 'fghijklm', 'fghijklmn', 'fghijklmno', 'g', 'gh', 'ghi', 'ghij', 'ghijk', 'ghijkl', 'ghijklm', 'ghijklmn', 'ghijklmno', 'h', 'hi', 'hij', 'hijk', 'hijkl', 'hijklm', 'hijklmn', 'hijklmno', 'i', 'ij', 'ijk', 'ijkl', 'ijklm', 'ijklmn', 'ijklmno', 'j', 'jk', 'jkl', 'jklm', 'jklmn', 'jklmno', 'k', 'kl', 'klm', 'klmn', 'klmno', 'l', 'lm', 'lmn', 'lmno', 'm', 'mn', 'mno', 'n', 'no', 'o']
+DEBUG: Found palindrome: 'aza' (sa='a', sb='za')
+DEBUG: New best: 'aza' (was 'None')
+DEBUG: Found palindrome: 'aa' (sa='a', sb='a')
+DEBUG: Found palindrome: 'aa' (sa='a', sb='a')
+DEBUG: Found palindrome: 'aba' (sa='a', sb='ab')
+DEBUG: New best: 'aba' (was 'aza')
+DEBUG: Found palindrome: 'aba' (sa='ab', sb='a')
+DEBUG: Found palindrome: 'bab' (sa='ab', sb='b')
+DEBUG: Found palindrome: 'bab' (sa='b', sb='ab')
+DEBUG: Found palindrome: 'bb' (sa='b', sb='b')
+DEBUG: Found palindrome: 'bb' (sa='b', sb='b')
+DEBUG: Found palindrome: 'bcb' (sa='b', sb='bc')
+DEBUG: Found palindrome: 'bcb' (sa='bc', sb='b')
+DEBUG: Found palindrome: 'cbc' (sa='bc', sb='c')
+DEBUG: Found palindrome: 'cbc' (sa='c', sb='bc')
+DEBUG: Found palindrome: 'cc' (sa='c', sb='c')
+DEBUG: Found palindrome: 'cc' (sa='c', sb='c')
+DEBUG: Found palindrome: 'cdc' (sa='c', sb='cd')
+DEBUG: Found palindrome: 'cdc' (sa='cd', sb='c')
+DEBUG: Found palindrome: 'dcd' (sa='cd', sb='d')
+DEBUG: Found palindrome: 'dcd' (sa='d', sb='cd')
+DEBUG: Found palindrome: 'dd' (sa='d', sb='d')
+DEBUG: Found palindrome: 'dd' (sa='d', sb='d')
+DEBUG: Found palindrome: 'ded' (sa='d', sb='de')
+DEBUG: Found palindrome: 'ded' (sa='de', sb='d')
+DEBUG: Found palindrome: 'ede' (sa='de', sb='e')
+DEBUG: Found palindrome: 'ede' (sa='e', sb='de')
+DEBUG: Found palindrome: 'ee' (sa='e', sb='e')
+DEBUG: Found palindrome: 'ee' (sa='e', sb='e')
+DEBUG: Found palindrome: 'efe' (sa='e', sb='ef')
+DEBUG: Found palindrome: 'efe' (sa='ef', sb='e')
+DEBUG: Found palindrome: 'fef' (sa='ef', sb='f')
+DEBUG: Found palindrome: 'fef' (sa='f', sb='ef')
+DEBUG: Found palindrome: 'ff' (sa='f', sb='f')
+DEBUG: Found palindrome: 'ff' (sa='f', sb='f')
+DEBUG: Found palindrome: 'fgf' (sa='f', sb='fg')
+DEBUG: Found palindrome: 'fgf' (sa='fg', sb='f')
+DEBUG: Found palindrome: 'gfg' (sa='fg', sb='g')
+DEBUG: Found palindrome: 'gfg' (sa='g', sb='fg')
+DEBUG: Found palindrome: 'gg' (sa='g', sb='g')
+DEBUG: Found palindrome: 'gg' (sa='g', sb='g')
+DEBUG: Found palindrome: 'ghg' (sa='g', sb='gh')
+DEBUG: Found palindrome: 'ghg' (sa='gh', sb='g')
+DEBUG: Found palindrome: 'hgh' (sa='gh', sb='h')
+DEBUG: Found palindrome: 'hgh' (sa='h', sb='gh')
+DEBUG: Found palindrome: 'hh' (sa='h', sb='h')
+DEBUG: Found palindrome: 'hh' (sa='h', sb='h')
+DEBUG: Found palindrome: 'hih' (sa='h', sb='hi')
+DEBUG: Found palindrome: 'hih' (sa='hi', sb='h')
+DEBUG: Found palindrome: 'ihi' (sa='hi', sb='i')
+DEBUG: Found palindrome: 'ihi' (sa='i', sb='hi')
+DEBUG: Found palindrome: 'ii' (sa='i', sb='i')
+DEBUG: Found palindrome: 'ii' (sa='i', sb='i')
+DEBUG: Found palindrome: 'iji' (sa='i', sb='ij')
+DEBUG: Found palindrome: 'iji' (sa='ij', sb='i')
+DEBUG: Found palindrome: 'jij' (sa='ij', sb='j')
+DEBUG: Found palindrome: 'jij' (sa='j', sb='ij')
+DEBUG: Found palindrome: 'jj' (sa='j', sb='j')
+DEBUG: Found palindrome: 'jj' (sa='j', sb='j')
+DEBUG: Found palindrome: 'jkj' (sa='j', sb='jk')
+DEBUG: Found palindrome: 'jkj' (sa='jk', sb='j')
+DEBUG: Found palindrome: 'kjk' (sa='jk', sb='k')
+DEBUG: Found palindrome: 'kjk' (sa='k', sb='jk')
+DEBUG: Found palindrome: 'kk' (sa='k', sb='k')
+DEBUG: Found palindrome: 'kk' (sa='k', sb='k')
+DEBUG: Found palindrome: 'klk' (sa='k', sb='kl')
+DEBUG: Found palindrome: 'klk' (sa='kl', sb='k')
+DEBUG: Found palindrome: 'lkl' (sa='kl', sb='l')
+DEBUG: Found palindrome: 'lkl' (sa='l', sb='kl')
+DEBUG: Found palindrome: 'll' (sa='l', sb='l')
+DEBUG: Found palindrome: 'll' (sa='l', sb='l')
+DEBUG: Found palindrome: 'lml' (sa='l', sb='lm')
+DEBUG: Found palindrome: 'lml' (sa='lm', sb='l')
+DEBUG: Found palindrome: 'mlm' (sa='lm', sb='m')
+DEBUG: Found palindrome: 'mlm' (sa='m', sb='lm')
+DEBUG: Found palindrome: 'mm' (sa='m', sb='m')
+DEBUG: Found palindrome: 'mm' (sa='m', sb='m')
+DEBUG: Found palindrome: 'mnm' (sa='m', sb='mn')
+DEBUG: Found palindrome: 'mnm' (sa='mn', sb='m')
+DEBUG: Found palindrome: 'nmn' (sa='mn', sb='n')
+DEBUG: Found palindrome: 'nmn' (sa='n', sb='mn')
+DEBUG: Found palindrome: 'nn' (sa='n', sb='n')
+DEBUG: Found palindrome: 'nn' (sa='n', sb='n')
+DEBUG: Found palindrome: 'non' (sa='n', sb='no')
+DEBUG: Found palindrome: 'non' (sa='no', sb='n')
+DEBUG: Found palindrome: 'ono' (sa='no', sb='o')
+DEBUG: Found palindrome: 'ono' (sa='o', sb='no')
+DEBUG: Found palindrome: 'oo' (sa='o', sb='o')
+DEBUG: Found palindrome: 'oo' (sa='o', sb='o')
+DEBUG: Found palindrome: 'opo' (sa='op', sb='o')
+DEBUG: Found palindrome: 'utu' (sa='tu', sb='u')
+DEBUG: Found palindrome: 'uu' (sa='u', sb='u')
+DEBUG: Found palindrome: 'uu' (sa='u', sb='u')
+DEBUG: Found palindrome: 'uvu' (sa='u', sb='uv')
+DEBUG: All palindromes found: ['aa', 'aba', 'aza', 'bab', 'bb', 'bcb', 'cbc', 'cc', 'cdc', 'dcd', 'dd', 'ded', 'ede', 'ee', 'efe', 'fef', 'ff', 'fgf', 'gfg', 'gg', 'ghg', 'hgh', 'hh', 'hih', 'ihi', 'ii', 'iji', 'jij', 'jj', 'jkj', 'kjk', 'kk', 'klk', 'lkl', 'll', 'lml', 'mlm', 'mm', 'mnm', 'nmn', 'nn', 'non', 'ono', 'oo', 'opo', 'utu', 'uu', 'uvu']
+DEBUG: Final best: 'aba'
+Result: 'aba'
+Time: 0.021s
+
+============================================================
+TEST: Both contain palindromes
+Input: a='aba', b='cdc'
+DEBUG: Processing a='aba', b='cdc'
+DEBUG: Found 6 substrings from a: ['a', 'ab', 'aba', 'b', 'ba', 'a']
+DEBUG: Found 6 substrings from b: ['c', 'cd', 'cdc', 'd', 'dc', 'c']
+DEBUG: All palindromes found: []
+DEBUG: Final best: 'None'
+Result: '-1'
+Time: 0.000s
+
+============================================================
+TEST: Full palindrome inputs
+Input: a='racecar', b='level'
+DEBUG: Processing a='racecar', b='level'
+DEBUG: Found 28 substrings from a: ['r', 'ra', 'rac', 'race', 'racec', 'raceca', 'racecar', 'a', 'ac', 'ace', 'acec', 'aceca', 'acecar', 'c', 'ce', 'cec', 'ceca', 'cecar', 'e', 'ec', 'eca', 'ecar', 'c', 'ca', 'car', 'a', 'ar', 'r']
+DEBUG: Found 15 substrings from b: ['l', 'le', 'lev', 'leve', 'level', 'e', 'ev', 'eve', 'evel', 'v', 've', 'vel', 'e', 'el', 'l']
+DEBUG: Found palindrome: 'ece' (sa='ce', sb='e')
+DEBUG: New best: 'ece' (was 'None')
+DEBUG: Found palindrome: 'ece' (sa='ce', sb='e')
+DEBUG: Found palindrome: 'ele' (sa='e', sb='le')
+DEBUG: Found palindrome: 'ee' (sa='e', sb='e')
+DEBUG: Found palindrome: 'ee' (sa='e', sb='e')
+DEBUG: Found palindrome: 'eve' (sa='e', sb='ev')
+DEBUG: Found palindrome: 'eve' (sa='e', sb='ve')
+DEBUG: Found palindrome: 'ee' (sa='e', sb='e')
+DEBUG: Found palindrome: 'ee' (sa='e', sb='e')
+DEBUG: Found palindrome: 'ele' (sa='e', sb='el')
+DEBUG: Found palindrome: 'ece' (sa='ec', sb='e')
+DEBUG: Found palindrome: 'ece' (sa='ec', sb='e')
+DEBUG: All palindromes found: ['ece', 'ee', 'ele', 'eve']
+DEBUG: Final best: 'ece'
+Result: 'ece'
+Time: 0.000s
+
+============================================================
+TEST: Perfect complement
+Input: a='abcd', b='dcba'
+DEBUG: Processing a='abcd', b='dcba'
+DEBUG: Found 10 substrings from a: ['a', 'ab', 'abc', 'abcd', 'b', 'bc', 'bcd', 'c', 'cd', 'd']
+DEBUG: Found 10 substrings from b: ['d', 'dc', 'dcb', 'dcba', 'c', 'cb', 'cba', 'b', 'ba', 'a']
+DEBUG: Found palindrome: 'aba' (sa='a', sb='ba')
+DEBUG: New best: 'aba' (was 'None')
+DEBUG: Found palindrome: 'aa' (sa='a', sb='a')
+DEBUG: Found palindrome: 'aa' (sa='a', sb='a')
+DEBUG: Found palindrome: 'abcba' (sa='ab', sb='cba')
+DEBUG: New best: 'abcba' (was 'aba')
+DEBUG: Found palindrome: 'bab' (sa='ab', sb='b')
+DEBUG: Found palindrome: 'abba' (sa='ab', sb='ba')
+DEBUG: Found palindrome: 'baab' (sa='ab', sb='ba')
+DEBUG: Found palindrome: 'aba' (sa='ab', sb='a')
+DEBUG: Found palindrome: 'abcdcba' (sa='abc', sb='dcba')
+DEBUG: New best: 'abcdcba' (was 'abcba')
+DEBUG: Found palindrome: 'cbabc' (sa='abc', sb='cb')
+DEBUG: Found palindrome: 'abccba' (sa='abc', sb='cba')
+DEBUG: Found palindrome: 'cbaabc' (sa='abc', sb='cba')
+DEBUG: Found palindrome: 'abcba' (sa='abc', sb='ba')
+DEBUG: Found palindrome: 'dcbabcd' (sa='abcd', sb='dcb')
+DEBUG: Found palindrome: 'abcddcba' (sa='abcd', sb='dcba')
+DEBUG: New best: 'abcddcba' (was 'abcdcba')
+DEBUG: Found palindrome: 'dcbaabcd' (sa='abcd', sb='dcba')
+DEBUG: Found palindrome: 'abcdcba' (sa='abcd', sb='cba')
+DEBUG: Found palindrome: 'bcb' (sa='b', sb='cb')
+DEBUG: Found palindrome: 'bb' (sa='b', sb='b')
+DEBUG: Found palindrome: 'bb' (sa='b', sb='b')
+DEBUG: Found palindrome: 'bab' (sa='b', sb='ba')
+DEBUG: Found palindrome: 'bcdcb' (sa='bc', sb='dcb')
+DEBUG: Found palindrome: 'cbc' (sa='bc', sb='c')
+DEBUG: Found palindrome: 'bccb' (sa='bc', sb='cb')
+DEBUG: Found palindrome: 'cbbc' (sa='bc', sb='cb')
+DEBUG: Found palindrome: 'cbabc' (sa='bc', sb='cba')
+DEBUG: Found palindrome: 'bcb' (sa='bc', sb='b')
+DEBUG: Found palindrome: 'dcbcd' (sa='bcd', sb='dc')
+DEBUG: Found palindrome: 'bcddcb' (sa='bcd', sb='dcb')
+DEBUG: Found palindrome: 'dcbbcd' (sa='bcd', sb='dcb')
+DEBUG: Found palindrome: 'dcbabcd' (sa='bcd', sb='dcba')
+DEBUG: Found palindrome: 'bcdcb' (sa='bcd', sb='cb')
+DEBUG: Found palindrome: 'cdc' (sa='c', sb='dc')
+DEBUG: Found palindrome: 'cc' (sa='c', sb='c')
+DEBUG: Found palindrome: 'cc' (sa='c', sb='c')
+DEBUG: Found palindrome: 'cbc' (sa='c', sb='cb')
+DEBUG: Found palindrome: 'dcd' (sa='cd', sb='d')
+DEBUG: Found palindrome: 'cddc' (sa='cd', sb='dc')
+DEBUG: Found palindrome: 'dccd' (sa='cd', sb='dc')
+DEBUG: Found palindrome: 'dcbcd' (sa='cd', sb='dcb')
+DEBUG: Found palindrome: 'cdc' (sa='cd', sb='c')
+DEBUG: Found palindrome: 'dd' (sa='d', sb='d')
+DEBUG: Found palindrome: 'dd' (sa='d', sb='d')
+DEBUG: Found palindrome: 'dcd' (sa='d', sb='dc')
+DEBUG: All palindromes found: ['aa', 'aba', 'abba', 'abcba', 'abccba', 'abcdcba', 'abcddcba', 'baab', 'bab', 'bb', 'bcb', 'bccb', 'bcdcb', 'bcddcb', 'cbaabc', 'cbabc', 'cbbc', 'cbc', 'cc', 'cdc', 'cddc', 'dcbaabcd', 'dcbabcd', 'dcbbcd', 'dcbcd', 'dccd', 'dcd', 'dd']
+DEBUG: Final best: 'abcddcba'
+Result: 'abcddcba'
+Expected: 'abcddcba' - ✓ PASS
+Time: 0.000s
+
+============================================================
+TEST: 3-char complement
+Input: a='xyz', b='zyx'
+DEBUG: Processing a='xyz', b='zyx'
+DEBUG: Found 6 substrings from a: ['x', 'xy', 'xyz', 'y', 'yz', 'z']
+DEBUG: Found 6 substrings from b: ['z', 'zy', 'zyx', 'y', 'yx', 'x']
+DEBUG: Found palindrome: 'xyx' (sa='x', sb='yx')
+DEBUG: New best: 'xyx' (was 'None')
+DEBUG: Found palindrome: 'xx' (sa='x', sb='x')
+DEBUG: Found palindrome: 'xx' (sa='x', sb='x')
+DEBUG: Found palindrome: 'xyzyx' (sa='xy', sb='zyx')
+DEBUG: New best: 'xyzyx' (was 'xyx')
+DEBUG: Found palindrome: 'yxy' (sa='xy', sb='y')
+DEBUG: Found palindrome: 'xyyx' (sa='xy', sb='yx')
+DEBUG: Found palindrome: 'yxxy' (sa='xy', sb='yx')
+DEBUG: Found palindrome: 'xyx' (sa='xy', sb='x')
+DEBUG: Found palindrome: 'zyxyz' (sa='xyz', sb='zy')
+DEBUG: Found palindrome: 'xyzzyx' (sa='xyz', sb='zyx')
+DEBUG: New best: 'xyzzyx' (was 'xyzyx')
+DEBUG: Found palindrome: 'zyxxyz' (sa='xyz', sb='zyx')
+DEBUG: Found palindrome: 'xyzyx' (sa='xyz', sb='yx')
+DEBUG: Found palindrome: 'yzy' (sa='y', sb='zy')
+DEBUG: Found palindrome: 'yy' (sa='y', sb='y')
+DEBUG: Found palindrome: 'yy' (sa='y', sb='y')
+DEBUG: Found palindrome: 'yxy' (sa='y', sb='yx')
+DEBUG: Found palindrome: 'zyz' (sa='yz', sb='z')
+DEBUG: Found palindrome: 'yzzy' (sa='yz', sb='zy')
+DEBUG: Found palindrome: 'zyyz' (sa='yz', sb='zy')
+DEBUG: Found palindrome: 'zyxyz' (sa='yz', sb='zyx')
+DEBUG: Found palindrome: 'yzy' (sa='yz', sb='y')
+DEBUG: Found palindrome: 'zz' (sa='z', sb='z')
+DEBUG: Found palindrome: 'zz' (sa='z', sb='z')
+DEBUG: Found palindrome: 'zyz' (sa='z', sb='zy')
+DEBUG: All palindromes found: ['xx', 'xyx', 'xyyx', 'xyzyx', 'xyzzyx', 'yxxy', 'yxy', 'yy', 'yzy', 'yzzy', 'zyxxyz', 'zyxyz', 'zyyz', 'zyz', 'zz']
+DEBUG: Final best: 'xyzzyx'
+Result: 'xyzzyx'
+Expected: 'xyzyx' - ✗ FAIL
+Time: 0.000s
+
+============================================================
+TEST: 10-char performance test
+Input: a='abcdefghij', b='jihgfedcba'
+DEBUG: Processing a='abcdefghij', b='jihgfedcba'
+DEBUG: Found 55 substrings from a: ['a', 'ab', 'abc', 'abcd', 'abcde', 'abcdef', 'abcdefg', 'abcdefgh', 'abcdefghi', 'abcdefghij', 'b', 'bc', 'bcd', 'bcde', 'bcdef', 'bcdefg', 'bcdefgh', 'bcdefghi', 'bcdefghij', 'c', 'cd', 'cde', 'cdef', 'cdefg', 'cdefgh', 'cdefghi', 'cdefghij', 'd', 'de', 'def', 'defg', 'defgh', 'defghi', 'defghij', 'e', 'ef', 'efg', 'efgh', 'efghi', 'efghij', 'f', 'fg', 'fgh', 'fghi', 'fghij', 'g', 'gh', 'ghi', 'ghij', 'h', 'hi', 'hij', 'i', 'ij', 'j']
+DEBUG: Found 55 substrings from b: ['j', 'ji', 'jih', 'jihg', 'jihgf', 'jihgfe', 'jihgfed', 'jihgfedc', 'jihgfedcb', 'jihgfedcba', 'i', 'ih', 'ihg', 'ihgf', 'ihgfe', 'ihgfed', 'ihgfedc', 'ihgfedcb', 'ihgfedcba', 'h', 'hg', 'hgf', 'hgfe', 'hgfed', 'hgfedc', 'hgfedcb', 'hgfedcba', 'g', 'gf', 'gfe', 'gfed', 'gfedc', 'gfedcb', 'gfedcba', 'f', 'fe', 'fed', 'fedc', 'fedcb', 'fedcba', 'e', 'ed', 'edc', 'edcb', 'edcba', 'd', 'dc', 'dcb', 'dcba', 'c', 'cb', 'cba', 'b', 'ba', 'a']
+DEBUG: Found palindrome: 'aba' (sa='a', sb='ba')
+DEBUG: New best: 'aba' (was 'None')
+DEBUG: Found palindrome: 'aa' (sa='a', sb='a')
+DEBUG: Found palindrome: 'aa' (sa='a', sb='a')
+DEBUG: Found palindrome: 'abcba' (sa='ab', sb='cba')
+DEBUG: New best: 'abcba' (was 'aba')
+DEBUG: Found palindrome: 'bab' (sa='ab', sb='b')
+DEBUG: Found palindrome: 'abba' (sa='ab', sb='ba')
+DEBUG: Found palindrome: 'baab' (sa='ab', sb='ba')
+DEBUG: Found palindrome: 'aba' (sa='ab', sb='a')
+DEBUG: Found palindrome: 'abcdcba' (sa='abc', sb='dcba')
+DEBUG: New best: 'abcdcba' (was 'abcba')
+DEBUG: Found palindrome: 'cbabc' (sa='abc', sb='cb')
+DEBUG: Found palindrome: 'abccba' (sa='abc', sb='cba')
+DEBUG: Found palindrome: 'cbaabc' (sa='abc', sb='cba')
+DEBUG: Found palindrome: 'abcba' (sa='abc', sb='ba')
+DEBUG: Found palindrome: 'abcdedcba' (sa='abcd', sb='edcba')
+DEBUG: New best: 'abcdedcba' (was 'abcdcba')
+DEBUG: Found palindrome: 'dcbabcd' (sa='abcd', sb='dcb')
+DEBUG: Found palindrome: 'abcddcba' (sa='abcd', sb='dcba')
+DEBUG: Found palindrome: 'dcbaabcd' (sa='abcd', sb='dcba')
+DEBUG: Found palindrome: 'abcdcba' (sa='abcd', sb='cba')
+DEBUG: Found palindrome: 'abcdefedcba' (sa='abcde', sb='fedcba')
+DEBUG: New best: 'abcdefedcba' (was 'abcdedcba')
+DEBUG: Found palindrome: 'edcbabcde' (sa='abcde', sb='edcb')
+DEBUG: Found palindrome: 'abcdeedcba' (sa='abcde', sb='edcba')
+DEBUG: Found palindrome: 'edcbaabcde' (sa='abcde', sb='edcba')
+DEBUG: Found palindrome: 'abcdedcba' (sa='abcde', sb='dcba')
+DEBUG: Found palindrome: 'abcdefgfedcba' (sa='abcdef', sb='gfedcba')
+DEBUG: New best: 'abcdefgfedcba' (was 'abcdefedcba')
+DEBUG: Found palindrome: 'fedcbabcdef' (sa='abcdef', sb='fedcb')
+DEBUG: Found palindrome: 'abcdeffedcba' (sa='abcdef', sb='fedcba')
+DEBUG: Found palindrome: 'fedcbaabcdef' (sa='abcdef', sb='fedcba')
+DEBUG: Found palindrome: 'abcdefedcba' (sa='abcdef', sb='edcba')
+DEBUG: Found palindrome: 'abcdefghgfedcba' (sa='abcdefg', sb='hgfedcba')
+DEBUG: New best: 'abcdefghgfedcba' (was 'abcdefgfedcba')
+DEBUG: Found palindrome: 'gfedcbabcdefg' (sa='abcdefg', sb='gfedcb')
+DEBUG: Found palindrome: 'abcdefggfedcba' (sa='abcdefg', sb='gfedcba')
+DEBUG: Found palindrome: 'gfedcbaabcdefg' (sa='abcdefg', sb='gfedcba')
+DEBUG: Found palindrome: 'abcdefgfedcba' (sa='abcdefg', sb='fedcba')
+DEBUG: Found palindrome: 'abcdefghihgfedcba' (sa='abcdefgh', sb='ihgfedcba')
+DEBUG: New best: 'abcdefghihgfedcba' (was 'abcdefghgfedcba')
+DEBUG: Found palindrome: 'hgfedcbabcdefgh' (sa='abcdefgh', sb='hgfedcb')
+DEBUG: Found palindrome: 'abcdefghhgfedcba' (sa='abcdefgh', sb='hgfedcba')
+DEBUG: Found palindrome: 'hgfedcbaabcdefgh' (sa='abcdefgh', sb='hgfedcba')
+DEBUG: Found palindrome: 'abcdefghgfedcba' (sa='abcdefgh', sb='gfedcba')
+DEBUG: Found palindrome: 'abcdefghijihgfedcba' (sa='abcdefghi', sb='jihgfedcba')
+DEBUG: New best: 'abcdefghijihgfedcba' (was 'abcdefghihgfedcba')
+DEBUG: Found palindrome: 'ihgfedcbabcdefghi' (sa='abcdefghi', sb='ihgfedcb')
+DEBUG: Found palindrome: 'abcdefghiihgfedcba' (sa='abcdefghi', sb='ihgfedcba')
+DEBUG: Found palindrome: 'ihgfedcbaabcdefghi' (sa='abcdefghi', sb='ihgfedcba')
+DEBUG: Found palindrome: 'abcdefghihgfedcba' (sa='abcdefghi', sb='hgfedcba')
+DEBUG: Found palindrome: 'jihgfedcbabcdefghij' (sa='abcdefghij', sb='jihgfedcb')
+DEBUG: Found palindrome: 'abcdefghijjihgfedcba' (sa='abcdefghij', sb='jihgfedcba')
+DEBUG: New best: 'abcdefghijjihgfedcba' (was 'abcdefghijihgfedcba')
+DEBUG: Found palindrome: 'jihgfedcbaabcdefghij' (sa='abcdefghij', sb='jihgfedcba')
+DEBUG: Found palindrome: 'abcdefghijihgfedcba' (sa='abcdefghij', sb='ihgfedcba')
+DEBUG: Found palindrome: 'bcb' (sa='b', sb='cb')
+DEBUG: Found palindrome: 'bb' (sa='b', sb='b')
+DEBUG: Found palindrome: 'bb' (sa='b', sb='b')
+DEBUG: Found palindrome: 'bab' (sa='b', sb='ba')
+DEBUG: Found palindrome: 'bcdcb' (sa='bc', sb='dcb')
+DEBUG: Found palindrome: 'cbc' (sa='bc', sb='c')
+DEBUG: Found palindrome: 'bccb' (sa='bc', sb='cb')
+DEBUG: Found palindrome: 'cbbc' (sa='bc', sb='cb')
+DEBUG: Found palindrome: 'cbabc' (sa='bc', sb='cba')
+DEBUG: Found palindrome: 'bcb' (sa='bc', sb='b')
+DEBUG: Found palindrome: 'bcdedcb' (sa='bcd', sb='edcb')
+DEBUG: Found palindrome: 'dcbcd' (sa='bcd', sb='dc')
+DEBUG: Found palindrome: 'bcddcb' (sa='bcd', sb='dcb')
+DEBUG: Found palindrome: 'dcbbcd' (sa='bcd', sb='dcb')
+DEBUG: Found palindrome: 'dcbabcd' (sa='bcd', sb='dcba')
+DEBUG: Found palindrome: 'bcdcb' (sa='bcd', sb='cb')
+DEBUG: Found palindrome: 'bcdefedcb' (sa='bcde', sb='fedcb')
+DEBUG: Found palindrome: 'edcbcde' (sa='bcde', sb='edc')
+DEBUG: Found palindrome: 'bcdeedcb' (sa='bcde', sb='edcb')
+DEBUG: Found palindrome: 'edcbbcde' (sa='bcde', sb='edcb')
+DEBUG: Found palindrome: 'edcbabcde' (sa='bcde', sb='edcba')
+DEBUG: Found palindrome: 'bcdedcb' (sa='bcde', sb='dcb')
+DEBUG: Found palindrome: 'bcdefgfedcb' (sa='bcdef', sb='gfedcb')
+DEBUG: Found palindrome: 'fedcbcdef' (sa='bcdef', sb='fedc')
+DEBUG: Found palindrome: 'bcdeffedcb' (sa='bcdef', sb='fedcb')
+DEBUG: Found palindrome: 'fedcbbcdef' (sa='bcdef', sb='fedcb')
+DEBUG: Found palindrome: 'fedcbabcdef' (sa='bcdef', sb='fedcba')
+DEBUG: Found palindrome: 'bcdefedcb' (sa='bcdef', sb='edcb')
+DEBUG: Found palindrome: 'bcdefghgfedcb' (sa='bcdefg', sb='hgfedcb')
+DEBUG: Found palindrome: 'gfedcbcdefg' (sa='bcdefg', sb='gfedc')
+DEBUG: Found palindrome: 'bcdefggfedcb' (sa='bcdefg', sb='gfedcb')
+DEBUG: Found palindrome: 'gfedcbbcdefg' (sa='bcdefg', sb='gfedcb')
+DEBUG: Found palindrome: 'gfedcbabcdefg' (sa='bcdefg', sb='gfedcba')
+DEBUG: Found palindrome: 'bcdefgfedcb' (sa='bcdefg', sb='fedcb')
+DEBUG: Found palindrome: 'bcdefghihgfedcb' (sa='bcdefgh', sb='ihgfedcb')
+DEBUG: Found palindrome: 'hgfedcbcdefgh' (sa='bcdefgh', sb='hgfedc')
+DEBUG: Found palindrome: 'bcdefghhgfedcb' (sa='bcdefgh', sb='hgfedcb')
+DEBUG: Found palindrome: 'hgfedcbbcdefgh' (sa='bcdefgh', sb='hgfedcb')
+DEBUG: Found palindrome: 'hgfedcbabcdefgh' (sa='bcdefgh', sb='hgfedcba')
+DEBUG: Found palindrome: 'bcdefghgfedcb' (sa='bcdefgh', sb='gfedcb')
+DEBUG: Found palindrome: 'bcdefghijihgfedcb' (sa='bcdefghi', sb='jihgfedcb')
+DEBUG: Found palindrome: 'ihgfedcbcdefghi' (sa='bcdefghi', sb='ihgfedc')
+DEBUG: Found palindrome: 'bcdefghiihgfedcb' (sa='bcdefghi', sb='ihgfedcb')
+DEBUG: Found palindrome: 'ihgfedcbbcdefghi' (sa='bcdefghi', sb='ihgfedcb')
+DEBUG: Found palindrome: 'ihgfedcbabcdefghi' (sa='bcdefghi', sb='ihgfedcba')
+DEBUG: Found palindrome: 'bcdefghihgfedcb' (sa='bcdefghi', sb='hgfedcb')
+DEBUG: Found palindrome: 'jihgfedcbcdefghij' (sa='bcdefghij', sb='jihgfedc')
+DEBUG: Found palindrome: 'bcdefghijjihgfedcb' (sa='bcdefghij', sb='jihgfedcb')
+DEBUG: Found palindrome: 'jihgfedcbbcdefghij' (sa='bcdefghij', sb='jihgfedcb')
+DEBUG: Found palindrome: 'jihgfedcbabcdefghij' (sa='bcdefghij', sb='jihgfedcba')
+DEBUG: Found palindrome: 'bcdefghijihgfedcb' (sa='bcdefghij', sb='ihgfedcb')
+DEBUG: Found palindrome: 'cdc' (sa='c', sb='dc')
+DEBUG: Found palindrome: 'cc' (sa='c', sb='c')
+DEBUG: Found palindrome: 'cc' (sa='c', sb='c')
+DEBUG: Found palindrome: 'cbc' (sa='c', sb='cb')
+DEBUG: Found palindrome: 'cdedc' (sa='cd', sb='edc')
+DEBUG: Found palindrome: 'dcd' (sa='cd', sb='d')
+DEBUG: Found palindrome: 'cddc' (sa='cd', sb='dc')
+DEBUG: Found palindrome: 'dccd' (sa='cd', sb='dc')
+DEBUG: Found palindrome: 'dcbcd' (sa='cd', sb='dcb')
+DEBUG: Found palindrome: 'cdc' (sa='cd', sb='c')
+DEBUG: Found palindrome: 'cdefedc' (sa='cde', sb='fedc')
+DEBUG: Found palindrome: 'edcde' (sa='cde', sb='ed')
+DEBUG: Found palindrome: 'cdeedc' (sa='cde', sb='edc')
+DEBUG: Found palindrome: 'edccde' (sa='cde', sb='edc')
+DEBUG: Found palindrome: 'edcbcde' (sa='cde', sb='edcb')
+DEBUG: Found palindrome: 'cdedc' (sa='cde', sb='dc')
+DEBUG: Found palindrome: 'cdefgfedc' (sa='cdef', sb='gfedc')
+DEBUG: Found palindrome: 'fedcdef' (sa='cdef', sb='fed')
+DEBUG: Found palindrome: 'cdeffedc' (sa='cdef', sb='fedc')
+DEBUG: Found palindrome: 'fedccdef' (sa='cdef', sb='fedc')
+DEBUG: Found palindrome: 'fedcbcdef' (sa='cdef', sb='fedcb')
+DEBUG: Found palindrome: 'cdefedc' (sa='cdef', sb='edc')
+DEBUG: Found palindrome: 'cdefghgfedc' (sa='cdefg', sb='hgfedc')
+DEBUG: Found palindrome: 'gfedcdefg' (sa='cdefg', sb='gfed')
+DEBUG: Found palindrome: 'cdefggfedc' (sa='cdefg', sb='gfedc')
+DEBUG: Found palindrome: 'gfedccdefg' (sa='cdefg', sb='gfedc')
+DEBUG: Found palindrome: 'gfedcbcdefg' (sa='cdefg', sb='gfedcb')
+DEBUG: Found palindrome: 'cdefgfedc' (sa='cdefg', sb='fedc')
+DEBUG: Found palindrome: 'cdefghihgfedc' (sa='cdefgh', sb='ihgfedc')
+DEBUG: Found palindrome: 'hgfedcdefgh' (sa='cdefgh', sb='hgfed')
+DEBUG: Found palindrome: 'cdefghhgfedc' (sa='cdefgh', sb='hgfedc')
+DEBUG: Found palindrome: 'hgfedccdefgh' (sa='cdefgh', sb='hgfedc')
+DEBUG: Found palindrome: 'hgfedcbcdefgh' (sa='cdefgh', sb='hgfedcb')
+DEBUG: Found palindrome: 'cdefghgfedc' (sa='cdefgh', sb='gfedc')
+DEBUG: Found palindrome: 'cdefghijihgfedc' (sa='cdefghi', sb='jihgfedc')
+DEBUG: Found palindrome: 'ihgfedcdefghi' (sa='cdefghi', sb='ihgfed')
+DEBUG: Found palindrome: 'cdefghiihgfedc' (sa='cdefghi', sb='ihgfedc')
+DEBUG: Found palindrome: 'ihgfedccdefghi' (sa='cdefghi', sb='ihgfedc')
+DEBUG: Found palindrome: 'ihgfedcbcdefghi' (sa='cdefghi', sb='ihgfedcb')
+DEBUG: Found palindrome: 'cdefghihgfedc' (sa='cdefghi', sb='hgfedc')
+DEBUG: Found palindrome: 'jihgfedcdefghij' (sa='cdefghij', sb='jihgfed')
+DEBUG: Found palindrome: 'cdefghijjihgfedc' (sa='cdefghij', sb='jihgfedc')
+DEBUG: Found palindrome: 'jihgfedccdefghij' (sa='cdefghij', sb='jihgfedc')
+DEBUG: Found palindrome: 'jihgfedcbcdefghij' (sa='cdefghij', sb='jihgfedcb')
+DEBUG: Found palindrome: 'cdefghijihgfedc' (sa='cdefghij', sb='ihgfedc')
+DEBUG: Found palindrome: 'ded' (sa='d', sb='ed')
+DEBUG: Found palindrome: 'dd' (sa='d', sb='d')
+DEBUG: Found palindrome: 'dd' (sa='d', sb='d')
+DEBUG: Found palindrome: 'dcd' (sa='d', sb='dc')
+DEBUG: Found palindrome: 'defed' (sa='de', sb='fed')
+DEBUG: Found palindrome: 'ede' (sa='de', sb='e')
+DEBUG: Found palindrome: 'deed' (sa='de', sb='ed')
+DEBUG: Found palindrome: 'edde' (sa='de', sb='ed')
+DEBUG: Found palindrome: 'edcde' (sa='de', sb='edc')
+DEBUG: Found palindrome: 'ded' (sa='de', sb='d')
+DEBUG: Found palindrome: 'defgfed' (sa='def', sb='gfed')
+DEBUG: Found palindrome: 'fedef' (sa='def', sb='fe')
+DEBUG: Found palindrome: 'deffed' (sa='def', sb='fed')
+DEBUG: Found palindrome: 'feddef' (sa='def', sb='fed')
+DEBUG: Found palindrome: 'fedcdef' (sa='def', sb='fedc')
+DEBUG: Found palindrome: 'defed' (sa='def', sb='ed')
+DEBUG: Found palindrome: 'defghgfed' (sa='defg', sb='hgfed')
+DEBUG: Found palindrome: 'gfedefg' (sa='defg', sb='gfe')
+DEBUG: Found palindrome: 'defggfed' (sa='defg', sb='gfed')
+DEBUG: Found palindrome: 'gfeddefg' (sa='defg', sb='gfed')
+DEBUG: Found palindrome: 'gfedcdefg' (sa='defg', sb='gfedc')
+DEBUG: Found palindrome: 'defgfed' (sa='defg', sb='fed')
+DEBUG: Found palindrome: 'defghihgfed' (sa='defgh', sb='ihgfed')
+DEBUG: Found palindrome: 'hgfedefgh' (sa='defgh', sb='hgfe')
+DEBUG: Found palindrome: 'defghhgfed' (sa='defgh', sb='hgfed')
+DEBUG: Found palindrome: 'hgfeddefgh' (sa='defgh', sb='hgfed')
+DEBUG: Found palindrome: 'hgfedcdefgh' (sa='defgh', sb='hgfedc')
+DEBUG: Found palindrome: 'defghgfed' (sa='defgh', sb='gfed')
+DEBUG: Found palindrome: 'defghijihgfed' (sa='defghi', sb='jihgfed')
+DEBUG: Found palindrome: 'ihgfedefghi' (sa='defghi', sb='ihgfe')
+DEBUG: Found palindrome: 'defghiihgfed' (sa='defghi', sb='ihgfed')
+DEBUG: Found palindrome: 'ihgfeddefghi' (sa='defghi', sb='ihgfed')
+DEBUG: Found palindrome: 'ihgfedcdefghi' (sa='defghi', sb='ihgfedc')
+DEBUG: Found palindrome: 'defghihgfed' (sa='defghi', sb='hgfed')
+DEBUG: Found palindrome: 'jihgfedefghij' (sa='defghij', sb='jihgfe')
+DEBUG: Found palindrome: 'defghijjihgfed' (sa='defghij', sb='jihgfed')
+DEBUG: Found palindrome: 'jihgfeddefghij' (sa='defghij', sb='jihgfed')
+DEBUG: Found palindrome: 'jihgfedcdefghij' (sa='defghij', sb='jihgfedc')
+DEBUG: Found palindrome: 'defghijihgfed' (sa='defghij', sb='ihgfed')
+DEBUG: Found palindrome: 'efe' (sa='e', sb='fe')
+DEBUG: Found palindrome: 'ee' (sa='e', sb='e')
+DEBUG: Found palindrome: 'ee' (sa='e', sb='e')
+DEBUG: Found palindrome: 'ede' (sa='e', sb='ed')
+DEBUG: Found palindrome: 'efgfe' (sa='ef', sb='gfe')
+DEBUG: Found palindrome: 'fef' (sa='ef', sb='f')
+DEBUG: Found palindrome: 'effe' (sa='ef', sb='fe')
+DEBUG: Found palindrome: 'feef' (sa='ef', sb='fe')
+DEBUG: Found palindrome: 'fedef' (sa='ef', sb='fed')
+DEBUG: Found palindrome: 'efe' (sa='ef', sb='e')
+DEBUG: Found palindrome: 'efghgfe' (sa='efg', sb='hgfe')
+DEBUG: Found palindrome: 'gfefg' (sa='efg', sb='gf')
+DEBUG: Found palindrome: 'efggfe' (sa='efg', sb='gfe')
+DEBUG: Found palindrome: 'gfeefg' (sa='efg', sb='gfe')
+DEBUG: Found palindrome: 'gfedefg' (sa='efg', sb='gfed')
+DEBUG: Found palindrome: 'efgfe' (sa='efg', sb='fe')
+DEBUG: Found palindrome: 'efghihgfe' (sa='efgh', sb='ihgfe')
+DEBUG: Found palindrome: 'hgfefgh' (sa='efgh', sb='hgf')
+DEBUG: Found palindrome: 'efghhgfe' (sa='efgh', sb='hgfe')
+DEBUG: Found palindrome: 'hgfeefgh' (sa='efgh', sb='hgfe')
+DEBUG: Found palindrome: 'hgfedefgh' (sa='efgh', sb='hgfed')
+DEBUG: Found palindrome: 'efghgfe' (sa='efgh', sb='gfe')
+DEBUG: Found palindrome: 'efghijihgfe' (sa='efghi', sb='jihgfe')
+DEBUG: Found palindrome: 'ihgfefghi' (sa='efghi', sb='ihgf')
+DEBUG: Found palindrome: 'efghiihgfe' (sa='efghi', sb='ihgfe')
+DEBUG: Found palindrome: 'ihgfeefghi' (sa='efghi', sb='ihgfe')
+DEBUG: Found palindrome: 'ihgfedefghi' (sa='efghi', sb='ihgfed')
+DEBUG: Found palindrome: 'efghihgfe' (sa='efghi', sb='hgfe')
+DEBUG: Found palindrome: 'jihgfefghij' (sa='efghij', sb='jihgf')
+DEBUG: Found palindrome: 'efghijjihgfe' (sa='efghij', sb='jihgfe')
+DEBUG: Found palindrome: 'jihgfeefghij' (sa='efghij', sb='jihgfe')
+DEBUG: Found palindrome: 'jihgfedefghij' (sa='efghij', sb='jihgfed')
+DEBUG: Found palindrome: 'efghijihgfe' (sa='efghij', sb='ihgfe')
+DEBUG: Found palindrome: 'fgf' (sa='f', sb='gf')
+DEBUG: Found palindrome: 'ff' (sa='f', sb='f')
+DEBUG: Found palindrome: 'ff' (sa='f', sb='f')
+DEBUG: Found palindrome: 'fef' (sa='f', sb='fe')
+DEBUG: Found palindrome: 'fghgf' (sa='fg', sb='hgf')
+DEBUG: Found palindrome: 'gfg' (sa='fg', sb='g')
+DEBUG: Found palindrome: 'fggf' (sa='fg', sb='gf')
+DEBUG: Found palindrome: 'gffg' (sa='fg', sb='gf')
+DEBUG: Found palindrome: 'gfefg' (sa='fg', sb='gfe')
+DEBUG: Found palindrome: 'fgf' (sa='fg', sb='f')
+DEBUG: Found palindrome: 'fghihgf' (sa='fgh', sb='ihgf')
+DEBUG: Found palindrome: 'hgfgh' (sa='fgh', sb='hg')
+DEBUG: Found palindrome: 'fghhgf' (sa='fgh', sb='hgf')
+DEBUG: Found palindrome: 'hgffgh' (sa='fgh', sb='hgf')
+DEBUG: Found palindrome: 'hgfefgh' (sa='fgh', sb='hgfe')
+DEBUG: Found palindrome: 'fghgf' (sa='fgh', sb='gf')
+DEBUG: Found palindrome: 'fghijihgf' (sa='fghi', sb='jihgf')
+DEBUG: Found palindrome: 'ihgfghi' (sa='fghi', sb='ihg')
+DEBUG: Found palindrome: 'fghiihgf' (sa='fghi', sb='ihgf')
+DEBUG: Found palindrome: 'ihgffghi' (sa='fghi', sb='ihgf')
+DEBUG: Found palindrome: 'ihgfefghi' (sa='fghi', sb='ihgfe')
+DEBUG: Found palindrome: 'fghihgf' (sa='fghi', sb='hgf')
+DEBUG: Found palindrome: 'jihgfghij' (sa='fghij', sb='jihg')
+DEBUG: Found palindrome: 'fghijjihgf' (sa='fghij', sb='jihgf')
+DEBUG: Found palindrome: 'jihgffghij' (sa='fghij', sb='jihgf')
+DEBUG: Found palindrome: 'jihgfefghij' (sa='fghij', sb='jihgfe')
+DEBUG: Found palindrome: 'fghijihgf' (sa='fghij', sb='ihgf')
+DEBUG: Found palindrome: 'ghg' (sa='g', sb='hg')
+DEBUG: Found palindrome: 'gg' (sa='g', sb='g')
+DEBUG: Found palindrome: 'gg' (sa='g', sb='g')
+DEBUG: Found palindrome: 'gfg' (sa='g', sb='gf')
+DEBUG: Found palindrome: 'ghihg' (sa='gh', sb='ihg')
+DEBUG: Found palindrome: 'hgh' (sa='gh', sb='h')
+DEBUG: Found palindrome: 'ghhg' (sa='gh', sb='hg')
+DEBUG: Found palindrome: 'hggh' (sa='gh', sb='hg')
+DEBUG: Found palindrome: 'hgfgh' (sa='gh', sb='hgf')
+DEBUG: Found palindrome: 'ghg' (sa='gh', sb='g')
+DEBUG: Found palindrome: 'ghijihg' (sa='ghi', sb='jihg')
+DEBUG: Found palindrome: 'ihghi' (sa='ghi', sb='ih')
+DEBUG: Found palindrome: 'ghiihg' (sa='ghi', sb='ihg')
+DEBUG: Found palindrome: 'ihgghi' (sa='ghi', sb='ihg')
+DEBUG: Found palindrome: 'ihgfghi' (sa='ghi', sb='ihgf')
+DEBUG: Found palindrome: 'ghihg' (sa='ghi', sb='hg')
+DEBUG: Found palindrome: 'jihghij' (sa='ghij', sb='jih')
+DEBUG: Found palindrome: 'ghijjihg' (sa='ghij', sb='jihg')
+DEBUG: Found palindrome: 'jihgghij' (sa='ghij', sb='jihg')
+DEBUG: Found palindrome: 'jihgfghij' (sa='ghij', sb='jihgf')
+DEBUG: Found palindrome: 'ghijihg' (sa='ghij', sb='ihg')
+DEBUG: Found palindrome: 'hih' (sa='h', sb='ih')
+DEBUG: Found palindrome: 'hh' (sa='h', sb='h')
+DEBUG: Found palindrome: 'hh' (sa='h', sb='h')
+DEBUG: Found palindrome: 'hgh' (sa='h', sb='hg')
+DEBUG: Found palindrome: 'hijih' (sa='hi', sb='jih')
+DEBUG: Found palindrome: 'ihi' (sa='hi', sb='i')
+DEBUG: Found palindrome: 'hiih' (sa='hi', sb='ih')
+DEBUG: Found palindrome: 'ihhi' (sa='hi', sb='ih')
+DEBUG: Found palindrome: 'ihghi' (sa='hi', sb='ihg')
+DEBUG: Found palindrome: 'hih' (sa='hi', sb='h')
+DEBUG: Found palindrome: 'jihij' (sa='hij', sb='ji')
+DEBUG: Found palindrome: 'hijjih' (sa='hij', sb='jih')
+DEBUG: Found palindrome: 'jihhij' (sa='hij', sb='jih')
+DEBUG: Found palindrome: 'jihghij' (sa='hij', sb='jihg')
+DEBUG: Found palindrome: 'hijih' (sa='hij', sb='ih')
+DEBUG: Found palindrome: 'iji' (sa='i', sb='ji')
+DEBUG: Found palindrome: 'ii' (sa='i', sb='i')
+DEBUG: Found palindrome: 'ii' (sa='i', sb='i')
+DEBUG: Found palindrome: 'ihi' (sa='i', sb='ih')
+DEBUG: Found palindrome: 'jij' (sa='ij', sb='j')
+DEBUG: Found palindrome: 'ijji' (sa='ij', sb='ji')
+DEBUG: Found palindrome: 'jiij' (sa='ij', sb='ji')
+DEBUG: Found palindrome: 'jihij' (sa='ij', sb='jih')
+DEBUG: Found palindrome: 'iji' (sa='ij', sb='i')
+DEBUG: Found palindrome: 'jj' (sa='j', sb='j')
+DEBUG: Found palindrome: 'jj' (sa='j', sb='j')
+DEBUG: Found palindrome: 'jij' (sa='j', sb='ji')
+DEBUG: All palindromes found: ['aa', 'aba', 'abba', 'abcba', 'abccba', 'abcdcba', 'abcddcba', 'abcdedcba', 'abcdeedcba', 'abcdefedcba', 'abcdeffedcba', 'abcdefgfedcba', 'abcdefggfedcba', 'abcdefghgfedcba', 'abcdefghhgfedcba', 'abcdefghihgfedcba', 'abcdefghiihgfedcba', 'abcdefghijihgfedcba', 'abcdefghijjihgfedcba', 'baab', 'bab', 'bb', 'bcb', 'bccb', 'bcdcb', 'bcddcb', 'bcdedcb', 'bcdeedcb', 'bcdefedcb', 'bcdeffedcb', 'bcdefgfedcb', 'bcdefggfedcb', 'bcdefghgfedcb', 'bcdefghhgfedcb', 'bcdefghihgfedcb', 'bcdefghiihgfedcb', 'bcdefghijihgfedcb', 'bcdefghijjihgfedcb', 'cbaabc', 'cbabc', 'cbbc', 'cbc', 'cc', 'cdc', 'cddc', 'cdedc', 'cdeedc', 'cdefedc', 'cdeffedc', 'cdefgfedc', 'cdefggfedc', 'cdefghgfedc', 'cdefghhgfedc', 'cdefghihgfedc', 'cdefghiihgfedc', 'cdefghijihgfedc', 'cdefghijjihgfedc', 'dcbaabcd', 'dcbabcd', 'dcbbcd', 'dcbcd', 'dccd', 'dcd', 'dd', 'ded', 'deed', 'defed', 'deffed', 'defgfed', 'defggfed', 'defghgfed', 'defghhgfed', 'defghihgfed', 'defghiihgfed', 'defghijihgfed', 'defghijjihgfed', 'edcbaabcde', 'edcbabcde', 'edcbbcde', 'edcbcde', 'edccde', 'edcde', 'edde', 'ede', 'ee', 'efe', 'effe', 'efgfe', 'efggfe', 'efghgfe', 'efghhgfe', 'efghihgfe', 'efghiihgfe', 'efghijihgfe', 'efghijjihgfe', 'fedcbaabcdef', 'fedcbabcdef', 'fedcbbcdef', 'fedcbcdef', 'fedccdef', 'fedcdef', 'feddef', 'fedef', 'feef', 'fef', 'ff', 'fgf', 'fggf', 'fghgf', 'fghhgf', 'fghihgf', 'fghiihgf', 'fghijihgf', 'fghijjihgf', 'gfedcbaabcdefg', 'gfedcbabcdefg', 'gfedcbbcdefg', 'gfedcbcdefg', 'gfedccdefg', 'gfedcdefg', 'gfeddefg', 'gfedefg', 'gfeefg', 'gfefg', 'gffg', 'gfg', 'gg', 'ghg', 'ghhg', 'ghihg', 'ghiihg', 'ghijihg', 'ghijjihg', 'hgfedcbaabcdefgh', 'hgfedcbabcdefgh', 'hgfedcbbcdefgh', 'hgfedcbcdefgh', 'hgfedccdefgh', 'hgfedcdefgh', 'hgfeddefgh', 'hgfedefgh', 'hgfeefgh', 'hgfefgh', 'hgffgh', 'hgfgh', 'hggh', 'hgh', 'hh', 'hih', 'hiih', 'hijih', 'hijjih', 'ihgfedcbaabcdefghi', 'ihgfedcbabcdefghi', 'ihgfedcbbcdefghi', 'ihgfedcbcdefghi', 'ihgfedccdefghi', 'ihgfedcdefghi', 'ihgfeddefghi', 'ihgfedefghi', 'ihgfeefghi', 'ihgfefghi', 'ihgffghi', 'ihgfghi', 'ihgghi', 'ihghi', 'ihhi', 'ihi', 'ii', 'iji', 'ijji', 'jihgfedcbaabcdefghij', 'jihgfedcbabcdefghij', 'jihgfedcbbcdefghij', 'jihgfedcbcdefghij', 'jihgfedccdefghij', 'jihgfedcdefghij', 'jihgfeddefghij', 'jihgfedefghij', 'jihgfeefghij', 'jihgfefghij', 'jihgffghij', 'jihgfghij', 'jihgghij', 'jihghij', 'jihhij', 'jihij', 'jiij', 'jij', 'jj']
+DEBUG: Final best: 'abcdefghijjihgfedcba'
+Result: 'abcdefghijjihgfedcba'
+Time: 0.003s
+
+============================================================
+TEST: Lexicographic preference test
+Input: a='ba', b='ab'
+DEBUG: Processing a='ba', b='ab'
+DEBUG: Found 3 substrings from a: ['b', 'ba', 'a']
+DEBUG: Found 3 substrings from b: ['a', 'ab', 'b']
+DEBUG: Found palindrome: 'bab' (sa='b', sb='ab')
+DEBUG: New best: 'bab' (was 'None')
+DEBUG: Found palindrome: 'bb' (sa='b', sb='b')
+DEBUG: Found palindrome: 'bb' (sa='b', sb='b')
+DEBUG: Found palindrome: 'aba' (sa='ba', sb='a')
+DEBUG: New best: 'aba' (was 'bab')
+DEBUG: Found palindrome: 'baab' (sa='ba', sb='ab')
+DEBUG: New best: 'baab' (was 'aba')
+DEBUG: Found palindrome: 'abba' (sa='ba', sb='ab')
+DEBUG: New best: 'abba' (was 'baab')
+DEBUG: Found palindrome: 'bab' (sa='ba', sb='b')
+DEBUG: Found palindrome: 'aa' (sa='a', sb='a')
+DEBUG: Found palindrome: 'aa' (sa='a', sb='a')
+DEBUG: Found palindrome: 'aba' (sa='a', sb='ab')
+DEBUG: All palindromes found: ['aa', 'aba', 'abba', 'baab', 'bab', 'bb']
+DEBUG: Final best: 'abba'
+Result: 'abba'
+Expected: 'abba' - ✓ PASS
+Time: 0.000s
+
+============================================================
+TEST: Multiple same-length palindromes
+Input: a='cab', b='bac'
+DEBUG: Processing a='cab', b='bac'
+DEBUG: Found 6 substrings from a: ['c', 'ca', 'cab', 'a', 'ab', 'b']
+DEBUG: Found 6 substrings from b: ['b', 'ba', 'bac', 'a', 'ac', 'c']
+DEBUG: Found palindrome: 'cac' (sa='c', sb='ac')
+DEBUG: New best: 'cac' (was 'None')
+DEBUG: Found palindrome: 'cc' (sa='c', sb='c')
+DEBUG: Found palindrome: 'cc' (sa='c', sb='c')
+DEBUG: Found palindrome: 'cabac' (sa='ca', sb='bac')
+DEBUG: New best: 'cabac' (was 'cac')
+DEBUG: Found palindrome: 'aca' (sa='ca', sb='a')
+DEBUG: Found palindrome: 'caac' (sa='ca', sb='ac')
+DEBUG: Found palindrome: 'acca' (sa='ca', sb='ac')
+DEBUG: Found palindrome: 'cac' (sa='ca', sb='c')
+DEBUG: Found palindrome: 'bacab' (sa='cab', sb='ba')
+DEBUG: New best: 'bacab' (was 'cabac')
+DEBUG: Found palindrome: 'cabbac' (sa='cab', sb='bac')
+DEBUG: New best: 'cabbac' (was 'bacab')
+DEBUG: Found palindrome: 'baccab' (sa='cab', sb='bac')
+DEBUG: New best: 'baccab' (was 'cabbac')
+DEBUG: Found palindrome: 'cabac' (sa='cab', sb='ac')
+DEBUG: Found palindrome: 'aba' (sa='a', sb='ba')
+DEBUG: Found palindrome: 'aa' (sa='a', sb='a')
+DEBUG: Found palindrome: 'aa' (sa='a', sb='a')
+DEBUG: Found palindrome: 'aca' (sa='a', sb='ac')
+DEBUG: Found palindrome: 'bab' (sa='ab', sb='b')
+DEBUG: Found palindrome: 'abba' (sa='ab', sb='ba')
+DEBUG: Found palindrome: 'baab' (sa='ab', sb='ba')
+DEBUG: Found palindrome: 'bacab' (sa='ab', sb='bac')
+DEBUG: Found palindrome: 'aba' (sa='ab', sb='a')
+DEBUG: Found palindrome: 'bb' (sa='b', sb='b')
+DEBUG: Found palindrome: 'bb' (sa='b', sb='b')
+DEBUG: Found palindrome: 'bab' (sa='b', sb='ba')
+DEBUG: All palindromes found: ['aa', 'aba', 'abba', 'aca', 'acca', 'baab', 'bab', 'bacab', 'baccab', 'bb', 'caac', 'cabac', 'cabbac', 'cac', 'cc']
+DEBUG: Final best: 'baccab'
+Result: 'baccab'
+Expected: 'aba' - ✗ FAIL
+Time: 0.000s
+
+============================================================
+TEST: No common characters
+Input: a='xyz', b='abc'
+DEBUG: Processing a='xyz', b='abc'
+DEBUG: Found 6 substrings from a: ['x', 'xy', 'xyz', 'y', 'yz', 'z']
+DEBUG: Found 6 substrings from b: ['a', 'ab', 'abc', 'b', 'bc', 'c']
+DEBUG: All palindromes found: []
+DEBUG: Final best: 'None'
+Result: '-1'
+Expected: '-1' - ✓ PASS
+Time: 0.000s
+
+============================================================
+TEST: No overlap at all
+Input: a='123', b='456'
+DEBUG: Processing a='123', b='456'
+DEBUG: Found 6 substrings from a: ['1', '12', '123', '2', '23', '3']
+DEBUG: Found 6 substrings from b: ['4', '45', '456', '5', '56', '6']
+DEBUG: All palindromes found: []
+DEBUG: Final best: 'None'
+Result: '-1'
+Expected: '-1' - ✓ PASS
+Time: 0.000s
+
+============================================================
+TEST SUITE COMPLETE
