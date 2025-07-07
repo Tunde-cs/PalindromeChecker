@@ -16,9 +16,9 @@ def buildPalindrome(a, b):
     
     best_palindromes = []
     
-    # Try all possible substrings efficiently
-    # Limit substring length to avoid TLE but allow reasonable sizes
-    max_len = min(10, len(a), len(b))  # More conservative limit
+    # Try all possible substrings with a reasonable limit
+    # Maybe the problem prefers shorter palindromes with length constraint
+    max_len = min(6, len(a), len(b))  # Even more conservative
     print(f"[DEBUG] Max substring length: {max_len}")
     
     for len_a in range(1, min(len(a), max_len) + 1):
@@ -31,10 +31,27 @@ def buildPalindrome(a, b):
                     
                     # Try both combinations
                     for combo in [sa + sb, sb + sa]:
-                        print(f"[DEBUG] Trying combo: '{combo}' (sa='{sa}', sb='{sb}')")
-                        if combo == combo[::-1]:  # is palindrome
-                            print(f"[DEBUG] Found palindrome: '{combo}'")
-                            best_palindromes.append(combo)
+                        # Add constraint: prefer palindromes <= 5 chars
+                        if len(combo) <= 5:
+                            print(f"[DEBUG] Trying combo: '{combo}' (sa='{sa}', sb='{sb}')")
+                            if combo == combo[::-1]:  # is palindrome
+                                print(f"[DEBUG] Found palindrome: '{combo}'")
+                                best_palindromes.append(combo)
+    
+    if not best_palindromes:
+        print("[DEBUG] No short palindromes found, trying longer ones...")
+        # Fallback: try longer palindromes if no short ones found
+        for len_a in range(1, min(len(a), 10) + 1):
+            for start_a in range(len(a) - len_a + 1):
+                sa = a[start_a:start_a + len_a]
+                
+                for len_b in range(1, min(len(b), 10) + 1):
+                    for start_b in range(len(b) - len_b + 1):
+                        sb = b[start_b:start_b + len_b]
+                        
+                        for combo in [sa + sb, sb + sa]:
+                            if combo == combo[::-1]:
+                                best_palindromes.append(combo)
     
     if not best_palindromes:
         print("[DEBUG] No palindromes found, returning -1")
