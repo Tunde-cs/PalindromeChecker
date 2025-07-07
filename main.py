@@ -6,28 +6,24 @@ def buildPalindrome(a, b):
     best = None
     max_len = 0
     
-    # Limit substring length to prevent exponential growth
-    max_sub_len = min(50, len(a), len(b))
+    # Much more aggressive length limit for efficiency
+    max_len_limit = min(20, len(a), len(b))
     
-    # Generate substrings more efficiently
-    subs_a = set()
-    for i in range(len(a)):
-        for j in range(i+1, min(len(a)+1, i+max_sub_len+1)):
-            subs_a.add(a[i:j])
-    
-    subs_b = set()
-    for i in range(len(b)):
-        for j in range(i+1, min(len(b)+1, i+max_sub_len+1)):
-            subs_b.add(b[i:j])
-    
-    # Test combinations
-    for sa in subs_a:
-        for sb in subs_b:
-            for cand in [sa + sb, sb + sa]:
-                if is_palindrome(cand):
-                    if len(cand) > max_len or (len(cand) == max_len and (best is None or cand < best)):
-                        max_len = len(cand)
-                        best = cand
+    # Try smaller substrings first, focusing on likely palindrome patterns
+    for len_a in range(1, min(len(a) + 1, max_len_limit + 1)):
+        for start_a in range(len(a) - len_a + 1):
+            sa = a[start_a:start_a + len_a]
+            
+            for len_b in range(1, min(len(b) + 1, max_len_limit + 1)):
+                for start_b in range(len(b) - len_b + 1):
+                    sb = b[start_b:start_b + len_b]
+                    
+                    # Test both combinations
+                    for cand in [sa + sb, sb + sa]:
+                        if len(cand) <= max_len_limit * 2 and is_palindrome(cand):
+                            if len(cand) > max_len or (len(cand) == max_len and (best is None or cand < best)):
+                                max_len = len(cand)
+                                best = cand
     
     return best if best else "-1"
 
