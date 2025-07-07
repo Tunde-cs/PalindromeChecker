@@ -42,10 +42,13 @@ def buildPalindrome(a, b):
     
     return best if best else "-1"
 
-# Read input
-n = int(input())
-for _ in range(n):
-    a = input().strip()
-    b = input().strip()
+# Test cases for debugging without input()
+test_cases = [
+    ("bac", "bac"),    # Expected: aba
+    ("abc", "def"),    # Expected: -1
+    ("jdfh", "fds"),   # Expected: dfhfd
+]
+
+for a, b in test_cases:
     result = buildPalindrome(a, b)
-    print(result)
+    print(f"Result for a='{a}', b='{b}': {result}")
