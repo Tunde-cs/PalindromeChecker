@@ -5,75 +5,43 @@ import os
 import random
 import re
 import sys
-
-# Debug flag - set to False to disable debug output
-DEBUG = True
-
-def debug_print(msg):
-    if DEBUG:
-        print(msg)
+import time
 
 def is_palindrome(s):
     return s == s[::-1]
 
 def buildPalindrome(a, b):
-    debug_print(f"DEBUG: Input a='{a}', b='{b}'")
+    best = None
+    max_len = 0
+    max_limit = 20  # Performance limit
 
     # Early exit for empty strings
     if not a or not b:
-        debug_print("DEBUG: Empty string detected, returning -1")
         return "-1"
 
-    # DP table: dp[i][j][k][l][order] = longest palindrome using a[i:i+k] and b[j:j+l]
-    # order: 0 for a_substring + b_substring, 1 for b_substring + a_substring
-    dp = {}
+    for len_a in range(1, min(len(a), max_limit) + 1):
+        # Early termination if we can't possibly beat current best
+        if best and len_a + len(b) <= max_len:
+            continue
 
-    max_len = 0
-    best_palindrome = None
+        for start_a in range(len(a) - len_a + 1):
+            sa = a[start_a:start_a + len_a]
 
-    # Performance limits
-    max_a_len = min(len(a), 15)
-    max_b_len = min(len(b), 15)
+            for len_b in range(1, min(len(b), max_limit) + 1):
+                # Early termination
+                if best and len_a + len_b <= max_len:
+                    continue
 
-    debug_print(f"DEBUG: DP table limits: max_a_len={max_a_len}, max_b_len={max_b_len}")
+                for start_b in range(len(b) - len_b + 1):
+                    sb = b[start_b:start_b + len_b]
 
-    # Build DP table from zero
-    for a_start in range(len(a)):
-        for a_len in range(1, min(max_a_len + 1, len(a) - a_start + 1)):
-            for b_start in range(len(b)):
-                for b_len in range(1, min(max_b_len + 1, len(b) - b_start + 1)):
-                    # Extract substrings
-                    sa = a[a_start:a_start + a_len]
-                    sb = b[b_start:b_start + b_len]
+                    for cand in [sa + sb, sb + sa]:
+                        if is_palindrome(cand):
+                            if len(cand) > max_len or (len(cand) == max_len and (best is None or cand < best)):
+                                best = cand
+                                max_len = len(cand)
 
-                    # Try both orders
-                    for order in [0, 1]:
-                        candidate = sa + sb if order == 0 else sb + sa
-
-                        debug_print(f"DEBUG: DP[{a_start}][{a_len}][{b_start}][{b_len}][{order}] = '{candidate}'")
-
-                        # Store in DP table
-                        key = (a_start, a_len, b_start, b_len, order)
-
-                        if is_palindrome(candidate):
-                            dp[key] = candidate
-                            debug_print(f"DEBUG: Found palindrome: '{candidate}' (length {len(candidate)})")
-
-                            # Update best ONLY if this is strictly longer
-                            if len(candidate) > max_len:
-                                max_len = len(candidate)
-                                best_palindrome = candidate
-                                debug_print(f"DEBUG: ✓ NEW BEST: '{best_palindrome}' (length {max_len})")
-                            else:
-                                debug_print(f"DEBUG: Palindrome '{candidate}' not longer than current best (length {max_len})")
-                        else:
-                            dp[key] = None
-
-    debug_print(f"DEBUG: DP table size: {len(dp)}")
-    debug_print(f"DEBUG: Final result: '{best_palindrome if best_palindrome else '-1'}'")
-
-    return best_palindrome if best_palindrome else "-1"
-
+    return best if best else "-1"
 
 if __name__ == '__main__':
     # Handle both submission environment and local testing
