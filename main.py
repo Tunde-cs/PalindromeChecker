@@ -1,4 +1,3 @@
-
 #!/bin/python3
 
 import math
@@ -7,8 +6,16 @@ import random
 import re
 import sys
 
+
 def buildPalindrome(a, b):
+    print(f"[DEBUG] Input a: '{a}', b: '{b}'")
+
     if not a or not b:
+        print("[DEBUG] One or both strings are empty. Returning '-1'")
+        return "-1"
+
+    if not (set(a) & set(b)):
+        print("[DEBUG] No common characters between strings. Returning '-1'")
         return "-1"
 
     def is_palindrome(s):
@@ -16,32 +23,28 @@ def buildPalindrome(a, b):
 
     best_palindrome = None
     max_length = 0
-    
-    # Try all possible substring combinations systematically
-    # Prioritize shorter substrings first to match expected behavior
+
+    # Try all combinations of substrings up to 20 chars to avoid TLE
     for len_a in range(1, min(len(a), 20) + 1):
         for len_b in range(1, min(len(b), 20) + 1):
-            current_max_possible = len_a + len_b
-            
-            # Try all starting positions for substring of length len_a
             for start_a in range(len(a) - len_a + 1):
                 sa = a[start_a:start_a + len_a]
-                
-                # Try all starting positions for substring of length len_b
                 for start_b in range(len(b) - len_b + 1):
                     sb = b[start_b:start_b + len_b]
-                    
-                    # Try both combinations: sa+sb and sb+sa
                     for combo in [sa + sb, sb + sa]:
+                        print(f"[DEBUG] Trying combo: '{combo}' (sa='{sa}', sb='{sb}')")
                         if is_palindrome(combo):
-                            # Update if this is better
-                            if (len(combo) > max_length or 
-                                (len(combo) == max_length and 
-                                 (best_palindrome is None or combo < best_palindrome))):
+                            print(f"[DEBUG] Palindrome found: '{combo}'")
+                            if (len(combo) > max_length or
+                               (len(combo) == max_length and
+                                (best_palindrome is None or combo < best_palindrome))):
+                                print(f"[DEBUG] New best palindrome: '{combo}' (old: '{best_palindrome}')")
                                 best_palindrome = combo
                                 max_length = len(combo)
 
-    return best_palindrome if best_palindrome else "-1"
+    result = best_palindrome if best_palindrome else "-1"
+    print(f"[DEBUG] Final result: '{result}'")
+    return result
 
 if __name__ == '__main__':
     # Handle both submission environment and local testing
