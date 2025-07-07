@@ -26,9 +26,8 @@ def buildPalindrome(a, b):
                     for combo in [sa + sb, sb + sa]:
                         if combo == combo[::-1]:  # is palindrome
                             combo_len = len(combo)
-                            if (best_palindrome is None or 
-                                combo_len > best_length or 
-                                (combo_len == best_length and combo < best_palindrome)):
+                            if (combo_len > best_length or 
+                                (combo_len == best_length and (best_palindrome is None or combo < best_palindrome))):
                                 best_palindrome = combo
                                 best_length = combo_len
 
@@ -47,9 +46,8 @@ def buildPalindrome(a, b):
                     for combo in [sa + sb_rev, sa_rev + sb, sb + sa_rev, sb_rev + sa]:
                         if combo == combo[::-1]:  # is palindrome
                             combo_len = len(combo)
-                            if (best_palindrome is None or 
-                                combo_len > best_length or 
-                                (combo_len == best_length and combo < best_palindrome)):
+                            if (combo_len > best_length or 
+                                (combo_len == best_length and (best_palindrome is None or combo < best_palindrome))):
                                 best_palindrome = combo
                                 best_length = combo_len
 
