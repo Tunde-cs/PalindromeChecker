@@ -40,13 +40,10 @@ def buildPalindrome(a, b):
                     print(f"DEBUG: Found palindrome: '{candidate}' (sa='{sa}', sb='{sb}')")
                     
                     # Update best if this candidate is better
-                    # Priority: longest first, then lexicographically smallest
-                    if (best is None or 
-                        len(candidate) > len(best) or 
-                        (len(candidate) == len(best) and candidate < best)):
+                    # Priority: lexicographically smallest first
+                    if (best is None or candidate < best):
                         print(f"DEBUG: New best: '{candidate}' (was '{best}')")
                         best = candidate
-                        max_len = len(candidate)
 
     print(f"DEBUG: All palindromes found: {sorted(set(palindromes_found))}")
     print(f"DEBUG: Final best: '{best}'")
