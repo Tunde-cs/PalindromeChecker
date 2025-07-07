@@ -11,32 +11,27 @@ def buildPalindrome(a, b):
     if not a or not b:
         return "-1"
     
-    palindrome_count = {}  # Track frequency of each palindrome
+    palindromes = set()  # Use set to avoid duplicates
     
-    # Try all possible substrings
-    max_len = min(len(a), len(b))
-    
-    for len_a in range(1, min(len(a), max_len) + 1):
+    # Try all possible substrings from both strings
+    for len_a in range(1, len(a) + 1):
         for start_a in range(len(a) - len_a + 1):
             sa = a[start_a:start_a + len_a]
             
-            for len_b in range(1, min(len(b), max_len) + 1):
+            for len_b in range(1, len(b) + 1):
                 for start_b in range(len(b) - len_b + 1):
                     sb = b[start_b:start_b + len_b]
                     
                     # Try both combinations
                     for combo in [sa + sb, sb + sa]:
                         if combo == combo[::-1]:  # is palindrome
-                            palindrome_count[combo] = palindrome_count.get(combo, 0) + 1
+                            palindromes.add(combo)
     
-    if not palindrome_count:
+    if not palindromes:
         return "-1"
     
-    # Get unique palindromes
-    unique_palindromes = list(palindrome_count.keys())
-    
-    # Sort by: (length DESC, lexicographic ASC)
-    sorted_palindromes = sorted(unique_palindromes, 
+    # Convert to list and sort by: (length DESC, lexicographic ASC)
+    sorted_palindromes = sorted(list(palindromes), 
                               key=lambda x: (-len(x), x))
     
     # Return the longest palindrome, lexicographically smallest if tie
