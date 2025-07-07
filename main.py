@@ -1,3 +1,4 @@
+
 #!/bin/python3
 
 import math
@@ -8,30 +9,33 @@ import sys
 
 
 def buildPalindrome(a, b):
-    n, m = len(a), len(b)
-    best = None
-    max_len = 0
-
     def is_palindrome(s):
         return s == s[::-1]
-
-    max_sub_len = 60  # Adjusted for deep palindromes
-
-    for i in range(n):
-        for j in range(i + 1, min(n + 1, i + max_sub_len + 1)):
+    
+    best_palindrome = None
+    best_length = 0
+    
+    # Try all possible substrings from both strings
+    for i in range(len(a)):
+        for j in range(i + 1, len(a) + 1):
             sa = a[i:j]
-            for k in range(m):
-                for l in range(k + 1, min(m + 1, k + max_sub_len + 1)):
+            
+            for k in range(len(b)):
+                for l in range(k + 1, len(b) + 1):
                     sb = b[k:l]
+                    
+                    # Try both combinations: sa + sb and sb + sa
                     for combo in [sa + sb, sb + sa]:
                         if is_palindrome(combo):
-                            if len(combo) > max_len or (
-                                    len(combo) == max_len and
-                                (best is None or combo < best)):
-                                best = combo
-                                max_len = len(combo)
-
-    return best if best else "-1"
+                            combo_len = len(combo)
+                            
+                            # Update if longer, or same length but lexicographically smaller
+                            if (combo_len > best_length or 
+                                (combo_len == best_length and (best_palindrome is None or combo < best_palindrome))):
+                                best_palindrome = combo
+                                best_length = combo_len
+    
+    return best_palindrome if best_palindrome else "-1"
 
 
 if __name__ == '__main__':
