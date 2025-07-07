@@ -1,3 +1,11 @@
+#!/bin/python3
+
+import math
+import os
+import random
+import re
+import sys
+
 def is_palindrome(s):
     return s == s[::-1]
 
@@ -35,3 +43,18 @@ def buildPalindrome(a, b):
 
     # Return the lexicographically smallest among maximum length palindromes
     return min(max_palindromes)
+
+if __name__ == '__main__':
+    fptr = open(os.environ['OUTPUT_PATH'], 'w')
+
+    t = int(input().strip())
+
+    for _ in range(t):
+        a = input().strip()
+        b = input().strip()
+
+        result = buildPalindrome(a, b)
+
+        fptr.write(result + '\n')
+
+    fptr.close()
