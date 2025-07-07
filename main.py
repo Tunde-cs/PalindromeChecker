@@ -17,25 +17,24 @@ def buildPalindrome(a, b):
     best_palindrome = None
     max_length = 0
     
-    # Performance optimization: limit substring length to prevent timeout
-    max_len_limit = min(20, len(a), len(b))
-    
-    n = len(a)
-    m = len(b)
-
-    # Try all possible substring combinations
-    for start_a in range(n):
-        for end_a in range(start_a + 1, min(start_a + max_len_limit + 1, n + 1)):
-            sa = a[start_a:end_a]
+    # Try all possible substring combinations systematically
+    # Prioritize shorter substrings first to match expected behavior
+    for len_a in range(1, min(len(a), 20) + 1):
+        for len_b in range(1, min(len(b), 20) + 1):
+            current_max_possible = len_a + len_b
             
-            for start_b in range(m):
-                for end_b in range(start_b + 1, min(start_b + max_len_limit + 1, m + 1)):
-                    sb = b[start_b:end_b]
+            # Try all starting positions for substring of length len_a
+            for start_a in range(len(a) - len_a + 1):
+                sa = a[start_a:start_a + len_a]
+                
+                # Try all starting positions for substring of length len_b
+                for start_b in range(len(b) - len_b + 1):
+                    sb = b[start_b:start_b + len_b]
                     
                     # Try both combinations: sa+sb and sb+sa
                     for combo in [sa + sb, sb + sa]:
                         if is_palindrome(combo):
-                            # Check if this is better than current best
+                            # Update if this is better
                             if (len(combo) > max_length or 
                                 (len(combo) == max_length and 
                                  (best_palindrome is None or combo < best_palindrome))):
