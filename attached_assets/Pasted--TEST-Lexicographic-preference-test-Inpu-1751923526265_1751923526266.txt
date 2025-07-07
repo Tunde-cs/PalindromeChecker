@@ -1,0 +1,351 @@
+===========================================================
+TEST: Lexicographic preference test
+Input: a='ba', b='ab'
+DEBUG: Input a='ba', b='ab'
+DEBUG: Using DP with limits: max_sa_len=2, max_sb_len=2
+DEBUG: DP checking candidate: 'ba' (sa='b', sb='a', order=0)
+DEBUG: DP checking candidate: 'ab' (sa='b', sb='a', order=1)
+DEBUG: DP checking candidate: 'bb' (sa='b', sb='b', order=0)
+DEBUG: DP found palindrome: 'bb' (length 2)
+DEBUG: DP comparison:
+  - Current candidate: 'bb' (length 2)
+  - Current best: 'None' (length 0)
+  - Is longer? True
+  - Is lexicographically smaller? True
+DEBUG: ✓ DP NEW BEST: 'bb' (length 2) - replaced 'None'
+DEBUG: DP checking candidate: 'bb' (sa='b', sb='b', order=1)
+DEBUG: DP found palindrome: 'bb' (length 2)
+DEBUG: DP comparison:
+  - Current candidate: 'bb' (length 2)
+  - Current best: 'bb' (length 2)
+  - Is longer? False
+  - Is lexicographically smaller? False
+DEBUG: ✗ DP palindrome 'bb' not better than current best 'bb'
+DEBUG: DP checking candidate: 'bab' (sa='b', sb='ab', order=0)
+DEBUG: DP found palindrome: 'bab' (length 3)
+DEBUG: DP comparison:
+  - Current candidate: 'bab' (length 3)
+  - Current best: 'bb' (length 2)
+  - Is longer? True
+  - Is lexicographically smaller? True
+DEBUG: ✓ DP NEW BEST: 'bab' (length 3) - replaced 'bb'
+DEBUG: DP checking candidate: 'abb' (sa='b', sb='ab', order=1)
+DEBUG: DP checking candidate: 'aa' (sa='a', sb='a', order=0)
+DEBUG: DP found palindrome: 'aa' (length 2)
+DEBUG: DP comparison:
+  - Current candidate: 'aa' (length 2)
+  - Current best: 'bab' (length 3)
+  - Is longer? False
+  - Is lexicographically smaller? True
+DEBUG: ✓ DP NEW BEST: 'aa' (length 2) - replaced 'bab'
+DEBUG: DP checking candidate: 'aa' (sa='a', sb='a', order=1)
+DEBUG: DP found palindrome: 'aa' (length 2)
+DEBUG: DP comparison:
+  - Current candidate: 'aa' (length 2)
+  - Current best: 'aa' (length 2)
+  - Is longer? False
+  - Is lexicographically smaller? False
+DEBUG: ✗ DP palindrome 'aa' not better than current best 'aa'
+DEBUG: DP checking candidate: 'ab' (sa='a', sb='b', order=0)
+DEBUG: DP checking candidate: 'ba' (sa='a', sb='b', order=1)
+DEBUG: DP checking candidate: 'aab' (sa='a', sb='ab', order=0)
+DEBUG: DP checking candidate: 'aba' (sa='a', sb='ab', order=1)
+DEBUG: DP found palindrome: 'aba' (length 3)
+DEBUG: DP comparison:
+  - Current candidate: 'aba' (length 3)
+  - Current best: 'aa' (length 2)
+  - Is longer? True
+  - Is lexicographically smaller? False
+DEBUG: ✗ DP palindrome 'aba' not better than current best 'aa'
+DEBUG: DP checking candidate: 'baa' (sa='ba', sb='a', order=0)
+DEBUG: DP checking candidate: 'aba' (sa='ba', sb='a', order=1)
+DEBUG: DP found palindrome: 'aba' (length 3)
+DEBUG: DP comparison:
+  - Current candidate: 'aba' (length 3)
+  - Current best: 'aa' (length 2)
+  - Is longer? True
+  - Is lexicographically smaller? False
+DEBUG: ✗ DP palindrome 'aba' not better than current best 'aa'
+DEBUG: DP checking candidate: 'bab' (sa='ba', sb='b', order=0)
+DEBUG: DP found palindrome: 'bab' (length 3)
+DEBUG: DP comparison:
+  - Current candidate: 'bab' (length 3)
+  - Current best: 'aa' (length 2)
+  - Is longer? True
+  - Is lexicographically smaller? False
+DEBUG: ✗ DP palindrome 'bab' not better than current best 'aa'
+DEBUG: DP checking candidate: 'bba' (sa='ba', sb='b', order=1)
+DEBUG: DP checking candidate: 'baab' (sa='ba', sb='ab', order=0)
+DEBUG: DP found palindrome: 'baab' (length 4)
+DEBUG: DP comparison:
+  - Current candidate: 'baab' (length 4)
+  - Current best: 'aa' (length 2)
+  - Is longer? True
+  - Is lexicographically smaller? False
+DEBUG: ✗ DP palindrome 'baab' not better than current best 'aa'
+DEBUG: DP checking candidate: 'abba' (sa='ba', sb='ab', order=1)
+DEBUG: DP found palindrome: 'abba' (length 4)
+DEBUG: DP comparison:
+  - Current candidate: 'abba' (length 4)
+  - Current best: 'aa' (length 2)
+  - Is longer? True
+  - Is lexicographically smaller? False
+DEBUG: ✗ DP palindrome 'abba' not better than current best 'aa'
+DEBUG: DP cache stats - memo size: 12, dp size: 18
+DEBUG: Final DP result: 'aa'
+Result: 'aa'
+Expected: 'abba' - ✗ FAIL
+Time: 0.001s
+
+============================================================
+TEST: Multiple same-length palindromes
+Input: a='cab', b='bac'
+DEBUG: Input a='cab', b='bac'
+DEBUG: Using DP with limits: max_sa_len=3, max_sb_len=3
+DEBUG: DP checking candidate: 'cb' (sa='c', sb='b', order=0)
+DEBUG: DP checking candidate: 'bc' (sa='c', sb='b', order=1)
+DEBUG: DP checking candidate: 'ca' (sa='c', sb='a', order=0)
+DEBUG: DP checking candidate: 'ac' (sa='c', sb='a', order=1)
+DEBUG: DP checking candidate: 'cc' (sa='c', sb='c', order=0)
+DEBUG: DP found palindrome: 'cc' (length 2)
+DEBUG: DP comparison:
+  - Current candidate: 'cc' (length 2)
+  - Current best: 'None' (length 0)
+  - Is longer? True
+  - Is lexicographically smaller? True
+DEBUG: ✓ DP NEW BEST: 'cc' (length 2) - replaced 'None'
+DEBUG: DP checking candidate: 'cc' (sa='c', sb='c', order=1)
+DEBUG: DP found palindrome: 'cc' (length 2)
+DEBUG: DP comparison:
+  - Current candidate: 'cc' (length 2)
+  - Current best: 'cc' (length 2)
+  - Is longer? False
+  - Is lexicographically smaller? False
+DEBUG: ✗ DP palindrome 'cc' not better than current best 'cc'
+DEBUG: DP checking candidate: 'cba' (sa='c', sb='ba', order=0)
+DEBUG: DP checking candidate: 'bac' (sa='c', sb='ba', order=1)
+DEBUG: DP checking candidate: 'cac' (sa='c', sb='ac', order=0)
+DEBUG: DP found palindrome: 'cac' (length 3)
+DEBUG: DP comparison:
+  - Current candidate: 'cac' (length 3)
+  - Current best: 'cc' (length 2)
+  - Is longer? True
+  - Is lexicographically smaller? True
+DEBUG: ✓ DP NEW BEST: 'cac' (length 3) - replaced 'cc'
+DEBUG: DP checking candidate: 'acc' (sa='c', sb='ac', order=1)
+DEBUG: DP checking candidate: 'cbac' (sa='c', sb='bac', order=0)
+DEBUG: DP checking candidate: 'bacc' (sa='c', sb='bac', order=1)
+DEBUG: DP checking candidate: 'ab' (sa='a', sb='b', order=0)
+DEBUG: DP checking candidate: 'ba' (sa='a', sb='b', order=1)
+DEBUG: DP checking candidate: 'aa' (sa='a', sb='a', order=0)
+DEBUG: DP found palindrome: 'aa' (length 2)
+DEBUG: DP comparison:
+  - Current candidate: 'aa' (length 2)
+  - Current best: 'cac' (length 3)
+  - Is longer? False
+  - Is lexicographically smaller? True
+DEBUG: ✓ DP NEW BEST: 'aa' (length 2) - replaced 'cac'
+DEBUG: DP checking candidate: 'aa' (sa='a', sb='a', order=1)
+DEBUG: DP found palindrome: 'aa' (length 2)
+DEBUG: DP comparison:
+  - Current candidate: 'aa' (length 2)
+  - Current best: 'aa' (length 2)
+  - Is longer? False
+  - Is lexicographically smaller? False
+DEBUG: ✗ DP palindrome 'aa' not better than current best 'aa'
+DEBUG: DP checking candidate: 'ac' (sa='a', sb='c', order=0)
+DEBUG: DP checking candidate: 'ca' (sa='a', sb='c', order=1)
+DEBUG: DP checking candidate: 'aba' (sa='a', sb='ba', order=0)
+DEBUG: DP found palindrome: 'aba' (length 3)
+DEBUG: DP comparison:
+  - Current candidate: 'aba' (length 3)
+  - Current best: 'aa' (length 2)
+  - Is longer? True
+  - Is lexicographically smaller? False
+DEBUG: ✗ DP palindrome 'aba' not better than current best 'aa'
+DEBUG: DP checking candidate: 'baa' (sa='a', sb='ba', order=1)
+DEBUG: DP checking candidate: 'aac' (sa='a', sb='ac', order=0)
+DEBUG: DP checking candidate: 'aca' (sa='a', sb='ac', order=1)
+DEBUG: DP found palindrome: 'aca' (length 3)
+DEBUG: DP comparison:
+  - Current candidate: 'aca' (length 3)
+  - Current best: 'aa' (length 2)
+  - Is longer? True
+  - Is lexicographically smaller? False
+DEBUG: ✗ DP palindrome 'aca' not better than current best 'aa'
+DEBUG: DP checking candidate: 'abac' (sa='a', sb='bac', order=0)
+DEBUG: DP checking candidate: 'baca' (sa='a', sb='bac', order=1)
+DEBUG: DP checking candidate: 'bb' (sa='b', sb='b', order=0)
+DEBUG: DP found palindrome: 'bb' (length 2)
+DEBUG: DP comparison:
+  - Current candidate: 'bb' (length 2)
+  - Current best: 'aa' (length 2)
+  - Is longer? False
+  - Is lexicographically smaller? False
+DEBUG: ✗ DP palindrome 'bb' not better than current best 'aa'
+DEBUG: DP checking candidate: 'bb' (sa='b', sb='b', order=1)
+DEBUG: DP found palindrome: 'bb' (length 2)
+DEBUG: DP comparison:
+  - Current candidate: 'bb' (length 2)
+  - Current best: 'aa' (length 2)
+  - Is longer? False
+  - Is lexicographically smaller? False
+DEBUG: ✗ DP palindrome 'bb' not better than current best 'aa'
+DEBUG: DP checking candidate: 'ba' (sa='b', sb='a', order=0)
+DEBUG: DP checking candidate: 'ab' (sa='b', sb='a', order=1)
+DEBUG: DP checking candidate: 'bc' (sa='b', sb='c', order=0)
+DEBUG: DP checking candidate: 'cb' (sa='b', sb='c', order=1)
+DEBUG: DP checking candidate: 'bba' (sa='b', sb='ba', order=0)
+DEBUG: DP checking candidate: 'bab' (sa='b', sb='ba', order=1)
+DEBUG: DP found palindrome: 'bab' (length 3)
+DEBUG: DP comparison:
+  - Current candidate: 'bab' (length 3)
+  - Current best: 'aa' (length 2)
+  - Is longer? True
+  - Is lexicographically smaller? False
+DEBUG: ✗ DP palindrome 'bab' not better than current best 'aa'
+DEBUG: DP checking candidate: 'bac' (sa='b', sb='ac', order=0)
+DEBUG: DP checking candidate: 'acb' (sa='b', sb='ac', order=1)
+DEBUG: DP checking candidate: 'bbac' (sa='b', sb='bac', order=0)
+DEBUG: DP checking candidate: 'bacb' (sa='b', sb='bac', order=1)
+DEBUG: DP checking candidate: 'cab' (sa='ca', sb='b', order=0)
+DEBUG: DP checking candidate: 'bca' (sa='ca', sb='b', order=1)
+DEBUG: DP checking candidate: 'caa' (sa='ca', sb='a', order=0)
+DEBUG: DP checking candidate: 'aca' (sa='ca', sb='a', order=1)
+DEBUG: DP found palindrome: 'aca' (length 3)
+DEBUG: DP comparison:
+  - Current candidate: 'aca' (length 3)
+  - Current best: 'aa' (length 2)
+  - Is longer? True
+  - Is lexicographically smaller? False
+DEBUG: ✗ DP palindrome 'aca' not better than current best 'aa'
+DEBUG: DP checking candidate: 'cac' (sa='ca', sb='c', order=0)
+DEBUG: DP found palindrome: 'cac' (length 3)
+DEBUG: DP comparison:
+  - Current candidate: 'cac' (length 3)
+  - Current best: 'aa' (length 2)
+  - Is longer? True
+  - Is lexicographically smaller? False
+DEBUG: ✗ DP palindrome 'cac' not better than current best 'aa'
+DEBUG: DP checking candidate: 'cca' (sa='ca', sb='c', order=1)
+DEBUG: DP checking candidate: 'caba' (sa='ca', sb='ba', order=0)
+DEBUG: DP checking candidate: 'baca' (sa='ca', sb='ba', order=1)
+DEBUG: DP checking candidate: 'caac' (sa='ca', sb='ac', order=0)
+DEBUG: DP found palindrome: 'caac' (length 4)
+DEBUG: DP comparison:
+  - Current candidate: 'caac' (length 4)
+  - Current best: 'aa' (length 2)
+  - Is longer? True
+  - Is lexicographically smaller? False
+DEBUG: ✗ DP palindrome 'caac' not better than current best 'aa'
+DEBUG: DP checking candidate: 'acca' (sa='ca', sb='ac', order=1)
+DEBUG: DP found palindrome: 'acca' (length 4)
+DEBUG: DP comparison:
+  - Current candidate: 'acca' (length 4)
+  - Current best: 'aa' (length 2)
+  - Is longer? True
+  - Is lexicographically smaller? False
+DEBUG: ✗ DP palindrome 'acca' not better than current best 'aa'
+DEBUG: DP checking candidate: 'cabac' (sa='ca', sb='bac', order=0)
+DEBUG: DP found palindrome: 'cabac' (length 5)
+DEBUG: DP comparison:
+  - Current candidate: 'cabac' (length 5)
+  - Current best: 'aa' (length 2)
+  - Is longer? True
+  - Is lexicographically smaller? False
+DEBUG: ✗ DP palindrome 'cabac' not better than current best 'aa'
+DEBUG: DP checking candidate: 'bacca' (sa='ca', sb='bac', order=1)
+DEBUG: DP checking candidate: 'abb' (sa='ab', sb='b', order=0)
+DEBUG: DP checking candidate: 'bab' (sa='ab', sb='b', order=1)
+DEBUG: DP found palindrome: 'bab' (length 3)
+DEBUG: DP comparison:
+  - Current candidate: 'bab' (length 3)
+  - Current best: 'aa' (length 2)
+  - Is longer? True
+  - Is lexicographically smaller? False
+DEBUG: ✗ DP palindrome 'bab' not better than current best 'aa'
+DEBUG: DP checking candidate: 'aba' (sa='ab', sb='a', order=0)
+DEBUG: DP found palindrome: 'aba' (length 3)
+DEBUG: DP comparison:
+  - Current candidate: 'aba' (length 3)
+  - Current best: 'aa' (length 2)
+  - Is longer? True
+  - Is lexicographically smaller? False
+DEBUG: ✗ DP palindrome 'aba' not better than current best 'aa'
+DEBUG: DP checking candidate: 'aab' (sa='ab', sb='a', order=1)
+DEBUG: DP checking candidate: 'abc' (sa='ab', sb='c', order=0)
+DEBUG: DP checking candidate: 'cab' (sa='ab', sb='c', order=1)
+DEBUG: DP checking candidate: 'abba' (sa='ab', sb='ba', order=0)
+DEBUG: DP found palindrome: 'abba' (length 4)
+DEBUG: DP comparison:
+  - Current candidate: 'abba' (length 4)
+  - Current best: 'aa' (length 2)
+  - Is longer? True
+  - Is lexicographically smaller? False
+DEBUG: ✗ DP palindrome 'abba' not better than current best 'aa'
+DEBUG: DP checking candidate: 'baab' (sa='ab', sb='ba', order=1)
+DEBUG: DP found palindrome: 'baab' (length 4)
+DEBUG: DP comparison:
+  - Current candidate: 'baab' (length 4)
+  - Current best: 'aa' (length 2)
+  - Is longer? True
+  - Is lexicographically smaller? False
+DEBUG: ✗ DP palindrome 'baab' not better than current best 'aa'
+DEBUG: DP checking candidate: 'abac' (sa='ab', sb='ac', order=0)
+DEBUG: DP checking candidate: 'acab' (sa='ab', sb='ac', order=1)
+DEBUG: DP checking candidate: 'abbac' (sa='ab', sb='bac', order=0)
+DEBUG: DP checking candidate: 'bacab' (sa='ab', sb='bac', order=1)
+DEBUG: DP found palindrome: 'bacab' (length 5)
+DEBUG: DP comparison:
+  - Current candidate: 'bacab' (length 5)
+  - Current best: 'aa' (length 2)
+  - Is longer? True
+  - Is lexicographically smaller? False
+DEBUG: ✗ DP palindrome 'bacab' not better than current best 'aa'
+DEBUG: DP checking candidate: 'cabb' (sa='cab', sb='b', order=0)
+DEBUG: DP checking candidate: 'bcab' (sa='cab', sb='b', order=1)
+DEBUG: DP checking candidate: 'caba' (sa='cab', sb='a', order=0)
+DEBUG: DP checking candidate: 'acab' (sa='cab', sb='a', order=1)
+DEBUG: DP checking candidate: 'cabc' (sa='cab', sb='c', order=0)
+DEBUG: DP checking candidate: 'ccab' (sa='cab', sb='c', order=1)
+DEBUG: DP checking candidate: 'cabba' (sa='cab', sb='ba', order=0)
+DEBUG: DP checking candidate: 'bacab' (sa='cab', sb='ba', order=1)
+DEBUG: DP found palindrome: 'bacab' (length 5)
+DEBUG: DP comparison:
+  - Current candidate: 'bacab' (length 5)
+  - Current best: 'aa' (length 2)
+  - Is longer? True
+  - Is lexicographically smaller? False
+DEBUG: ✗ DP palindrome 'bacab' not better than current best 'aa'
+DEBUG: DP checking candidate: 'cabac' (sa='cab', sb='ac', order=0)
+DEBUG: DP found palindrome: 'cabac' (length 5)
+DEBUG: DP comparison:
+  - Current candidate: 'cabac' (length 5)
+  - Current best: 'aa' (length 2)
+  - Is longer? True
+  - Is lexicographically smaller? False
+DEBUG: ✗ DP palindrome 'cabac' not better than current best 'aa'
+DEBUG: DP checking candidate: 'accab' (sa='cab', sb='ac', order=1)
+DEBUG: DP checking candidate: 'cabbac' (sa='cab', sb='bac', order=0)
+DEBUG: DP found palindrome: 'cabbac' (length 6)
+DEBUG: DP comparison:
+  - Current candidate: 'cabbac' (length 6)
+  - Current best: 'aa' (length 2)
+  - Is longer? True
+  - Is lexicographically smaller? False
+DEBUG: ✗ DP palindrome 'cabbac' not better than current best 'aa'
+DEBUG: DP checking candidate: 'baccab' (sa='cab', sb='bac', order=1)
+DEBUG: DP found palindrome: 'baccab' (length 6)
+DEBUG: DP comparison:
+  - Current candidate: 'baccab' (length 6)
+  - Current best: 'aa' (length 2)
+  - Is longer? True
+  - Is lexicographically smaller? False
+DEBUG: ✗ DP palindrome 'baccab' not better than current best 'aa'
+DEBUG: DP cache stats - memo size: 51, dp size: 72
+DEBUG: Final DP result: 'aa'
+Result: 'aa'
+Expected: 'aba' - ✗ FAIL
+Time: 0.002s
+
+===============
