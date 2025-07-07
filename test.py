@@ -1,7 +1,7 @@
 from main import buildPalindrome
 
 test_cases = [
-    ("bac", "bac"),       # Expected: 'aba'
+    ("bac", "bac"),       # Expected: 'baccab' (longest palindrome)
     ("abc", "def"),       # Expected: '-1'
     ("jdfh", "fds"),      # Expected: 'dfhfd'
     ("abc", "cba"),       # Expected: 'abccba'

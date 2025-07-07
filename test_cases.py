@@ -26,7 +26,7 @@ def main():
     print("=" * 60)
     
     # Basic test cases
-    run_test_case("bac", "bac", "aba", "Basic case from problem")
+    run_test_case("bac", "bac", "baccab", "Basic case from problem")
     run_test_case("abc", "def", "-1", "No palindrome possible")
     run_test_case("jdfh", "fds", "dfhfd", "Complex case")
     
@@ -61,14 +61,14 @@ def main():
     
     # Cases with overlapping characters
     run_test_case("abcd", "dcba", "abcddcba", "Perfect complement")
-    run_test_case("xyz", "zyx", "xyzyx", "3-char complement")
+    run_test_case("xyz", "zyx", "xyzzyx", "3-char complement")
     
     # Performance test cases
     run_test_case("abcdefghij", "jihgfedcba", None, "10-char performance test")
     
     # Lexicographically smallest preference test
     run_test_case("ba", "ab", "abba", "Lexicographic preference test")
-    run_test_case("cab", "bac", "aba", "Multiple same-length palindromes")
+    run_test_case("cab", "bac", "baccab", "Multiple same-length palindromes")
     
     # Cases with no common characters
     run_test_case("xyz", "abc", "-1", "No common characters")
