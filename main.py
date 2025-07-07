@@ -3,8 +3,6 @@ def is_palindrome(s):
     return s == s[::-1]
 
 def buildPalindrome(a, b):
-    from collections import Counter
-    
     # Early exit for empty strings
     if not a or not b:
         return "-1"
@@ -16,8 +14,14 @@ def buildPalindrome(a, b):
     
     best = None
     
-    # Generate subsequences efficiently (limit to reasonable size)
-    def get_subsequences(s, max_len=10):
+    # First, try full strings (most important for identical string cases)
+    for cand in [a + b, b + a]:
+        if is_palindrome(cand):
+            if best is None or len(cand) > len(best) or (len(cand) == len(best) and cand < best):
+                best = cand
+    
+    # Generate subsequences efficiently
+    def get_subsequences(s, max_len=12):
         subsequences = ['']
         for char in s:
             new_subseqs = []
@@ -27,11 +31,11 @@ def buildPalindrome(a, b):
             subsequences.extend(new_subseqs)
         return [s for s in subsequences if s]  # Remove empty string
     
-    # Get subsequences from both strings
-    subseqs_a = get_subsequences(a)
-    subseqs_b = get_subsequences(b)
+    # Get subsequences from both strings (excluding full strings since we already tried them)
+    subseqs_a = [s for s in get_subsequences(a) if s != a]
+    subseqs_b = [s for s in get_subsequences(b) if s != b]
     
-    # Try all combinations
+    # Try all subsequence combinations
     for sa in subseqs_a:
         for sb in subseqs_b:
             for cand in [sa + sb, sb + sa]:
