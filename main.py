@@ -19,43 +19,39 @@ def buildPalindrome(a, b):
     print(f"DEBUG: Common characters: {common_chars}")
     
     best = None
+    max_len = 0
     
-    # Generate subsequences efficiently (this is the core of the problem)
-    def get_subsequences(s, max_len=12):
-        subsequences = ['']
-        for char in s:
-            new_subseqs = []
-            for subseq in subsequences:
-                if len(subseq) < max_len:
-                    new_subseqs.append(subseq + char)
-            subsequences.extend(new_subseqs)
-        return [s for s in subsequences if s]  # Remove empty string
+    # Try all possible substrings from both strings
+    print("DEBUG: Trying substring combinations...")
     
-    # Get subsequences from both strings (including full strings)
-    subseqs_a = get_subsequences(a)
-    subseqs_b = get_subsequences(b)
+    # Get all substrings from a
+    substrings_a = []
+    for i in range(len(a)):
+        for j in range(i + 1, len(a) + 1):
+            substrings_a.append(a[i:j])
     
-    # Also add reversed subsequences to handle cases like identical strings
-    subseqs_a_reversed = [s[::-1] for s in subseqs_a]
-    subseqs_b_reversed = [s[::-1] for s in subseqs_b]
+    # Get all substrings from b
+    substrings_b = []
+    for i in range(len(b)):
+        for j in range(i + 1, len(b) + 1):
+            substrings_b.append(b[i:j])
     
-    print(f"DEBUG: Found {len(subseqs_a)} subsequences from a, {len(subseqs_b)} from b")
-    print(f"DEBUG: Sample subsequences from a: {subseqs_a[:10]}")
-    print(f"DEBUG: Sample subsequences from b: {subseqs_b[:10]}")
+    print(f"DEBUG: Found {len(substrings_a)} substrings from a, {len(substrings_b)} from b")
+    print(f"DEBUG: Sample substrings from a: {substrings_a[:10]}")
+    print(f"DEBUG: Sample substrings from b: {substrings_b[:10]}")
     
-    # Try all subsequence combinations (including reversed)
     palindromes_found = []
-    all_subseqs_a = subseqs_a + subseqs_a_reversed
-    all_subseqs_b = subseqs_b + subseqs_b_reversed
     
-    for sa in all_subseqs_a:
-        for sb in all_subseqs_b:
+    # Try all combinations: sa + sb and sb + sa
+    for sa in substrings_a:
+        for sb in substrings_b:
             for cand in [sa + sb, sb + sa]:
                 if is_palindrome(cand):
                     palindromes_found.append(cand)
-                    if best is None or len(cand) > len(best) or (len(cand) == len(best) and cand < best):
-                        print(f"DEBUG: New best subsequence candidate: '{cand}'")
+                    if len(cand) > max_len or (len(cand) == max_len and (best is None or cand < best)):
+                        print(f"DEBUG: New best substring candidate: '{cand}'")
                         best = cand
+                        max_len = len(cand)
     
     print(f"DEBUG: Total palindromes found: {len(palindromes_found)}")
     print(f"DEBUG: Final best result: '{best}'")
