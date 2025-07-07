@@ -1,0 +1,243 @@
+~/workspace$ python test_cases.py
+COMPREHENSIVE TEST SUITE FOR HIDDEN TEST CASES
+============================================================
+
+============================================================
+TEST: Basic case from problem
+Input: a='bac', b='bac'
+
+[DEBUG] Input a: 'bac', b: 'bac'
+[DEBUG] Counter a: Counter({'b': 1, 'a': 1, 'c': 1}), Counter b: Counter({'b': 1, 'a': 1, 'c': 1})
+[DEBUG] Common chars: {'c', 'a', 'b'}
+[DEBUG] Generated 7 subsequences for 'bac'
+[DEBUG] Generated 7 subsequences for 'bac'
+[DEBUG] New best palindrome found: 'bb' (old best: 'None')
+[DEBUG] New best palindrome found: 'bab' (old best: 'bb')
+[DEBUG] New best palindrome found: 'aba' (old best: 'bab')
+[DEBUG] Returning: 'aba'
+Result: 'aba'
+Expected: 'aba' - ✓ PASS
+Time: 0.000s
+
+============================================================
+TEST: No palindrome possible
+Input: a='abc', b='def'
+
+[DEBUG] Input a: 'abc', b: 'def'
+[DEBUG] Counter a: Counter({'a': 1, 'b': 1, 'c': 1}), Counter b: Counter({'d': 1, 'e': 1, 'f': 1})
+[DEBUG] Common chars: set()
+[DEBUG] No common chars. Returning '-1'.
+Result: '-1'
+Expected: '-1' - ✓ PASS
+Time: 0.000s
+
+============================================================
+TEST: Complex case
+Input: a='jdfh', b='fds'
+
+[DEBUG] Input a: 'jdfh', b: 'fds'
+[DEBUG] Counter a: Counter({'j': 1, 'd': 1, 'f': 1, 'h': 1}), Counter b: Counter({'f': 1, 'd': 1, 's': 1})
+[DEBUG] Common chars: {'f', 'd'}
+[DEBUG] Generated 15 subsequences for 'jdfh'
+[DEBUG] Generated 7 subsequences for 'fds'
+[DEBUG] New best palindrome found: 'dd' (old best: 'None')
+[DEBUG] New best palindrome found: 'dfd' (old best: 'dd')
+[DEBUG] New best palindrome found: 'dffd' (old best: 'dfd')
+[DEBUG] New best palindrome found: 'fdsdf' (old best: 'dffd')
+[DEBUG] New best palindrome found: 'fdjdf' (old best: 'fdsdf')
+[DEBUG] New best palindrome found: 'dfhfd' (old best: 'fdjdf')
+[DEBUG] Returning: 'dfhfd'
+Result: 'dfhfd'
+Expected: 'dfhfd' - ✓ PASS
+Time: 0.000s
+
+============================================================
+TEST: Both empty strings
+Input: a='', b=''
+
+[DEBUG] Input a: '', b: ''
+[DEBUG] One of the strings is empty. Returning '-1'.
+Result: '-1'
+Expected: '-1' - ✓ PASS
+Time: 0.000s
+
+============================================================
+TEST: One empty string
+Input: a='a', b=''
+
+[DEBUG] Input a: 'a', b: ''
+[DEBUG] One of the strings is empty. Returning '-1'.
+Result: '-1'
+Expected: '-1' - ✓ PASS
+Time: 0.000s
+
+============================================================
+TEST: Other empty string
+Input: a='', b='b'
+
+[DEBUG] Input a: '', b: 'b'
+[DEBUG] One of the strings is empty. Returning '-1'.
+Result: '-1'
+Expected: '-1' - ✓ PASS
+Time: 0.000s
+
+============================================================
+TEST: Same single character
+Input: a='a', b='a'
+
+[DEBUG] Input a: 'a', b: 'a'
+[DEBUG] Counter a: Counter({'a': 1}), Counter b: Counter({'a': 1})
+[DEBUG] Common chars: {'a'}
+[DEBUG] Generated 1 subsequences for 'a'
+[DEBUG] Generated 1 subsequences for 'a'
+[DEBUG] New best palindrome found: 'aa' (old best: 'None')
+[DEBUG] Returning: 'aa'
+Result: 'aa'
+Expected: 'aa' - ✓ PASS
+Time: 0.000s
+
+============================================================
+TEST: Different single characters
+Input: a='a', b='b'
+
+[DEBUG] Input a: 'a', b: 'b'
+[DEBUG] Counter a: Counter({'a': 1}), Counter b: Counter({'b': 1})
+[DEBUG] Common chars: set()
+[DEBUG] No common chars. Returning '-1'.
+Result: '-1'
+Expected: '-1' - ✓ PASS
+Time: 0.000s
+
+============================================================
+TEST: Identical strings
+Input: a='abc', b='abc'
+
+[DEBUG] Input a: 'abc', b: 'abc'
+[DEBUG] Counter a: Counter({'a': 1, 'b': 1, 'c': 1}), Counter b: Counter({'a': 1, 'b': 1, 'c': 1})
+[DEBUG] Common chars: {'c', 'a', 'b'}
+[DEBUG] Generated 7 subsequences for 'abc'
+[DEBUG] Generated 7 subsequences for 'abc'
+[DEBUG] New best palindrome found: 'aa' (old best: 'None')
+[DEBUG] New best palindrome found: 'aba' (old best: 'aa')
+[DEBUG] Returning: 'aba'
+Result: 'aba'
+Expected: 'abccba' - ✗ FAIL
+Time: 0.000s
+
+============================================================
+TEST: Longer identical strings
+Input: a='palindrome', b='palindrome'
+
+[DEBUG] Input a: 'palindrome', b: 'palindrome'
+[DEBUG] Counter a: Counter({'p': 1, 'a': 1, 'l': 1, 'i': 1, 'n': 1, 'd': 1, 'r': 1, 'o': 1, 'm': 1, 'e': 1}), Counter b: Counter({'p': 1, 'a': 1, 'l': 1, 'i': 1, 'n': 1, 'd': 1, 'r': 1, 'o': 1, 'm': 1, 'e': 1})
+[DEBUG] Common chars: {'i', 'r', 'p', 'd', 'a', 'o', 'e', 'l', 'n', 'm'}
+[DEBUG] Generated 1023 subsequences for 'palindrome'
+[DEBUG] Generated 1023 subsequences for 'palindrome'
+[DEBUG] New best palindrome found: 'pp' (old best: 'None')
+[DEBUG] New best palindrome found: 'pap' (old best: 'pp')
+[DEBUG] New best palindrome found: 'apa' (old best: 'pap')
+[DEBUG] New best palindrome found: 'ala' (old best: 'apa')
+[DEBUG] New best palindrome found: 'aia' (old best: 'ala')
+[DEBUG] New best palindrome found: 'ada' (old best: 'aia')
+[DEBUG] Returning: 'ada'
+Result: 'ada'
+Time: 0.354s
+
+============================================================
+TEST: String and its reverse
+Input: a='abc', b='cba'
+
+[DEBUG] Input a: 'abc', b: 'cba'
+[DEBUG] Counter a: Counter({'a': 1, 'b': 1, 'c': 1}), Counter b: Counter({'c': 1, 'b': 1, 'a': 1})
+[DEBUG] Common chars: {'c', 'a', 'b'}
+[DEBUG] Generated 7 subsequences for 'abc'
+[DEBUG] Generated 7 subsequences for 'cba'
+[DEBUG] New best palindrome found: 'aa' (old best: 'None')
+[DEBUG] New best palindrome found: 'aca' (old best: 'aa')
+[DEBUG] New best palindrome found: 'aba' (old best: 'aca')
+[DEBUG] New best palindrome found: 'abba' (old best: 'aba')
+[DEBUG] New best palindrome found: 'abcba' (old best: 'abba')
+[DEBUG] New best palindrome found: 'abccba' (old best: 'abcba')
+[DEBUG] Returning: 'abccba'
+Result: 'abccba'
+Expected: 'abccba' - ✓ PASS
+Time: 0.000s
+
+============================================================
+TEST: Short reverse case
+Input: a='ab', b='ba'
+
+[DEBUG] Input a: 'ab', b: 'ba'
+[DEBUG] Counter a: Counter({'a': 1, 'b': 1}), Counter b: Counter({'b': 1, 'a': 1})
+[DEBUG] Common chars: {'a', 'b'}
+[DEBUG] Generated 3 subsequences for 'ab'
+[DEBUG] Generated 3 subsequences for 'ba'
+[DEBUG] New best palindrome found: 'aa' (old best: 'None')
+[DEBUG] New best palindrome found: 'aba' (old best: 'aa')
+[DEBUG] New best palindrome found: 'abba' (old best: 'aba')
+[DEBUG] Returning: 'abba'
+Result: 'abba'
+Expected: 'abba' - ✓ PASS
+Time: 0.000s
+
+============================================================
+TEST: All same character
+Input: a='aaa', b='aaa'
+
+[DEBUG] Input a: 'aaa', b: 'aaa'
+[DEBUG] Counter a: Counter({'a': 3}), Counter b: Counter({'a': 3})
+[DEBUG] Common chars: {'a'}
+[DEBUG] Generated 7 subsequences for 'aaa'
+[DEBUG] Generated 7 subsequences for 'aaa'
+[DEBUG] New best palindrome found: 'aa' (old best: 'None')
+[DEBUG] New best palindrome found: 'aaa' (old best: 'aa')
+[DEBUG] New best palindrome found: 'aaaa' (old best: 'aaa')
+[DEBUG] New best palindrome found: 'aaaaa' (old best: 'aaaa')
+[DEBUG] New best palindrome found: 'aaaaaa' (old best: 'aaaaa')
+[DEBUG] Returning: 'aaaaaa'
+Result: 'aaaaaa'
+Expected: 'aaaaaa' - ✓ PASS
+Time: 0.000s
+
+============================================================
+TEST: Repeating with variation
+Input: a='aab', b='baa'
+
+[DEBUG] Input a: 'aab', b: 'baa'
+[DEBUG] Counter a: Counter({'a': 2, 'b': 1}), Counter b: Counter({'a': 2, 'b': 1})
+[DEBUG] Common chars: {'a', 'b'}
+[DEBUG] Generated 7 subsequences for 'aab'
+[DEBUG] Generated 7 subsequences for 'baa'
+[DEBUG] New best palindrome found: 'aa' (old best: 'None')
+[DEBUG] New best palindrome found: 'aba' (old best: 'aa')
+[DEBUG] New best palindrome found: 'aaa' (old best: 'aba')
+[DEBUG] New best palindrome found: 'aaaa' (old best: 'aaa')
+[DEBUG] New best palindrome found: 'aabaa' (old best: 'aaaa')
+[DEBUG] New best palindrome found: 'aabbaa' (old best: 'aabaa')
+[DEBUG] Returning: 'aabbaa'
+Result: 'aabbaa'
+Time: 0.000s
+
+============================================================
+TEST: Long strings (25 chars each)
+Input: a='aaaaaaaaaaaaaaaaaaaaaaaaa', b='bbbbbbbbbbbbbbbbbbbbbbbbb'
+
+[DEBUG] Input a: 'aaaaaaaaaaaaaaaaaaaaaaaaa', b: 'bbbbbbbbbbbbbbbbbbbbbbbbb'
+[DEBUG] Counter a: Counter({'a': 25}), Counter b: Counter({'b': 25})
+[DEBUG] Common chars: set()
+[DEBUG] No common chars. Returning '-1'.
+Result: '-1'
+Time: 0.000s
+
+============================================================
+TEST: 20+ char strings
+Input: a='abcdefghijklmnopqrstu', b='uvwxyzabcdefghijklmno'
+
+[DEBUG] Input a: 'abcdefghijklmnopqrstu', b: 'uvwxyzabcdefghijklmno'
+[DEBUG] Counter a: Counter({'a': 1, 'b': 1, 'c': 1, 'd': 1, 'e': 1, 'f': 1, 'g': 1, 'h': 1, 'i': 1, 'j': 1, 'k': 1, 'l': 1, 'm': 1, 'n': 1, 'o': 1, 'p': 1, 'q': 1, 'r': 1, 's': 1, 't': 1, 'u': 1}), Counter b: Counter({'u': 1, 'v': 1, 'w': 1, 'x': 1, 'y': 1, 'z': 1, 'a': 1, 'b': 1, 'c': 1, 'd': 1, 'e': 1, 'f': 1, 'g': 1, 'h': 1, 'i': 1, 'j': 1, 'k': 1, 'l': 1, 'm': 1, 'n': 1, 'o': 1})
+[DEBUG] Common chars: {'k', 'h', 'i', 'f', 'u', 'b', 'c', 'd', 'a', 'e', 'o', 'l', 'j', 'n', 'm', 'g'}
+[DEBUG] Generated 2097151 subsequences for 'abcdefghijklmnopqrstu'
+[DEBUG] Generated 2097151 subsequences for 'uvwxyzabcdefghijklmno'
+[DEBUG] New best palindrome found: 'aa' (old best: 'None')
+[DEBUG] New best palindrome found: 'aua' (old best: 'aa')
+[DEBUG] New best palindrome found: 'aba' (old best: 'aua')

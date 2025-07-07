@@ -1,14 +1,14 @@
 from main import buildPalindrome
 
 test_cases = [
-    ("bac", "bac"),       # expect "aba"
-    ("abc", "def"),       # expect "-1"
-    ("jdfh", "fds"),      # expect "dfhfd"
-    ("abc", "cba"),       # "abcba"
-    ("", ""),             # both empty
-    ("a", ""),            # one empty
-    ("aa", "aa"),         # expect "aaaa"
-    ("race", "car"),      # expect "racecar"
+    ("bac", "bac"),       # Expected: 'aba'
+    ("abc", "def"),       # Expected: '-1'
+    ("jdfh", "fds"),      # Expected: 'dfhfd'
+    ("abc", "cba"),       # Expected: 'abccba'
+    ("", ""),             # Expected: '-1'
+    ("a", ""),            # Expected: '-1'
+    ("aa", "aa"),         # Expected: 'aaaa'
+    ("race", "car"),      # Expected: 'racecar'
 ]
 
 for a, b in test_cases:
