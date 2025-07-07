@@ -29,10 +29,8 @@ def buildPalindrome(a, b):
             for candidate in [sa + sb, sb + sa]:
                 if is_palindrome(candidate):
                     # Update best if this candidate is better
-                    # Priority: longest first, then lexicographically smallest
-                    if (best is None or 
-                        len(candidate) > len(best) or 
-                        (len(candidate) == len(best) and candidate < best)):
+                    # Priority: lexicographically smallest first
+                    if (best is None or candidate < best):
                         best = candidate
 
     return best if best else "-1"
