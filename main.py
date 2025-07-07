@@ -1,4 +1,3 @@
-
 #!/bin/python3
 
 import math
@@ -12,8 +11,8 @@ def buildPalindrome(a, b):
         return "-1"
 
     best_palindrome = None
-    best_length = float('inf')  # Start with infinity to prefer shorter palindromes
-    
+    best_length = float('-inf')  # Start with negative infinity to prefer longer palindromes
+
     # Try all possible substring combinations
     for len_a in range(1, len(a) + 1):
         for start_a in range(len(a) - len_a + 1):
@@ -28,7 +27,7 @@ def buildPalindrome(a, b):
                         if combo == combo[::-1]:  # is palindrome
                             combo_len = len(combo)
                             if (best_palindrome is None or 
-                                combo_len < best_length or 
+                                combo_len > best_length or 
                                 (combo_len == best_length and combo < best_palindrome)):
                                 best_palindrome = combo
                                 best_length = combo_len
@@ -49,7 +48,7 @@ def buildPalindrome(a, b):
                         if combo == combo[::-1]:  # is palindrome
                             combo_len = len(combo)
                             if (best_palindrome is None or 
-                                combo_len < best_length or 
+                                combo_len > best_length or 
                                 (combo_len == best_length and combo < best_palindrome)):
                                 best_palindrome = combo
                                 best_length = combo_len
