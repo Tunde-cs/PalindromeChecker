@@ -1,0 +1,106 @@
+============================================================
+TEST: Lexicographic preference test
+Input: a='ba', b='ab'
+[DEBUG] Input a: 'ba', b: 'ab'
+[DEBUG] Checking candidate: 'bab' (prefix: 'b', suffix: 'ab')
+[DEBUG] 'bab' is a palindrome
+[DEBUG] New best palindrome found: 'bab' (old best: 'None')
+[DEBUG] Checking candidate: 'bb' (prefix: 'b', suffix: 'b')
+[DEBUG] 'bb' is a palindrome
+[DEBUG] Checking candidate: 'baab' (prefix: 'ba', suffix: 'ab')
+[DEBUG] 'baab' is a palindrome
+[DEBUG] New best palindrome found: 'baab' (old best: 'bab')
+[DEBUG] Checking candidate: 'bab' (prefix: 'ba', suffix: 'b')
+[DEBUG] 'bab' is a palindrome
+[DEBUG] Returning: 'baab'
+Result: 'baab'
+Expected: 'abba' - ✗ FAIL
+Time: 0.000s
+
+============================================================
+TEST: Multiple same-length palindromes
+Input: a='cab', b='bac'
+[DEBUG] Input a: 'cab', b: 'bac'
+[DEBUG] Checking candidate: 'cbac' (prefix: 'c', suffix: 'bac')
+[DEBUG] 'cbac' is NOT a palindrome
+[DEBUG] Checking candidate: 'cac' (prefix: 'c', suffix: 'ac')
+[DEBUG] 'cac' is a palindrome
+[DEBUG] New best palindrome found: 'cac' (old best: 'None')
+[DEBUG] Checking candidate: 'cc' (prefix: 'c', suffix: 'c')
+[DEBUG] 'cc' is a palindrome
+[DEBUG] Checking candidate: 'cabac' (prefix: 'ca', suffix: 'bac')
+[DEBUG] 'cabac' is a palindrome
+[DEBUG] New best palindrome found: 'cabac' (old best: 'cac')
+[DEBUG] Checking candidate: 'caac' (prefix: 'ca', suffix: 'ac')
+[DEBUG] 'caac' is a palindrome
+[DEBUG] Checking candidate: 'cac' (prefix: 'ca', suffix: 'c')
+[DEBUG] 'cac' is a palindrome
+[DEBUG] Checking candidate: 'cabbac' (prefix: 'cab', suffix: 'bac')
+[DEBUG] 'cabbac' is a palindrome
+[DEBUG] New best palindrome found: 'cabbac' (old best: 'cabac')
+[DEBUG] Checking candidate: 'cabac' (prefix: 'cab', suffix: 'ac')
+[DEBUG] 'cabac' is a palindrome
+[DEBUG] Checking candidate: 'cabc' (prefix: 'cab', suffix: 'c')
+[DEBUG] 'cabc' is NOT a palindrome
+[DEBUG] Returning: 'cabbac'
+Result: 'cabbac'
+Expected: 'aba' - ✗ FAIL
+Time: 0.000s
+
+============================================================
+TEST: No common characters
+Input: a='xyz', b='abc'
+[DEBUG] Input a: 'xyz', b: 'abc'
+[DEBUG] Checking candidate: 'xabc' (prefix: 'x', suffix: 'abc')
+[DEBUG] 'xabc' is NOT a palindrome
+[DEBUG] Checking candidate: 'xbc' (prefix: 'x', suffix: 'bc')
+[DEBUG] 'xbc' is NOT a palindrome
+[DEBUG] Checking candidate: 'xc' (prefix: 'x', suffix: 'c')
+[DEBUG] 'xc' is NOT a palindrome
+[DEBUG] Checking candidate: 'xyabc' (prefix: 'xy', suffix: 'abc')
+[DEBUG] 'xyabc' is NOT a palindrome
+[DEBUG] Checking candidate: 'xybc' (prefix: 'xy', suffix: 'bc')
+[DEBUG] 'xybc' is NOT a palindrome
+[DEBUG] Checking candidate: 'xyc' (prefix: 'xy', suffix: 'c')
+[DEBUG] 'xyc' is NOT a palindrome
+[DEBUG] Checking candidate: 'xyzabc' (prefix: 'xyz', suffix: 'abc')
+[DEBUG] 'xyzabc' is NOT a palindrome
+[DEBUG] Checking candidate: 'xyzbc' (prefix: 'xyz', suffix: 'bc')
+[DEBUG] 'xyzbc' is NOT a palindrome
+[DEBUG] Checking candidate: 'xyzc' (prefix: 'xyz', suffix: 'c')
+[DEBUG] 'xyzc' is NOT a palindrome
+[DEBUG] Returning: '-1'
+Result: '-1'
+Expected: '-1' - ✓ PASS
+Time: 0.000s
+
+============================================================
+TEST: No overlap at all
+Input: a='123', b='456'
+[DEBUG] Input a: '123', b: '456'
+[DEBUG] Checking candidate: '1456' (prefix: '1', suffix: '456')
+[DEBUG] '1456' is NOT a palindrome
+[DEBUG] Checking candidate: '156' (prefix: '1', suffix: '56')
+[DEBUG] '156' is NOT a palindrome
+[DEBUG] Checking candidate: '16' (prefix: '1', suffix: '6')
+[DEBUG] '16' is NOT a palindrome
+[DEBUG] Checking candidate: '12456' (prefix: '12', suffix: '456')
+[DEBUG] '12456' is NOT a palindrome
+[DEBUG] Checking candidate: '1256' (prefix: '12', suffix: '56')
+[DEBUG] '1256' is NOT a palindrome
+[DEBUG] Checking candidate: '126' (prefix: '12', suffix: '6')
+[DEBUG] '126' is NOT a palindrome
+[DEBUG] Checking candidate: '123456' (prefix: '123', suffix: '456')
+[DEBUG] '123456' is NOT a palindrome
+[DEBUG] Checking candidate: '12356' (prefix: '123', suffix: '56')
+[DEBUG] '12356' is NOT a palindrome
+[DEBUG] Checking candidate: '1236' (prefix: '123', suffix: '6')
+[DEBUG] '1236' is NOT a palindrome
+[DEBUG] Returning: '-1'
+Result: '-1'
+Expected: '-1' - ✓ PASS
+Time: 0.000s
+
+============================================================
+TEST SUITE COMPLETE
+~/workspace$ 
