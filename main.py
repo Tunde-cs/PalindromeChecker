@@ -1,3 +1,4 @@
+
 #!/bin/python3
 
 import math
@@ -13,37 +14,30 @@ def is_palindrome(s):
 def buildPalindrome(a, b):
     best = None
     max_len = 0
-
+    
     # Early exit for empty strings
     if not a or not b:
         return "-1"
-
-    # Try all possible substrings with shorter ones first for lexicographic preference
-    for total_len in range(2, len(a) + len(b) + 1):
-        candidates = []
-        
-        for len_a in range(1, min(len(a), total_len) + 1):
-            len_b = total_len - len_a
-            if len_b < 1 or len_b > len(b):
-                continue
-                
-            for start_a in range(len(a) - len_a + 1):
-                sa = a[start_a:start_a + len_a]
-                
+    
+    # Try all possible substring combinations
+    for len_a in range(1, len(a) + 1):
+        for start_a in range(len(a) - len_a + 1):
+            sa = a[start_a:start_a + len_a]
+            
+            for len_b in range(1, len(b) + 1):
                 for start_b in range(len(b) - len_b + 1):
                     sb = b[start_b:start_b + len_b]
                     
+                    # Try both concatenation orders
                     for cand in [sa + sb, sb + sa]:
                         if is_palindrome(cand):
-                            candidates.append(cand)
-        
-        if candidates:
-            # For same length, pick lexicographically smallest
-            candidates.sort()
-            if len(candidates[0]) > max_len:
-                best = candidates[0]
-                max_len = len(candidates[0])
-
+                            # Update if we found a longer palindrome
+                            # or same length but lexicographically smaller
+                            if (len(cand) > max_len or 
+                                (len(cand) == max_len and (best is None or cand < best))):
+                                best = cand
+                                max_len = len(cand)
+    
     return best if best else "-1"
 
 if __name__ == '__main__':
