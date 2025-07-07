@@ -42,12 +42,12 @@ def buildPalindrome(a, b):
     
     print(f"[DEBUG] Found palindromes: {sorted(palindromes)}")
     
-    # Sort by: (length DESC, lexicographic ASC)
-    sorted_palindromes = sorted(palindromes, key=lambda x: (-len(x), x))
+    # Sort by: (lexicographic ASC, length DESC)
+    sorted_palindromes = sorted(palindromes, key=lambda x: (x, -len(x)))
     
-    print(f"[DEBUG] Sorted by (length DESC, lex ASC): {sorted_palindromes}")
+    print(f"[DEBUG] Sorted by (lex ASC, length DESC): {sorted_palindromes}")
     
-    # Return the longest palindrome, lexicographically smallest if tie
+    # Return the lexicographically smallest palindrome, longest if tie
     result = sorted_palindromes[0]
     print(f"[DEBUG] Final result: '{result}' (length: {len(result)})")
     return result
