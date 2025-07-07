@@ -1,0 +1,60 @@
+Processing strings: a='bac' (len=3), b='bac' (len=3)
+Max substring length limit: 3
+Found palindrome: 'bb' (len=2) from sa='b' + sb='b'
+New best palindrome: 'bb' (replacing 'None')
+Found palindrome: 'bb' (len=2) from sa='b' + sb='b'
+Found palindrome: 'bab' (len=3) from sa='b' + sb='ba'
+New best palindrome: 'bab' (replacing 'bb')
+Found palindrome: 'aa' (len=2) from sa='a' + sb='a'
+Found palindrome: 'aa' (len=2) from sa='a' + sb='a'
+Found palindrome: 'aba' (len=3) from sa='a' + sb='ba'
+New best palindrome: 'aba' (replacing 'bab')
+Found palindrome: 'aca' (len=3) from sa='a' + sb='ac'
+Found palindrome: 'cc' (len=2) from sa='c' + sb='c'
+Found palindrome: 'cc' (len=2) from sa='c' + sb='c'
+Found palindrome: 'cac' (len=3) from sa='c' + sb='ac'
+Found palindrome: 'bab' (len=3) from sa='ba' + sb='b'
+Found palindrome: 'aba' (len=3) from sa='ba' + sb='a'
+Found palindrome: 'aca' (len=3) from sa='ac' + sb='a'
+Found palindrome: 'cac' (len=3) from sa='ac' + sb='c'
+Total combinations tested: 72
+Palindromes found: 14
+Final result: 'aba' (len=3)
+---
+Result for a='bac', b='bac': aba
+Processing strings: a='abc' (len=3), b='def' (len=3)
+Max substring length limit: 3
+Total combinations tested: 72
+Palindromes found: 0
+Final result: 'None' (len=0)
+---
+Result for a='abc', b='def': -1
+Processing strings: a='jdfh' (len=4), b='fds' (len=3)
+Max substring length limit: 3
+Found palindrome: 'dd' (len=2) from sa='d' + sb='d'
+New best palindrome: 'dd' (replacing 'None')
+Found palindrome: 'dd' (len=2) from sa='d' + sb='d'
+Found palindrome: 'dfd' (len=3) from sa='d' + sb='fd'
+New best palindrome: 'dfd' (replacing 'dd')
+Found palindrome: 'dsd' (len=3) from sa='d' + sb='ds'
+Found palindrome: 'ff' (len=2) from sa='f' + sb='f'
+Found palindrome: 'ff' (len=2) from sa='f' + sb='f'
+Found palindrome: 'fdf' (len=3) from sa='f' + sb='fd'
+Found palindrome: 'djd' (len=3) from sa='jd' + sb='d'
+Found palindrome: 'fdf' (len=3) from sa='df' + sb='f'
+Found palindrome: 'dfd' (len=3) from sa='df' + sb='d'
+Found palindrome: 'dffd' (len=4) from sa='df' + sb='fd'
+New best palindrome: 'dffd' (replacing 'dfd')
+Found palindrome: 'fddf' (len=4) from sa='df' + sb='fd'
+Found palindrome: 'fdsdf' (len=5) from sa='df' + sb='fds'
+New best palindrome: 'fdsdf' (replacing 'dffd')
+Found palindrome: 'fhf' (len=3) from sa='fh' + sb='f'
+Found palindrome: 'fdjdf' (len=5) from sa='jdf' + sb='fd'
+New best palindrome: 'fdjdf' (replacing 'fdsdf')
+Found palindrome: 'dfhfd' (len=5) from sa='dfh' + sb='fd'
+New best palindrome: 'dfhfd' (replacing 'fdjdf')
+Total combinations tested: 108
+Palindromes found: 16
+Final result: 'dfhfd' (len=5)
+---
+Result for a='jdfh', b='fds': dfhfd
