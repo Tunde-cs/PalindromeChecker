@@ -8,83 +8,41 @@ import re
 import sys
 
 
+def is_palindrome(s):
+    return s == s[::-1]
+
 def buildPalindrome(a, b):
-    print(f"[DEBUG] Input: a='{a}', b='{b}'")
+    best = None
+    max_len = 0
+    max_limit = 20  # Performance limit
+    
+    # Early exit for empty strings
     if not a or not b:
-        print("[DEBUG] Empty string detected, returning -1")
         return "-1"
     
-    palindromes = set()
-    
-    # Remove the restrictive length limit - let's explore more possibilities
-    max_len = min(len(a), len(b), 10)  # Reasonable limit for performance
-    print(f"[DEBUG] Max substring length: {max_len}")
-    
-    # Try all possible substring combinations
-    for len_a in range(1, len(a) + 1):
+    for len_a in range(1, min(len(a), max_limit) + 1):
+        # Early termination if we can't possibly beat current best
+        if best and len_a + len(b) <= max_len:
+            continue
+            
         for start_a in range(len(a) - len_a + 1):
             sa = a[start_a:start_a + len_a]
-            
-            for len_b in range(1, len(b) + 1):
+
+            for len_b in range(1, min(len(b), max_limit) + 1):
+                # Early termination
+                if best and len_a + len_b <= max_len:
+                    continue
+                    
                 for start_b in range(len(b) - len_b + 1):
                     sb = b[start_b:start_b + len_b]
                     
-                    # Try both combinations: sa + sb and sb + sa
-                    for combo in [sa + sb, sb + sa]:
-                        if len(combo) > 20:  # Performance limit
-                            continue
-                            
-                        print(f"[DEBUG] Trying combo: '{combo}' (sa='{sa}', sb='{sb}')")
-                        
-                        # Check if palindrome using even/odd approach
-                        if is_palindrome_even_odd(combo):
-                            print(f"[DEBUG] Found palindrome: '{combo}' (length: {len(combo)})")
-                            palindromes.add(combo)
-    
-    if not palindromes:
-        print("[DEBUG] No palindromes found, returning -1")
-        return "-1"
-    
-    print(f"[DEBUG] Found palindromes: {sorted(palindromes)}")
-    
-    # Sort by: (length DESC, lexicographic ASC)
-    sorted_palindromes = sorted(palindromes, key=lambda x: (-len(x), x))
-    
-    print(f"[DEBUG] Sorted by (length DESC, lex ASC): {sorted_palindromes}")
-    
-    # Return the longest palindrome, lexicographically smallest if tie
-    result = sorted_palindromes[0]
-    print(f"[DEBUG] Final result: '{result}' (length: {len(result)})")
-    return result
+                    for cand in [sa + sb, sb + sa]:
+                        if is_palindrome(cand):
+                            if len(cand) > max_len or (len(cand) == max_len and (best is None or cand < best)):
+                                best = cand
+                                max_len = len(cand)
 
-
-def is_palindrome_even_odd(s):
-    """
-    Check if string is palindrome using even/odd length approach
-    """
-    n = len(s)
-    if n == 0:
-        return True
-    
-    # Even length palindrome: center is between two middle characters
-    if n % 2 == 0:
-        center = n // 2
-        left = center - 1
-        right = center
-    # Odd length palindrome: center is the middle character
-    else:
-        center = n // 2
-        left = center - 1
-        right = center + 1
-    
-    # Expand around center
-    while left >= 0 and right < n:
-        if s[left] != s[right]:
-            return False
-        left -= 1
-        right += 1
-    
-    return True
+    return best if best else "-1"
 
 
 if __name__ == '__main__':
