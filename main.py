@@ -64,19 +64,15 @@ def buildPalindrome(a, b):
                 if is_palindrome(candidate):
                     debug_print(f"DEBUG: Found palindrome: '{candidate}' (length {len(candidate)})")
                     
-                    # Update best if this is longer, or same length but lexicographically smaller
+                    # Update best if this is longer
                     is_longer = len(candidate) > max_length
-                    is_same_length = len(candidate) == max_length
-                    is_lexicographically_smaller = best_palindrome is None or candidate < best_palindrome
                     
                     debug_print(f"DEBUG: Comparison details:")
                     debug_print(f"  - Current candidate: '{candidate}' (length {len(candidate)})")
                     debug_print(f"  - Current best: '{best_palindrome}' (length {max_length})")
                     debug_print(f"  - Is longer? {is_longer}")
-                    debug_print(f"  - Is same length? {is_same_length}")
-                    debug_print(f"  - Is lexicographically smaller? {is_lexicographically_smaller}")
                     
-                    if (is_longer or (is_same_length and is_lexicographically_smaller)):
+                    if is_longer:
                         old_best = best_palindrome
                         best_palindrome = candidate
                         max_length = len(candidate)
