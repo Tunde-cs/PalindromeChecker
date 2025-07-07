@@ -1,0 +1,56 @@
+============================================================
+TEST: Lexicographic preference test
+Input: a='ba', b='ab'
+DEBUG: Input a='ba', b='ab'
+DEBUG: Substrings from a: ['b', 'ba', 'a']
+DEBUG: Substrings from b: ['a', 'ab', 'b']
+DEBUG: Testing candidate: 'ba' (from sa='b', sb='a')
+DEBUG: 'ba' is not a palindrome
+DEBUG: Testing candidate: 'ab' (from sa='b', sb='a')
+DEBUG: 'ab' is not a palindrome
+DEBUG: Testing candidate: 'bab' (from sa='b', sb='ab')
+DEBUG: Found palindrome: 'bab' (length 3)
+DEBUG: New best: 'bab' (length 3) - replaced 'None'
+DEBUG: Testing candidate: 'abb' (from sa='b', sb='ab')
+DEBUG: 'abb' is not a palindrome
+DEBUG: Testing candidate: 'bb' (from sa='b', sb='b')
+DEBUG: Found palindrome: 'bb' (length 2)
+DEBUG: Palindrome 'bb' not better than current best 'bab'
+DEBUG: Testing candidate: 'bb' (from sa='b', sb='b')
+DEBUG: Found palindrome: 'bb' (length 2)
+DEBUG: Palindrome 'bb' not better than current best 'bab'
+DEBUG: Testing candidate: 'baa' (from sa='ba', sb='a')
+DEBUG: 'baa' is not a palindrome
+DEBUG: Testing candidate: 'aba' (from sa='ba', sb='a')
+DEBUG: Found palindrome: 'aba' (length 3)
+DEBUG: New best: 'aba' (length 3) - replaced 'bab'
+DEBUG: Testing candidate: 'baab' (from sa='ba', sb='ab')
+DEBUG: Found palindrome: 'baab' (length 4)
+DEBUG: New best: 'baab' (length 4) - replaced 'aba'
+DEBUG: Testing candidate: 'abba' (from sa='ba', sb='ab')
+DEBUG: Found palindrome: 'abba' (length 4)
+DEBUG: New best: 'abba' (length 4) - replaced 'baab'
+DEBUG: Testing candidate: 'bab' (from sa='ba', sb='b')
+DEBUG: Found palindrome: 'bab' (length 3)
+DEBUG: Palindrome 'bab' not better than current best 'abba'
+DEBUG: Testing candidate: 'bba' (from sa='ba', sb='b')
+DEBUG: 'bba' is not a palindrome
+DEBUG: Testing candidate: 'aa' (from sa='a', sb='a')
+DEBUG: Found palindrome: 'aa' (length 2)
+DEBUG: Palindrome 'aa' not better than current best 'abba'
+DEBUG: Testing candidate: 'aa' (from sa='a', sb='a')
+DEBUG: Found palindrome: 'aa' (length 2)
+DEBUG: Palindrome 'aa' not better than current best 'abba'
+DEBUG: Testing candidate: 'aab' (from sa='a', sb='ab')
+DEBUG: 'aab' is not a palindrome
+DEBUG: Testing candidate: 'aba' (from sa='a', sb='ab')
+DEBUG: Found palindrome: 'aba' (length 3)
+DEBUG: Palindrome 'aba' not better than current best 'abba'
+DEBUG: Testing candidate: 'ab' (from sa='a', sb='b')
+DEBUG: 'ab' is not a palindrome
+DEBUG: Testing candidate: 'ba' (from sa='a', sb='b')
+DEBUG: 'ba' is not a palindrome
+DEBUG: Final result: 'abba'
+Result: 'abba'
+Expected: 'abba' - ✓ PASS
+Time: 0.000s
