@@ -21,8 +21,8 @@ def buildPalindrome(a, b):
     def is_palindrome(s):
         return s == s[::-1]
 
-    best_palindrome = None
-    max_length = 0
+    # Collect all possible palindromes
+    palindromes = []
 
     # Try all combinations of substrings up to 20 chars to avoid TLE
     for len_a in range(1, min(len(a), 20) + 1):
@@ -35,14 +35,18 @@ def buildPalindrome(a, b):
                         print(f"[DEBUG] Trying combo: '{combo}' (sa='{sa}', sb='{sb}')")
                         if is_palindrome(combo):
                             print(f"[DEBUG] Palindrome found: '{combo}'")
-                            if (len(combo) > max_length or
-                               (len(combo) == max_length and
-                                (best_palindrome is None or combo < best_palindrome))):
-                                print(f"[DEBUG] New best palindrome: '{combo}' (old: '{best_palindrome}')")
-                                best_palindrome = combo
-                                max_length = len(combo)
+                            palindromes.append(combo)
 
-    result = best_palindrome if best_palindrome else "-1"
+    if not palindromes:
+        print("[DEBUG] No palindromes found. Returning '-1'")
+        return "-1"
+
+    # Try lexicographically smallest overall first
+    palindromes.sort()
+    result = palindromes[0]
+    
+    print(f"[DEBUG] All palindromes: {palindromes}")
+    print(f"[DEBUG] Best palindromes of max length {max_length}: {best_palindromes}")
     print(f"[DEBUG] Final result: '{result}'")
     return result
 
