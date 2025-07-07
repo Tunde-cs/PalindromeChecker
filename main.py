@@ -20,9 +20,10 @@ def buildPalindrome(a, b):
     
     best = None
     
-    # First, try full strings (most important for identical string cases)
+    # First, try full strings and their reverse combinations
     print("DEBUG: Testing full string combinations...")
-    for cand in [a + b, b + a]:
+    candidates = [a + b, b + a, a + b[::-1], b + a[::-1]]
+    for cand in candidates:
         print(f"DEBUG: Testing candidate '{cand}' (palindrome: {is_palindrome(cand)})")
         if is_palindrome(cand):
             if best is None or len(cand) > len(best) or (len(cand) == len(best) and cand < best):
