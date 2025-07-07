@@ -46,7 +46,6 @@ def buildPalindrome(a, b):
     result = palindromes[0]
     
     print(f"[DEBUG] All palindromes: {palindromes}")
-    print(f"[DEBUG] Best palindromes of max length {max_length}: {best_palindromes}")
     print(f"[DEBUG] Final result: '{result}'")
     return result
 
