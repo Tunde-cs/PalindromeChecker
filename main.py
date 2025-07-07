@@ -1,39 +1,3 @@
-
-def is_palindrome(s):
-    return s == s[::-1]
-
-def buildPalindrome(a, b):
-    best = None
-
-    def is_palindrome(s):
-        return s == s[::-1]
-
-    # Early exit for empty strings
-    if not a or not b:
-        return "-1"
-
-    n = len(a)
-    m = len(b)
-
-    for i in range(n):
-        for j in range(i + 1, n + 1):
-            sa = a[i:j]
-            for k in range(m):
-                for l in range(k + 1, m + 1):
-                    sb = b[k:l]
-
-                    # Try both sa + sb and sb + sa (without reversing)
-                    for combo in [sa + sb, sb + sa]:
-                        if is_palindrome(combo):
-                            # Priority: longest first, then lexicographically smallest
-                            if (best is None or 
-                                len(combo) > len(best) or 
-                                (len(combo) == len(best) and combo < best)):
-                                best = combo
-
-    return best if best else "-1"
-</old_str>
-<new_str>
 def is_palindrome(s):
     return s == s[::-1]
 
@@ -44,7 +8,7 @@ def buildPalindrome(a, b):
 
     # Collect all possible palindromes
     palindromes = []
-    
+
     n = len(a)
     m = len(b)
 
@@ -62,13 +26,12 @@ def buildPalindrome(a, b):
 
     if not palindromes:
         return "-1"
-    
+
     # Find the maximum length
     max_length = max(len(p) for p in palindromes)
-    
+
     # Filter palindromes with maximum length
     max_palindromes = [p for p in palindromes if len(p) == max_length]
-    
+
     # Return the lexicographically smallest among maximum length palindromes
     return min(max_palindromes)
-</old_str>
