@@ -48,14 +48,16 @@ def buildPalindrome(a, b):
             for cand in [sa + sb, sb + sa]:
                 if is_palindrome(cand):
                     palindromes_found.append(cand)
+                    # Prioritize: longest first, then lexicographically smallest
                     if (best is None or 
-                        len(cand) > max_len or 
-                        (len(cand) == max_len and cand < best)):
+                        len(cand) > len(best) or 
+                        (len(cand) == len(best) and cand < best)):
                         print(f"DEBUG: New best substring candidate: '{cand}'")
                         best = cand
-                        max_len = len(cand)
     
     print(f"DEBUG: Total palindromes found: {len(palindromes_found)}")
+    if len(palindromes_found) <= 20:  # Only show if not too many
+        print(f"DEBUG: All palindromes: {sorted(set(palindromes_found))}")
     print(f"DEBUG: Final best result: '{best}'")
     
     return best if best else "-1"
