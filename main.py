@@ -22,16 +22,18 @@ def buildPalindrome(a, b):
         for j in range(i + 1, len(b) + 1):
             substrings_b.append(b[i:j])
 
-    # Try all combinations: sa + sb (only this order based on problem statement)
+    # Try all combinations: both sa + sb and sb + sa
     for sa in substrings_a:
         for sb in substrings_b:
-            candidate = sa + sb
-            if is_palindrome(candidate):
-                # Update best if this candidate is better
-                if (best is None or 
-                    len(candidate) > len(best) or 
-                    (len(candidate) == len(best) and candidate < best)):
-                    best = candidate
+            # Try both orders of concatenation
+            for candidate in [sa + sb, sb + sa]:
+                if is_palindrome(candidate):
+                    # Update best if this candidate is better
+                    # Priority: longest first, then lexicographically smallest
+                    if (best is None or 
+                        len(candidate) > len(best) or 
+                        (len(candidate) == len(best) and candidate < best)):
+                        best = candidate
 
     return best if best else "-1"
 
