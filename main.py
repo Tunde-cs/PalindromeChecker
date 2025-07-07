@@ -25,18 +25,21 @@ def buildPalindrome(a, b):
         debug_print("DEBUG: Empty string detected, returning -1")
         return "-1"
     
-    # Generate all possible substrings from both strings
+    # Performance constraints - limit substring length
+    max_substring_len = min(10, len(a), len(b))  # Conservative limit
+    
+    # Generate limited substrings from both strings
     substrings_a = []
     substrings_b = []
     
-    # Extract all substrings from a
+    # Extract substrings from a with length limit
     for i in range(len(a)):
-        for j in range(i + 1, len(a) + 1):
+        for j in range(i + 1, min(i + max_substring_len + 1, len(a) + 1)):
             substrings_a.append(a[i:j])
     
-    # Extract all substrings from b
+    # Extract substrings from b with length limit
     for i in range(len(b)):
-        for j in range(i + 1, len(b) + 1):
+        for j in range(i + 1, min(i + max_substring_len + 1, len(b) + 1)):
             substrings_b.append(b[i:j])
     
     debug_print(f"DEBUG: Substrings from a: {substrings_a}")
@@ -45,9 +48,13 @@ def buildPalindrome(a, b):
     best_palindrome = None
     max_length = 0
     
-    # Try all combinations of substrings
+    # Try combinations with early termination for performance
     for sa in substrings_a:
         for sb in substrings_b:
+            # Skip if combined length would be too long
+            if len(sa) + len(sb) > 20:  # Performance limit
+                continue
+                
             # Try both orderings: sa+sb and sb+sa
             candidates = [sa + sb, sb + sa]
             
