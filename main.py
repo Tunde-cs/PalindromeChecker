@@ -9,39 +9,17 @@ import sys
 
 
 def buildPalindrome(a, b):
+    print(f"[DEBUG] Input: a='{a}', b='{b}'")
     if not a or not b:
+        print("[DEBUG] Empty string detected, returning -1")
         return "-1"
-    
-    # Combine both strings and find the longest possible palindrome
-    # that uses substrings from both a and b
-    
-    def can_form_palindrome(s1, s2):
-        # Try s1 + s2 and s2 + s1, return the longest palindrome possible
-        candidates = []
-        
-        # For each possible way to combine substrings
-        for i in range(len(s1) + 1):
-            for j in range(len(s2) + 1):
-                if i == 0 and j == 0:
-                    continue
-                    
-                # Take prefix of s1 and s2
-                part1 = s1[:i] if i > 0 else ""
-                part2 = s2[:j] if j > 0 else ""
-                
-                if part1 and part2:  # Must use from both strings
-                    # Try both orders
-                    for combo in [part1 + part2, part2 + part1]:
-                        if combo == combo[::-1]:  # is palindrome
-                            candidates.append(combo)
-        
-        return candidates
     
     best_palindromes = []
     
     # Try all possible substrings efficiently
     # Limit substring length to avoid TLE
     max_len = min(50, len(a), len(b))  # Reasonable limit
+    print(f"[DEBUG] Max substring length: {max_len}")
     
     for len_a in range(1, min(len(a), max_len) + 1):
         for start_a in range(len(a) - len_a + 1):
@@ -53,19 +31,27 @@ def buildPalindrome(a, b):
                     
                     # Try both combinations
                     for combo in [sa + sb, sb + sa]:
+                        print(f"[DEBUG] Trying combo: '{combo}' (sa='{sa}', sb='{sb}')")
                         if combo == combo[::-1]:  # is palindrome
+                            print(f"[DEBUG] Found palindrome: '{combo}'")
                             best_palindromes.append(combo)
     
     if not best_palindromes:
+        print("[DEBUG] No palindromes found, returning -1")
         return "-1"
     
     # Remove duplicates and find longest palindromes
     best_palindromes = list(set(best_palindromes))
+    print(f"[DEBUG] All unique palindromes: {best_palindromes}")
     max_length = max(len(p) for p in best_palindromes)
+    print(f"[DEBUG] Max length found: {max_length}")
     longest_palindromes = [p for p in best_palindromes if len(p) == max_length]
+    print(f"[DEBUG] Longest palindromes: {longest_palindromes}")
     
     # Return lexicographically smallest among longest
-    return min(longest_palindromes)
+    result = min(longest_palindromes)
+    print(f"[DEBUG] Final result: '{result}'")
+    return result
 
 
 if __name__ == '__main__':
