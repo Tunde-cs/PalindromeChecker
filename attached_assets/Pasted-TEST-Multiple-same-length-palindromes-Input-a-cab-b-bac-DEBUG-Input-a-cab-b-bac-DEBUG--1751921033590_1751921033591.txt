@@ -1,0 +1,78 @@
+TEST: Multiple same-length palindromes
+Input: a='cab', b='bac'
+DEBUG: Input a='cab', b='bac'
+DEBUG: Max substring length limit: 3 for a, 3 for b
+DEBUG: Trying combo: sa='c' sb='b'
+DEBUG: Testing candidate: 'cb'
+DEBUG: 'cb' is not a palindrome
+DEBUG: Testing candidate: 'bc'
+DEBUG: 'bc' is not a palindrome
+DEBUG: Trying combo: sa='c' sb='a'
+DEBUG: Testing candidate: 'ca'
+DEBUG: 'ca' is not a palindrome
+DEBUG: Testing candidate: 'ac'
+DEBUG: 'ac' is not a palindrome
+DEBUG: Trying combo: sa='c' sb='c'
+DEBUG: Testing candidate: 'cc'
+DEBUG: Found palindrome: 'cc' (length 2)
+DEBUG: New best: 'cc' (length 2) - replaced 'None'
+DEBUG: Testing candidate: 'cc'
+DEBUG: Found palindrome: 'cc' (length 2)
+DEBUG: Palindrome 'cc' not better than current best 'cc'
+DEBUG: Trying combo: sa='c' sb='ba'
+DEBUG: Testing candidate: 'cba'
+DEBUG: 'cba' is not a palindrome
+DEBUG: Testing candidate: 'bac'
+DEBUG: 'bac' is not a palindrome
+DEBUG: Trying combo: sa='c' sb='ac'
+DEBUG: Testing candidate: 'cac'
+DEBUG: Found palindrome: 'cac' (length 3)
+DEBUG: New best: 'cac' (length 3) - replaced 'cc'
+DEBUG: Testing candidate: 'acc'
+DEBUG: 'acc' is not a palindrome
+DEBUG: Trying combo: sa='c' sb='bac'
+DEBUG: Testing candidate: 'cbac'
+DEBUG: 'cbac' is not a palindrome
+DEBUG: Testing candidate: 'bacc'
+DEBUG: 'bacc' is not a palindrome
+DEBUG: Trying combo: sa='a' sb='bac'
+DEBUG: Testing candidate: 'abac'
+DEBUG: 'abac' is not a palindrome
+DEBUG: Testing candidate: 'baca'
+DEBUG: 'baca' is not a palindrome
+DEBUG: Trying combo: sa='b' sb='bac'
+DEBUG: Testing candidate: 'bbac'
+DEBUG: 'bbac' is not a palindrome
+DEBUG: Testing candidate: 'bacb'
+DEBUG: 'bacb' is not a palindrome
+DEBUG: Trying combo: sa='ca' sb='ba'
+DEBUG: Testing candidate: 'caba'
+DEBUG: 'caba' is not a palindrome
+DEBUG: Testing candidate: 'baca'
+DEBUG: 'baca' is not a palindrome
+DEBUG: Trying combo: sa='ca' sb='ac'
+DEBUG: Testing candidate: 'caac'
+DEBUG: Found palindrome: 'caac' (length 4)
+DEBUG: New best: 'caac' (length 4) - replaced 'cac'
+DEBUG: Testing candidate: 'acca'
+DEBUG: Found palindrome: 'acca' (length 4)
+DEBUG: New best: 'acca' (length 4) - replaced 'caac'
+DEBUG: Trying combo: sa='ca' sb='bac'
+DEBUG: Testing candidate: 'cabac'
+DEBUG: Found palindrome: 'cabac' (length 5)
+DEBUG: New best: 'cabac' (length 5) - replaced 'acca'
+DEBUG: Testing candidate: 'bacca'
+DEBUG: 'bacca' is not a palindrome
+DEBUG: Trying combo: sa='cab' sb='bac'
+DEBUG: Testing candidate: 'cabbac'
+DEBUG: Found palindrome: 'cabbac' (length 6)
+DEBUG: New best: 'cabbac' (length 6) - replaced 'cabac'
+DEBUG: Testing candidate: 'baccab'
+DEBUG: Found palindrome: 'baccab' (length 6)
+DEBUG: New best: 'baccab' (length 6) - replaced 'cabbac'
+DEBUG: Total combinations tested: 12
+DEBUG: Palindromes found: 8
+DEBUG: Final result: 'baccab'
+Result: 'baccab'
+Expected: 'aba' - ✗ FAIL
+Time: 0.000s
