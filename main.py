@@ -59,13 +59,13 @@ def buildPalindrome(a, b):
                             dp[key] = candidate
                             debug_print(f"DEBUG: Found palindrome: '{candidate}' (length {len(candidate)})")
 
-                            # Update best if this is longer
+                            # Update best ONLY if this is strictly longer
                             if len(candidate) > max_len:
                                 max_len = len(candidate)
                                 best_palindrome = candidate
                                 debug_print(f"DEBUG: ✓ NEW BEST: '{best_palindrome}' (length {max_len})")
-                            elif len(candidate) == max_len:
-                                debug_print(f"DEBUG: Same length palindrome '{candidate}' found but keeping first one")
+                            else:
+                                debug_print(f"DEBUG: Palindrome '{candidate}' not longer than current best (length {max_len})")
                         else:
                             dp[key] = None
 
