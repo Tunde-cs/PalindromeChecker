@@ -25,66 +25,85 @@ def buildPalindrome(a, b):
         debug_print("DEBUG: Empty string detected, returning -1")
         return "-1"
     
-    # More conservative limits to match expected behavior
-    max_substring_len = min(5, len(a), len(b))  # Much more conservative
+    # Memoization tables
+    memo = {}  # Cache for palindrome checks
+    best_palindromes = {}  # Cache for best palindromes found so far
     
-    # Generate limited substrings from both strings
-    substrings_a = []
-    substrings_b = []
+    def is_palindrome_memo(s):
+        if s not in memo:
+            memo[s] = (s == s[::-1])
+        return memo[s]
     
-    # Extract shorter substrings from a
-    for i in range(len(a)):
-        for j in range(i + 1, min(i + max_substring_len + 1, len(a) + 1)):
-            substrings_a.append(a[i:j])
+    # Dynamic programming approach
+    # dp[i][j][k][l] represents the best palindrome using substring a[i:i+k] and b[j:j+l]
+    dp = {}
     
-    # Extract shorter substrings from b  
-    for i in range(len(b)):
-        for j in range(i + 1, min(i + max_substring_len + 1, len(b) + 1)):
-            substrings_b.append(b[i:j])
-    
-    debug_print(f"DEBUG: Substrings from a: {substrings_a}")
-    debug_print(f"DEBUG: Substrings from b: {substrings_b}")
+    def get_best_palindrome(sa_start, sa_len, sb_start, sb_len, order):
+        """
+        Get best palindrome for given substring parameters
+        order: 0 for sa+sb, 1 for sb+sa
+        """
+        key = (sa_start, sa_len, sb_start, sb_len, order)
+        
+        if key in dp:
+            return dp[key]
+        
+        # Extract substrings
+        sa = a[sa_start:sa_start + sa_len]
+        sb = b[sb_start:sb_start + sb_len]
+        
+        # Create candidate based on order
+        candidate = sa + sb if order == 0 else sb + sa
+        
+        debug_print(f"DEBUG: DP checking candidate: '{candidate}' (sa='{sa}', sb='{sb}', order={order})")
+        
+        result = None
+        if is_palindrome_memo(candidate):
+            result = candidate
+            debug_print(f"DEBUG: DP found palindrome: '{candidate}' (length {len(candidate)})")
+        
+        dp[key] = result
+        return result
     
     best_palindrome = None
     max_length = 0
     
-    # Try combinations with stricter limits
-    for sa in substrings_a:
-        for sb in substrings_b:
-            # Skip if combined length would be too long
-            if len(sa) + len(sb) > 10:  # Much stricter limit
-                continue
-                
-            # Try both orderings: sa+sb and sb+sa
-            candidates = [sa + sb, sb + sa]
-            
-            for candidate in candidates:
-                debug_print(f"DEBUG: Testing candidate: '{candidate}' (from sa='{sa}', sb='{sb}')")
-                
-                if is_palindrome(candidate):
-                    debug_print(f"DEBUG: Found palindrome: '{candidate}' (length {len(candidate)})")
-                    
-                    # Update best if this is lexicographically smaller, or same and longer
-                    is_longer = len(candidate) > max_length
-                    is_lexicographically_smaller = best_palindrome is None or candidate < best_palindrome
-                    
-                    debug_print(f"DEBUG: Comparison details:")
-                    debug_print(f"  - Current candidate: '{candidate}' (length {len(candidate)})")
-                    debug_print(f"  - Current best: '{best_palindrome}' (length {max_length})")
-                    debug_print(f"  - Is longer? {is_longer}")
-                    debug_print(f"  - Is lexicographically smaller? {is_lexicographically_smaller}")
-                    
-                    if is_lexicographically_smaller or (candidate == best_palindrome and is_longer):
-                        old_best = best_palindrome
-                        best_palindrome = candidate
-                        max_length = len(candidate)
-                        debug_print(f"DEBUG: ✓ NEW BEST: '{best_palindrome}' (length {max_length}) - replaced '{old_best}'")
-                    else:
-                        debug_print(f"DEBUG: ✗ Palindrome '{candidate}' not better than current best '{best_palindrome}'")
-                else:
-                    debug_print(f"DEBUG: '{candidate}' is not a palindrome")
+    # Reasonable limits for performance
+    max_sa_len = min(10, len(a))
+    max_sb_len = min(10, len(b))
     
-    debug_print(f"DEBUG: Final result: '{best_palindrome if best_palindrome else '-1'}'")
+    debug_print(f"DEBUG: Using DP with limits: max_sa_len={max_sa_len}, max_sb_len={max_sb_len}")
+    
+    # Dynamic programming iteration
+    for sa_len in range(1, max_sa_len + 1):
+        for sa_start in range(len(a) - sa_len + 1):
+            for sb_len in range(1, max_sb_len + 1):
+                for sb_start in range(len(b) - sb_len + 1):
+                    # Try both orders: sa+sb and sb+sa
+                    for order in [0, 1]:
+                        candidate = get_best_palindrome(sa_start, sa_len, sb_start, sb_len, order)
+                        
+                        if candidate:
+                            # Update best based on lexicographic preference
+                            is_longer = len(candidate) > max_length
+                            is_lexicographically_smaller = best_palindrome is None or candidate < best_palindrome
+                            
+                            debug_print(f"DEBUG: DP comparison:")
+                            debug_print(f"  - Current candidate: '{candidate}' (length {len(candidate)})")
+                            debug_print(f"  - Current best: '{best_palindrome}' (length {max_length})")
+                            debug_print(f"  - Is longer? {is_longer}")
+                            debug_print(f"  - Is lexicographically smaller? {is_lexicographically_smaller}")
+                            
+                            if is_lexicographically_smaller or (candidate == best_palindrome and is_longer):
+                                old_best = best_palindrome
+                                best_palindrome = candidate
+                                max_length = len(candidate)
+                                debug_print(f"DEBUG: ✓ DP NEW BEST: '{best_palindrome}' (length {max_length}) - replaced '{old_best}'")
+                            else:
+                                debug_print(f"DEBUG: ✗ DP palindrome '{candidate}' not better than current best '{best_palindrome}'")
+    
+    debug_print(f"DEBUG: DP cache stats - memo size: {len(memo)}, dp size: {len(dp)}")
+    debug_print(f"DEBUG: Final DP result: '{best_palindrome if best_palindrome else '-1'}'")
     return best_palindrome if best_palindrome else "-1"
 
 
