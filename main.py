@@ -18,10 +18,6 @@ def is_palindrome(s):
     return s == s[::-1]
 
 def buildPalindrome(a, b):
-    best = None
-    max_len = 0
-    max_limit = 20  # Performance limit
-    
     debug_print(f"DEBUG: Input a='{a}', b='{b}'")
     
     # Early exit for empty strings
@@ -29,47 +25,54 @@ def buildPalindrome(a, b):
         debug_print("DEBUG: Empty string detected, returning -1")
         return "-1"
     
-    debug_print(f"DEBUG: Max substring length limit: {min(len(a), max_limit)} for a, {min(len(b), max_limit)} for b")
+    # Generate all possible substrings from both strings
+    substrings_a = []
+    substrings_b = []
     
-    total_combinations = 0
-    palindromes_found = 0
+    # Extract all substrings from a
+    for i in range(len(a)):
+        for j in range(i + 1, len(a) + 1):
+            substrings_a.append(a[i:j])
     
-    for len_a in range(1, min(len(a), max_limit) + 1):
-        for start_a in range(len(a) - len_a + 1):
-            sa = a[start_a:start_a + len_a]
-
-            for len_b in range(1, min(len(b), max_limit) + 1):
-                # Early termination only if we can't possibly beat current best
-                if best and len_a + len_b <= max_len:
-                    continue
+    # Extract all substrings from b
+    for i in range(len(b)):
+        for j in range(i + 1, len(b) + 1):
+            substrings_b.append(b[i:j])
+    
+    debug_print(f"DEBUG: Substrings from a: {substrings_a}")
+    debug_print(f"DEBUG: Substrings from b: {substrings_b}")
+    
+    best_palindrome = None
+    max_length = 0
+    
+    # Try all combinations of substrings
+    for sa in substrings_a:
+        for sb in substrings_b:
+            # Try both orderings: sa+sb and sb+sa
+            candidates = [sa + sb, sb + sa]
+            
+            for candidate in candidates:
+                debug_print(f"DEBUG: Testing candidate: '{candidate}' (from sa='{sa}', sb='{sb}')")
+                
+                if is_palindrome(candidate):
+                    debug_print(f"DEBUG: Found palindrome: '{candidate}' (length {len(candidate)})")
                     
-                for start_b in range(len(b) - len_b + 1):
-                    sb = b[start_b:start_b + len_b]
-                    
-                    debug_print(f"DEBUG: Trying combo: sa='{sa}' sb='{sb}'")
-                    total_combinations += 1
-                    
-                    for cand in [sa + sb, sb + sa]:
-                        debug_print(f"DEBUG: Testing candidate: '{cand}'")
-                        if is_palindrome(cand):
-                            palindromes_found += 1
-                            debug_print(f"DEBUG: Found palindrome: '{cand}' (length {len(cand)})")
-                            
-                            if len(cand) > max_len or (len(cand) == max_len and (best is None or cand < best)):
-                                old_best = best
-                                best = cand
-                                max_len = len(cand)
-                                debug_print(f"DEBUG: New best: '{best}' (length {max_len}) - replaced '{old_best}'")
-                            else:
-                                debug_print(f"DEBUG: Palindrome '{cand}' not better than current best '{best}'")
-                        else:
-                            debug_print(f"DEBUG: '{cand}' is not a palindrome")
+                    # Update best if this is longer, or same length but lexicographically smaller
+                    if (len(candidate) > max_length or 
+                        (len(candidate) == max_length and 
+                         (best_palindrome is None or candidate < best_palindrome))):
+                        
+                        old_best = best_palindrome
+                        best_palindrome = candidate
+                        max_length = len(candidate)
+                        debug_print(f"DEBUG: New best: '{best_palindrome}' (length {max_length}) - replaced '{old_best}'")
+                    else:
+                        debug_print(f"DEBUG: Palindrome '{candidate}' not better than current best '{best_palindrome}'")
+                else:
+                    debug_print(f"DEBUG: '{candidate}' is not a palindrome")
     
-    debug_print(f"DEBUG: Total combinations tested: {total_combinations}")
-    debug_print(f"DEBUG: Palindromes found: {palindromes_found}")
-    debug_print(f"DEBUG: Final result: '{best if best else '-1'}'")
-    
-    return best if best else "-1"
+    debug_print(f"DEBUG: Final result: '{best_palindrome if best_palindrome else '-1'}'")
+    return best_palindrome if best_palindrome else "-1"
 
 
 if __name__ == '__main__':
