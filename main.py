@@ -48,7 +48,9 @@ def buildPalindrome(a, b):
             for cand in [sa + sb, sb + sa]:
                 if is_palindrome(cand):
                     palindromes_found.append(cand)
-                    if len(cand) > max_len or (len(cand) == max_len and (best is None or cand < best)):
+                    if (best is None or 
+                        len(cand) > max_len or 
+                        (len(cand) == max_len and cand < best)):
                         print(f"DEBUG: New best substring candidate: '{cand}'")
                         best = cand
                         max_len = len(cand)
