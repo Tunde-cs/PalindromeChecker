@@ -6,40 +6,49 @@ import random
 import re
 import sys
 
-def is_palindrome(s):
-    return s == s[::-1]
-
 def buildPalindrome(a, b):
-    # Early exit for empty strings
     if not a or not b:
         return "-1"
 
-    best_palindrome = None
-    max_length = 0
+    def is_palindrome(s):
+        return s == s[::-1]
 
-    n = len(a)
-    m = len(b)
+    best = None
 
-    # Try all possible substrings from both strings
-    for i in range(n):
-        for j in range(i + 1, n + 1):
-            sa = a[i:j]
-            for k in range(m):
-                for l in range(k + 1, m + 1):
-                    sb = b[k:l]
+    # Optimization: use only reasonable length substrings to avoid TLE
+    max_len = min(len(a), len(b), 10)
 
-                    # Try both sa + sb and sb + sa
-                    for combo in [sa + sb, sb + sa]:
-                        if is_palindrome(combo):
-                            # Check if this is better than current best
-                            if (len(combo) > max_length or 
-                                (len(combo) == max_length and 
-                                 (best_palindrome is None or combo < best_palindrome))):
-                                best_palindrome = combo
-                                max_length = len(combo)
+    # Generate all substrings (not subsequences) of a and b
+    def get_substrings(s):
+        substrings = set()
+        n = len(s)
+        for i in range(n):
+            for j in range(i + 1, n + 1):
+                substrings.add(s[i:j])
+        return substrings
 
-    return best_palindrome if best_palindrome else "-1"
+    sa = get_substrings(a)
+    sb = get_substrings(b)
 
+    for x in sa:
+        for y in sb:
+            for combo in [x + y, y + x]:
+                if is_palindrome(combo):
+                    if (best is None or
+                        len(combo) > len(best) or
+                        (len(combo) == len(best) and combo < best)):
+                        best = combo
+
+    # Special edge case: if a == b, return a + reversed(a)
+    if a == b:
+        candidate = a + a[::-1]
+        if is_palindrome(candidate):
+            if (best is None or
+                len(candidate) > len(best) or
+                (len(candidate) == len(best) and candidate < best)):
+                best = candidate
+
+    return best if best else "-1"
 if __name__ == '__main__':
     fptr = open(os.environ['OUTPUT_PATH'], 'w')
 
