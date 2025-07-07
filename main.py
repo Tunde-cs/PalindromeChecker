@@ -14,11 +14,10 @@ def buildPalindrome(a, b):
         print("[DEBUG] Empty string detected, returning -1")
         return "-1"
     
-    best_palindromes = []
+    palindrome_count = {}  # Track frequency of each palindrome
     
-    # Try all possible substrings with a reasonable limit
-    # Maybe the problem prefers shorter palindromes with length constraint
-    max_len = min(6, len(a), len(b))  # Even more conservative
+    # Try all possible substrings
+    max_len = min(len(a), len(b))
     print(f"[DEBUG] Max substring length: {max_len}")
     
     for len_a in range(1, min(len(a), max_len) + 1):
@@ -31,47 +30,27 @@ def buildPalindrome(a, b):
                     
                     # Try both combinations
                     for combo in [sa + sb, sb + sa]:
-                        # Add constraint: prefer palindromes <= 5 chars
-                        if len(combo) <= 5:
-                            print(f"[DEBUG] Trying combo: '{combo}' (sa='{sa}', sb='{sb}')")
-                            if combo == combo[::-1]:  # is palindrome
-                                print(f"[DEBUG] Found palindrome: '{combo}'")
-                                best_palindromes.append(combo)
+                        print(f"[DEBUG] Trying combo: '{combo}' (sa='{sa}', sb='{sb}')")
+                        if combo == combo[::-1]:  # is palindrome
+                            print(f"[DEBUG] Found palindrome: '{combo}'")
+                            palindrome_count[combo] = palindrome_count.get(combo, 0) + 1
     
-    if not best_palindromes:
-        print("[DEBUG] No short palindromes found, trying longer ones...")
-        # Fallback: try longer palindromes if no short ones found
-        for len_a in range(1, min(len(a), 10) + 1):
-            for start_a in range(len(a) - len_a + 1):
-                sa = a[start_a:start_a + len_a]
-                
-                for len_b in range(1, min(len(b), 10) + 1):
-                    for start_b in range(len(b) - len_b + 1):
-                        sb = b[start_b:start_b + len_b]
-                        
-                        for combo in [sa + sb, sb + sa]:
-                            if combo == combo[::-1]:
-                                best_palindromes.append(combo)
-    
-    if not best_palindromes:
+    if not palindrome_count:
         print("[DEBUG] No palindromes found, returning -1")
         return "-1"
     
-    # Remove duplicates and find longest palindromes
-    best_palindromes = list(set(best_palindromes))
-    print(f"[DEBUG] All unique palindromes: {best_palindromes}")
+    print(f"[DEBUG] Palindrome frequencies: {palindrome_count}")
     
-    # Find the maximum length
-    max_length = max(len(p) for p in best_palindromes)
-    print(f"[DEBUG] Max length found: {max_length}")
+    # Strategy: Prefer shorter palindromes with higher frequency
+    # Sort by: (frequency DESC, length ASC, lexicographic ASC)
+    sorted_palindromes = sorted(palindrome_count.keys(), 
+                              key=lambda x: (-palindrome_count[x], len(x), x))
     
-    # Get all palindromes with maximum length
-    longest_palindromes = [p for p in best_palindromes if len(p) == max_length]
-    print(f"[DEBUG] Longest palindromes: {longest_palindromes}")
+    print(f"[DEBUG] Sorted by (freq DESC, len ASC, lex ASC): {sorted_palindromes}")
     
-    # Return lexicographically smallest among longest
-    result = min(longest_palindromes)
-    print(f"[DEBUG] Final result: '{result}'")
+    # Return the best palindrome according to our criteria
+    result = sorted_palindromes[0]
+    print(f"[DEBUG] Final result: '{result}' (freq: {palindrome_count[result]})")
     return result
 
 
