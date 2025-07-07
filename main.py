@@ -33,6 +33,28 @@ def buildPalindrome(a, b):
                                 best_palindrome = combo
                                 best_length = combo_len
 
+    # Also try combinations with reversed substrings
+    for len_a in range(1, len(a) + 1):
+        for start_a in range(len(a) - len_a + 1):
+            sa = a[start_a:start_a + len_a]
+            sa_rev = sa[::-1]
+
+            for len_b in range(1, len(b) + 1):
+                for start_b in range(len(b) - len_b + 1):
+                    sb = b[start_b:start_b + len_b]
+                    sb_rev = sb[::-1]
+
+                    # Try combinations with reverses: sa+sb_rev, sa_rev+sb, etc.
+                    for combo in [sa + sb_rev, sa_rev + sb, sb + sa_rev, sb_rev + sa]:
+                        if combo == combo[::-1]:  # is palindrome
+                            combo_len = len(combo)
+
+                            # Update best if this is longer, or same length but lexicographically smaller
+                            if (combo_len > best_length or 
+                                (combo_len == best_length and (best_palindrome is None or combo < best_palindrome))):
+                                best_palindrome = combo
+                                best_length = combo_len
+
     return best_palindrome if best_palindrome else "-1"
 
 if __name__ == '__main__':
