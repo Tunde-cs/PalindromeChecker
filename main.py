@@ -3,9 +3,13 @@ def is_palindrome(s):
     return s == s[::-1]
 
 def buildPalindrome(a, b):
-    palindromes = []
+    best = None
+    max_len = 0
     
-    # Find all possible palindromes
+    # Early exit for empty strings
+    if not a or not b:
+        return "-1"
+    
     for len_a in range(1, len(a) + 1):
         for start_a in range(len(a) - len_a + 1):
             sa = a[start_a:start_a + len_a]
@@ -16,10 +20,8 @@ def buildPalindrome(a, b):
 
                     for cand in [sa + sb, sb + sa]:
                         if is_palindrome(cand):
-                            palindromes.append(cand)
-    
-    if not palindromes:
-        return "-1"
-    
-    # Return the lexicographically smallest palindrome
-    return min(palindromes)
+                            if len(cand) > max_len or (len(cand) == max_len and (best is None or cand < best)):
+                                max_len = len(cand)
+                                best = cand
+
+    return best if best else "-1"
