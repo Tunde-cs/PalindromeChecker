@@ -6,39 +6,41 @@ import os
 import random
 import re
 import sys
-import time
-
-def is_palindrome(s):
-    return s == s[::-1]
 
 def buildPalindrome(a, b):
-    best = None
-    max_len = 0
-    
-    # Early exit for empty strings
     if not a or not b:
         return "-1"
     
-    # Try all possible substring combinations
-    for len_a in range(1, len(a) + 1):
+    palindrome_count = {}  # Track frequency of each palindrome
+    
+    # Try all possible substrings
+    max_len = min(len(a), len(b))
+    
+    for len_a in range(1, min(len(a), max_len) + 1):
         for start_a in range(len(a) - len_a + 1):
             sa = a[start_a:start_a + len_a]
             
-            for len_b in range(1, len(b) + 1):
+            for len_b in range(1, min(len(b), max_len) + 1):
                 for start_b in range(len(b) - len_b + 1):
                     sb = b[start_b:start_b + len_b]
                     
-                    # Try both concatenation orders
-                    for cand in [sa + sb, sb + sa]:
-                        if is_palindrome(cand):
-                            # Update if we found a longer palindrome
-                            # or same length but lexicographically smaller
-                            if (len(cand) > max_len or 
-                                (len(cand) == max_len and (best is None or cand < best))):
-                                best = cand
-                                max_len = len(cand)
+                    # Try both combinations
+                    for combo in [sa + sb, sb + sa]:
+                        if combo == combo[::-1]:  # is palindrome
+                            palindrome_count[combo] = palindrome_count.get(combo, 0) + 1
     
-    return best if best else "-1"
+    if not palindrome_count:
+        return "-1"
+    
+    # Get unique palindromes
+    unique_palindromes = list(palindrome_count.keys())
+    
+    # Sort by: (length DESC, lexicographic ASC)
+    sorted_palindromes = sorted(unique_palindromes, 
+                              key=lambda x: (-len(x), x))
+    
+    # Return the longest palindrome, lexicographically smallest if tie
+    return sorted_palindromes[0]
 
 if __name__ == '__main__':
     # Handle both submission environment and local testing
