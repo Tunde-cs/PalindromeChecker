@@ -40,23 +40,20 @@ def buildPalindrome(a, b):
         print("[DEBUG] No palindromes found, returning -1")
         return "-1"
     
-    # Remove duplicates and sort by length then lexicographically
+    # Remove duplicates and find longest palindromes
     best_palindromes = list(set(best_palindromes))
     print(f"[DEBUG] All unique palindromes: {best_palindromes}")
     
-    # Prefer palindromes of length 3 or more, but not too long
-    meaningful_palindromes = [p for p in best_palindromes if len(p) >= 3]
-    if meaningful_palindromes:
-        # Sort by length (ascending) then lexicographically
-        meaningful_palindromes.sort(key=lambda x: (len(x), x))
-        print(f"[DEBUG] Meaningful palindromes (len>=3): {meaningful_palindromes}")
-        result = meaningful_palindromes[0]  # Shortest meaningful palindrome
-    else:
-        # Fall back to longest available
-        max_length = max(len(p) for p in best_palindromes)
-        longest_palindromes = [p for p in best_palindromes if len(p) == max_length]
-        result = min(longest_palindromes)
+    # Find the maximum length
+    max_length = max(len(p) for p in best_palindromes)
+    print(f"[DEBUG] Max length found: {max_length}")
     
+    # Get all palindromes with maximum length
+    longest_palindromes = [p for p in best_palindromes if len(p) == max_length]
+    print(f"[DEBUG] Longest palindromes: {longest_palindromes}")
+    
+    # Return lexicographically smallest among longest
+    result = min(longest_palindromes)
     print(f"[DEBUG] Final result: '{result}'")
     return result
 
