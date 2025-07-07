@@ -1,0 +1,318 @@
+
+============================================================
+TEST: Lexicographic preference test
+Input: a='ba', b='ab'
+[DEBUG] Input: a='ba', b='ab'
+[DEBUG] Max substring length: 2
+[DEBUG] Trying combo: 'ba' (sa='b', sb='a')
+[DEBUG] Trying combo: 'ab' (sa='b', sb='a')
+[DEBUG] Trying combo: 'bb' (sa='b', sb='b')
+[DEBUG] Found palindrome: 'bb'
+[DEBUG] Trying combo: 'bb' (sa='b', sb='b')
+[DEBUG] Found palindrome: 'bb'
+[DEBUG] Trying combo: 'bab' (sa='b', sb='ab')
+[DEBUG] Found palindrome: 'bab'
+[DEBUG] Trying combo: 'abb' (sa='b', sb='ab')
+[DEBUG] Trying combo: 'aa' (sa='a', sb='a')
+[DEBUG] Found palindrome: 'aa'
+[DEBUG] Trying combo: 'aa' (sa='a', sb='a')
+[DEBUG] Found palindrome: 'aa'
+[DEBUG] Trying combo: 'ab' (sa='a', sb='b')
+[DEBUG] Trying combo: 'ba' (sa='a', sb='b')
+[DEBUG] Trying combo: 'aab' (sa='a', sb='ab')
+[DEBUG] Trying combo: 'aba' (sa='a', sb='ab')
+[DEBUG] Found palindrome: 'aba'
+[DEBUG] Trying combo: 'baa' (sa='ba', sb='a')
+[DEBUG] Trying combo: 'aba' (sa='ba', sb='a')
+[DEBUG] Found palindrome: 'aba'
+[DEBUG] Trying combo: 'bab' (sa='ba', sb='b')
+[DEBUG] Found palindrome: 'bab'
+[DEBUG] Trying combo: 'bba' (sa='ba', sb='b')
+[DEBUG] Trying combo: 'baab' (sa='ba', sb='ab')
+[DEBUG] Found palindrome: 'baab'
+[DEBUG] Trying combo: 'abba' (sa='ba', sb='ab')
+[DEBUG] Found palindrome: 'abba'
+[DEBUG] All unique palindromes: ['abba', 'baab', 'aba', 'aa', 'bab', 'bb']
+[DEBUG] Max length found: 4
+[DEBUG] Longest palindromes: ['abba', 'baab']
+[DEBUG] Final result: 'abba'
+Result: 'abba'
+Expected: 'abba' - ✓ PASS
+Time: 0.000s
+
+============================================================
+TEST: Multiple same-length palindromes
+Input: a='cab', b='bac'
+[DEBUG] Input: a='cab', b='bac'
+[DEBUG] Max substring length: 3
+[DEBUG] Trying combo: 'cb' (sa='c', sb='b')
+[DEBUG] Trying combo: 'bc' (sa='c', sb='b')
+[DEBUG] Trying combo: 'ca' (sa='c', sb='a')
+[DEBUG] Trying combo: 'ac' (sa='c', sb='a')
+[DEBUG] Trying combo: 'cc' (sa='c', sb='c')
+[DEBUG] Found palindrome: 'cc'
+[DEBUG] Trying combo: 'cc' (sa='c', sb='c')
+[DEBUG] Found palindrome: 'cc'
+[DEBUG] Trying combo: 'cba' (sa='c', sb='ba')
+[DEBUG] Trying combo: 'bac' (sa='c', sb='ba')
+[DEBUG] Trying combo: 'cac' (sa='c', sb='ac')
+[DEBUG] Found palindrome: 'cac'
+[DEBUG] Trying combo: 'acc' (sa='c', sb='ac')
+[DEBUG] Trying combo: 'cbac' (sa='c', sb='bac')
+[DEBUG] Trying combo: 'bacc' (sa='c', sb='bac')
+[DEBUG] Trying combo: 'ab' (sa='a', sb='b')
+[DEBUG] Trying combo: 'ba' (sa='a', sb='b')
+[DEBUG] Trying combo: 'aa' (sa='a', sb='a')
+[DEBUG] Found palindrome: 'aa'
+[DEBUG] Trying combo: 'aa' (sa='a', sb='a')
+[DEBUG] Found palindrome: 'aa'
+[DEBUG] Trying combo: 'ac' (sa='a', sb='c')
+[DEBUG] Trying combo: 'ca' (sa='a', sb='c')
+[DEBUG] Trying combo: 'aba' (sa='a', sb='ba')
+[DEBUG] Found palindrome: 'aba'
+[DEBUG] Trying combo: 'baa' (sa='a', sb='ba')
+[DEBUG] Trying combo: 'aac' (sa='a', sb='ac')
+[DEBUG] Trying combo: 'aca' (sa='a', sb='ac')
+[DEBUG] Found palindrome: 'aca'
+[DEBUG] Trying combo: 'abac' (sa='a', sb='bac')
+[DEBUG] Trying combo: 'baca' (sa='a', sb='bac')
+[DEBUG] Trying combo: 'bb' (sa='b', sb='b')
+[DEBUG] Found palindrome: 'bb'
+[DEBUG] Trying combo: 'bb' (sa='b', sb='b')
+[DEBUG] Found palindrome: 'bb'
+[DEBUG] Trying combo: 'ba' (sa='b', sb='a')
+[DEBUG] Trying combo: 'ab' (sa='b', sb='a')
+[DEBUG] Trying combo: 'bc' (sa='b', sb='c')
+[DEBUG] Trying combo: 'cb' (sa='b', sb='c')
+[DEBUG] Trying combo: 'bba' (sa='b', sb='ba')
+[DEBUG] Trying combo: 'bab' (sa='b', sb='ba')
+[DEBUG] Found palindrome: 'bab'
+[DEBUG] Trying combo: 'bac' (sa='b', sb='ac')
+[DEBUG] Trying combo: 'acb' (sa='b', sb='ac')
+[DEBUG] Trying combo: 'bbac' (sa='b', sb='bac')
+[DEBUG] Trying combo: 'bacb' (sa='b', sb='bac')
+[DEBUG] Trying combo: 'cab' (sa='ca', sb='b')
+[DEBUG] Trying combo: 'bca' (sa='ca', sb='b')
+[DEBUG] Trying combo: 'caa' (sa='ca', sb='a')
+[DEBUG] Trying combo: 'aca' (sa='ca', sb='a')
+[DEBUG] Found palindrome: 'aca'
+[DEBUG] Trying combo: 'cac' (sa='ca', sb='c')
+[DEBUG] Found palindrome: 'cac'
+[DEBUG] Trying combo: 'cca' (sa='ca', sb='c')
+[DEBUG] Trying combo: 'caba' (sa='ca', sb='ba')
+[DEBUG] Trying combo: 'baca' (sa='ca', sb='ba')
+[DEBUG] Trying combo: 'caac' (sa='ca', sb='ac')
+[DEBUG] Found palindrome: 'caac'
+[DEBUG] Trying combo: 'acca' (sa='ca', sb='ac')
+[DEBUG] Found palindrome: 'acca'
+[DEBUG] Trying combo: 'cabac' (sa='ca', sb='bac')
+[DEBUG] Found palindrome: 'cabac'
+[DEBUG] Trying combo: 'bacca' (sa='ca', sb='bac')
+[DEBUG] Trying combo: 'abb' (sa='ab', sb='b')
+[DEBUG] Trying combo: 'bab' (sa='ab', sb='b')
+[DEBUG] Found palindrome: 'bab'
+[DEBUG] Trying combo: 'aba' (sa='ab', sb='a')
+[DEBUG] Found palindrome: 'aba'
+[DEBUG] Trying combo: 'aab' (sa='ab', sb='a')
+[DEBUG] Trying combo: 'abc' (sa='ab', sb='c')
+[DEBUG] Trying combo: 'cab' (sa='ab', sb='c')
+[DEBUG] Trying combo: 'abba' (sa='ab', sb='ba')
+[DEBUG] Found palindrome: 'abba'
+[DEBUG] Trying combo: 'baab' (sa='ab', sb='ba')
+[DEBUG] Found palindrome: 'baab'
+[DEBUG] Trying combo: 'abac' (sa='ab', sb='ac')
+[DEBUG] Trying combo: 'acab' (sa='ab', sb='ac')
+[DEBUG] Trying combo: 'abbac' (sa='ab', sb='bac')
+[DEBUG] Trying combo: 'bacab' (sa='ab', sb='bac')
+[DEBUG] Found palindrome: 'bacab'
+[DEBUG] Trying combo: 'cabb' (sa='cab', sb='b')
+[DEBUG] Trying combo: 'bcab' (sa='cab', sb='b')
+[DEBUG] Trying combo: 'caba' (sa='cab', sb='a')
+[DEBUG] Trying combo: 'acab' (sa='cab', sb='a')
+[DEBUG] Trying combo: 'cabc' (sa='cab', sb='c')
+[DEBUG] Trying combo: 'ccab' (sa='cab', sb='c')
+[DEBUG] Trying combo: 'cabba' (sa='cab', sb='ba')
+[DEBUG] Trying combo: 'bacab' (sa='cab', sb='ba')
+[DEBUG] Found palindrome: 'bacab'
+[DEBUG] Trying combo: 'cabac' (sa='cab', sb='ac')
+[DEBUG] Found palindrome: 'cabac'
+[DEBUG] Trying combo: 'accab' (sa='cab', sb='ac')
+[DEBUG] Trying combo: 'cabbac' (sa='cab', sb='bac')
+[DEBUG] Found palindrome: 'cabbac'
+[DEBUG] Trying combo: 'baccab' (sa='cab', sb='bac')
+[DEBUG] Found palindrome: 'baccab'
+[DEBUG] All unique palindromes: ['abba', 'bacab', 'baab', 'cabbac', 'cc', 'cabac', 'cac', 'aba', 'caac', 'acca', 'aca', 'aa', 'bb', 'bab', 'baccab']
+[DEBUG] Max length found: 6
+[DEBUG] Longest palindromes: ['cabbac', 'baccab']
+[DEBUG] Final result: 'baccab'
+Result: 'baccab'
+Expected: 'aba' - ✗ FAIL
+Time: 0.001s
+
+============================================================
+TEST: No common characters
+Input: a='xyz', b='abc'
+[DEBUG] Input: a='xyz', b='abc'
+[DEBUG] Max substring length: 3
+[DEBUG] Trying combo: 'xa' (sa='x', sb='a')
+[DEBUG] Trying combo: 'ax' (sa='x', sb='a')
+[DEBUG] Trying combo: 'xb' (sa='x', sb='b')
+[DEBUG] Trying combo: 'bx' (sa='x', sb='b')
+[DEBUG] Trying combo: 'xc' (sa='x', sb='c')
+[DEBUG] Trying combo: 'cx' (sa='x', sb='c')
+[DEBUG] Trying combo: 'xab' (sa='x', sb='ab')
+[DEBUG] Trying combo: 'abx' (sa='x', sb='ab')
+[DEBUG] Trying combo: 'xbc' (sa='x', sb='bc')
+[DEBUG] Trying combo: 'bcx' (sa='x', sb='bc')
+[DEBUG] Trying combo: 'xabc' (sa='x', sb='abc')
+[DEBUG] Trying combo: 'abcx' (sa='x', sb='abc')
+[DEBUG] Trying combo: 'ya' (sa='y', sb='a')
+[DEBUG] Trying combo: 'ay' (sa='y', sb='a')
+[DEBUG] Trying combo: 'yb' (sa='y', sb='b')
+[DEBUG] Trying combo: 'by' (sa='y', sb='b')
+[DEBUG] Trying combo: 'yc' (sa='y', sb='c')
+[DEBUG] Trying combo: 'cy' (sa='y', sb='c')
+[DEBUG] Trying combo: 'yab' (sa='y', sb='ab')
+[DEBUG] Trying combo: 'aby' (sa='y', sb='ab')
+[DEBUG] Trying combo: 'ybc' (sa='y', sb='bc')
+[DEBUG] Trying combo: 'bcy' (sa='y', sb='bc')
+[DEBUG] Trying combo: 'yabc' (sa='y', sb='abc')
+[DEBUG] Trying combo: 'abcy' (sa='y', sb='abc')
+[DEBUG] Trying combo: 'za' (sa='z', sb='a')
+[DEBUG] Trying combo: 'az' (sa='z', sb='a')
+[DEBUG] Trying combo: 'zb' (sa='z', sb='b')
+[DEBUG] Trying combo: 'bz' (sa='z', sb='b')
+[DEBUG] Trying combo: 'zc' (sa='z', sb='c')
+[DEBUG] Trying combo: 'cz' (sa='z', sb='c')
+[DEBUG] Trying combo: 'zab' (sa='z', sb='ab')
+[DEBUG] Trying combo: 'abz' (sa='z', sb='ab')
+[DEBUG] Trying combo: 'zbc' (sa='z', sb='bc')
+[DEBUG] Trying combo: 'bcz' (sa='z', sb='bc')
+[DEBUG] Trying combo: 'zabc' (sa='z', sb='abc')
+[DEBUG] Trying combo: 'abcz' (sa='z', sb='abc')
+[DEBUG] Trying combo: 'xya' (sa='xy', sb='a')
+[DEBUG] Trying combo: 'axy' (sa='xy', sb='a')
+[DEBUG] Trying combo: 'xyb' (sa='xy', sb='b')
+[DEBUG] Trying combo: 'bxy' (sa='xy', sb='b')
+[DEBUG] Trying combo: 'xyc' (sa='xy', sb='c')
+[DEBUG] Trying combo: 'cxy' (sa='xy', sb='c')
+[DEBUG] Trying combo: 'xyab' (sa='xy', sb='ab')
+[DEBUG] Trying combo: 'abxy' (sa='xy', sb='ab')
+[DEBUG] Trying combo: 'xybc' (sa='xy', sb='bc')
+[DEBUG] Trying combo: 'bcxy' (sa='xy', sb='bc')
+[DEBUG] Trying combo: 'xyabc' (sa='xy', sb='abc')
+[DEBUG] Trying combo: 'abcxy' (sa='xy', sb='abc')
+[DEBUG] Trying combo: 'yza' (sa='yz', sb='a')
+[DEBUG] Trying combo: 'ayz' (sa='yz', sb='a')
+[DEBUG] Trying combo: 'yzb' (sa='yz', sb='b')
+[DEBUG] Trying combo: 'byz' (sa='yz', sb='b')
+[DEBUG] Trying combo: 'yzc' (sa='yz', sb='c')
+[DEBUG] Trying combo: 'cyz' (sa='yz', sb='c')
+[DEBUG] Trying combo: 'yzab' (sa='yz', sb='ab')
+[DEBUG] Trying combo: 'abyz' (sa='yz', sb='ab')
+[DEBUG] Trying combo: 'yzbc' (sa='yz', sb='bc')
+[DEBUG] Trying combo: 'bcyz' (sa='yz', sb='bc')
+[DEBUG] Trying combo: 'yzabc' (sa='yz', sb='abc')
+[DEBUG] Trying combo: 'abcyz' (sa='yz', sb='abc')
+[DEBUG] Trying combo: 'xyza' (sa='xyz', sb='a')
+[DEBUG] Trying combo: 'axyz' (sa='xyz', sb='a')
+[DEBUG] Trying combo: 'xyzb' (sa='xyz', sb='b')
+[DEBUG] Trying combo: 'bxyz' (sa='xyz', sb='b')
+[DEBUG] Trying combo: 'xyzc' (sa='xyz', sb='c')
+[DEBUG] Trying combo: 'cxyz' (sa='xyz', sb='c')
+[DEBUG] Trying combo: 'xyzab' (sa='xyz', sb='ab')
+[DEBUG] Trying combo: 'abxyz' (sa='xyz', sb='ab')
+[DEBUG] Trying combo: 'xyzbc' (sa='xyz', sb='bc')
+[DEBUG] Trying combo: 'bcxyz' (sa='xyz', sb='bc')
+[DEBUG] Trying combo: 'xyzabc' (sa='xyz', sb='abc')
+[DEBUG] Trying combo: 'abcxyz' (sa='xyz', sb='abc')
+[DEBUG] No palindromes found, returning -1
+Result: '-1'
+Expected: '-1' - ✓ PASS
+Time: 0.000s
+
+============================================================
+TEST: No overlap at all
+Input: a='123', b='456'
+[DEBUG] Input: a='123', b='456'
+[DEBUG] Max substring length: 3
+[DEBUG] Trying combo: '14' (sa='1', sb='4')
+[DEBUG] Trying combo: '41' (sa='1', sb='4')
+[DEBUG] Trying combo: '15' (sa='1', sb='5')
+[DEBUG] Trying combo: '51' (sa='1', sb='5')
+[DEBUG] Trying combo: '16' (sa='1', sb='6')
+[DEBUG] Trying combo: '61' (sa='1', sb='6')
+[DEBUG] Trying combo: '145' (sa='1', sb='45')
+[DEBUG] Trying combo: '451' (sa='1', sb='45')
+[DEBUG] Trying combo: '156' (sa='1', sb='56')
+[DEBUG] Trying combo: '561' (sa='1', sb='56')
+[DEBUG] Trying combo: '1456' (sa='1', sb='456')
+[DEBUG] Trying combo: '4561' (sa='1', sb='456')
+[DEBUG] Trying combo: '24' (sa='2', sb='4')
+[DEBUG] Trying combo: '42' (sa='2', sb='4')
+[DEBUG] Trying combo: '25' (sa='2', sb='5')
+[DEBUG] Trying combo: '52' (sa='2', sb='5')
+[DEBUG] Trying combo: '26' (sa='2', sb='6')
+[DEBUG] Trying combo: '62' (sa='2', sb='6')
+[DEBUG] Trying combo: '245' (sa='2', sb='45')
+[DEBUG] Trying combo: '452' (sa='2', sb='45')
+[DEBUG] Trying combo: '256' (sa='2', sb='56')
+[DEBUG] Trying combo: '562' (sa='2', sb='56')
+[DEBUG] Trying combo: '2456' (sa='2', sb='456')
+[DEBUG] Trying combo: '4562' (sa='2', sb='456')
+[DEBUG] Trying combo: '34' (sa='3', sb='4')
+[DEBUG] Trying combo: '43' (sa='3', sb='4')
+[DEBUG] Trying combo: '35' (sa='3', sb='5')
+[DEBUG] Trying combo: '53' (sa='3', sb='5')
+[DEBUG] Trying combo: '36' (sa='3', sb='6')
+[DEBUG] Trying combo: '63' (sa='3', sb='6')
+[DEBUG] Trying combo: '345' (sa='3', sb='45')
+[DEBUG] Trying combo: '453' (sa='3', sb='45')
+[DEBUG] Trying combo: '356' (sa='3', sb='56')
+[DEBUG] Trying combo: '563' (sa='3', sb='56')
+[DEBUG] Trying combo: '3456' (sa='3', sb='456')
+[DEBUG] Trying combo: '4563' (sa='3', sb='456')
+[DEBUG] Trying combo: '124' (sa='12', sb='4')
+[DEBUG] Trying combo: '412' (sa='12', sb='4')
+[DEBUG] Trying combo: '125' (sa='12', sb='5')
+[DEBUG] Trying combo: '512' (sa='12', sb='5')
+[DEBUG] Trying combo: '126' (sa='12', sb='6')
+[DEBUG] Trying combo: '612' (sa='12', sb='6')
+[DEBUG] Trying combo: '1245' (sa='12', sb='45')
+[DEBUG] Trying combo: '4512' (sa='12', sb='45')
+[DEBUG] Trying combo: '1256' (sa='12', sb='56')
+[DEBUG] Trying combo: '5612' (sa='12', sb='56')
+[DEBUG] Trying combo: '12456' (sa='12', sb='456')
+[DEBUG] Trying combo: '45612' (sa='12', sb='456')
+[DEBUG] Trying combo: '234' (sa='23', sb='4')
+[DEBUG] Trying combo: '423' (sa='23', sb='4')
+[DEBUG] Trying combo: '235' (sa='23', sb='5')
+[DEBUG] Trying combo: '523' (sa='23', sb='5')
+[DEBUG] Trying combo: '236' (sa='23', sb='6')
+[DEBUG] Trying combo: '623' (sa='23', sb='6')
+[DEBUG] Trying combo: '2345' (sa='23', sb='45')
+[DEBUG] Trying combo: '4523' (sa='23', sb='45')
+[DEBUG] Trying combo: '2356' (sa='23', sb='56')
+[DEBUG] Trying combo: '5623' (sa='23', sb='56')
+[DEBUG] Trying combo: '23456' (sa='23', sb='456')
+[DEBUG] Trying combo: '45623' (sa='23', sb='456')
+[DEBUG] Trying combo: '1234' (sa='123', sb='4')
+[DEBUG] Trying combo: '4123' (sa='123', sb='4')
+[DEBUG] Trying combo: '1235' (sa='123', sb='5')
+[DEBUG] Trying combo: '5123' (sa='123', sb='5')
+[DEBUG] Trying combo: '1236' (sa='123', sb='6')
+[DEBUG] Trying combo: '6123' (sa='123', sb='6')
+[DEBUG] Trying combo: '12345' (sa='123', sb='45')
+[DEBUG] Trying combo: '45123' (sa='123', sb='45')
+[DEBUG] Trying combo: '12356' (sa='123', sb='56')
+[DEBUG] Trying combo: '56123' (sa='123', sb='56')
+[DEBUG] Trying combo: '123456' (sa='123', sb='456')
+[DEBUG] Trying combo: '456123' (sa='123', sb='456')
+[DEBUG] No palindromes found, returning -1
+Result: '-1'
+Expected: '-1' - ✓ PASS
+Time: 0.001s
+
+============================================================
+TEST SUITE COMPLETE
+~/workspace$ 
