@@ -1,0 +1,377 @@
+~/workspace$ python test_cases.py
+COMPREHENSIVE TEST SUITE FOR HIDDEN TEST CASES
+============================================================
+
+============================================================
+TEST: Basic case from problem
+Input: a='bac', b='bac'
+DEBUG: Processing a='bac', b='bac'
+DEBUG: Common characters: {'b', 'c', 'a'}
+DEBUG: Trying substring combinations...
+DEBUG: Found 6 substrings from a, 6 from b
+DEBUG: Sample substrings from a: ['b', 'ba', 'bac', 'a', 'ac', 'c']
+DEBUG: Sample substrings from b: ['b', 'ba', 'bac', 'a', 'ac', 'c']
+DEBUG: New best substring candidate: 'bb'
+DEBUG: New best substring candidate: 'bab'
+DEBUG: New best substring candidate: 'aba'
+DEBUG: Total palindromes found: 14
+DEBUG: Final best result: 'aba'
+Result: 'aba'
+Expected: 'aba' - ✓ PASS
+Time: 0.000s
+
+============================================================
+TEST: No palindrome possible
+Input: a='abc', b='def'
+DEBUG: Processing a='abc', b='def'
+DEBUG: No common characters, returning -1
+Result: '-1'
+Expected: '-1' - ✓ PASS
+Time: 0.000s
+
+============================================================
+TEST: Complex case
+Input: a='jdfh', b='fds'
+DEBUG: Processing a='jdfh', b='fds'
+DEBUG: Common characters: {'f', 'd'}
+DEBUG: Trying substring combinations...
+DEBUG: Found 10 substrings from a, 6 from b
+DEBUG: Sample substrings from a: ['j', 'jd', 'jdf', 'jdfh', 'd', 'df', 'dfh', 'f', 'fh', 'h']
+DEBUG: Sample substrings from b: ['f', 'fd', 'fds', 'd', 'ds', 's']
+DEBUG: New best substring candidate: 'djd'
+DEBUG: New best substring candidate: 'fdjdf'
+DEBUG: New best substring candidate: 'dfhfd'
+DEBUG: Total palindromes found: 16
+DEBUG: Final best result: 'dfhfd'
+Result: 'dfhfd'
+Expected: 'dfhfd' - ✓ PASS
+Time: 0.000s
+
+============================================================
+TEST: Both empty strings
+Input: a='', b=''
+DEBUG: Processing a='', b=''
+DEBUG: Empty string detected, returning -1
+Result: '-1'
+Expected: '-1' - ✓ PASS
+Time: 0.000s
+
+============================================================
+TEST: One empty string
+Input: a='a', b=''
+DEBUG: Processing a='a', b=''
+DEBUG: Empty string detected, returning -1
+Result: '-1'
+Expected: '-1' - ✓ PASS
+Time: 0.000s
+
+============================================================
+TEST: Other empty string
+Input: a='', b='b'
+DEBUG: Processing a='', b='b'
+DEBUG: Empty string detected, returning -1
+Result: '-1'
+Expected: '-1' - ✓ PASS
+Time: 0.000s
+
+============================================================
+TEST: Same single character
+Input: a='a', b='a'
+DEBUG: Processing a='a', b='a'
+DEBUG: Common characters: {'a'}
+DEBUG: Trying substring combinations...
+DEBUG: Found 1 substrings from a, 1 from b
+DEBUG: Sample substrings from a: ['a']
+DEBUG: Sample substrings from b: ['a']
+DEBUG: New best substring candidate: 'aa'
+DEBUG: Total palindromes found: 2
+DEBUG: Final best result: 'aa'
+Result: 'aa'
+Expected: 'aa' - ✓ PASS
+Time: 0.000s
+
+============================================================
+TEST: Different single characters
+Input: a='a', b='b'
+DEBUG: Processing a='a', b='b'
+DEBUG: No common characters, returning -1
+Result: '-1'
+Expected: '-1' - ✓ PASS
+Time: 0.000s
+
+============================================================
+TEST: Identical strings
+Input: a='abc', b='abc'
+DEBUG: Processing a='abc', b='abc'
+DEBUG: Common characters: {'b', 'c', 'a'}
+DEBUG: Trying substring combinations...
+DEBUG: Found 6 substrings from a, 6 from b
+DEBUG: Sample substrings from a: ['a', 'ab', 'abc', 'b', 'bc', 'c']
+DEBUG: Sample substrings from b: ['a', 'ab', 'abc', 'b', 'bc', 'c']
+DEBUG: New best substring candidate: 'aa'
+DEBUG: New best substring candidate: 'aba'
+DEBUG: Total palindromes found: 14
+DEBUG: Final best result: 'aba'
+Result: 'aba'
+Expected: 'abccba' - ✗ FAIL
+Time: 0.000s
+
+============================================================
+TEST: Longer identical strings
+Input: a='palindrome', b='palindrome'
+DEBUG: Processing a='palindrome', b='palindrome'
+DEBUG: Common characters: {'n', 'l', 'p', 'o', 'i', 'r', 'a', 'e', 'd', 'm'}
+DEBUG: Trying substring combinations...
+DEBUG: Found 55 substrings from a, 55 from b
+DEBUG: Sample substrings from a: ['p', 'pa', 'pal', 'pali', 'palin', 'palind', 'palindr', 'palindro', 'palindrom', 'palindrome']
+DEBUG: Sample substrings from b: ['p', 'pa', 'pal', 'pali', 'palin', 'palind', 'palindr', 'palindro', 'palindrom', 'palindrome']
+DEBUG: New best substring candidate: 'pp'
+DEBUG: New best substring candidate: 'pap'
+DEBUG: New best substring candidate: 'apa'
+DEBUG: New best substring candidate: 'ala'
+DEBUG: Total palindromes found: 56
+DEBUG: Final best result: 'ala'
+Result: 'ala'
+Time: 0.002s
+
+============================================================
+TEST: String and its reverse
+Input: a='abc', b='cba'
+DEBUG: Processing a='abc', b='cba'
+DEBUG: Common characters: {'b', 'c', 'a'}
+DEBUG: Trying substring combinations...
+DEBUG: Found 6 substrings from a, 6 from b
+DEBUG: Sample substrings from a: ['a', 'ab', 'abc', 'b', 'bc', 'c']
+DEBUG: Sample substrings from b: ['c', 'cb', 'cba', 'b', 'ba', 'a']
+DEBUG: New best substring candidate: 'aba'
+DEBUG: New best substring candidate: 'abcba'
+DEBUG: New best substring candidate: 'abccba'
+DEBUG: Total palindromes found: 24
+DEBUG: Final best result: 'abccba'
+Result: 'abccba'
+Expected: 'abccba' - ✓ PASS
+Time: 0.000s
+
+============================================================
+TEST: Short reverse case
+Input: a='ab', b='ba'
+DEBUG: Processing a='ab', b='ba'
+DEBUG: Common characters: {'b', 'a'}
+DEBUG: Trying substring combinations...
+DEBUG: Found 3 substrings from a, 3 from b
+DEBUG: Sample substrings from a: ['a', 'ab', 'b']
+DEBUG: Sample substrings from b: ['b', 'ba', 'a']
+DEBUG: New best substring candidate: 'aba'
+DEBUG: New best substring candidate: 'abba'
+DEBUG: Total palindromes found: 10
+DEBUG: Final best result: 'abba'
+Result: 'abba'
+Expected: 'abba' - ✓ PASS
+Time: 0.000s
+
+============================================================
+TEST: All same character
+Input: a='aaa', b='aaa'
+DEBUG: Processing a='aaa', b='aaa'
+DEBUG: Common characters: {'a'}
+DEBUG: Trying substring combinations...
+DEBUG: Found 6 substrings from a, 6 from b
+DEBUG: Sample substrings from a: ['a', 'aa', 'aaa', 'a', 'aa', 'a']
+DEBUG: Sample substrings from b: ['a', 'aa', 'aaa', 'a', 'aa', 'a']
+DEBUG: New best substring candidate: 'aa'
+DEBUG: New best substring candidate: 'aaa'
+DEBUG: New best substring candidate: 'aaaa'
+DEBUG: New best substring candidate: 'aaaaa'
+DEBUG: New best substring candidate: 'aaaaaa'
+DEBUG: Total palindromes found: 72
+DEBUG: Final best result: 'aaaaaa'
+Result: 'aaaaaa'
+Expected: 'aaaaaa' - ✓ PASS
+Time: 0.001s
+
+============================================================
+TEST: Repeating with variation
+Input: a='aab', b='baa'
+DEBUG: Processing a='aab', b='baa'
+DEBUG: Common characters: {'b', 'a'}
+DEBUG: Trying substring combinations...
+DEBUG: Found 6 substrings from a, 6 from b
+DEBUG: Sample substrings from a: ['a', 'aa', 'aab', 'a', 'ab', 'b']
+DEBUG: Sample substrings from b: ['b', 'ba', 'baa', 'a', 'aa', 'a']
+DEBUG: New best substring candidate: 'aba'
+DEBUG: New best substring candidate: 'aaa'
+DEBUG: New best substring candidate: 'aabaa'
+DEBUG: New best substring candidate: 'aabbaa'
+DEBUG: Total palindromes found: 36
+DEBUG: Final best result: 'aabbaa'
+Result: 'aabbaa'
+Time: 0.000s
+
+============================================================
+TEST: Long strings (25 chars each)
+Input: a='aaaaaaaaaaaaaaaaaaaaaaaaa', b='bbbbbbbbbbbbbbbbbbbbbbbbb'
+DEBUG: Processing a='aaaaaaaaaaaaaaaaaaaaaaaaa', b='bbbbbbbbbbbbbbbbbbbbbbbbb'
+DEBUG: No common characters, returning -1
+Result: '-1'
+Time: 0.000s
+
+============================================================
+TEST: 20+ char strings
+Input: a='abcdefghijklmnopqrstu', b='uvwxyzabcdefghijklmno'
+DEBUG: Processing a='abcdefghijklmnopqrstu', b='uvwxyzabcdefghijklmno'
+DEBUG: Common characters: {'b', 'c', 'h', 'l', 'j', 'n', 'g', 'k', 'o', 'i', 'f', 'a', 'e', 'u', 'd', 'm'}
+DEBUG: Trying substring combinations...
+DEBUG: Found 231 substrings from a, 231 from b
+DEBUG: Sample substrings from a: ['a', 'ab', 'abc', 'abcd', 'abcde', 'abcdef', 'abcdefg', 'abcdefgh', 'abcdefghi', 'abcdefghij']
+DEBUG: Sample substrings from b: ['u', 'uv', 'uvw', 'uvwx', 'uvwxy', 'uvwxyz', 'uvwxyza', 'uvwxyzab', 'uvwxyzabc', 'uvwxyzabcd']
+DEBUG: New best substring candidate: 'aza'
+DEBUG: New best substring candidate: 'aba'
+DEBUG: Total palindromes found: 92
+DEBUG: Final best result: 'aba'
+Result: 'aba'
+Time: 0.059s
+
+============================================================
+TEST: Both contain palindromes
+Input: a='aba', b='cdc'
+DEBUG: Processing a='aba', b='cdc'
+DEBUG: No common characters, returning -1
+Result: '-1'
+Time: 0.000s
+
+============================================================
+TEST: Full palindrome inputs
+Input: a='racecar', b='level'
+DEBUG: Processing a='racecar', b='level'
+DEBUG: Common characters: {'e'}
+DEBUG: Trying substring combinations...
+DEBUG: Found 28 substrings from a, 15 from b
+DEBUG: Sample substrings from a: ['r', 'ra', 'rac', 'race', 'racec', 'raceca', 'racecar', 'a', 'ac', 'ace']
+DEBUG: Sample substrings from b: ['l', 'le', 'lev', 'leve', 'level', 'e', 'ev', 'eve', 'evel', 'v']
+DEBUG: New best substring candidate: 'ece'
+DEBUG: Total palindromes found: 12
+DEBUG: Final best result: 'ece'
+Result: 'ece'
+Time: 0.000s
+
+============================================================
+TEST: Perfect complement
+Input: a='abcd', b='dcba'
+DEBUG: Processing a='abcd', b='dcba'
+DEBUG: Common characters: {'b', 'c', 'd', 'a'}
+DEBUG: Trying substring combinations...
+DEBUG: Found 10 substrings from a, 10 from b
+DEBUG: Sample substrings from a: ['a', 'ab', 'abc', 'abcd', 'b', 'bc', 'bcd', 'c', 'cd', 'd']
+DEBUG: Sample substrings from b: ['d', 'dc', 'dcb', 'dcba', 'c', 'cb', 'cba', 'b', 'ba', 'a']
+DEBUG: New best substring candidate: 'aba'
+DEBUG: New best substring candidate: 'abcba'
+DEBUG: New best substring candidate: 'abcdcba'
+DEBUG: New best substring candidate: 'abcddcba'
+DEBUG: Total palindromes found: 44
+DEBUG: Final best result: 'abcddcba'
+Result: 'abcddcba'
+Expected: 'abcddcba' - ✓ PASS
+Time: 0.000s
+
+============================================================
+TEST: 3-char complement
+Input: a='xyz', b='zyx'
+DEBUG: Processing a='xyz', b='zyx'
+DEBUG: Common characters: {'z', 'y', 'x'}
+DEBUG: Trying substring combinations...
+DEBUG: Found 6 substrings from a, 6 from b
+DEBUG: Sample substrings from a: ['x', 'xy', 'xyz', 'y', 'yz', 'z']
+DEBUG: Sample substrings from b: ['z', 'zy', 'zyx', 'y', 'yx', 'x']
+DEBUG: New best substring candidate: 'xyx'
+DEBUG: New best substring candidate: 'xyzyx'
+DEBUG: New best substring candidate: 'xyzzyx'
+DEBUG: Total palindromes found: 24
+DEBUG: Final best result: 'xyzzyx'
+Result: 'xyzzyx'
+Expected: 'xyzyx' - ✗ FAIL
+Time: 0.000s
+
+============================================================
+TEST: 10-char performance test
+Input: a='abcdefghij', b='jihgfedcba'
+DEBUG: Processing a='abcdefghij', b='jihgfedcba'
+DEBUG: Common characters: {'b', 'c', 'h', 'j', 'g', 'i', 'f', 'e', 'a', 'd'}
+DEBUG: Trying substring combinations...
+DEBUG: Found 55 substrings from a, 55 from b
+DEBUG: Sample substrings from a: ['a', 'ab', 'abc', 'abcd', 'abcde', 'abcdef', 'abcdefg', 'abcdefgh', 'abcdefghi', 'abcdefghij']
+DEBUG: Sample substrings from b: ['j', 'ji', 'jih', 'jihg', 'jihgf', 'jihgfe', 'jihgfed', 'jihgfedc', 'jihgfedcb', 'jihgfedcba']
+DEBUG: New best substring candidate: 'aba'
+DEBUG: New best substring candidate: 'abcba'
+DEBUG: New best substring candidate: 'abcdcba'
+DEBUG: New best substring candidate: 'abcdedcba'
+DEBUG: New best substring candidate: 'abcdefedcba'
+DEBUG: New best substring candidate: 'abcdefgfedcba'
+DEBUG: New best substring candidate: 'abcdefghgfedcba'
+DEBUG: New best substring candidate: 'abcdefghihgfedcba'
+DEBUG: New best substring candidate: 'abcdefghijihgfedcba'
+DEBUG: New best substring candidate: 'abcdefghijjihgfedcba'
+DEBUG: Total palindromes found: 290
+DEBUG: Final best result: 'abcdefghijjihgfedcba'
+Result: 'abcdefghijjihgfedcba'
+Time: 0.002s
+
+============================================================
+TEST: Lexicographic preference test
+Input: a='ba', b='ab'
+DEBUG: Processing a='ba', b='ab'
+DEBUG: Common characters: {'b', 'a'}
+DEBUG: Trying substring combinations...
+DEBUG: Found 3 substrings from a, 3 from b
+DEBUG: Sample substrings from a: ['b', 'ba', 'a']
+DEBUG: Sample substrings from b: ['a', 'ab', 'b']
+DEBUG: New best substring candidate: 'bab'
+DEBUG: New best substring candidate: 'aba'
+DEBUG: New best substring candidate: 'baab'
+DEBUG: New best substring candidate: 'abba'
+DEBUG: Total palindromes found: 10
+DEBUG: Final best result: 'abba'
+Result: 'abba'
+Expected: 'abba' - ✓ PASS
+Time: 0.000s
+
+============================================================
+TEST: Multiple same-length palindromes
+Input: a='cab', b='bac'
+DEBUG: Processing a='cab', b='bac'
+DEBUG: Common characters: {'b', 'c', 'a'}
+DEBUG: Trying substring combinations...
+DEBUG: Found 6 substrings from a, 6 from b
+DEBUG: Sample substrings from a: ['c', 'ca', 'cab', 'a', 'ab', 'b']
+DEBUG: Sample substrings from b: ['b', 'ba', 'bac', 'a', 'ac', 'c']
+DEBUG: New best substring candidate: 'cac'
+DEBUG: New best substring candidate: 'cabac'
+DEBUG: New best substring candidate: 'bacab'
+DEBUG: New best substring candidate: 'cabbac'
+DEBUG: New best substring candidate: 'baccab'
+DEBUG: Total palindromes found: 24
+DEBUG: Final best result: 'baccab'
+Result: 'baccab'
+Expected: 'aba' - ✗ FAIL
+Time: 0.000s
+
+============================================================
+TEST: No common characters
+Input: a='xyz', b='abc'
+DEBUG: Processing a='xyz', b='abc'
+DEBUG: No common characters, returning -1
+Result: '-1'
+Expected: '-1' - ✓ PASS
+Time: 0.000s
+
+============================================================
+TEST: No overlap at all
+Input: a='123', b='456'
+DEBUG: Processing a='123', b='456'
+DEBUG: No common characters, returning -1
+Result: '-1'
+Expected: '-1' - ✓ PASS
+Time: 0.000s
+
+============================================================
+TEST SUITE COMPLETE
+~/workspace$ 
