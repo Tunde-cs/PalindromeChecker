@@ -41,16 +41,19 @@ def buildPalindrome(a, b):
     
     print(f"[DEBUG] Palindrome frequencies: {palindrome_count}")
     
-    # Strategy: Prefer shorter palindromes with higher frequency
-    # Sort by: (frequency DESC, length ASC, lexicographic ASC)
-    sorted_palindromes = sorted(palindrome_count.keys(), 
-                              key=lambda x: (-palindrome_count[x], len(x), x))
+    # Get unique palindromes
+    unique_palindromes = list(palindrome_count.keys())
+    print(f"[DEBUG] Unique palindromes: {unique_palindromes}")
     
-    print(f"[DEBUG] Sorted by (freq DESC, len ASC, lex ASC): {sorted_palindromes}")
+    # Sort by: (length DESC, lexicographic ASC)
+    sorted_palindromes = sorted(unique_palindromes, 
+                              key=lambda x: (-len(x), x))
     
-    # Return the best palindrome according to our criteria
+    print(f"[DEBUG] Sorted by (length DESC, lex ASC): {sorted_palindromes}")
+    
+    # Return the longest palindrome, lexicographically smallest if tie
     result = sorted_palindromes[0]
-    print(f"[DEBUG] Final result: '{result}' (freq: {palindrome_count[result]})")
+    print(f"[DEBUG] Final result: '{result}' (length: {len(result)})")
     return result
 
 
