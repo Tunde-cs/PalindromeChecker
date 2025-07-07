@@ -1,0 +1,80 @@
+DEBUG: Running in local test mode
+DEBUG: Test case 1/3
+DEBUG: Processing strings a='bac' (len=3), b='bac' (len=3)
+DEBUG: Max substring length limit: 3 for a, 3 for b
+DEBUG: Testing substrings of length 1 from string a
+DEBUG: Found palindrome 'bb' (len=2) from sa='b' + sb='b'
+DEBUG: New best palindrome: 'bb' (replacing 'None')
+DEBUG: Found palindrome 'bb' (len=2) from sa='b' + sb='b'
+DEBUG: Found palindrome 'bab' (len=3) from sa='b' + sb='ba'
+DEBUG: New best palindrome: 'bab' (replacing 'bb')
+DEBUG: Found palindrome 'aa' (len=2) from sa='a' + sb='a'
+DEBUG: Found palindrome 'aa' (len=2) from sa='a' + sb='a'
+DEBUG: Found palindrome 'aba' (len=3) from sa='a' + sb='ba'
+DEBUG: New best palindrome: 'aba' (replacing 'bab')
+DEBUG: Found palindrome 'aca' (len=3) from sa='a' + sb='ac'
+DEBUG: Found palindrome 'cc' (len=2) from sa='c' + sb='c'
+DEBUG: Found palindrome 'cc' (len=2) from sa='c' + sb='c'
+DEBUG: Found palindrome 'cac' (len=3) from sa='c' + sb='ac'
+DEBUG: Testing substrings of length 2 from string a
+DEBUG: Found palindrome 'bab' (len=3) from sa='ba' + sb='b'
+DEBUG: Found palindrome 'aba' (len=3) from sa='ba' + sb='a'
+DEBUG: Found palindrome 'aca' (len=3) from sa='ac' + sb='a'
+DEBUG: Found palindrome 'cac' (len=3) from sa='ac' + sb='c'
+DEBUG: Testing substrings of length 3 from string a
+DEBUG: Total combinations tested: 72
+DEBUG: Palindromes found: 14
+DEBUG: Total processing time: 0.000s
+DEBUG: Final result: 'aba' (len=3)
+DEBUG: ---
+Result for a='bac', b='bac': aba
+
+DEBUG: Test case 2/3
+DEBUG: Processing strings a='abc' (len=3), b='def' (len=3)
+DEBUG: Max substring length limit: 3 for a, 3 for b
+DEBUG: Testing substrings of length 1 from string a
+DEBUG: Testing substrings of length 2 from string a
+DEBUG: Testing substrings of length 3 from string a
+DEBUG: Total combinations tested: 72
+DEBUG: Palindromes found: 0
+DEBUG: Total processing time: 0.000s
+DEBUG: Final result: 'None' (len=0)
+DEBUG: ---
+Result for a='abc', b='def': -1
+
+DEBUG: Test case 3/3
+DEBUG: Processing strings a='jdfh' (len=4), b='fds' (len=3)
+DEBUG: Max substring length limit: 4 for a, 3 for b
+DEBUG: Testing substrings of length 1 from string a
+DEBUG: Found palindrome 'dd' (len=2) from sa='d' + sb='d'
+DEBUG: New best palindrome: 'dd' (replacing 'None')
+DEBUG: Found palindrome 'dd' (len=2) from sa='d' + sb='d'
+DEBUG: Found palindrome 'dfd' (len=3) from sa='d' + sb='fd'
+DEBUG: New best palindrome: 'dfd' (replacing 'dd')
+DEBUG: Found palindrome 'dsd' (len=3) from sa='d' + sb='ds'
+DEBUG: Found palindrome 'ff' (len=2) from sa='f' + sb='f'
+DEBUG: Found palindrome 'ff' (len=2) from sa='f' + sb='f'
+DEBUG: Found palindrome 'fdf' (len=3) from sa='f' + sb='fd'
+DEBUG: Testing substrings of length 2 from string a
+DEBUG: Found palindrome 'djd' (len=3) from sa='jd' + sb='d'
+DEBUG: Found palindrome 'fdf' (len=3) from sa='df' + sb='f'
+DEBUG: Found palindrome 'dfd' (len=3) from sa='df' + sb='d'
+DEBUG: Found palindrome 'dffd' (len=4) from sa='df' + sb='fd'
+DEBUG: New best palindrome: 'dffd' (replacing 'dfd')
+DEBUG: Found palindrome 'fddf' (len=4) from sa='df' + sb='fd'
+DEBUG: Found palindrome 'fdsdf' (len=5) from sa='df' + sb='fds'
+DEBUG: New best palindrome: 'fdsdf' (replacing 'dffd')
+DEBUG: Found palindrome 'fhf' (len=3) from sa='fh' + sb='f'
+DEBUG: Testing substrings of length 3 from string a
+DEBUG: Found palindrome 'fdjdf' (len=5) from sa='jdf' + sb='fd'
+DEBUG: New best palindrome: 'fdjdf' (replacing 'fdsdf')
+DEBUG: Found palindrome 'dfhfd' (len=5) from sa='dfh' + sb='fd'
+DEBUG: New best palindrome: 'dfhfd' (replacing 'fdjdf')
+DEBUG: Testing substrings of length 4 from string a
+DEBUG: Total combinations tested: 120
+DEBUG: Palindromes found: 16
+DEBUG: Total processing time: 0.000s
+DEBUG: Final result: 'dfhfd' (len=5)
+DEBUG: ---
+Result for a='jdfh', b='fds': dfhfd
+
