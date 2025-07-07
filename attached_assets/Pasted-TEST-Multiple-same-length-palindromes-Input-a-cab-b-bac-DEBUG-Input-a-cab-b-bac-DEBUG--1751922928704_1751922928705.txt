@@ -1,0 +1,321 @@
+TEST: Multiple same-length palindromes
+Input: a='cab', b='bac'
+DEBUG: Input a='cab', b='bac'
+DEBUG: Substrings from a: ['c', 'ca', 'cab', 'a', 'ab', 'b']
+DEBUG: Substrings from b: ['b', 'ba', 'bac', 'a', 'ac', 'c']
+DEBUG: Testing candidate: 'cb' (from sa='c', sb='b')
+DEBUG: 'cb' is not a palindrome
+DEBUG: Testing candidate: 'bc' (from sa='c', sb='b')
+DEBUG: 'bc' is not a palindrome
+DEBUG: Testing candidate: 'cba' (from sa='c', sb='ba')
+DEBUG: 'cba' is not a palindrome
+DEBUG: Testing candidate: 'bac' (from sa='c', sb='ba')
+DEBUG: 'bac' is not a palindrome
+DEBUG: Testing candidate: 'cbac' (from sa='c', sb='bac')
+DEBUG: 'cbac' is not a palindrome
+DEBUG: Testing candidate: 'bacc' (from sa='c', sb='bac')
+DEBUG: 'bacc' is not a palindrome
+DEBUG: Testing candidate: 'ca' (from sa='c', sb='a')
+DEBUG: 'ca' is not a palindrome
+DEBUG: Testing candidate: 'ac' (from sa='c', sb='a')
+DEBUG: 'ac' is not a palindrome
+DEBUG: Testing candidate: 'cac' (from sa='c', sb='ac')
+DEBUG: Found palindrome: 'cac' (length 3)
+DEBUG: Comparison details:
+  - Current candidate: 'cac' (length 3)
+  - Current best: 'None' (length 0)
+  - Is longer? True
+  - Is same length? False
+  - Is lexicographically smaller? True
+DEBUG: ✓ NEW BEST: 'cac' (length 3) - replaced 'None'
+DEBUG: Testing candidate: 'acc' (from sa='c', sb='ac')
+DEBUG: 'acc' is not a palindrome
+DEBUG: Testing candidate: 'cc' (from sa='c', sb='c')
+DEBUG: Found palindrome: 'cc' (length 2)
+DEBUG: Comparison details:
+  - Current candidate: 'cc' (length 2)
+  - Current best: 'cac' (length 3)
+  - Is longer? False
+  - Is same length? False
+  - Is lexicographically smaller? False
+DEBUG: ✗ Palindrome 'cc' not better than current best 'cac'
+DEBUG: Testing candidate: 'cc' (from sa='c', sb='c')
+DEBUG: Found palindrome: 'cc' (length 2)
+DEBUG: Comparison details:
+  - Current candidate: 'cc' (length 2)
+  - Current best: 'cac' (length 3)
+  - Is longer? False
+  - Is same length? False
+  - Is lexicographically smaller? False
+DEBUG: ✗ Palindrome 'cc' not better than current best 'cac'
+DEBUG: Testing candidate: 'cab' (from sa='ca', sb='b')
+DEBUG: 'cab' is not a palindrome
+DEBUG: Testing candidate: 'bca' (from sa='ca', sb='b')
+DEBUG: 'bca' is not a palindrome
+DEBUG: Testing candidate: 'caba' (from sa='ca', sb='ba')
+DEBUG: 'caba' is not a palindrome
+DEBUG: Testing candidate: 'baca' (from sa='ca', sb='ba')
+DEBUG: 'baca' is not a palindrome
+DEBUG: Testing candidate: 'cabac' (from sa='ca', sb='bac')
+DEBUG: Found palindrome: 'cabac' (length 5)
+DEBUG: Comparison details:
+  - Current candidate: 'cabac' (length 5)
+  - Current best: 'cac' (length 3)
+  - Is longer? True
+  - Is same length? False
+  - Is lexicographically smaller? True
+DEBUG: ✓ NEW BEST: 'cabac' (length 5) - replaced 'cac'
+DEBUG: Testing candidate: 'bacca' (from sa='ca', sb='bac')
+DEBUG: 'bacca' is not a palindrome
+DEBUG: Testing candidate: 'caa' (from sa='ca', sb='a')
+DEBUG: 'caa' is not a palindrome
+DEBUG: Testing candidate: 'aca' (from sa='ca', sb='a')
+DEBUG: Found palindrome: 'aca' (length 3)
+DEBUG: Comparison details:
+  - Current candidate: 'aca' (length 3)
+  - Current best: 'cabac' (length 5)
+  - Is longer? False
+  - Is same length? False
+  - Is lexicographically smaller? True
+DEBUG: ✗ Palindrome 'aca' not better than current best 'cabac'
+DEBUG: Testing candidate: 'caac' (from sa='ca', sb='ac')
+DEBUG: Found palindrome: 'caac' (length 4)
+DEBUG: Comparison details:
+  - Current candidate: 'caac' (length 4)
+  - Current best: 'cabac' (length 5)
+  - Is longer? False
+  - Is same length? False
+  - Is lexicographically smaller? True
+DEBUG: ✗ Palindrome 'caac' not better than current best 'cabac'
+DEBUG: Testing candidate: 'acca' (from sa='ca', sb='ac')
+DEBUG: Found palindrome: 'acca' (length 4)
+DEBUG: Comparison details:
+  - Current candidate: 'acca' (length 4)
+  - Current best: 'cabac' (length 5)
+  - Is longer? False
+  - Is same length? False
+  - Is lexicographically smaller? True
+DEBUG: ✗ Palindrome 'acca' not better than current best 'cabac'
+DEBUG: Testing candidate: 'cac' (from sa='ca', sb='c')
+DEBUG: Found palindrome: 'cac' (length 3)
+DEBUG: Comparison details:
+  - Current candidate: 'cac' (length 3)
+  - Current best: 'cabac' (length 5)
+  - Is longer? False
+  - Is same length? False
+  - Is lexicographically smaller? False
+DEBUG: ✗ Palindrome 'cac' not better than current best 'cabac'
+DEBUG: Testing candidate: 'cca' (from sa='ca', sb='c')
+DEBUG: 'cca' is not a palindrome
+DEBUG: Testing candidate: 'cabb' (from sa='cab', sb='b')
+DEBUG: 'cabb' is not a palindrome
+DEBUG: Testing candidate: 'bcab' (from sa='cab', sb='b')
+DEBUG: 'bcab' is not a palindrome
+DEBUG: Testing candidate: 'cabba' (from sa='cab', sb='ba')
+DEBUG: 'cabba' is not a palindrome
+DEBUG: Testing candidate: 'bacab' (from sa='cab', sb='ba')
+DEBUG: Found palindrome: 'bacab' (length 5)
+DEBUG: Comparison details:
+  - Current candidate: 'bacab' (length 5)
+  - Current best: 'cabac' (length 5)
+  - Is longer? False
+  - Is same length? True
+  - Is lexicographically smaller? True
+DEBUG: ✓ NEW BEST: 'bacab' (length 5) - replaced 'cabac'
+DEBUG: Testing candidate: 'cabbac' (from sa='cab', sb='bac')
+DEBUG: Found palindrome: 'cabbac' (length 6)
+DEBUG: Comparison details:
+  - Current candidate: 'cabbac' (length 6)
+  - Current best: 'bacab' (length 5)
+  - Is longer? True
+  - Is same length? False
+  - Is lexicographically smaller? False
+DEBUG: ✓ NEW BEST: 'cabbac' (length 6) - replaced 'bacab'
+DEBUG: Testing candidate: 'baccab' (from sa='cab', sb='bac')
+DEBUG: Found palindrome: 'baccab' (length 6)
+DEBUG: Comparison details:
+  - Current candidate: 'baccab' (length 6)
+  - Current best: 'cabbac' (length 6)
+  - Is longer? False
+  - Is same length? True
+  - Is lexicographically smaller? True
+DEBUG: ✓ NEW BEST: 'baccab' (length 6) - replaced 'cabbac'
+DEBUG: Testing candidate: 'caba' (from sa='cab', sb='a')
+DEBUG: 'caba' is not a palindrome
+DEBUG: Testing candidate: 'acab' (from sa='cab', sb='a')
+DEBUG: 'acab' is not a palindrome
+DEBUG: Testing candidate: 'cabac' (from sa='cab', sb='ac')
+DEBUG: Found palindrome: 'cabac' (length 5)
+DEBUG: Comparison details:
+  - Current candidate: 'cabac' (length 5)
+  - Current best: 'baccab' (length 6)
+  - Is longer? False
+  - Is same length? False
+  - Is lexicographically smaller? False
+DEBUG: ✗ Palindrome 'cabac' not better than current best 'baccab'
+DEBUG: Testing candidate: 'accab' (from sa='cab', sb='ac')
+DEBUG: 'accab' is not a palindrome
+DEBUG: Testing candidate: 'cabc' (from sa='cab', sb='c')
+DEBUG: 'cabc' is not a palindrome
+DEBUG: Testing candidate: 'ccab' (from sa='cab', sb='c')
+DEBUG: 'ccab' is not a palindrome
+DEBUG: Testing candidate: 'ab' (from sa='a', sb='b')
+DEBUG: 'ab' is not a palindrome
+DEBUG: Testing candidate: 'ba' (from sa='a', sb='b')
+DEBUG: 'ba' is not a palindrome
+DEBUG: Testing candidate: 'aba' (from sa='a', sb='ba')
+DEBUG: Found palindrome: 'aba' (length 3)
+DEBUG: Comparison details:
+  - Current candidate: 'aba' (length 3)
+  - Current best: 'baccab' (length 6)
+  - Is longer? False
+  - Is same length? False
+  - Is lexicographically smaller? True
+DEBUG: ✗ Palindrome 'aba' not better than current best 'baccab'
+DEBUG: Testing candidate: 'baa' (from sa='a', sb='ba')
+DEBUG: 'baa' is not a palindrome
+DEBUG: Testing candidate: 'abac' (from sa='a', sb='bac')
+DEBUG: 'abac' is not a palindrome
+DEBUG: Testing candidate: 'baca' (from sa='a', sb='bac')
+DEBUG: 'baca' is not a palindrome
+DEBUG: Testing candidate: 'aa' (from sa='a', sb='a')
+DEBUG: Found palindrome: 'aa' (length 2)
+DEBUG: Comparison details:
+  - Current candidate: 'aa' (length 2)
+  - Current best: 'baccab' (length 6)
+  - Is longer? False
+  - Is same length? False
+  - Is lexicographically smaller? True
+DEBUG: ✗ Palindrome 'aa' not better than current best 'baccab'
+DEBUG: Testing candidate: 'aa' (from sa='a', sb='a')
+DEBUG: Found palindrome: 'aa' (length 2)
+DEBUG: Comparison details:
+  - Current candidate: 'aa' (length 2)
+  - Current best: 'baccab' (length 6)
+  - Is longer? False
+  - Is same length? False
+  - Is lexicographically smaller? True
+DEBUG: ✗ Palindrome 'aa' not better than current best 'baccab'
+DEBUG: Testing candidate: 'aac' (from sa='a', sb='ac')
+DEBUG: 'aac' is not a palindrome
+DEBUG: Testing candidate: 'aca' (from sa='a', sb='ac')
+DEBUG: Found palindrome: 'aca' (length 3)
+DEBUG: Comparison details:
+  - Current candidate: 'aca' (length 3)
+  - Current best: 'baccab' (length 6)
+  - Is longer? False
+  - Is same length? False
+  - Is lexicographically smaller? True
+DEBUG: ✗ Palindrome 'aca' not better than current best 'baccab'
+DEBUG: Testing candidate: 'ac' (from sa='a', sb='c')
+DEBUG: 'ac' is not a palindrome
+DEBUG: Testing candidate: 'ca' (from sa='a', sb='c')
+DEBUG: 'ca' is not a palindrome
+DEBUG: Testing candidate: 'abb' (from sa='ab', sb='b')
+DEBUG: 'abb' is not a palindrome
+DEBUG: Testing candidate: 'bab' (from sa='ab', sb='b')
+DEBUG: Found palindrome: 'bab' (length 3)
+DEBUG: Comparison details:
+  - Current candidate: 'bab' (length 3)
+  - Current best: 'baccab' (length 6)
+  - Is longer? False
+  - Is same length? False
+  - Is lexicographically smaller? True
+DEBUG: ✗ Palindrome 'bab' not better than current best 'baccab'
+DEBUG: Testing candidate: 'abba' (from sa='ab', sb='ba')
+DEBUG: Found palindrome: 'abba' (length 4)
+DEBUG: Comparison details:
+  - Current candidate: 'abba' (length 4)
+  - Current best: 'baccab' (length 6)
+  - Is longer? False
+  - Is same length? False
+  - Is lexicographically smaller? True
+DEBUG: ✗ Palindrome 'abba' not better than current best 'baccab'
+DEBUG: Testing candidate: 'baab' (from sa='ab', sb='ba')
+DEBUG: Found palindrome: 'baab' (length 4)
+DEBUG: Comparison details:
+  - Current candidate: 'baab' (length 4)
+  - Current best: 'baccab' (length 6)
+  - Is longer? False
+  - Is same length? False
+  - Is lexicographically smaller? True
+DEBUG: ✗ Palindrome 'baab' not better than current best 'baccab'
+DEBUG: Testing candidate: 'abbac' (from sa='ab', sb='bac')
+DEBUG: 'abbac' is not a palindrome
+DEBUG: Testing candidate: 'bacab' (from sa='ab', sb='bac')
+DEBUG: Found palindrome: 'bacab' (length 5)
+DEBUG: Comparison details:
+  - Current candidate: 'bacab' (length 5)
+  - Current best: 'baccab' (length 6)
+  - Is longer? False
+  - Is same length? False
+  - Is lexicographically smaller? True
+DEBUG: ✗ Palindrome 'bacab' not better than current best 'baccab'
+DEBUG: Testing candidate: 'aba' (from sa='ab', sb='a')
+DEBUG: Found palindrome: 'aba' (length 3)
+DEBUG: Comparison details:
+  - Current candidate: 'aba' (length 3)
+  - Current best: 'baccab' (length 6)
+  - Is longer? False
+  - Is same length? False
+  - Is lexicographically smaller? True
+DEBUG: ✗ Palindrome 'aba' not better than current best 'baccab'
+DEBUG: Testing candidate: 'aab' (from sa='ab', sb='a')
+DEBUG: 'aab' is not a palindrome
+DEBUG: Testing candidate: 'abac' (from sa='ab', sb='ac')
+DEBUG: 'abac' is not a palindrome
+DEBUG: Testing candidate: 'acab' (from sa='ab', sb='ac')
+DEBUG: 'acab' is not a palindrome
+DEBUG: Testing candidate: 'abc' (from sa='ab', sb='c')
+DEBUG: 'abc' is not a palindrome
+DEBUG: Testing candidate: 'cab' (from sa='ab', sb='c')
+DEBUG: 'cab' is not a palindrome
+DEBUG: Testing candidate: 'bb' (from sa='b', sb='b')
+DEBUG: Found palindrome: 'bb' (length 2)
+DEBUG: Comparison details:
+  - Current candidate: 'bb' (length 2)
+  - Current best: 'baccab' (length 6)
+  - Is longer? False
+  - Is same length? False
+  - Is lexicographically smaller? False
+DEBUG: ✗ Palindrome 'bb' not better than current best 'baccab'
+DEBUG: Testing candidate: 'bb' (from sa='b', sb='b')
+DEBUG: Found palindrome: 'bb' (length 2)
+DEBUG: Comparison details:
+  - Current candidate: 'bb' (length 2)
+  - Current best: 'baccab' (length 6)
+  - Is longer? False
+  - Is same length? False
+  - Is lexicographically smaller? False
+DEBUG: ✗ Palindrome 'bb' not better than current best 'baccab'
+DEBUG: Testing candidate: 'bba' (from sa='b', sb='ba')
+DEBUG: 'bba' is not a palindrome
+DEBUG: Testing candidate: 'bab' (from sa='b', sb='ba')
+DEBUG: Found palindrome: 'bab' (length 3)
+DEBUG: Comparison details:
+  - Current candidate: 'bab' (length 3)
+  - Current best: 'baccab' (length 6)
+  - Is longer? False
+  - Is same length? False
+  - Is lexicographically smaller? True
+DEBUG: ✗ Palindrome 'bab' not better than current best 'baccab'
+DEBUG: Testing candidate: 'bbac' (from sa='b', sb='bac')
+DEBUG: 'bbac' is not a palindrome
+DEBUG: Testing candidate: 'bacb' (from sa='b', sb='bac')
+DEBUG: 'bacb' is not a palindrome
+DEBUG: Testing candidate: 'ba' (from sa='b', sb='a')
+DEBUG: 'ba' is not a palindrome
+DEBUG: Testing candidate: 'ab' (from sa='b', sb='a')
+DEBUG: 'ab' is not a palindrome
+DEBUG: Testing candidate: 'bac' (from sa='b', sb='ac')
+DEBUG: 'bac' is not a palindrome
+DEBUG: Testing candidate: 'acb' (from sa='b', sb='ac')
+DEBUG: 'acb' is not a palindrome
+DEBUG: Testing candidate: 'bc' (from sa='b', sb='c')
+DEBUG: 'bc' is not a palindrome
+DEBUG: Testing candidate: 'cb' (from sa='b', sb='c')
+DEBUG: 'cb' is not a palindrome
+DEBUG: Final result: 'baccab'
+Result: 'baccab'
+Expected: 'aba' - ✗ FAIL
+Time: 0.001s
