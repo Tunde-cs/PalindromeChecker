@@ -1,0 +1,323 @@
+~/workspace$ python test_cases.py
+COMPREHENSIVE TEST SUITE FOR HIDDEN TEST CASES
+============================================================
+
+============================================================
+TEST: Basic case from problem
+Input: a='bac', b='bac'
+DEBUG: Processing a='bac', b='bac'
+DEBUG: Common characters: {'b', 'a', 'c'}
+DEBUG: Found 7 subsequences from a, 7 from b
+DEBUG: Sample subsequences from a: ['b', 'a', 'ba', 'c', 'bc', 'ac', 'bac']
+DEBUG: Sample subsequences from b: ['b', 'a', 'ba', 'c', 'bc', 'ac', 'bac']
+DEBUG: New best subsequence candidate: 'bb'
+DEBUG: New best subsequence candidate: 'bab'
+DEBUG: New best subsequence candidate: 'aba'
+DEBUG: New best subsequence candidate: 'baab'
+DEBUG: New best subsequence candidate: 'abba'
+DEBUG: New best subsequence candidate: 'bacab'
+DEBUG: New best subsequence candidate: 'baccab'
+DEBUG: Total palindromes found: 96
+DEBUG: Final best result: 'baccab'
+Result: 'baccab'
+Expected: 'aba' - ✗ FAIL
+Time: 0.000s
+
+============================================================
+TEST: No palindrome possible
+Input: a='abc', b='def'
+DEBUG: Processing a='abc', b='def'
+DEBUG: No common characters, returning -1
+Result: '-1'
+Expected: '-1' - ✓ PASS
+Time: 0.000s
+
+============================================================
+TEST: Complex case
+Input: a='jdfh', b='fds'
+DEBUG: Processing a='jdfh', b='fds'
+DEBUG: Common characters: {'d', 'f'}
+DEBUG: Found 15 subsequences from a, 7 from b
+DEBUG: Sample subsequences from a: ['j', 'd', 'jd', 'f', 'jf', 'df', 'jdf', 'h', 'jh', 'dh']
+DEBUG: Sample subsequences from b: ['f', 'd', 'fd', 's', 'fs', 'ds', 'fds']
+DEBUG: New best subsequence candidate: 'dd'
+DEBUG: New best subsequence candidate: 'dfd'
+DEBUG: New best subsequence candidate: 'dffd'
+DEBUG: New best subsequence candidate: 'fdsdf'
+DEBUG: New best subsequence candidate: 'fdjdf'
+DEBUG: New best subsequence candidate: 'dfhfd'
+DEBUG: Total palindromes found: 66
+DEBUG: Final best result: 'dfhfd'
+Result: 'dfhfd'
+Expected: 'dfhfd' - ✓ PASS
+Time: 0.000s
+
+============================================================
+TEST: Both empty strings
+Input: a='', b=''
+DEBUG: Processing a='', b=''
+DEBUG: Empty string detected, returning -1
+Result: '-1'
+Expected: '-1' - ✓ PASS
+Time: 0.000s
+
+============================================================
+TEST: One empty string
+Input: a='a', b=''
+DEBUG: Processing a='a', b=''
+DEBUG: Empty string detected, returning -1
+Result: '-1'
+Expected: '-1' - ✓ PASS
+Time: 0.000s
+
+============================================================
+TEST: Other empty string
+Input: a='', b='b'
+DEBUG: Processing a='', b='b'
+DEBUG: Empty string detected, returning -1
+Result: '-1'
+Expected: '-1' - ✓ PASS
+Time: 0.000s
+
+============================================================
+TEST: Same single character
+Input: a='a', b='a'
+DEBUG: Processing a='a', b='a'
+DEBUG: Common characters: {'a'}
+DEBUG: Found 1 subsequences from a, 1 from b
+DEBUG: Sample subsequences from a: ['a']
+DEBUG: Sample subsequences from b: ['a']
+DEBUG: New best subsequence candidate: 'aa'
+DEBUG: Total palindromes found: 8
+DEBUG: Final best result: 'aa'
+Result: 'aa'
+Expected: 'aa' - ✓ PASS
+Time: 0.000s
+
+============================================================
+TEST: Different single characters
+Input: a='a', b='b'
+DEBUG: Processing a='a', b='b'
+DEBUG: No common characters, returning -1
+Result: '-1'
+Expected: '-1' - ✓ PASS
+Time: 0.000s
+
+============================================================
+TEST: Identical strings
+Input: a='abc', b='abc'
+DEBUG: Processing a='abc', b='abc'
+DEBUG: Common characters: {'a', 'c', 'b'}
+DEBUG: Found 7 subsequences from a, 7 from b
+DEBUG: Sample subsequences from a: ['a', 'b', 'ab', 'c', 'ac', 'bc', 'abc']
+DEBUG: Sample subsequences from b: ['a', 'b', 'ab', 'c', 'ac', 'bc', 'abc']
+DEBUG: New best subsequence candidate: 'aa'
+DEBUG: New best subsequence candidate: 'aba'
+DEBUG: New best subsequence candidate: 'abba'
+DEBUG: New best subsequence candidate: 'abcba'
+DEBUG: New best subsequence candidate: 'abccba'
+DEBUG: Total palindromes found: 96
+DEBUG: Final best result: 'abccba'
+Result: 'abccba'
+Expected: 'abccba' - ✓ PASS
+Time: 0.000s
+
+============================================================
+TEST: Longer identical strings
+Input: a='palindrome', b='palindrome'
+DEBUG: Processing a='palindrome', b='palindrome'
+DEBUG: Common characters: {'a', 'p', 'i', 'r', 'l', 'o', 'e', 'n', 'm', 'd'}
+DEBUG: Found 1023 subsequences from a, 1023 from b
+DEBUG: Sample subsequences from a: ['p', 'a', 'pa', 'l', 'pl', 'al', 'pal', 'i', 'pi', 'ai']
+DEBUG: Sample subsequences from b: ['p', 'a', 'pa', 'l', 'pl', 'al', 'pal', 'i', 'pi', 'ai']
+DEBUG: New best subsequence candidate: 'pp'
+DEBUG: New best subsequence candidate: 'pap'
+DEBUG: New best subsequence candidate: 'apa'
+DEBUG: New best subsequence candidate: 'ala'
+DEBUG: New best subsequence candidate: 'aia'
+DEBUG: New best subsequence candidate: 'ada'
+DEBUG: New best subsequence candidate: 'paap'
+DEBUG: New best subsequence candidate: 'appa'
+DEBUG: New best subsequence candidate: 'palap'
+DEBUG: New best subsequence candidate: 'paiap'
+DEBUG: New best subsequence candidate: 'padap'
+DEBUG: New best subsequence candidate: 'lapal'
+DEBUG: New best subsequence candidate: 'alila'
+DEBUG: New best subsequence candidate: 'aldla'
+DEBUG: New best subsequence candidate: 'pallap'
+DEBUG: New best subsequence candidate: 'lappal'
+DEBUG: New best subsequence candidate: 'palilap'
+DEBUG: New best subsequence candidate: 'paldlap'
+DEBUG: New best subsequence candidate: 'painiap'
+DEBUG: New best subsequence candidate: 'paidiap'
+DEBUG: New best subsequence candidate: 'ilapali'
+DEBUG: New best subsequence candidate: 'alinila'
+DEBUG: New best subsequence candidate: 'alidila'
+DEBUG: New best subsequence candidate: 'paliilap'
+DEBUG: New best subsequence candidate: 'ilappali'
+DEBUG: New best subsequence candidate: 'palinilap'
+DEBUG: New best subsequence candidate: 'palidilap'
+DEBUG: New best subsequence candidate: 'paindniap'
+DEBUG: New best subsequence candidate: 'nilapalin'
+DEBUG: New best subsequence candidate: 'alindnila'
+DEBUG: New best subsequence candidate: 'palinnilap'
+DEBUG: New best subsequence candidate: 'nilappalin'
+DEBUG: New best subsequence candidate: 'palindnilap'
+DEBUG: New best subsequence candidate: 'palidrdilap'
+DEBUG: New best subsequence candidate: 'palidodilap'
+DEBUG: New best subsequence candidate: 'palidmdilap'
+DEBUG: New best subsequence candidate: 'palidedilap'
+DEBUG: New best subsequence candidate: 'paindrdniap'
+DEBUG: New best subsequence candidate: 'paindodniap'
+DEBUG: New best subsequence candidate: 'paindmdniap'
+DEBUG: New best subsequence candidate: 'paindedniap'
+DEBUG: New best subsequence candidate: 'dnilapalind'
+DEBUG: New best subsequence candidate: 'alindrdnila'
+DEBUG: New best subsequence candidate: 'alindodnila'
+DEBUG: New best subsequence candidate: 'alindmdnila'
+DEBUG: New best subsequence candidate: 'alindednila'
+DEBUG: New best subsequence candidate: 'palinddnilap'
+DEBUG: New best subsequence candidate: 'dnilappalind'
+DEBUG: New best subsequence candidate: 'palindrdnilap'
+DEBUG: New best subsequence candidate: 'palindodnilap'
+DEBUG: New best subsequence candidate: 'palindmdnilap'
+DEBUG: New best subsequence candidate: 'palindednilap'
+DEBUG: New best subsequence candidate: 'palidrordilap'
+DEBUG: New best subsequence candidate: 'palidrmrdilap'
+DEBUG: New best subsequence candidate: 'palidrerdilap'
+DEBUG: New best subsequence candidate: 'paindrordniap'
+DEBUG: New best subsequence candidate: 'paindrmrdniap'
+DEBUG: New best subsequence candidate: 'paindrerdniap'
+DEBUG: New best subsequence candidate: 'alindrordnila'
+DEBUG: New best subsequence candidate: 'alindrmrdnila'
+DEBUG: New best subsequence candidate: 'alindrerdnila'
+DEBUG: New best subsequence candidate: 'palindrrdnilap'
+DEBUG: New best subsequence candidate: 'palindrordnilap'
+DEBUG: New best subsequence candidate: 'palindrmrdnilap'
+DEBUG: New best subsequence candidate: 'palindrerdnilap'
+DEBUG: New best subsequence candidate: 'palindomodnilap'
+DEBUG: New best subsequence candidate: 'palindoeodnilap'
+DEBUG: New best subsequence candidate: 'palidromordilap'
+DEBUG: New best subsequence candidate: 'palidroeordilap'
+DEBUG: New best subsequence candidate: 'paindromordniap'
+DEBUG: New best subsequence candidate: 'paindroeordniap'
+DEBUG: New best subsequence candidate: 'ordnilapalindro'
+DEBUG: New best subsequence candidate: 'alindromordnila'
+DEBUG: New best subsequence candidate: 'alindroeordnila'
+DEBUG: New best subsequence candidate: 'palindroordnilap'
+DEBUG: New best subsequence candidate: 'ordnilappalindro'
+DEBUG: New best subsequence candidate: 'palindromordnilap'
+DEBUG: New best subsequence candidate: 'palindroeordnilap'
+DEBUG: New best subsequence candidate: 'palindrmemrdnilap'
+DEBUG: New best subsequence candidate: 'palindomemodnilap'
+DEBUG: New best subsequence candidate: 'palidromemordilap'
+DEBUG: New best subsequence candidate: 'paindromemordniap'
+DEBUG: New best subsequence candidate: 'mordnilapalindrom'
+DEBUG: New best subsequence candidate: 'alindromemordnila'
+DEBUG: New best subsequence candidate: 'palindrommordnilap'
+DEBUG: New best subsequence candidate: 'mordnilappalindrom'
+DEBUG: New best subsequence candidate: 'palindromemordnilap'
+DEBUG: New best subsequence candidate: 'emordnilapalindrome'
+DEBUG: New best subsequence candidate: 'palindromeemordnilap'
+DEBUG: New best subsequence candidate: 'emordnilappalindrome'
+DEBUG: Total palindromes found: 12596
+DEBUG: Final best result: 'emordnilappalindrome'
+Result: 'emordnilappalindrome'
+Time: 1.955s
+
+============================================================
+TEST: String and its reverse
+Input: a='abc', b='cba'
+DEBUG: Processing a='abc', b='cba'
+DEBUG: Common characters: {'b', 'a', 'c'}
+DEBUG: Found 7 subsequences from a, 7 from b
+DEBUG: Sample subsequences from a: ['a', 'b', 'ab', 'c', 'ac', 'bc', 'abc']
+DEBUG: Sample subsequences from b: ['c', 'b', 'cb', 'a', 'ca', 'ba', 'cba']
+DEBUG: New best subsequence candidate: 'aa'
+DEBUG: New best subsequence candidate: 'aca'
+DEBUG: New best subsequence candidate: 'aba'
+DEBUG: New best subsequence candidate: 'abba'
+DEBUG: New best subsequence candidate: 'abcba'
+DEBUG: New best subsequence candidate: 'abccba'
+DEBUG: Total palindromes found: 96
+DEBUG: Final best result: 'abccba'
+Result: 'abccba'
+Expected: 'abccba' - ✓ PASS
+Time: 0.000s
+
+============================================================
+TEST: Short reverse case
+Input: a='ab', b='ba'
+DEBUG: Processing a='ab', b='ba'
+DEBUG: Common characters: {'b', 'a'}
+DEBUG: Found 3 subsequences from a, 3 from b
+DEBUG: Sample subsequences from a: ['a', 'b', 'ab']
+DEBUG: Sample subsequences from b: ['b', 'a', 'ba']
+DEBUG: New best subsequence candidate: 'aa'
+DEBUG: New best subsequence candidate: 'aba'
+DEBUG: New best subsequence candidate: 'abba'
+DEBUG: Total palindromes found: 36
+DEBUG: Final best result: 'abba'
+Result: 'abba'
+Expected: 'abba' - ✓ PASS
+Time: 0.000s
+
+============================================================
+TEST: All same character
+Input: a='aaa', b='aaa'
+DEBUG: Processing a='aaa', b='aaa'
+DEBUG: Common characters: {'a'}
+DEBUG: Found 7 subsequences from a, 7 from b
+DEBUG: Sample subsequences from a: ['a', 'a', 'aa', 'a', 'aa', 'aa', 'aaa']
+DEBUG: Sample subsequences from b: ['a', 'a', 'aa', 'a', 'aa', 'aa', 'aaa']
+DEBUG: New best subsequence candidate: 'aa'
+DEBUG: New best subsequence candidate: 'aaa'
+DEBUG: New best subsequence candidate: 'aaaa'
+DEBUG: New best subsequence candidate: 'aaaaa'
+DEBUG: New best subsequence candidate: 'aaaaaa'
+DEBUG: Total palindromes found: 392
+DEBUG: Final best result: 'aaaaaa'
+Result: 'aaaaaa'
+Expected: 'aaaaaa' - ✓ PASS
+Time: 0.000s
+
+============================================================
+TEST: Repeating with variation
+Input: a='aab', b='baa'
+DEBUG: Processing a='aab', b='baa'
+DEBUG: Common characters: {'b', 'a'}
+DEBUG: Found 7 subsequences from a, 7 from b
+DEBUG: Sample subsequences from a: ['a', 'a', 'aa', 'b', 'ab', 'ab', 'aab']
+DEBUG: Sample subsequences from b: ['b', 'a', 'ba', 'a', 'ba', 'aa', 'baa']
+DEBUG: New best subsequence candidate: 'aa'
+DEBUG: New best subsequence candidate: 'aba'
+DEBUG: New best subsequence candidate: 'aaa'
+DEBUG: New best subsequence candidate: 'aaaa'
+DEBUG: New best subsequence candidate: 'aabaa'
+DEBUG: New best subsequence candidate: 'aabbaa'
+DEBUG: Total palindromes found: 172
+DEBUG: Final best result: 'aabbaa'
+Result: 'aabbaa'
+Time: 0.000s
+
+============================================================
+TEST: Long strings (25 chars each)
+Input: a='aaaaaaaaaaaaaaaaaaaaaaaaa', b='bbbbbbbbbbbbbbbbbbbbbbbbb'
+DEBUG: Processing a='aaaaaaaaaaaaaaaaaaaaaaaaa', b='bbbbbbbbbbbbbbbbbbbbbbbbb'
+DEBUG: No common characters, returning -1
+Result: '-1'
+Time: 0.000s
+
+============================================================
+TEST: 20+ char strings
+Input: a='abcdefghijklmnopqrstu', b='uvwxyzabcdefghijklmno'
+DEBUG: Processing a='abcdefghijklmnopqrstu', b='uvwxyzabcdefghijklmno'
+DEBUG: Common characters: {'d', 'b', 'a', 'o', 'l', 'k', 'g', 'j', 'u', 'e', 'n', 'm', 'i', 'c', 'f', 'h'}
+DEBUG: Found 1695221 subsequences from a, 1695221 from b
+DEBUG: Sample subsequences from a: ['a', 'b', 'ab', 'c', 'ac', 'bc', 'abc', 'd', 'ad', 'bd']
+DEBUG: Sample subsequences from b: ['u', 'v', 'uv', 'w', 'uw', 'vw', 'uvw', 'x', 'ux', 'vx']
+DEBUG: New best subsequence candidate: 'aa'
+DEBUG: New best subsequence candidate: 'aua'
+DEBUG: New best subsequence candidate: 'aba'
+DEBUG: New best subsequence candidate: 'abba'
+DEBUG: New best subsequence candidate: 'bauab'
