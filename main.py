@@ -14,12 +14,13 @@ def buildPalindrome(a, b):
     if not a or not b:
         return "-1"
 
-    # Collect all possible palindromes
-    palindromes = []
+    best_palindrome = None
+    max_length = 0
 
     n = len(a)
     m = len(b)
 
+    # Try all possible substrings from both strings
     for i in range(n):
         for j in range(i + 1, n + 1):
             sa = a[i:j]
@@ -27,22 +28,17 @@ def buildPalindrome(a, b):
                 for l in range(k + 1, m + 1):
                     sb = b[k:l]
 
-                    # Try both sa + sb and sb + sa (without reversing)
+                    # Try both sa + sb and sb + sa
                     for combo in [sa + sb, sb + sa]:
                         if is_palindrome(combo):
-                            palindromes.append(combo)
+                            # Check if this is better than current best
+                            if (len(combo) > max_length or 
+                                (len(combo) == max_length and 
+                                 (best_palindrome is None or combo < best_palindrome))):
+                                best_palindrome = combo
+                                max_length = len(combo)
 
-    if not palindromes:
-        return "-1"
-
-    # Find the maximum length
-    max_length = max(len(p) for p in palindromes)
-
-    # Filter palindromes with maximum length
-    max_palindromes = [p for p in palindromes if len(p) == max_length]
-
-    # Return the lexicographically smallest among maximum length palindromes
-    return min(max_palindromes)
+    return best_palindrome if best_palindrome else "-1"
 
 if __name__ == '__main__':
     fptr = open(os.environ['OUTPUT_PATH'], 'w')
