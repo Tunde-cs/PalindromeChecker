@@ -13,33 +13,36 @@ def is_palindrome(s):
 def buildPalindrome(a, b):
     best = None
     max_len = 0
-    max_limit = 20  # Performance limit
 
     # Early exit for empty strings
     if not a or not b:
         return "-1"
 
-    for len_a in range(1, min(len(a), max_limit) + 1):
-        # Early termination if we can't possibly beat current best
-        if best and len_a + len(b) <= max_len:
-            continue
-
-        for start_a in range(len(a) - len_a + 1):
-            sa = a[start_a:start_a + len_a]
-
-            for len_b in range(1, min(len(b), max_limit) + 1):
-                # Early termination
-                if best and len_a + len_b <= max_len:
-                    continue
-
+    # Try all possible substrings with shorter ones first for lexicographic preference
+    for total_len in range(2, len(a) + len(b) + 1):
+        candidates = []
+        
+        for len_a in range(1, min(len(a), total_len) + 1):
+            len_b = total_len - len_a
+            if len_b < 1 or len_b > len(b):
+                continue
+                
+            for start_a in range(len(a) - len_a + 1):
+                sa = a[start_a:start_a + len_a]
+                
                 for start_b in range(len(b) - len_b + 1):
                     sb = b[start_b:start_b + len_b]
-
+                    
                     for cand in [sa + sb, sb + sa]:
                         if is_palindrome(cand):
-                            if len(cand) > max_len or (len(cand) == max_len and (best is None or cand < best)):
-                                best = cand
-                                max_len = len(cand)
+                            candidates.append(cand)
+        
+        if candidates:
+            # For same length, pick lexicographically smallest
+            candidates.sort()
+            if len(candidates[0]) > max_len:
+                best = candidates[0]
+                max_len = len(candidates[0])
 
     return best if best else "-1"
 
