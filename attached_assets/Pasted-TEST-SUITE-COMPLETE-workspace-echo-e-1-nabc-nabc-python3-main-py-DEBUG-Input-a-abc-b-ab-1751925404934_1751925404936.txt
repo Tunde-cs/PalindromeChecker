@@ -1,0 +1,294 @@
+TEST SUITE COMPLETE
+~/workspace$ echo -e "1\nabc\nabc" | python3 main.py
+DEBUG: Input a='abc', b='abc'
+DEBUG: Starting substring combination search...
+DEBUG: Trying combo 'aa' (sa='a', sb='a')
+DEBUG: Found palindrome 'aa' with length 2
+DEBUG: New best palindrome: 'aa' (prev: 'None')
+DEBUG: Trying combo 'aa' (sa='a', sb='a')
+DEBUG: Found palindrome 'aa' with length 2
+DEBUG: Trying combo 'ab' (sa='a', sb='b')
+DEBUG: Trying combo 'ba' (sa='a', sb='b')
+DEBUG: Trying combo 'ac' (sa='a', sb='c')
+DEBUG: Trying combo 'ca' (sa='a', sb='c')
+DEBUG: Trying combo 'aab' (sa='a', sb='ab')
+DEBUG: Trying combo 'aba' (sa='a', sb='ab')
+DEBUG: Found palindrome 'aba' with length 3
+DEBUG: New best palindrome: 'aba' (prev: 'aa')
+DEBUG: Trying combo 'abc' (sa='a', sb='bc')
+DEBUG: Trying combo 'bca' (sa='a', sb='bc')
+DEBUG: Trying combo 'aabc' (sa='a', sb='abc')
+DEBUG: Trying combo 'abca' (sa='a', sb='abc')
+DEBUG: Trying combo 'ba' (sa='b', sb='a')
+DEBUG: Trying combo 'ab' (sa='b', sb='a')
+DEBUG: Trying combo 'bb' (sa='b', sb='b')
+DEBUG: Found palindrome 'bb' with length 2
+DEBUG: Trying combo 'bb' (sa='b', sb='b')
+DEBUG: Found palindrome 'bb' with length 2
+DEBUG: Trying combo 'bc' (sa='b', sb='c')
+DEBUG: Trying combo 'cb' (sa='b', sb='c')
+DEBUG: Trying combo 'bab' (sa='b', sb='ab')
+DEBUG: Found palindrome 'bab' with length 3
+DEBUG: Trying combo 'abb' (sa='b', sb='ab')
+DEBUG: Trying combo 'bbc' (sa='b', sb='bc')
+DEBUG: Trying combo 'bcb' (sa='b', sb='bc')
+DEBUG: Found palindrome 'bcb' with length 3
+DEBUG: Trying combo 'babc' (sa='b', sb='abc')
+DEBUG: Trying combo 'abcb' (sa='b', sb='abc')
+DEBUG: Trying combo 'ca' (sa='c', sb='a')
+DEBUG: Trying combo 'ac' (sa='c', sb='a')
+DEBUG: Trying combo 'cb' (sa='c', sb='b')
+DEBUG: Trying combo 'bc' (sa='c', sb='b')
+DEBUG: Trying combo 'cc' (sa='c', sb='c')
+DEBUG: Found palindrome 'cc' with length 2
+DEBUG: Trying combo 'cc' (sa='c', sb='c')
+DEBUG: Found palindrome 'cc' with length 2
+DEBUG: Trying combo 'cab' (sa='c', sb='ab')
+DEBUG: Trying combo 'abc' (sa='c', sb='ab')
+DEBUG: Trying combo 'cbc' (sa='c', sb='bc')
+DEBUG: Found palindrome 'cbc' with length 3
+DEBUG: Trying combo 'bcc' (sa='c', sb='bc')
+DEBUG: Trying combo 'cabc' (sa='c', sb='abc')
+DEBUG: Trying combo 'abcc' (sa='c', sb='abc')
+DEBUG: Trying combo 'aba' (sa='ab', sb='a')
+DEBUG: Found palindrome 'aba' with length 3
+DEBUG: Trying combo 'aab' (sa='ab', sb='a')
+DEBUG: Trying combo 'abb' (sa='ab', sb='b')
+DEBUG: Trying combo 'bab' (sa='ab', sb='b')
+DEBUG: Found palindrome 'bab' with length 3
+DEBUG: Trying combo 'abc' (sa='ab', sb='c')
+DEBUG: Trying combo 'cab' (sa='ab', sb='c')
+DEBUG: Trying combo 'abab' (sa='ab', sb='ab')
+DEBUG: Trying combo 'abab' (sa='ab', sb='ab')
+DEBUG: Trying combo 'abbc' (sa='ab', sb='bc')
+DEBUG: Trying combo 'bcab' (sa='ab', sb='bc')
+DEBUG: Trying combo 'ababc' (sa='ab', sb='abc')
+DEBUG: Trying combo 'abcab' (sa='ab', sb='abc')
+DEBUG: Trying combo 'bca' (sa='bc', sb='a')
+DEBUG: Trying combo 'abc' (sa='bc', sb='a')
+DEBUG: Trying combo 'bcb' (sa='bc', sb='b')
+DEBUG: Found palindrome 'bcb' with length 3
+DEBUG: Trying combo 'bbc' (sa='bc', sb='b')
+DEBUG: Trying combo 'bcc' (sa='bc', sb='c')
+DEBUG: Trying combo 'cbc' (sa='bc', sb='c')
+DEBUG: Found palindrome 'cbc' with length 3
+DEBUG: Trying combo 'bcab' (sa='bc', sb='ab')
+DEBUG: Trying combo 'abbc' (sa='bc', sb='ab')
+DEBUG: Trying combo 'bcbc' (sa='bc', sb='bc')
+DEBUG: Trying combo 'bcbc' (sa='bc', sb='bc')
+DEBUG: Trying combo 'bcabc' (sa='bc', sb='abc')
+DEBUG: Trying combo 'abcbc' (sa='bc', sb='abc')
+DEBUG: Trying combo 'abca' (sa='abc', sb='a')
+DEBUG: Trying combo 'aabc' (sa='abc', sb='a')
+DEBUG: Trying combo 'abcb' (sa='abc', sb='b')
+DEBUG: Trying combo 'babc' (sa='abc', sb='b')
+DEBUG: Trying combo 'abcc' (sa='abc', sb='c')
+DEBUG: Trying combo 'cabc' (sa='abc', sb='c')
+DEBUG: Trying combo 'abcab' (sa='abc', sb='ab')
+DEBUG: Trying combo 'ababc' (sa='abc', sb='ab')
+DEBUG: Trying combo 'abcbc' (sa='abc', sb='bc')
+DEBUG: Trying combo 'bcabc' (sa='abc', sb='bc')
+DEBUG: Trying combo 'abcabc' (sa='abc', sb='abc')
+DEBUG: Trying combo 'abcabc' (sa='abc', sb='abc')
+DEBUG: After substring combinations, best='aba', length=3
+DEBUG: All palindromes found so far: ['aa', 'aa', 'aba', 'bb', 'bb', 'bab', 'bcb', 'cc', 'cc', 'cbc', 'aba', 'bab', 'bcb', 'cbc']
+DEBUG: Starting reversed substring search...
+DEBUG: Trying reversed combo 'aa' (sa='a', sa_rev='a', sb='a', sb_rev='a')
+DEBUG: Found palindrome 'aa' with length 2
+DEBUG: Trying reversed combo 'aa' (sa='a', sa_rev='a', sb='a', sb_rev='a')
+DEBUG: Found palindrome 'aa' with length 2
+DEBUG: Trying reversed combo 'aa' (sa='a', sa_rev='a', sb='a', sb_rev='a')
+DEBUG: Found palindrome 'aa' with length 2
+DEBUG: Trying reversed combo 'aa' (sa='a', sa_rev='a', sb='a', sb_rev='a')
+DEBUG: Found palindrome 'aa' with length 2
+DEBUG: Trying reversed combo 'ab' (sa='a', sa_rev='a', sb='b', sb_rev='b')
+DEBUG: Trying reversed combo 'ab' (sa='a', sa_rev='a', sb='b', sb_rev='b')
+DEBUG: Trying reversed combo 'ba' (sa='a', sa_rev='a', sb='b', sb_rev='b')
+DEBUG: Trying reversed combo 'ba' (sa='a', sa_rev='a', sb='b', sb_rev='b')
+DEBUG: Trying reversed combo 'ac' (sa='a', sa_rev='a', sb='c', sb_rev='c')
+DEBUG: Trying reversed combo 'ac' (sa='a', sa_rev='a', sb='c', sb_rev='c')
+DEBUG: Trying reversed combo 'ca' (sa='a', sa_rev='a', sb='c', sb_rev='c')
+DEBUG: Trying reversed combo 'ca' (sa='a', sa_rev='a', sb='c', sb_rev='c')
+DEBUG: Trying reversed combo 'aba' (sa='a', sa_rev='a', sb='ab', sb_rev='ba')
+DEBUG: Found palindrome 'aba' with length 3
+DEBUG: Trying reversed combo 'aab' (sa='a', sa_rev='a', sb='ab', sb_rev='ba')
+DEBUG: Trying reversed combo 'aba' (sa='a', sa_rev='a', sb='ab', sb_rev='ba')
+DEBUG: Found palindrome 'aba' with length 3
+DEBUG: Trying reversed combo 'baa' (sa='a', sa_rev='a', sb='ab', sb_rev='ba')
+DEBUG: Trying reversed combo 'acb' (sa='a', sa_rev='a', sb='bc', sb_rev='cb')
+DEBUG: Trying reversed combo 'abc' (sa='a', sa_rev='a', sb='bc', sb_rev='cb')
+DEBUG: Trying reversed combo 'bca' (sa='a', sa_rev='a', sb='bc', sb_rev='cb')
+DEBUG: Trying reversed combo 'cba' (sa='a', sa_rev='a', sb='bc', sb_rev='cb')
+DEBUG: Trying reversed combo 'acba' (sa='a', sa_rev='a', sb='abc', sb_rev='cba')
+DEBUG: Trying reversed combo 'aabc' (sa='a', sa_rev='a', sb='abc', sb_rev='cba')
+DEBUG: Trying reversed combo 'abca' (sa='a', sa_rev='a', sb='abc', sb_rev='cba')
+DEBUG: Trying reversed combo 'cbaa' (sa='a', sa_rev='a', sb='abc', sb_rev='cba')
+DEBUG: Trying reversed combo 'ba' (sa='b', sa_rev='b', sb='a', sb_rev='a')
+DEBUG: Trying reversed combo 'ba' (sa='b', sa_rev='b', sb='a', sb_rev='a')
+DEBUG: Trying reversed combo 'ab' (sa='b', sa_rev='b', sb='a', sb_rev='a')
+DEBUG: Trying reversed combo 'ab' (sa='b', sa_rev='b', sb='a', sb_rev='a')
+DEBUG: Trying reversed combo 'bb' (sa='b', sa_rev='b', sb='b', sb_rev='b')
+DEBUG: Found palindrome 'bb' with length 2
+DEBUG: Trying reversed combo 'bb' (sa='b', sa_rev='b', sb='b', sb_rev='b')
+DEBUG: Found palindrome 'bb' with length 2
+DEBUG: Trying reversed combo 'bb' (sa='b', sa_rev='b', sb='b', sb_rev='b')
+DEBUG: Found palindrome 'bb' with length 2
+DEBUG: Trying reversed combo 'bb' (sa='b', sa_rev='b', sb='b', sb_rev='b')
+DEBUG: Found palindrome 'bb' with length 2
+DEBUG: Trying reversed combo 'bc' (sa='b', sa_rev='b', sb='c', sb_rev='c')
+DEBUG: Trying reversed combo 'bc' (sa='b', sa_rev='b', sb='c', sb_rev='c')
+DEBUG: Trying reversed combo 'cb' (sa='b', sa_rev='b', sb='c', sb_rev='c')
+DEBUG: Trying reversed combo 'cb' (sa='b', sa_rev='b', sb='c', sb_rev='c')
+DEBUG: Trying reversed combo 'bba' (sa='b', sa_rev='b', sb='ab', sb_rev='ba')
+DEBUG: Trying reversed combo 'bab' (sa='b', sa_rev='b', sb='ab', sb_rev='ba')
+DEBUG: Found palindrome 'bab' with length 3
+DEBUG: Trying reversed combo 'abb' (sa='b', sa_rev='b', sb='ab', sb_rev='ba')
+DEBUG: Trying reversed combo 'bab' (sa='b', sa_rev='b', sb='ab', sb_rev='ba')
+DEBUG: Found palindrome 'bab' with length 3
+DEBUG: Trying reversed combo 'bcb' (sa='b', sa_rev='b', sb='bc', sb_rev='cb')
+DEBUG: Found palindrome 'bcb' with length 3
+DEBUG: Trying reversed combo 'bbc' (sa='b', sa_rev='b', sb='bc', sb_rev='cb')
+DEBUG: Trying reversed combo 'bcb' (sa='b', sa_rev='b', sb='bc', sb_rev='cb')
+DEBUG: Found palindrome 'bcb' with length 3
+DEBUG: Trying reversed combo 'cbb' (sa='b', sa_rev='b', sb='bc', sb_rev='cb')
+DEBUG: Trying reversed combo 'bcba' (sa='b', sa_rev='b', sb='abc', sb_rev='cba')
+DEBUG: Trying reversed combo 'babc' (sa='b', sa_rev='b', sb='abc', sb_rev='cba')
+DEBUG: Trying reversed combo 'abcb' (sa='b', sa_rev='b', sb='abc', sb_rev='cba')
+DEBUG: Trying reversed combo 'cbab' (sa='b', sa_rev='b', sb='abc', sb_rev='cba')
+DEBUG: Trying reversed combo 'ca' (sa='c', sa_rev='c', sb='a', sb_rev='a')
+DEBUG: Trying reversed combo 'ca' (sa='c', sa_rev='c', sb='a', sb_rev='a')
+DEBUG: Trying reversed combo 'ac' (sa='c', sa_rev='c', sb='a', sb_rev='a')
+DEBUG: Trying reversed combo 'ac' (sa='c', sa_rev='c', sb='a', sb_rev='a')
+DEBUG: Trying reversed combo 'cb' (sa='c', sa_rev='c', sb='b', sb_rev='b')
+DEBUG: Trying reversed combo 'cb' (sa='c', sa_rev='c', sb='b', sb_rev='b')
+DEBUG: Trying reversed combo 'bc' (sa='c', sa_rev='c', sb='b', sb_rev='b')
+DEBUG: Trying reversed combo 'bc' (sa='c', sa_rev='c', sb='b', sb_rev='b')
+DEBUG: Trying reversed combo 'cc' (sa='c', sa_rev='c', sb='c', sb_rev='c')
+DEBUG: Found palindrome 'cc' with length 2
+DEBUG: Trying reversed combo 'cc' (sa='c', sa_rev='c', sb='c', sb_rev='c')
+DEBUG: Found palindrome 'cc' with length 2
+DEBUG: Trying reversed combo 'cc' (sa='c', sa_rev='c', sb='c', sb_rev='c')
+DEBUG: Found palindrome 'cc' with length 2
+DEBUG: Trying reversed combo 'cc' (sa='c', sa_rev='c', sb='c', sb_rev='c')
+DEBUG: Found palindrome 'cc' with length 2
+DEBUG: Trying reversed combo 'cba' (sa='c', sa_rev='c', sb='ab', sb_rev='ba')
+DEBUG: Trying reversed combo 'cab' (sa='c', sa_rev='c', sb='ab', sb_rev='ba')
+DEBUG: Trying reversed combo 'abc' (sa='c', sa_rev='c', sb='ab', sb_rev='ba')
+DEBUG: Trying reversed combo 'bac' (sa='c', sa_rev='c', sb='ab', sb_rev='ba')
+DEBUG: Trying reversed combo 'ccb' (sa='c', sa_rev='c', sb='bc', sb_rev='cb')
+DEBUG: Trying reversed combo 'cbc' (sa='c', sa_rev='c', sb='bc', sb_rev='cb')
+DEBUG: Found palindrome 'cbc' with length 3
+DEBUG: Trying reversed combo 'bcc' (sa='c', sa_rev='c', sb='bc', sb_rev='cb')
+DEBUG: Trying reversed combo 'cbc' (sa='c', sa_rev='c', sb='bc', sb_rev='cb')
+DEBUG: Found palindrome 'cbc' with length 3
+DEBUG: Trying reversed combo 'ccba' (sa='c', sa_rev='c', sb='abc', sb_rev='cba')
+DEBUG: Trying reversed combo 'cabc' (sa='c', sa_rev='c', sb='abc', sb_rev='cba')
+DEBUG: Trying reversed combo 'abcc' (sa='c', sa_rev='c', sb='abc', sb_rev='cba')
+DEBUG: Trying reversed combo 'cbac' (sa='c', sa_rev='c', sb='abc', sb_rev='cba')
+DEBUG: Trying reversed combo 'aba' (sa='ab', sa_rev='ba', sb='a', sb_rev='a')
+DEBUG: Found palindrome 'aba' with length 3
+DEBUG: Trying reversed combo 'baa' (sa='ab', sa_rev='ba', sb='a', sb_rev='a')
+DEBUG: Trying reversed combo 'aba' (sa='ab', sa_rev='ba', sb='a', sb_rev='a')
+DEBUG: Found palindrome 'aba' with length 3
+DEBUG: Trying reversed combo 'aab' (sa='ab', sa_rev='ba', sb='a', sb_rev='a')
+DEBUG: Trying reversed combo 'abb' (sa='ab', sa_rev='ba', sb='b', sb_rev='b')
+DEBUG: Trying reversed combo 'bab' (sa='ab', sa_rev='ba', sb='b', sb_rev='b')
+DEBUG: Found palindrome 'bab' with length 3
+DEBUG: Trying reversed combo 'bba' (sa='ab', sa_rev='ba', sb='b', sb_rev='b')
+DEBUG: Trying reversed combo 'bab' (sa='ab', sa_rev='ba', sb='b', sb_rev='b')
+DEBUG: Found palindrome 'bab' with length 3
+DEBUG: Trying reversed combo 'abc' (sa='ab', sa_rev='ba', sb='c', sb_rev='c')
+DEBUG: Trying reversed combo 'bac' (sa='ab', sa_rev='ba', sb='c', sb_rev='c')
+DEBUG: Trying reversed combo 'cba' (sa='ab', sa_rev='ba', sb='c', sb_rev='c')
+DEBUG: Trying reversed combo 'cab' (sa='ab', sa_rev='ba', sb='c', sb_rev='c')
+DEBUG: Trying reversed combo 'abba' (sa='ab', sa_rev='ba', sb='ab', sb_rev='ba')
+DEBUG: Found palindrome 'abba' with length 4
+DEBUG: New best palindrome: 'abba' (prev: 'aba')
+DEBUG: Trying reversed combo 'baab' (sa='ab', sa_rev='ba', sb='ab', sb_rev='ba')
+DEBUG: Found palindrome 'baab' with length 4
+DEBUG: Trying reversed combo 'abba' (sa='ab', sa_rev='ba', sb='ab', sb_rev='ba')
+DEBUG: Found palindrome 'abba' with length 4
+DEBUG: Trying reversed combo 'baab' (sa='ab', sa_rev='ba', sb='ab', sb_rev='ba')
+DEBUG: Found palindrome 'baab' with length 4
+DEBUG: Trying reversed combo 'abcb' (sa='ab', sa_rev='ba', sb='bc', sb_rev='cb')
+DEBUG: Trying reversed combo 'babc' (sa='ab', sa_rev='ba', sb='bc', sb_rev='cb')
+DEBUG: Trying reversed combo 'bcba' (sa='ab', sa_rev='ba', sb='bc', sb_rev='cb')
+DEBUG: Trying reversed combo 'cbab' (sa='ab', sa_rev='ba', sb='bc', sb_rev='cb')
+DEBUG: Trying reversed combo 'abcba' (sa='ab', sa_rev='ba', sb='abc', sb_rev='cba')
+DEBUG: Found palindrome 'abcba' with length 5
+DEBUG: New best palindrome: 'abcba' (prev: 'abba')
+DEBUG: Trying reversed combo 'baabc' (sa='ab', sa_rev='ba', sb='abc', sb_rev='cba')
+DEBUG: Trying reversed combo 'abcba' (sa='ab', sa_rev='ba', sb='abc', sb_rev='cba')
+DEBUG: Found palindrome 'abcba' with length 5
+DEBUG: Trying reversed combo 'cbaab' (sa='ab', sa_rev='ba', sb='abc', sb_rev='cba')
+DEBUG: Trying reversed combo 'bca' (sa='bc', sa_rev='cb', sb='a', sb_rev='a')
+DEBUG: Trying reversed combo 'cba' (sa='bc', sa_rev='cb', sb='a', sb_rev='a')
+DEBUG: Trying reversed combo 'acb' (sa='bc', sa_rev='cb', sb='a', sb_rev='a')
+DEBUG: Trying reversed combo 'abc' (sa='bc', sa_rev='cb', sb='a', sb_rev='a')
+DEBUG: Trying reversed combo 'bcb' (sa='bc', sa_rev='cb', sb='b', sb_rev='b')
+DEBUG: Found palindrome 'bcb' with length 3
+DEBUG: Trying reversed combo 'cbb' (sa='bc', sa_rev='cb', sb='b', sb_rev='b')
+DEBUG: Trying reversed combo 'bcb' (sa='bc', sa_rev='cb', sb='b', sb_rev='b')
+DEBUG: Found palindrome 'bcb' with length 3
+DEBUG: Trying reversed combo 'bbc' (sa='bc', sa_rev='cb', sb='b', sb_rev='b')
+DEBUG: Trying reversed combo 'bcc' (sa='bc', sa_rev='cb', sb='c', sb_rev='c')
+DEBUG: Trying reversed combo 'cbc' (sa='bc', sa_rev='cb', sb='c', sb_rev='c')
+DEBUG: Found palindrome 'cbc' with length 3
+DEBUG: Trying reversed combo 'ccb' (sa='bc', sa_rev='cb', sb='c', sb_rev='c')
+DEBUG: Trying reversed combo 'cbc' (sa='bc', sa_rev='cb', sb='c', sb_rev='c')
+DEBUG: Found palindrome 'cbc' with length 3
+DEBUG: Trying reversed combo 'bcba' (sa='bc', sa_rev='cb', sb='ab', sb_rev='ba')
+DEBUG: Trying reversed combo 'cbab' (sa='bc', sa_rev='cb', sb='ab', sb_rev='ba')
+DEBUG: Trying reversed combo 'abcb' (sa='bc', sa_rev='cb', sb='ab', sb_rev='ba')
+DEBUG: Trying reversed combo 'babc' (sa='bc', sa_rev='cb', sb='ab', sb_rev='ba')
+DEBUG: Trying reversed combo 'bccb' (sa='bc', sa_rev='cb', sb='bc', sb_rev='cb')
+DEBUG: Found palindrome 'bccb' with length 4
+DEBUG: Trying reversed combo 'cbbc' (sa='bc', sa_rev='cb', sb='bc', sb_rev='cb')
+DEBUG: Found palindrome 'cbbc' with length 4
+DEBUG: Trying reversed combo 'bccb' (sa='bc', sa_rev='cb', sb='bc', sb_rev='cb')
+DEBUG: Found palindrome 'bccb' with length 4
+DEBUG: Trying reversed combo 'cbbc' (sa='bc', sa_rev='cb', sb='bc', sb_rev='cb')
+DEBUG: Found palindrome 'cbbc' with length 4
+DEBUG: Trying reversed combo 'bccba' (sa='bc', sa_rev='cb', sb='abc', sb_rev='cba')
+DEBUG: Trying reversed combo 'cbabc' (sa='bc', sa_rev='cb', sb='abc', sb_rev='cba')
+DEBUG: Found palindrome 'cbabc' with length 5
+DEBUG: Trying reversed combo 'abccb' (sa='bc', sa_rev='cb', sb='abc', sb_rev='cba')
+DEBUG: Trying reversed combo 'cbabc' (sa='bc', sa_rev='cb', sb='abc', sb_rev='cba')
+DEBUG: Found palindrome 'cbabc' with length 5
+DEBUG: Trying reversed combo 'abca' (sa='abc', sa_rev='cba', sb='a', sb_rev='a')
+DEBUG: Trying reversed combo 'cbaa' (sa='abc', sa_rev='cba', sb='a', sb_rev='a')
+DEBUG: Trying reversed combo 'acba' (sa='abc', sa_rev='cba', sb='a', sb_rev='a')
+DEBUG: Trying reversed combo 'aabc' (sa='abc', sa_rev='cba', sb='a', sb_rev='a')
+DEBUG: Trying reversed combo 'abcb' (sa='abc', sa_rev='cba', sb='b', sb_rev='b')
+DEBUG: Trying reversed combo 'cbab' (sa='abc', sa_rev='cba', sb='b', sb_rev='b')
+DEBUG: Trying reversed combo 'bcba' (sa='abc', sa_rev='cba', sb='b', sb_rev='b')
+DEBUG: Trying reversed combo 'babc' (sa='abc', sa_rev='cba', sb='b', sb_rev='b')
+DEBUG: Trying reversed combo 'abcc' (sa='abc', sa_rev='cba', sb='c', sb_rev='c')
+DEBUG: Trying reversed combo 'cbac' (sa='abc', sa_rev='cba', sb='c', sb_rev='c')
+DEBUG: Trying reversed combo 'ccba' (sa='abc', sa_rev='cba', sb='c', sb_rev='c')
+DEBUG: Trying reversed combo 'cabc' (sa='abc', sa_rev='cba', sb='c', sb_rev='c')
+DEBUG: Trying reversed combo 'abcba' (sa='abc', sa_rev='cba', sb='ab', sb_rev='ba')
+DEBUG: Found palindrome 'abcba' with length 5
+DEBUG: Trying reversed combo 'cbaab' (sa='abc', sa_rev='cba', sb='ab', sb_rev='ba')
+DEBUG: Trying reversed combo 'abcba' (sa='abc', sa_rev='cba', sb='ab', sb_rev='ba')
+DEBUG: Found palindrome 'abcba' with length 5
+DEBUG: Trying reversed combo 'baabc' (sa='abc', sa_rev='cba', sb='ab', sb_rev='ba')
+DEBUG: Trying reversed combo 'abccb' (sa='abc', sa_rev='cba', sb='bc', sb_rev='cb')
+DEBUG: Trying reversed combo 'cbabc' (sa='abc', sa_rev='cba', sb='bc', sb_rev='cb')
+DEBUG: Found palindrome 'cbabc' with length 5
+DEBUG: Trying reversed combo 'bccba' (sa='abc', sa_rev='cba', sb='bc', sb_rev='cb')
+DEBUG: Trying reversed combo 'cbabc' (sa='abc', sa_rev='cba', sb='bc', sb_rev='cb')
+DEBUG: Found palindrome 'cbabc' with length 5
+DEBUG: Trying reversed combo 'abccba' (sa='abc', sa_rev='cba', sb='abc', sb_rev='cba')
+DEBUG: Found palindrome 'abccba' with length 6
+DEBUG: New best palindrome: 'abccba' (prev: 'abcba')
+DEBUG: Trying reversed combo 'cbaabc' (sa='abc', sa_rev='cba', sb='abc', sb_rev='cba')
+DEBUG: Found palindrome 'cbaabc' with length 6
+DEBUG: Trying reversed combo 'abccba' (sa='abc', sa_rev='cba', sb='abc', sb_rev='cba')
+DEBUG: Found palindrome 'abccba' with length 6
+DEBUG: Trying reversed combo 'cbaabc' (sa='abc', sa_rev='cba', sb='abc', sb_rev='cba')
+DEBUG: Found palindrome 'cbaabc' with length 6
+DEBUG: Final result: 'abccba' with length 6
+DEBUG: All palindromes found: ['aa', 'aba', 'abba', 'abcba', 'abccba', 'baab', 'bab', 'bb', 'bcb', 'bccb', 'cbaabc', 'cbabc', 'cbbc', 'cbc', 'cc']
+abccba
+~/workspace$ 
