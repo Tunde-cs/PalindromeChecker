@@ -35,16 +35,11 @@ def buildPalindrome(a, b):
     palindromes_found = 0
     
     for len_a in range(1, min(len(a), max_limit) + 1):
-        # Early termination if we can't possibly beat current best
-        if best and len_a + len(b) <= max_len:
-            debug_print(f"DEBUG: Skipping len_a={len_a} - can't beat current best length {max_len}")
-            continue
-            
         for start_a in range(len(a) - len_a + 1):
             sa = a[start_a:start_a + len_a]
 
             for len_b in range(1, min(len(b), max_limit) + 1):
-                # Early termination
+                # Early termination only if we can't possibly beat current best
                 if best and len_a + len_b <= max_len:
                     continue
                     
