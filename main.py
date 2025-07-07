@@ -20,17 +20,7 @@ def buildPalindrome(a, b):
     
     best = None
     
-    # First, try full strings and their reverse combinations
-    print("DEBUG: Testing full string combinations...")
-    candidates = [a + b, b + a, a + b[::-1], b + a[::-1]]
-    for cand in candidates:
-        print(f"DEBUG: Testing candidate '{cand}' (palindrome: {is_palindrome(cand)})")
-        if is_palindrome(cand):
-            if best is None or len(cand) > len(best) or (len(cand) == len(best) and cand < best):
-                print(f"DEBUG: New best candidate: '{cand}'")
-                best = cand
-    
-    # Generate subsequences efficiently
+    # Generate subsequences efficiently (this is the core of the problem)
     def get_subsequences(s, max_len=12):
         subsequences = ['']
         for char in s:
@@ -41,9 +31,9 @@ def buildPalindrome(a, b):
             subsequences.extend(new_subseqs)
         return [s for s in subsequences if s]  # Remove empty string
     
-    # Get subsequences from both strings (excluding full strings since we already tried them)
-    subseqs_a = [s for s in get_subsequences(a) if s != a]
-    subseqs_b = [s for s in get_subsequences(b) if s != b]
+    # Get subsequences from both strings (including full strings)
+    subseqs_a = get_subsequences(a)
+    subseqs_b = get_subsequences(b)
     
     print(f"DEBUG: Found {len(subseqs_a)} subsequences from a, {len(subseqs_b)} from b")
     print(f"DEBUG: Sample subsequences from a: {subseqs_a[:10]}")
