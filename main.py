@@ -23,20 +23,14 @@ def buildPalindrome(a, b):
     n = len(a)
     m = len(b)
 
-    # Iterate by length first (longest first optimization)
-    for len_a in range(1, min(n, max_len_limit) + 1):
-        for len_b in range(1, min(m, max_len_limit) + 1):
-            # Early termination: if current combination can't beat best length
-            if best_palindrome and len_a + len_b <= max_length:
-                continue
-                
-            # Try all starting positions for substring of length len_a from string a
-            for start_a in range(n - len_a + 1):
-                sa = a[start_a:start_a + len_a]
-                
-                # Try all starting positions for substring of length len_b from string b
-                for start_b in range(m - len_b + 1):
-                    sb = b[start_b:start_b + len_b]
+    # Try all possible substring combinations
+    for start_a in range(n):
+        for end_a in range(start_a + 1, min(start_a + max_len_limit + 1, n + 1)):
+            sa = a[start_a:end_a]
+            
+            for start_b in range(m):
+                for end_b in range(start_b + 1, min(start_b + max_len_limit + 1, m + 1)):
+                    sb = b[start_b:end_b]
                     
                     # Try both combinations: sa+sb and sb+sa
                     for combo in [sa + sb, sb + sa]:
