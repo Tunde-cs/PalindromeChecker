@@ -35,14 +35,21 @@ def buildPalindrome(a, b):
     subseqs_a = get_subsequences(a)
     subseqs_b = get_subsequences(b)
     
+    # Also add reversed subsequences to handle cases like identical strings
+    subseqs_a_reversed = [s[::-1] for s in subseqs_a]
+    subseqs_b_reversed = [s[::-1] for s in subseqs_b]
+    
     print(f"DEBUG: Found {len(subseqs_a)} subsequences from a, {len(subseqs_b)} from b")
     print(f"DEBUG: Sample subsequences from a: {subseqs_a[:10]}")
     print(f"DEBUG: Sample subsequences from b: {subseqs_b[:10]}")
     
-    # Try all subsequence combinations
+    # Try all subsequence combinations (including reversed)
     palindromes_found = []
-    for sa in subseqs_a:
-        for sb in subseqs_b:
+    all_subseqs_a = subseqs_a + subseqs_a_reversed
+    all_subseqs_b = subseqs_b + subseqs_b_reversed
+    
+    for sa in all_subseqs_a:
+        for sb in all_subseqs_b:
             for cand in [sa + sb, sb + sa]:
                 if is_palindrome(cand):
                     palindromes_found.append(cand)
