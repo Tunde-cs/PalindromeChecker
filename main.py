@@ -11,7 +11,8 @@ def buildPalindrome(a, b):
     if not a or not b:
         return "-1"
 
-    palindromes = []
+    best_palindrome = None
+    best_length = float('inf')  # Start with infinity to prefer shorter palindromes
     
     # Try all possible substring combinations
     for len_a in range(1, len(a) + 1):
@@ -25,7 +26,12 @@ def buildPalindrome(a, b):
                     # Try both combinations: sa+sb and sb+sa
                     for combo in [sa + sb, sb + sa]:
                         if combo == combo[::-1]:  # is palindrome
-                            palindromes.append(combo)
+                            combo_len = len(combo)
+                            if (best_palindrome is None or 
+                                combo_len < best_length or 
+                                (combo_len == best_length and combo < best_palindrome)):
+                                best_palindrome = combo
+                                best_length = combo_len
 
     # Also try combinations with reversed substrings
     for len_a in range(1, len(a) + 1):
@@ -41,22 +47,14 @@ def buildPalindrome(a, b):
                     # Try combinations with reverses
                     for combo in [sa + sb_rev, sa_rev + sb, sb + sa_rev, sb_rev + sa]:
                         if combo == combo[::-1]:  # is palindrome
-                            palindromes.append(combo)
+                            combo_len = len(combo)
+                            if (best_palindrome is None or 
+                                combo_len < best_length or 
+                                (combo_len == best_length and combo < best_palindrome)):
+                                best_palindrome = combo
+                                best_length = combo_len
 
-    if not palindromes:
-        return "-1"
-    
-    # Remove duplicates
-    palindromes = list(set(palindromes))
-    
-    # Find maximum length
-    max_length = max(len(p) for p in palindromes)
-    
-    # Filter to only palindromes of maximum length
-    max_palindromes = [p for p in palindromes if len(p) == max_length]
-    
-    # Return lexicographically smallest
-    return min(max_palindromes)
+    return best_palindrome if best_palindrome else "-1"
 
 if __name__ == '__main__':
     # Handle both submission environment and local testing
