@@ -15,23 +15,45 @@ def buildPalindrome(a, b):
     if not a or not b:
         return "-1"
 
-    # Try all contiguous substrings from both strings
-    # Case 1: substring from a + substring from b
-    for i in range(n):
-        for j in range(i + 1, n + 1):
-            sa = a[i:j]
-            for k in range(m):
-                for l in range(k + 1, m + 1):
-                    sb = b[k:l]
-
-                    # Try both orders: sa+sb and sb+sa
-                    candidates = [sa + sb, sb + sa]
-
-                    for candidate in candidates:
-                        if candidate == candidate[::-1]:  # is palindrome
-                            if len(candidate) > max_len or (len(candidate) == max_len and (best == "-1" or candidate < best)):
-                                best = candidate
-                                max_len = len(candidate)
+    # Try building palindromes using prefix from one string and suffix from another
+    # The middle part comes from remaining characters
+    
+    # Case 1: Use prefix from a, suffix from b
+    for prefix_len in range(1, n + 1):
+        prefix = a[:prefix_len]
+        remaining_a = a[prefix_len:]
+        
+        # Try to find matching suffix in b
+        target_suffix = prefix[::-1]  # reverse of prefix
+        
+        # Check if we can form this suffix from b
+        if len(target_suffix) <= m:
+            # Try all possible ways to select suffix characters from b
+            for start in range(m - len(target_suffix) + 1):
+                if b[start:start + len(target_suffix)] == target_suffix:
+                    middle = b[:start] + b[start + len(target_suffix):] + remaining_a
+                    palindrome = prefix + middle + target_suffix
+                    
+                    if len(palindrome) > max_len or (len(palindrome) == max_len and (best == "-1" or palindrome < best)):
+                        best = palindrome
+                        max_len = len(palindrome)
+    
+    # Case 2: Use prefix from b, suffix from a  
+    for prefix_len in range(1, m + 1):
+        prefix = b[:prefix_len]
+        remaining_b = b[prefix_len:]
+        
+        target_suffix = prefix[::-1]
+        
+        if len(target_suffix) <= n:
+            for start in range(n - len(target_suffix) + 1):
+                if a[start:start + len(target_suffix)] == target_suffix:
+                    middle = a[:start] + a[start + len(target_suffix):] + remaining_b
+                    palindrome = prefix + middle + target_suffix
+                    
+                    if len(palindrome) > max_len or (len(palindrome) == max_len and (best == "-1" or palindrome < best)):
+                        best = palindrome
+                        max_len = len(palindrome)
 
     return best
 
