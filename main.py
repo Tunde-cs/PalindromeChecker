@@ -26,8 +26,8 @@ def buildPalindrome(a, b):
             substr_a = a[start_a:start_a + len_a]
             
             for len_b in range(1, max_search_len + 1):
-                # Early termination if we can't possibly beat current best
-                if best and len_a + len_b <= max_len:
+                # Only skip if this combination definitely can't beat current best
+                if best and len_a + len_b < max_len:
                     continue
                     
                 for start_b in range(len(b) - len_b + 1):
