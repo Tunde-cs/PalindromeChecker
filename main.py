@@ -1,4 +1,5 @@
 
+
 #!/bin/python3
 
 import math
@@ -8,60 +9,64 @@ import re
 import sys
 
 def buildPalindrome(a, b):
-    print(f"DEBUG: Input a='{a}', b='{b}'", file=sys.stderr)
+    if not a or not b:
+        return "-1"
     
     best = None
     max_len = 0
-    n, m = len(a), len(b)
-    palindromes_found = []
-
-    if not a or not b:
-        print(f"DEBUG: Empty string detected, returning -1", file=sys.stderr)
-        return "-1"
-
-    print(f"DEBUG: Starting search with strings of length {n} and {m}", file=sys.stderr)
-
-    # Try all possible substring combinations from both strings
-    for i in range(n):
-        for j in range(i + 1, n + 1):
-            sa = a[i:j]
-            
-            for k in range(m):
-                for l in range(k + 1, m + 1):
-                    sb = b[k:l]
-                    
-                    # Try both concatenation orders
-                    candidates = [sa + sb, sb + sa]
-                    
-                    for candidate in candidates:
-                        if candidate == candidate[::-1]:
-                            palindromes_found.append(candidate)
-                            print(f"DEBUG: Found palindrome '{candidate}' (len={len(candidate)}) from sa='{sa}' + sb='{sb}'", file=sys.stderr)
-                            
-                            if len(candidate) > max_len or (len(candidate) == max_len and (best is None or candidate < best)):
-                                old_best = best
-                                best = candidate
-                                max_len = len(candidate)
-                                print(f"DEBUG: New best palindrome: '{best}' (replaced '{old_best}')", file=sys.stderr)
-
-    print(f"DEBUG: Total palindromes found: {len(palindromes_found)}", file=sys.stderr)
-    if palindromes_found:
-        print(f"DEBUG: All palindromes: {sorted(set(palindromes_found))}", file=sys.stderr)
-        print(f"DEBUG: Final best: '{best}' with length {max_len}", file=sys.stderr)
-    else:
-        print(f"DEBUG: No palindromes found, returning -1", file=sys.stderr)
+    
+    # Get all substrings from both strings
+    subs_a = set()
+    subs_b = set()
+    
+    for i in range(len(a)):
+        for j in range(i + 1, len(a) + 1):
+            subs_a.add(a[i:j])
+    
+    for i in range(len(b)):
+        for j in range(i + 1, len(b) + 1):
+            subs_b.add(b[i:j])
+    
+    # Try all possible combinations
+    all_subs = list(subs_a) + list(subs_b)
+    
+    # Try simple concatenations first
+    for sa in subs_a:
+        for sb in subs_b:
+            for candidate in [sa + sb, sb + sa]:
+                if candidate == candidate[::-1]:
+                    if len(candidate) > max_len or (len(candidate) == max_len and (best is None or candidate < best)):
+                        best = candidate
+                        max_len = len(candidate)
+    
+    # Try three-part combinations: part1 + part2 + part3
+    # where parts can come from either string
+    for part1 in all_subs:
+        if len(part1) > 4:  # Reasonable limit
+            continue
+        for part2 in all_subs:
+            if len(part1) + len(part2) > 5:
+                continue
+            for part3 in all_subs:
+                if len(part1) + len(part2) + len(part3) > 8:
+                    continue
+                
+                candidate = part1 + part2 + part3
+                if candidate == candidate[::-1]:
+                    # Verify that we're using substrings from both original strings
+                    if (part1 in subs_a or part2 in subs_a or part3 in subs_a) and \
+                       (part1 in subs_b or part2 in subs_b or part3 in subs_b):
+                        if len(candidate) > max_len or (len(candidate) == max_len and (best is None or candidate < best)):
+                            best = candidate
+                            max_len = len(candidate)
 
     return best if best else "-1"
 
 if __name__ == '__main__':
-    print(f"DEBUG: Starting program", file=sys.stderr)
     t = int(input())
-    print(f"DEBUG: Processing {t} test cases", file=sys.stderr)
-    
     for case in range(t):
-        print(f"DEBUG: Test case {case + 1}/{t}", file=sys.stderr)
         a = input().strip()
         b = input().strip()
         result = buildPalindrome(a, b)
         print(result)
-        print(f"DEBUG: Test case {case + 1} result: '{result}'", file=sys.stderr)
+
