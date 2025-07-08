@@ -5,7 +5,6 @@ import os
 import random
 import re
 import sys
-from itertools import combinations
 
 def buildPalindrome(a, b):
     best = "-1"
@@ -16,40 +15,23 @@ def buildPalindrome(a, b):
     if not a or not b:
         return "-1"
 
-    # Arms from a, right arm from b (positions not required to be contiguous)
-    for a_start in range(n):
-        for a_end in range(a_start + 1, n + 1):
-            left_arm = a[a_start:a_end]
-            rev_left = left_arm[::-1]
-            arm_len = len(left_arm)
-            if arm_len > m:
-                continue
-            # Try all possible subsets of positions in b of length arm_len
-            for b_indices in combinations(range(m), arm_len):
-                right_candidate = ''.join(b[i] for i in b_indices)
-                if right_candidate == rev_left:
-                    center = ''.join(b[i] for i in range(m) if i not in b_indices)
-                    pal = left_arm + center + rev_left
-                    if len(pal) > max_len or (len(pal) == max_len and (best == "-1" or pal < best)):
-                        best = pal
-                        max_len = len(pal)
+    # Try all contiguous substrings from both strings
+    # Case 1: substring from a + substring from b
+    for i in range(n):
+        for j in range(i + 1, n + 1):
+            sa = a[i:j]
+            for k in range(m):
+                for l in range(k + 1, m + 1):
+                    sb = b[k:l]
 
-    # Arms from b, right arm from a (positions not required to be contiguous)
-    for b_start in range(m):
-        for b_end in range(b_start + 1, m + 1):
-            left_arm = b[b_start:b_end]
-            rev_left = left_arm[::-1]
-            arm_len = len(left_arm)
-            if arm_len > n:
-                continue
-            for a_indices in combinations(range(n), arm_len):
-                right_candidate = ''.join(a[i] for i in a_indices)
-                if right_candidate == rev_left:
-                    center = ''.join(a[i] for i in range(n) if i not in a_indices)
-                    pal = left_arm + center + rev_left
-                    if len(pal) > max_len or (len(pal) == max_len and (best == "-1" or pal < best)):
-                        best = pal
-                        max_len = len(pal)
+                    # Try both orders: sa+sb and sb+sa
+                    candidates = [sa + sb, sb + sa]
+
+                    for candidate in candidates:
+                        if candidate == candidate[::-1]:  # is palindrome
+                            if len(candidate) > max_len or (len(candidate) == max_len and (best == "-1" or candidate < best)):
+                                best = candidate
+                                max_len = len(candidate)
 
     return best
 
