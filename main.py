@@ -7,8 +7,7 @@ import re
 import sys
 
 def buildPalindrome(a, b):
-    best = "-1"
-    max_len = 0
+    best = None
     n, m = len(a), len(b)
 
     if not a or not b:
@@ -28,11 +27,10 @@ def buildPalindrome(a, b):
                     
                     for candidate in candidates:
                         if candidate == candidate[::-1]:
-                            if len(candidate) > max_len or (len(candidate) == max_len and (best == "-1" or candidate < best)):
+                            if best is None or candidate < best:
                                 best = candidate
-                                max_len = len(candidate)
 
-    return best
+    return best if best else "-1"
 
 if __name__ == '__main__':
     t = int(input())
