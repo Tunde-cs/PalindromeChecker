@@ -1,0 +1,143 @@
+~/workspace$ python3 debug_test.py
+DEBUG TEST RUNNER FOR HIDDEN TEST CASES
+============================================================
+TEST CASE 1:
+Running test: 1
+zooz
+lzxoo
+==================================================
+STDOUT (Result):
+ooxooxoo
+
+STDERR (Debug Info):
+
+
+==================================================
+
+TEST CASE 2:
+Running test: 1
+bac
+bac
+==================================================
+STDOUT (Result):
+ababa
+
+STDERR (Debug Info):
+
+
+==================================================
+
+TEST CASE 3:
+Running test: 1
+abc
+def
+==================================================
+STDOUT (Result):
+ada
+
+STDERR (Debug Info):
+
+
+==================================================
+
+TEST CASE 4:
+Running test: 1
+==================================================
+STDOUT (Result):
+
+
+STDERR (Debug Info):
+Traceback (most recent call last):
+  File "/home/runner/workspace/main.py", line 69, in <module>
+    b = input().strip()
+        ^^^^^^^
+EOFError: EOF when reading a line
+
+==================================================
+
+TEST CASE 5:
+Running test: 1
+a
+==================================================
+STDOUT (Result):
+
+
+STDERR (Debug Info):
+Traceback (most recent call last):
+  File "/home/runner/workspace/main.py", line 69, in <module>
+    b = input().strip()
+        ^^^^^^^
+EOFError: EOF when reading a line
+
+==================================================
+
+TEST CASE 6:
+Running test: 1
+
+b
+==================================================
+STDOUT (Result):
+-1
+
+STDERR (Debug Info):
+
+
+==================================================
+
+TEST CASE 7:
+Running test: 1
+a
+a
+==================================================
+STDOUT (Result):
+aaa
+
+STDERR (Debug Info):
+
+
+==================================================
+
+TEST CASE 8:
+Running test: 1
+a
+b
+==================================================
+STDOUT (Result):
+aba
+
+STDERR (Debug Info):
+
+
+==================================================
+
+TEST CASE 9:
+Running test: 1
+abcdefghij
+jihgfedcba
+==================================================
+STDOUT (Result):
+abcdefghijjihgfedcba
+
+STDERR (Debug Info):
+
+
+==================================================
+
+TEST CASE 10:
+Running test: 3
+zooz
+lzxoo
+bac
+bac
+abc
+def
+==================================================
+STDOUT (Result):
+ooxooxoo
+ababa
+ada
+
+STDERR (Debug Info):
+
+
+==================================================
