@@ -1,0 +1,649 @@
+python3: can't open file '/home/runner/workspace/debug_test.py': [Errno 2] No such file or directory
+~/workspace$ python3 debug_test.py
+DEBUG TEST RUNNER FOR HIDDEN TEST CASES
+============================================================
+TEST CASE 1:
+Running test: 1
+zooz
+lzxoo
+==================================================
+STDOUT (Result):
+ooxoo
+
+STDERR (Debug Info):
+DEBUG: Starting program
+DEBUG: Processing 1 test cases
+DEBUG: Test case 1/1
+DEBUG: Input a='zooz', b='lzxoo'
+DEBUG: Starting search with strings of length 4 and 5
+DEBUG: Found palindrome 'zlz' (len=3) from sa='z' + sb='lz'
+DEBUG: New best palindrome: 'zlz' (replaced 'None')
+DEBUG: Found palindrome 'zz' (len=2) from sa='z' + sb='z'
+DEBUG: Found palindrome 'zz' (len=2) from sa='z' + sb='z'
+DEBUG: Found palindrome 'zxz' (len=3) from sa='z' + sb='zx'
+DEBUG: Found palindrome 'zoz' (len=3) from sa='zo' + sb='z'
+DEBUG: Found palindrome 'ozo' (len=3) from sa='zo' + sb='o'
+DEBUG: New best palindrome: 'ozo' (replaced 'zlz')
+DEBUG: Found palindrome 'ozo' (len=3) from sa='zo' + sb='o'
+DEBUG: Found palindrome 'zooz' (len=4) from sa='zoo' + sb='z'
+DEBUG: New best palindrome: 'zooz' (replaced 'ozo')
+DEBUG: Found palindrome 'oozoo' (len=5) from sa='zoo' + sb='oo'
+DEBUG: New best palindrome: 'oozoo' (replaced 'zooz')
+DEBUG: Found palindrome 'oxo' (len=3) from sa='o' + sb='xo'
+DEBUG: Found palindrome 'oo' (len=2) from sa='o' + sb='o'
+DEBUG: Found palindrome 'oo' (len=2) from sa='o' + sb='o'
+DEBUG: Found palindrome 'ooo' (len=3) from sa='o' + sb='oo'
+DEBUG: Found palindrome 'ooo' (len=3) from sa='o' + sb='oo'
+DEBUG: Found palindrome 'oo' (len=2) from sa='o' + sb='o'
+DEBUG: Found palindrome 'oo' (len=2) from sa='o' + sb='o'
+DEBUG: Found palindrome 'ooxoo' (len=5) from sa='oo' + sb='xoo'
+DEBUG: New best palindrome: 'ooxoo' (replaced 'oozoo')
+DEBUG: Found palindrome 'ooo' (len=3) from sa='oo' + sb='o'
+DEBUG: Found palindrome 'ooo' (len=3) from sa='oo' + sb='o'
+DEBUG: Found palindrome 'oooo' (len=4) from sa='oo' + sb='oo'
+DEBUG: Found palindrome 'oooo' (len=4) from sa='oo' + sb='oo'
+DEBUG: Found palindrome 'ooo' (len=3) from sa='oo' + sb='o'
+DEBUG: Found palindrome 'ooo' (len=3) from sa='oo' + sb='o'
+DEBUG: Found palindrome 'zooz' (len=4) from sa='ooz' + sb='z'
+DEBUG: Found palindrome 'oozoo' (len=5) from sa='ooz' + sb='oo'
+DEBUG: Found palindrome 'oxo' (len=3) from sa='o' + sb='xo'
+DEBUG: Found palindrome 'oo' (len=2) from sa='o' + sb='o'
+DEBUG: Found palindrome 'oo' (len=2) from sa='o' + sb='o'
+DEBUG: Found palindrome 'ooo' (len=3) from sa='o' + sb='oo'
+DEBUG: Found palindrome 'ooo' (len=3) from sa='o' + sb='oo'
+DEBUG: Found palindrome 'oo' (len=2) from sa='o' + sb='o'
+DEBUG: Found palindrome 'oo' (len=2) from sa='o' + sb='o'
+DEBUG: Found palindrome 'zoz' (len=3) from sa='oz' + sb='z'
+DEBUG: Found palindrome 'ozo' (len=3) from sa='oz' + sb='o'
+DEBUG: Found palindrome 'ozo' (len=3) from sa='oz' + sb='o'
+DEBUG: Found palindrome 'zlz' (len=3) from sa='z' + sb='lz'
+DEBUG: Found palindrome 'zz' (len=2) from sa='z' + sb='z'
+DEBUG: Found palindrome 'zz' (len=2) from sa='z' + sb='z'
+DEBUG: Found palindrome 'zxz' (len=3) from sa='z' + sb='zx'
+DEBUG: Total palindromes found: 39
+DEBUG: All palindromes: ['oo', 'ooo', 'oooo', 'ooxoo', 'oozoo', 'oxo', 'ozo', 'zlz', 'zooz', 'zoz', 'zxz', 'zz']
+DEBUG: Final best: 'ooxoo' with length 5
+DEBUG: Test case 1 result: 'ooxoo'
+
+==================================================
+
+TEST CASE 2:
+Running test: 1
+bac
+bac
+==================================================
+STDOUT (Result):
+aba
+
+STDERR (Debug Info):
+DEBUG: Starting program
+DEBUG: Processing 1 test cases
+DEBUG: Test case 1/1
+DEBUG: Input a='bac', b='bac'
+DEBUG: Starting search with strings of length 3 and 3
+DEBUG: Found palindrome 'bb' (len=2) from sa='b' + sb='b'
+DEBUG: New best palindrome: 'bb' (replaced 'None')
+DEBUG: Found palindrome 'bb' (len=2) from sa='b' + sb='b'
+DEBUG: Found palindrome 'bab' (len=3) from sa='b' + sb='ba'
+DEBUG: New best palindrome: 'bab' (replaced 'bb')
+DEBUG: Found palindrome 'bab' (len=3) from sa='ba' + sb='b'
+DEBUG: Found palindrome 'aba' (len=3) from sa='ba' + sb='a'
+DEBUG: New best palindrome: 'aba' (replaced 'bab')
+DEBUG: Found palindrome 'aba' (len=3) from sa='a' + sb='ba'
+DEBUG: Found palindrome 'aa' (len=2) from sa='a' + sb='a'
+DEBUG: Found palindrome 'aa' (len=2) from sa='a' + sb='a'
+DEBUG: Found palindrome 'aca' (len=3) from sa='a' + sb='ac'
+DEBUG: Found palindrome 'aca' (len=3) from sa='ac' + sb='a'
+DEBUG: Found palindrome 'cac' (len=3) from sa='ac' + sb='c'
+DEBUG: Found palindrome 'cac' (len=3) from sa='c' + sb='ac'
+DEBUG: Found palindrome 'cc' (len=2) from sa='c' + sb='c'
+DEBUG: Found palindrome 'cc' (len=2) from sa='c' + sb='c'
+DEBUG: Total palindromes found: 14
+DEBUG: All palindromes: ['aa', 'aba', 'aca', 'bab', 'bb', 'cac', 'cc']
+DEBUG: Final best: 'aba' with length 3
+DEBUG: Test case 1 result: 'aba'
+
+==================================================
+
+TEST CASE 3:
+Running test: 1
+abc
+def
+==================================================
+STDOUT (Result):
+-1
+
+STDERR (Debug Info):
+DEBUG: Starting program
+DEBUG: Processing 1 test cases
+DEBUG: Test case 1/1
+DEBUG: Input a='abc', b='def'
+DEBUG: Starting search with strings of length 3 and 3
+DEBUG: Total palindromes found: 0
+DEBUG: No palindromes found, returning -1
+DEBUG: Test case 1 result: '-1'
+
+==================================================
+
+TEST CASE 4:
+Running test: 1
+==================================================
+STDOUT (Result):
+
+
+STDERR (Debug Info):
+DEBUG: Starting program
+DEBUG: Processing 1 test cases
+DEBUG: Test case 1/1
+Traceback (most recent call last):
+  File "/home/runner/workspace/main.py", line 64, in <module>
+    b = input().strip()
+        ^^^^^^^
+EOFError: EOF when reading a line
+
+==================================================
+
+TEST CASE 5:
+Running test: 1
+a
+==================================================
+STDOUT (Result):
+
+
+STDERR (Debug Info):
+DEBUG: Starting program
+DEBUG: Processing 1 test cases
+DEBUG: Test case 1/1
+Traceback (most recent call last):
+  File "/home/runner/workspace/main.py", line 64, in <module>
+    b = input().strip()
+        ^^^^^^^
+EOFError: EOF when reading a line
+
+==================================================
+
+TEST CASE 6:
+Running test: 1
+
+b
+==================================================
+STDOUT (Result):
+-1
+
+STDERR (Debug Info):
+DEBUG: Starting program
+DEBUG: Processing 1 test cases
+DEBUG: Test case 1/1
+DEBUG: Input a='', b='b'
+DEBUG: Empty string detected, returning -1
+DEBUG: Test case 1 result: '-1'
+
+==================================================
+
+TEST CASE 7:
+Running test: 1
+a
+a
+==================================================
+STDOUT (Result):
+aa
+
+STDERR (Debug Info):
+DEBUG: Starting program
+DEBUG: Processing 1 test cases
+DEBUG: Test case 1/1
+DEBUG: Input a='a', b='a'
+DEBUG: Starting search with strings of length 1 and 1
+DEBUG: Found palindrome 'aa' (len=2) from sa='a' + sb='a'
+DEBUG: New best palindrome: 'aa' (replaced 'None')
+DEBUG: Found palindrome 'aa' (len=2) from sa='a' + sb='a'
+DEBUG: Total palindromes found: 2
+DEBUG: All palindromes: ['aa']
+DEBUG: Final best: 'aa' with length 2
+DEBUG: Test case 1 result: 'aa'
+
+==================================================
+
+TEST CASE 8:
+Running test: 1
+a
+b
+==================================================
+STDOUT (Result):
+-1
+
+STDERR (Debug Info):
+DEBUG: Starting program
+DEBUG: Processing 1 test cases
+DEBUG: Test case 1/1
+DEBUG: Input a='a', b='b'
+DEBUG: Starting search with strings of length 1 and 1
+DEBUG: Total palindromes found: 0
+DEBUG: No palindromes found, returning -1
+DEBUG: Test case 1 result: '-1'
+
+==================================================
+
+TEST CASE 9:
+Running test: 1
+abcdefghij
+jihgfedcba
+==================================================
+STDOUT (Result):
+abcdefghijjihgfedcba
+
+STDERR (Debug Info):
+DEBUG: Starting program
+DEBUG: Processing 1 test cases
+DEBUG: Test case 1/1
+DEBUG: Input a='abcdefghij', b='jihgfedcba'
+DEBUG: Starting search with strings of length 10 and 10
+DEBUG: Found palindrome 'aba' (len=3) from sa='a' + sb='ba'
+DEBUG: New best palindrome: 'aba' (replaced 'None')
+DEBUG: Found palindrome 'aa' (len=2) from sa='a' + sb='a'
+DEBUG: Found palindrome 'aa' (len=2) from sa='a' + sb='a'
+DEBUG: Found palindrome 'abcba' (len=5) from sa='ab' + sb='cba'
+DEBUG: New best palindrome: 'abcba' (replaced 'aba')
+DEBUG: Found palindrome 'bab' (len=3) from sa='ab' + sb='b'
+DEBUG: Found palindrome 'abba' (len=4) from sa='ab' + sb='ba'
+DEBUG: Found palindrome 'baab' (len=4) from sa='ab' + sb='ba'
+DEBUG: Found palindrome 'aba' (len=3) from sa='ab' + sb='a'
+DEBUG: Found palindrome 'abcdcba' (len=7) from sa='abc' + sb='dcba'
+DEBUG: New best palindrome: 'abcdcba' (replaced 'abcba')
+DEBUG: Found palindrome 'cbabc' (len=5) from sa='abc' + sb='cb'
+DEBUG: Found palindrome 'abccba' (len=6) from sa='abc' + sb='cba'
+DEBUG: Found palindrome 'cbaabc' (len=6) from sa='abc' + sb='cba'
+DEBUG: Found palindrome 'abcba' (len=5) from sa='abc' + sb='ba'
+DEBUG: Found palindrome 'abcdedcba' (len=9) from sa='abcd' + sb='edcba'
+DEBUG: New best palindrome: 'abcdedcba' (replaced 'abcdcba')
+DEBUG: Found palindrome 'dcbabcd' (len=7) from sa='abcd' + sb='dcb'
+DEBUG: Found palindrome 'abcddcba' (len=8) from sa='abcd' + sb='dcba'
+DEBUG: Found palindrome 'dcbaabcd' (len=8) from sa='abcd' + sb='dcba'
+DEBUG: Found palindrome 'abcdcba' (len=7) from sa='abcd' + sb='cba'
+DEBUG: Found palindrome 'abcdefedcba' (len=11) from sa='abcde' + sb='fedcba'
+DEBUG: New best palindrome: 'abcdefedcba' (replaced 'abcdedcba')
+DEBUG: Found palindrome 'edcbabcde' (len=9) from sa='abcde' + sb='edcb'
+DEBUG: Found palindrome 'abcdeedcba' (len=10) from sa='abcde' + sb='edcba'
+DEBUG: Found palindrome 'edcbaabcde' (len=10) from sa='abcde' + sb='edcba'
+DEBUG: Found palindrome 'abcdedcba' (len=9) from sa='abcde' + sb='dcba'
+DEBUG: Found palindrome 'abcdefgfedcba' (len=13) from sa='abcdef' + sb='gfedcba'
+DEBUG: New best palindrome: 'abcdefgfedcba' (replaced 'abcdefedcba')
+DEBUG: Found palindrome 'fedcbabcdef' (len=11) from sa='abcdef' + sb='fedcb'
+DEBUG: Found palindrome 'abcdeffedcba' (len=12) from sa='abcdef' + sb='fedcba'
+DEBUG: Found palindrome 'fedcbaabcdef' (len=12) from sa='abcdef' + sb='fedcba'
+DEBUG: Found palindrome 'abcdefedcba' (len=11) from sa='abcdef' + sb='edcba'
+DEBUG: Found palindrome 'abcdefghgfedcba' (len=15) from sa='abcdefg' + sb='hgfedcba'
+DEBUG: New best palindrome: 'abcdefghgfedcba' (replaced 'abcdefgfedcba')
+DEBUG: Found palindrome 'gfedcbabcdefg' (len=13) from sa='abcdefg' + sb='gfedcb'
+DEBUG: Found palindrome 'abcdefggfedcba' (len=14) from sa='abcdefg' + sb='gfedcba'
+DEBUG: Found palindrome 'gfedcbaabcdefg' (len=14) from sa='abcdefg' + sb='gfedcba'
+DEBUG: Found palindrome 'abcdefgfedcba' (len=13) from sa='abcdefg' + sb='fedcba'
+DEBUG: Found palindrome 'abcdefghihgfedcba' (len=17) from sa='abcdefgh' + sb='ihgfedcba'
+DEBUG: New best palindrome: 'abcdefghihgfedcba' (replaced 'abcdefghgfedcba')
+DEBUG: Found palindrome 'hgfedcbabcdefgh' (len=15) from sa='abcdefgh' + sb='hgfedcb'
+DEBUG: Found palindrome 'abcdefghhgfedcba' (len=16) from sa='abcdefgh' + sb='hgfedcba'
+DEBUG: Found palindrome 'hgfedcbaabcdefgh' (len=16) from sa='abcdefgh' + sb='hgfedcba'
+DEBUG: Found palindrome 'abcdefghgfedcba' (len=15) from sa='abcdefgh' + sb='gfedcba'
+DEBUG: Found palindrome 'abcdefghijihgfedcba' (len=19) from sa='abcdefghi' + sb='jihgfedcba'
+DEBUG: New best palindrome: 'abcdefghijihgfedcba' (replaced 'abcdefghihgfedcba')
+DEBUG: Found palindrome 'ihgfedcbabcdefghi' (len=17) from sa='abcdefghi' + sb='ihgfedcb'
+DEBUG: Found palindrome 'abcdefghiihgfedcba' (len=18) from sa='abcdefghi' + sb='ihgfedcba'
+DEBUG: Found palindrome 'ihgfedcbaabcdefghi' (len=18) from sa='abcdefghi' + sb='ihgfedcba'
+DEBUG: Found palindrome 'abcdefghihgfedcba' (len=17) from sa='abcdefghi' + sb='hgfedcba'
+DEBUG: Found palindrome 'jihgfedcbabcdefghij' (len=19) from sa='abcdefghij' + sb='jihgfedcb'
+DEBUG: Found palindrome 'abcdefghijjihgfedcba' (len=20) from sa='abcdefghij' + sb='jihgfedcba'
+DEBUG: New best palindrome: 'abcdefghijjihgfedcba' (replaced 'abcdefghijihgfedcba')
+DEBUG: Found palindrome 'jihgfedcbaabcdefghij' (len=20) from sa='abcdefghij' + sb='jihgfedcba'
+DEBUG: Found palindrome 'abcdefghijihgfedcba' (len=19) from sa='abcdefghij' + sb='ihgfedcba'
+DEBUG: Found palindrome 'bcb' (len=3) from sa='b' + sb='cb'
+DEBUG: Found palindrome 'bb' (len=2) from sa='b' + sb='b'
+DEBUG: Found palindrome 'bb' (len=2) from sa='b' + sb='b'
+DEBUG: Found palindrome 'bab' (len=3) from sa='b' + sb='ba'
+DEBUG: Found palindrome 'bcdcb' (len=5) from sa='bc' + sb='dcb'
+DEBUG: Found palindrome 'cbc' (len=3) from sa='bc' + sb='c'
+DEBUG: Found palindrome 'bccb' (len=4) from sa='bc' + sb='cb'
+DEBUG: Found palindrome 'cbbc' (len=4) from sa='bc' + sb='cb'
+DEBUG: Found palindrome 'cbabc' (len=5) from sa='bc' + sb='cba'
+DEBUG: Found palindrome 'bcb' (len=3) from sa='bc' + sb='b'
+DEBUG: Found palindrome 'bcdedcb' (len=7) from sa='bcd' + sb='edcb'
+DEBUG: Found palindrome 'dcbcd' (len=5) from sa='bcd' + sb='dc'
+DEBUG: Found palindrome 'bcddcb' (len=6) from sa='bcd' + sb='dcb'
+DEBUG: Found palindrome 'dcbbcd' (len=6) from sa='bcd' + sb='dcb'
+DEBUG: Found palindrome 'dcbabcd' (len=7) from sa='bcd' + sb='dcba'
+DEBUG: Found palindrome 'bcdcb' (len=5) from sa='bcd' + sb='cb'
+DEBUG: Found palindrome 'bcdefedcb' (len=9) from sa='bcde' + sb='fedcb'
+DEBUG: Found palindrome 'edcbcde' (len=7) from sa='bcde' + sb='edc'
+DEBUG: Found palindrome 'bcdeedcb' (len=8) from sa='bcde' + sb='edcb'
+DEBUG: Found palindrome 'edcbbcde' (len=8) from sa='bcde' + sb='edcb'
+DEBUG: Found palindrome 'edcbabcde' (len=9) from sa='bcde' + sb='edcba'
+DEBUG: Found palindrome 'bcdedcb' (len=7) from sa='bcde' + sb='dcb'
+DEBUG: Found palindrome 'bcdefgfedcb' (len=11) from sa='bcdef' + sb='gfedcb'
+DEBUG: Found palindrome 'fedcbcdef' (len=9) from sa='bcdef' + sb='fedc'
+DEBUG: Found palindrome 'bcdeffedcb' (len=10) from sa='bcdef' + sb='fedcb'
+DEBUG: Found palindrome 'fedcbbcdef' (len=10) from sa='bcdef' + sb='fedcb'
+DEBUG: Found palindrome 'fedcbabcdef' (len=11) from sa='bcdef' + sb='fedcba'
+DEBUG: Found palindrome 'bcdefedcb' (len=9) from sa='bcdef' + sb='edcb'
+DEBUG: Found palindrome 'bcdefghgfedcb' (len=13) from sa='bcdefg' + sb='hgfedcb'
+DEBUG: Found palindrome 'gfedcbcdefg' (len=11) from sa='bcdefg' + sb='gfedc'
+DEBUG: Found palindrome 'bcdefggfedcb' (len=12) from sa='bcdefg' + sb='gfedcb'
+DEBUG: Found palindrome 'gfedcbbcdefg' (len=12) from sa='bcdefg' + sb='gfedcb'
+DEBUG: Found palindrome 'gfedcbabcdefg' (len=13) from sa='bcdefg' + sb='gfedcba'
+DEBUG: Found palindrome 'bcdefgfedcb' (len=11) from sa='bcdefg' + sb='fedcb'
+DEBUG: Found palindrome 'bcdefghihgfedcb' (len=15) from sa='bcdefgh' + sb='ihgfedcb'
+DEBUG: Found palindrome 'hgfedcbcdefgh' (len=13) from sa='bcdefgh' + sb='hgfedc'
+DEBUG: Found palindrome 'bcdefghhgfedcb' (len=14) from sa='bcdefgh' + sb='hgfedcb'
+DEBUG: Found palindrome 'hgfedcbbcdefgh' (len=14) from sa='bcdefgh' + sb='hgfedcb'
+DEBUG: Found palindrome 'hgfedcbabcdefgh' (len=15) from sa='bcdefgh' + sb='hgfedcba'
+DEBUG: Found palindrome 'bcdefghgfedcb' (len=13) from sa='bcdefgh' + sb='gfedcb'
+DEBUG: Found palindrome 'bcdefghijihgfedcb' (len=17) from sa='bcdefghi' + sb='jihgfedcb'
+DEBUG: Found palindrome 'ihgfedcbcdefghi' (len=15) from sa='bcdefghi' + sb='ihgfedc'
+DEBUG: Found palindrome 'bcdefghiihgfedcb' (len=16) from sa='bcdefghi' + sb='ihgfedcb'
+DEBUG: Found palindrome 'ihgfedcbbcdefghi' (len=16) from sa='bcdefghi' + sb='ihgfedcb'
+DEBUG: Found palindrome 'ihgfedcbabcdefghi' (len=17) from sa='bcdefghi' + sb='ihgfedcba'
+DEBUG: Found palindrome 'bcdefghihgfedcb' (len=15) from sa='bcdefghi' + sb='hgfedcb'
+DEBUG: Found palindrome 'jihgfedcbcdefghij' (len=17) from sa='bcdefghij' + sb='jihgfedc'
+DEBUG: Found palindrome 'bcdefghijjihgfedcb' (len=18) from sa='bcdefghij' + sb='jihgfedcb'
+DEBUG: Found palindrome 'jihgfedcbbcdefghij' (len=18) from sa='bcdefghij' + sb='jihgfedcb'
+DEBUG: Found palindrome 'jihgfedcbabcdefghij' (len=19) from sa='bcdefghij' + sb='jihgfedcba'
+DEBUG: Found palindrome 'bcdefghijihgfedcb' (len=17) from sa='bcdefghij' + sb='ihgfedcb'
+DEBUG: Found palindrome 'cdc' (len=3) from sa='c' + sb='dc'
+DEBUG: Found palindrome 'cc' (len=2) from sa='c' + sb='c'
+DEBUG: Found palindrome 'cc' (len=2) from sa='c' + sb='c'
+DEBUG: Found palindrome 'cbc' (len=3) from sa='c' + sb='cb'
+DEBUG: Found palindrome 'cdedc' (len=5) from sa='cd' + sb='edc'
+DEBUG: Found palindrome 'dcd' (len=3) from sa='cd' + sb='d'
+DEBUG: Found palindrome 'cddc' (len=4) from sa='cd' + sb='dc'
+DEBUG: Found palindrome 'dccd' (len=4) from sa='cd' + sb='dc'
+DEBUG: Found palindrome 'dcbcd' (len=5) from sa='cd' + sb='dcb'
+DEBUG: Found palindrome 'cdc' (len=3) from sa='cd' + sb='c'
+DEBUG: Found palindrome 'cdefedc' (len=7) from sa='cde' + sb='fedc'
+DEBUG: Found palindrome 'edcde' (len=5) from sa='cde' + sb='ed'
+DEBUG: Found palindrome 'cdeedc' (len=6) from sa='cde' + sb='edc'
+DEBUG: Found palindrome 'edccde' (len=6) from sa='cde' + sb='edc'
+DEBUG: Found palindrome 'edcbcde' (len=7) from sa='cde' + sb='edcb'
+DEBUG: Found palindrome 'cdedc' (len=5) from sa='cde' + sb='dc'
+DEBUG: Found palindrome 'cdefgfedc' (len=9) from sa='cdef' + sb='gfedc'
+DEBUG: Found palindrome 'fedcdef' (len=7) from sa='cdef' + sb='fed'
+DEBUG: Found palindrome 'cdeffedc' (len=8) from sa='cdef' + sb='fedc'
+DEBUG: Found palindrome 'fedccdef' (len=8) from sa='cdef' + sb='fedc'
+DEBUG: Found palindrome 'fedcbcdef' (len=9) from sa='cdef' + sb='fedcb'
+DEBUG: Found palindrome 'cdefedc' (len=7) from sa='cdef' + sb='edc'
+DEBUG: Found palindrome 'cdefghgfedc' (len=11) from sa='cdefg' + sb='hgfedc'
+DEBUG: Found palindrome 'gfedcdefg' (len=9) from sa='cdefg' + sb='gfed'
+DEBUG: Found palindrome 'cdefggfedc' (len=10) from sa='cdefg' + sb='gfedc'
+DEBUG: Found palindrome 'gfedccdefg' (len=10) from sa='cdefg' + sb='gfedc'
+DEBUG: Found palindrome 'gfedcbcdefg' (len=11) from sa='cdefg' + sb='gfedcb'
+DEBUG: Found palindrome 'cdefgfedc' (len=9) from sa='cdefg' + sb='fedc'
+DEBUG: Found palindrome 'cdefghihgfedc' (len=13) from sa='cdefgh' + sb='ihgfedc'
+DEBUG: Found palindrome 'hgfedcdefgh' (len=11) from sa='cdefgh' + sb='hgfed'
+DEBUG: Found palindrome 'cdefghhgfedc' (len=12) from sa='cdefgh' + sb='hgfedc'
+DEBUG: Found palindrome 'hgfedccdefgh' (len=12) from sa='cdefgh' + sb='hgfedc'
+DEBUG: Found palindrome 'hgfedcbcdefgh' (len=13) from sa='cdefgh' + sb='hgfedcb'
+DEBUG: Found palindrome 'cdefghgfedc' (len=11) from sa='cdefgh' + sb='gfedc'
+DEBUG: Found palindrome 'cdefghijihgfedc' (len=15) from sa='cdefghi' + sb='jihgfedc'
+DEBUG: Found palindrome 'ihgfedcdefghi' (len=13) from sa='cdefghi' + sb='ihgfed'
+DEBUG: Found palindrome 'cdefghiihgfedc' (len=14) from sa='cdefghi' + sb='ihgfedc'
+DEBUG: Found palindrome 'ihgfedccdefghi' (len=14) from sa='cdefghi' + sb='ihgfedc'
+DEBUG: Found palindrome 'ihgfedcbcdefghi' (len=15) from sa='cdefghi' + sb='ihgfedcb'
+DEBUG: Found palindrome 'cdefghihgfedc' (len=13) from sa='cdefghi' + sb='hgfedc'
+DEBUG: Found palindrome 'jihgfedcdefghij' (len=15) from sa='cdefghij' + sb='jihgfed'
+DEBUG: Found palindrome 'cdefghijjihgfedc' (len=16) from sa='cdefghij' + sb='jihgfedc'
+DEBUG: Found palindrome 'jihgfedccdefghij' (len=16) from sa='cdefghij' + sb='jihgfedc'
+DEBUG: Found palindrome 'jihgfedcbcdefghij' (len=17) from sa='cdefghij' + sb='jihgfedcb'
+DEBUG: Found palindrome 'cdefghijihgfedc' (len=15) from sa='cdefghij' + sb='ihgfedc'
+DEBUG: Found palindrome 'ded' (len=3) from sa='d' + sb='ed'
+DEBUG: Found palindrome 'dd' (len=2) from sa='d' + sb='d'
+DEBUG: Found palindrome 'dd' (len=2) from sa='d' + sb='d'
+DEBUG: Found palindrome 'dcd' (len=3) from sa='d' + sb='dc'
+DEBUG: Found palindrome 'defed' (len=5) from sa='de' + sb='fed'
+DEBUG: Found palindrome 'ede' (len=3) from sa='de' + sb='e'
+DEBUG: Found palindrome 'deed' (len=4) from sa='de' + sb='ed'
+DEBUG: Found palindrome 'edde' (len=4) from sa='de' + sb='ed'
+DEBUG: Found palindrome 'edcde' (len=5) from sa='de' + sb='edc'
+DEBUG: Found palindrome 'ded' (len=3) from sa='de' + sb='d'
+DEBUG: Found palindrome 'defgfed' (len=7) from sa='def' + sb='gfed'
+DEBUG: Found palindrome 'fedef' (len=5) from sa='def' + sb='fe'
+DEBUG: Found palindrome 'deffed' (len=6) from sa='def' + sb='fed'
+DEBUG: Found palindrome 'feddef' (len=6) from sa='def' + sb='fed'
+DEBUG: Found palindrome 'fedcdef' (len=7) from sa='def' + sb='fedc'
+DEBUG: Found palindrome 'defed' (len=5) from sa='def' + sb='ed'
+DEBUG: Found palindrome 'defghgfed' (len=9) from sa='defg' + sb='hgfed'
+DEBUG: Found palindrome 'gfedefg' (len=7) from sa='defg' + sb='gfe'
+DEBUG: Found palindrome 'defggfed' (len=8) from sa='defg' + sb='gfed'
+DEBUG: Found palindrome 'gfeddefg' (len=8) from sa='defg' + sb='gfed'
+DEBUG: Found palindrome 'gfedcdefg' (len=9) from sa='defg' + sb='gfedc'
+DEBUG: Found palindrome 'defgfed' (len=7) from sa='defg' + sb='fed'
+DEBUG: Found palindrome 'defghihgfed' (len=11) from sa='defgh' + sb='ihgfed'
+DEBUG: Found palindrome 'hgfedefgh' (len=9) from sa='defgh' + sb='hgfe'
+DEBUG: Found palindrome 'defghhgfed' (len=10) from sa='defgh' + sb='hgfed'
+DEBUG: Found palindrome 'hgfeddefgh' (len=10) from sa='defgh' + sb='hgfed'
+DEBUG: Found palindrome 'hgfedcdefgh' (len=11) from sa='defgh' + sb='hgfedc'
+DEBUG: Found palindrome 'defghgfed' (len=9) from sa='defgh' + sb='gfed'
+DEBUG: Found palindrome 'defghijihgfed' (len=13) from sa='defghi' + sb='jihgfed'
+DEBUG: Found palindrome 'ihgfedefghi' (len=11) from sa='defghi' + sb='ihgfe'
+DEBUG: Found palindrome 'defghiihgfed' (len=12) from sa='defghi' + sb='ihgfed'
+DEBUG: Found palindrome 'ihgfeddefghi' (len=12) from sa='defghi' + sb='ihgfed'
+DEBUG: Found palindrome 'ihgfedcdefghi' (len=13) from sa='defghi' + sb='ihgfedc'
+DEBUG: Found palindrome 'defghihgfed' (len=11) from sa='defghi' + sb='hgfed'
+DEBUG: Found palindrome 'jihgfedefghij' (len=13) from sa='defghij' + sb='jihgfe'
+DEBUG: Found palindrome 'defghijjihgfed' (len=14) from sa='defghij' + sb='jihgfed'
+DEBUG: Found palindrome 'jihgfeddefghij' (len=14) from sa='defghij' + sb='jihgfed'
+DEBUG: Found palindrome 'jihgfedcdefghij' (len=15) from sa='defghij' + sb='jihgfedc'
+DEBUG: Found palindrome 'defghijihgfed' (len=13) from sa='defghij' + sb='ihgfed'
+DEBUG: Found palindrome 'efe' (len=3) from sa='e' + sb='fe'
+DEBUG: Found palindrome 'ee' (len=2) from sa='e' + sb='e'
+DEBUG: Found palindrome 'ee' (len=2) from sa='e' + sb='e'
+DEBUG: Found palindrome 'ede' (len=3) from sa='e' + sb='ed'
+DEBUG: Found palindrome 'efgfe' (len=5) from sa='ef' + sb='gfe'
+DEBUG: Found palindrome 'fef' (len=3) from sa='ef' + sb='f'
+DEBUG: Found palindrome 'effe' (len=4) from sa='ef' + sb='fe'
+DEBUG: Found palindrome 'feef' (len=4) from sa='ef' + sb='fe'
+DEBUG: Found palindrome 'fedef' (len=5) from sa='ef' + sb='fed'
+DEBUG: Found palindrome 'efe' (len=3) from sa='ef' + sb='e'
+DEBUG: Found palindrome 'efghgfe' (len=7) from sa='efg' + sb='hgfe'
+DEBUG: Found palindrome 'gfefg' (len=5) from sa='efg' + sb='gf'
+DEBUG: Found palindrome 'efggfe' (len=6) from sa='efg' + sb='gfe'
+DEBUG: Found palindrome 'gfeefg' (len=6) from sa='efg' + sb='gfe'
+DEBUG: Found palindrome 'gfedefg' (len=7) from sa='efg' + sb='gfed'
+DEBUG: Found palindrome 'efgfe' (len=5) from sa='efg' + sb='fe'
+DEBUG: Found palindrome 'efghihgfe' (len=9) from sa='efgh' + sb='ihgfe'
+DEBUG: Found palindrome 'hgfefgh' (len=7) from sa='efgh' + sb='hgf'
+DEBUG: Found palindrome 'efghhgfe' (len=8) from sa='efgh' + sb='hgfe'
+DEBUG: Found palindrome 'hgfeefgh' (len=8) from sa='efgh' + sb='hgfe'
+DEBUG: Found palindrome 'hgfedefgh' (len=9) from sa='efgh' + sb='hgfed'
+DEBUG: Found palindrome 'efghgfe' (len=7) from sa='efgh' + sb='gfe'
+DEBUG: Found palindrome 'efghijihgfe' (len=11) from sa='efghi' + sb='jihgfe'
+DEBUG: Found palindrome 'ihgfefghi' (len=9) from sa='efghi' + sb='ihgf'
+DEBUG: Found palindrome 'efghiihgfe' (len=10) from sa='efghi' + sb='ihgfe'
+DEBUG: Found palindrome 'ihgfeefghi' (len=10) from sa='efghi' + sb='ihgfe'
+DEBUG: Found palindrome 'ihgfedefghi' (len=11) from sa='efghi' + sb='ihgfed'
+DEBUG: Found palindrome 'efghihgfe' (len=9) from sa='efghi' + sb='hgfe'
+DEBUG: Found palindrome 'jihgfefghij' (len=11) from sa='efghij' + sb='jihgf'
+DEBUG: Found palindrome 'efghijjihgfe' (len=12) from sa='efghij' + sb='jihgfe'
+DEBUG: Found palindrome 'jihgfeefghij' (len=12) from sa='efghij' + sb='jihgfe'
+DEBUG: Found palindrome 'jihgfedefghij' (len=13) from sa='efghij' + sb='jihgfed'
+DEBUG: Found palindrome 'efghijihgfe' (len=11) from sa='efghij' + sb='ihgfe'
+DEBUG: Found palindrome 'fgf' (len=3) from sa='f' + sb='gf'
+DEBUG: Found palindrome 'ff' (len=2) from sa='f' + sb='f'
+DEBUG: Found palindrome 'ff' (len=2) from sa='f' + sb='f'
+DEBUG: Found palindrome 'fef' (len=3) from sa='f' + sb='fe'
+DEBUG: Found palindrome 'fghgf' (len=5) from sa='fg' + sb='hgf'
+DEBUG: Found palindrome 'gfg' (len=3) from sa='fg' + sb='g'
+DEBUG: Found palindrome 'fggf' (len=4) from sa='fg' + sb='gf'
+DEBUG: Found palindrome 'gffg' (len=4) from sa='fg' + sb='gf'
+DEBUG: Found palindrome 'gfefg' (len=5) from sa='fg' + sb='gfe'
+DEBUG: Found palindrome 'fgf' (len=3) from sa='fg' + sb='f'
+DEBUG: Found palindrome 'fghihgf' (len=7) from sa='fgh' + sb='ihgf'
+DEBUG: Found palindrome 'hgfgh' (len=5) from sa='fgh' + sb='hg'
+DEBUG: Found palindrome 'fghhgf' (len=6) from sa='fgh' + sb='hgf'
+DEBUG: Found palindrome 'hgffgh' (len=6) from sa='fgh' + sb='hgf'
+DEBUG: Found palindrome 'hgfefgh' (len=7) from sa='fgh' + sb='hgfe'
+DEBUG: Found palindrome 'fghgf' (len=5) from sa='fgh' + sb='gf'
+DEBUG: Found palindrome 'fghijihgf' (len=9) from sa='fghi' + sb='jihgf'
+DEBUG: Found palindrome 'ihgfghi' (len=7) from sa='fghi' + sb='ihg'
+DEBUG: Found palindrome 'fghiihgf' (len=8) from sa='fghi' + sb='ihgf'
+DEBUG: Found palindrome 'ihgffghi' (len=8) from sa='fghi' + sb='ihgf'
+DEBUG: Found palindrome 'ihgfefghi' (len=9) from sa='fghi' + sb='ihgfe'
+DEBUG: Found palindrome 'fghihgf' (len=7) from sa='fghi' + sb='hgf'
+DEBUG: Found palindrome 'jihgfghij' (len=9) from sa='fghij' + sb='jihg'
+DEBUG: Found palindrome 'fghijjihgf' (len=10) from sa='fghij' + sb='jihgf'
+DEBUG: Found palindrome 'jihgffghij' (len=10) from sa='fghij' + sb='jihgf'
+DEBUG: Found palindrome 'jihgfefghij' (len=11) from sa='fghij' + sb='jihgfe'
+DEBUG: Found palindrome 'fghijihgf' (len=9) from sa='fghij' + sb='ihgf'
+DEBUG: Found palindrome 'ghg' (len=3) from sa='g' + sb='hg'
+DEBUG: Found palindrome 'gg' (len=2) from sa='g' + sb='g'
+DEBUG: Found palindrome 'gg' (len=2) from sa='g' + sb='g'
+DEBUG: Found palindrome 'gfg' (len=3) from sa='g' + sb='gf'
+DEBUG: Found palindrome 'ghihg' (len=5) from sa='gh' + sb='ihg'
+DEBUG: Found palindrome 'hgh' (len=3) from sa='gh' + sb='h'
+DEBUG: Found palindrome 'ghhg' (len=4) from sa='gh' + sb='hg'
+DEBUG: Found palindrome 'hggh' (len=4) from sa='gh' + sb='hg'
+DEBUG: Found palindrome 'hgfgh' (len=5) from sa='gh' + sb='hgf'
+DEBUG: Found palindrome 'ghg' (len=3) from sa='gh' + sb='g'
+DEBUG: Found palindrome 'ghijihg' (len=7) from sa='ghi' + sb='jihg'
+DEBUG: Found palindrome 'ihghi' (len=5) from sa='ghi' + sb='ih'
+DEBUG: Found palindrome 'ghiihg' (len=6) from sa='ghi' + sb='ihg'
+DEBUG: Found palindrome 'ihgghi' (len=6) from sa='ghi' + sb='ihg'
+DEBUG: Found palindrome 'ihgfghi' (len=7) from sa='ghi' + sb='ihgf'
+DEBUG: Found palindrome 'ghihg' (len=5) from sa='ghi' + sb='hg'
+DEBUG: Found palindrome 'jihghij' (len=7) from sa='ghij' + sb='jih'
+DEBUG: Found palindrome 'ghijjihg' (len=8) from sa='ghij' + sb='jihg'
+DEBUG: Found palindrome 'jihgghij' (len=8) from sa='ghij' + sb='jihg'
+DEBUG: Found palindrome 'jihgfghij' (len=9) from sa='ghij' + sb='jihgf'
+DEBUG: Found palindrome 'ghijihg' (len=7) from sa='ghij' + sb='ihg'
+DEBUG: Found palindrome 'hih' (len=3) from sa='h' + sb='ih'
+DEBUG: Found palindrome 'hh' (len=2) from sa='h' + sb='h'
+DEBUG: Found palindrome 'hh' (len=2) from sa='h' + sb='h'
+DEBUG: Found palindrome 'hgh' (len=3) from sa='h' + sb='hg'
+DEBUG: Found palindrome 'hijih' (len=5) from sa='hi' + sb='jih'
+DEBUG: Found palindrome 'ihi' (len=3) from sa='hi' + sb='i'
+DEBUG: Found palindrome 'hiih' (len=4) from sa='hi' + sb='ih'
+DEBUG: Found palindrome 'ihhi' (len=4) from sa='hi' + sb='ih'
+DEBUG: Found palindrome 'ihghi' (len=5) from sa='hi' + sb='ihg'
+DEBUG: Found palindrome 'hih' (len=3) from sa='hi' + sb='h'
+DEBUG: Found palindrome 'jihij' (len=5) from sa='hij' + sb='ji'
+DEBUG: Found palindrome 'hijjih' (len=6) from sa='hij' + sb='jih'
+DEBUG: Found palindrome 'jihhij' (len=6) from sa='hij' + sb='jih'
+DEBUG: Found palindrome 'jihghij' (len=7) from sa='hij' + sb='jihg'
+DEBUG: Found palindrome 'hijih' (len=5) from sa='hij' + sb='ih'
+DEBUG: Found palindrome 'iji' (len=3) from sa='i' + sb='ji'
+DEBUG: Found palindrome 'ii' (len=2) from sa='i' + sb='i'
+DEBUG: Found palindrome 'ii' (len=2) from sa='i' + sb='i'
+DEBUG: Found palindrome 'ihi' (len=3) from sa='i' + sb='ih'
+DEBUG: Found palindrome 'jij' (len=3) from sa='ij' + sb='j'
+DEBUG: Found palindrome 'ijji' (len=4) from sa='ij' + sb='ji'
+DEBUG: Found palindrome 'jiij' (len=4) from sa='ij' + sb='ji'
+DEBUG: Found palindrome 'jihij' (len=5) from sa='ij' + sb='jih'
+DEBUG: Found palindrome 'iji' (len=3) from sa='ij' + sb='i'
+DEBUG: Found palindrome 'jj' (len=2) from sa='j' + sb='j'
+DEBUG: Found palindrome 'jj' (len=2) from sa='j' + sb='j'
+DEBUG: Found palindrome 'jij' (len=3) from sa='j' + sb='ji'
+DEBUG: Total palindromes found: 290
+DEBUG: All palindromes: ['aa', 'aba', 'abba', 'abcba', 'abccba', 'abcdcba', 'abcddcba', 'abcdedcba', 'abcdeedcba', 'abcdefedcba', 'abcdeffedcba', 'abcdefgfedcba', 'abcdefggfedcba', 'abcdefghgfedcba', 'abcdefghhgfedcba', 'abcdefghihgfedcba', 'abcdefghiihgfedcba', 'abcdefghijihgfedcba', 'abcdefghijjihgfedcba', 'baab', 'bab', 'bb', 'bcb', 'bccb', 'bcdcb', 'bcddcb', 'bcdedcb', 'bcdeedcb', 'bcdefedcb', 'bcdeffedcb', 'bcdefgfedcb', 'bcdefggfedcb', 'bcdefghgfedcb', 'bcdefghhgfedcb', 'bcdefghihgfedcb', 'bcdefghiihgfedcb', 'bcdefghijihgfedcb', 'bcdefghijjihgfedcb', 'cbaabc', 'cbabc', 'cbbc', 'cbc', 'cc', 'cdc', 'cddc', 'cdedc', 'cdeedc', 'cdefedc', 'cdeffedc', 'cdefgfedc', 'cdefggfedc', 'cdefghgfedc', 'cdefghhgfedc', 'cdefghihgfedc', 'cdefghiihgfedc', 'cdefghijihgfedc', 'cdefghijjihgfedc', 'dcbaabcd', 'dcbabcd', 'dcbbcd', 'dcbcd', 'dccd', 'dcd', 'dd', 'ded', 'deed', 'defed', 'deffed', 'defgfed', 'defggfed', 'defghgfed', 'defghhgfed', 'defghihgfed', 'defghiihgfed', 'defghijihgfed', 'defghijjihgfed', 'edcbaabcde', 'edcbabcde', 'edcbbcde', 'edcbcde', 'edccde', 'edcde', 'edde', 'ede', 'ee', 'efe', 'effe', 'efgfe', 'efggfe', 'efghgfe', 'efghhgfe', 'efghihgfe', 'efghiihgfe', 'efghijihgfe', 'efghijjihgfe', 'fedcbaabcdef', 'fedcbabcdef', 'fedcbbcdef', 'fedcbcdef', 'fedccdef', 'fedcdef', 'feddef', 'fedef', 'feef', 'fef', 'ff', 'fgf', 'fggf', 'fghgf', 'fghhgf', 'fghihgf', 'fghiihgf', 'fghijihgf', 'fghijjihgf', 'gfedcbaabcdefg', 'gfedcbabcdefg', 'gfedcbbcdefg', 'gfedcbcdefg', 'gfedccdefg', 'gfedcdefg', 'gfeddefg', 'gfedefg', 'gfeefg', 'gfefg', 'gffg', 'gfg', 'gg', 'ghg', 'ghhg', 'ghihg', 'ghiihg', 'ghijihg', 'ghijjihg', 'hgfedcbaabcdefgh', 'hgfedcbabcdefgh', 'hgfedcbbcdefgh', 'hgfedcbcdefgh', 'hgfedccdefgh', 'hgfedcdefgh', 'hgfeddefgh', 'hgfedefgh', 'hgfeefgh', 'hgfefgh', 'hgffgh', 'hgfgh', 'hggh', 'hgh', 'hh', 'hih', 'hiih', 'hijih', 'hijjih', 'ihgfedcbaabcdefghi', 'ihgfedcbabcdefghi', 'ihgfedcbbcdefghi', 'ihgfedcbcdefghi', 'ihgfedccdefghi', 'ihgfedcdefghi', 'ihgfeddefghi', 'ihgfedefghi', 'ihgfeefghi', 'ihgfefghi', 'ihgffghi', 'ihgfghi', 'ihgghi', 'ihghi', 'ihhi', 'ihi', 'ii', 'iji', 'ijji', 'jihgfedcbaabcdefghij', 'jihgfedcbabcdefghij', 'jihgfedcbbcdefghij', 'jihgfedcbcdefghij', 'jihgfedccdefghij', 'jihgfedcdefghij', 'jihgfeddefghij', 'jihgfedefghij', 'jihgfeefghij', 'jihgfefghij', 'jihgffghij', 'jihgfghij', 'jihgghij', 'jihghij', 'jihhij', 'jihij', 'jiij', 'jij', 'jj']
+DEBUG: Final best: 'abcdefghijjihgfedcba' with length 20
+DEBUG: Test case 1 result: 'abcdefghijjihgfedcba'
+
+==================================================
+
+TEST CASE 10:
+Running test: 3
+zooz
+lzxoo
+bac
+bac
+abc
+def
+==================================================
+STDOUT (Result):
+ooxoo
+aba
+-1
+
+STDERR (Debug Info):
+DEBUG: Starting program
+DEBUG: Processing 3 test cases
+DEBUG: Test case 1/3
+DEBUG: Input a='zooz', b='lzxoo'
+DEBUG: Starting search with strings of length 4 and 5
+DEBUG: Found palindrome 'zlz' (len=3) from sa='z' + sb='lz'
+DEBUG: New best palindrome: 'zlz' (replaced 'None')
+DEBUG: Found palindrome 'zz' (len=2) from sa='z' + sb='z'
+DEBUG: Found palindrome 'zz' (len=2) from sa='z' + sb='z'
+DEBUG: Found palindrome 'zxz' (len=3) from sa='z' + sb='zx'
+DEBUG: Found palindrome 'zoz' (len=3) from sa='zo' + sb='z'
+DEBUG: Found palindrome 'ozo' (len=3) from sa='zo' + sb='o'
+DEBUG: New best palindrome: 'ozo' (replaced 'zlz')
+DEBUG: Found palindrome 'ozo' (len=3) from sa='zo' + sb='o'
+DEBUG: Found palindrome 'zooz' (len=4) from sa='zoo' + sb='z'
+DEBUG: New best palindrome: 'zooz' (replaced 'ozo')
+DEBUG: Found palindrome 'oozoo' (len=5) from sa='zoo' + sb='oo'
+DEBUG: New best palindrome: 'oozoo' (replaced 'zooz')
+DEBUG: Found palindrome 'oxo' (len=3) from sa='o' + sb='xo'
+DEBUG: Found palindrome 'oo' (len=2) from sa='o' + sb='o'
+DEBUG: Found palindrome 'oo' (len=2) from sa='o' + sb='o'
+DEBUG: Found palindrome 'ooo' (len=3) from sa='o' + sb='oo'
+DEBUG: Found palindrome 'ooo' (len=3) from sa='o' + sb='oo'
+DEBUG: Found palindrome 'oo' (len=2) from sa='o' + sb='o'
+DEBUG: Found palindrome 'oo' (len=2) from sa='o' + sb='o'
+DEBUG: Found palindrome 'ooxoo' (len=5) from sa='oo' + sb='xoo'
+DEBUG: New best palindrome: 'ooxoo' (replaced 'oozoo')
+DEBUG: Found palindrome 'ooo' (len=3) from sa='oo' + sb='o'
+DEBUG: Found palindrome 'ooo' (len=3) from sa='oo' + sb='o'
+DEBUG: Found palindrome 'oooo' (len=4) from sa='oo' + sb='oo'
+DEBUG: Found palindrome 'oooo' (len=4) from sa='oo' + sb='oo'
+DEBUG: Found palindrome 'ooo' (len=3) from sa='oo' + sb='o'
+DEBUG: Found palindrome 'ooo' (len=3) from sa='oo' + sb='o'
+DEBUG: Found palindrome 'zooz' (len=4) from sa='ooz' + sb='z'
+DEBUG: Found palindrome 'oozoo' (len=5) from sa='ooz' + sb='oo'
+DEBUG: Found palindrome 'oxo' (len=3) from sa='o' + sb='xo'
+DEBUG: Found palindrome 'oo' (len=2) from sa='o' + sb='o'
+DEBUG: Found palindrome 'oo' (len=2) from sa='o' + sb='o'
+DEBUG: Found palindrome 'ooo' (len=3) from sa='o' + sb='oo'
+DEBUG: Found palindrome 'ooo' (len=3) from sa='o' + sb='oo'
+DEBUG: Found palindrome 'oo' (len=2) from sa='o' + sb='o'
+DEBUG: Found palindrome 'oo' (len=2) from sa='o' + sb='o'
+DEBUG: Found palindrome 'zoz' (len=3) from sa='oz' + sb='z'
+DEBUG: Found palindrome 'ozo' (len=3) from sa='oz' + sb='o'
+DEBUG: Found palindrome 'ozo' (len=3) from sa='oz' + sb='o'
+DEBUG: Found palindrome 'zlz' (len=3) from sa='z' + sb='lz'
+DEBUG: Found palindrome 'zz' (len=2) from sa='z' + sb='z'
+DEBUG: Found palindrome 'zz' (len=2) from sa='z' + sb='z'
+DEBUG: Found palindrome 'zxz' (len=3) from sa='z' + sb='zx'
+DEBUG: Total palindromes found: 39
+DEBUG: All palindromes: ['oo', 'ooo', 'oooo', 'ooxoo', 'oozoo', 'oxo', 'ozo', 'zlz', 'zooz', 'zoz', 'zxz', 'zz']
+DEBUG: Final best: 'ooxoo' with length 5
+DEBUG: Test case 1 result: 'ooxoo'
+DEBUG: Test case 2/3
+DEBUG: Input a='bac', b='bac'
+DEBUG: Starting search with strings of length 3 and 3
+DEBUG: Found palindrome 'bb' (len=2) from sa='b' + sb='b'
+DEBUG: New best palindrome: 'bb' (replaced 'None')
+DEBUG: Found palindrome 'bb' (len=2) from sa='b' + sb='b'
+DEBUG: Found palindrome 'bab' (len=3) from sa='b' + sb='ba'
+DEBUG: New best palindrome: 'bab' (replaced 'bb')
+DEBUG: Found palindrome 'bab' (len=3) from sa='ba' + sb='b'
+DEBUG: Found palindrome 'aba' (len=3) from sa='ba' + sb='a'
+DEBUG: New best palindrome: 'aba' (replaced 'bab')
+DEBUG: Found palindrome 'aba' (len=3) from sa='a' + sb='ba'
+DEBUG: Found palindrome 'aa' (len=2) from sa='a' + sb='a'
+DEBUG: Found palindrome 'aa' (len=2) from sa='a' + sb='a'
+DEBUG: Found palindrome 'aca' (len=3) from sa='a' + sb='ac'
+DEBUG: Found palindrome 'aca' (len=3) from sa='ac' + sb='a'
+DEBUG: Found palindrome 'cac' (len=3) from sa='ac' + sb='c'
+DEBUG: Found palindrome 'cac' (len=3) from sa='c' + sb='ac'
+DEBUG: Found palindrome 'cc' (len=2) from sa='c' + sb='c'
+DEBUG: Found palindrome 'cc' (len=2) from sa='c' + sb='c'
+DEBUG: Total palindromes found: 14
+DEBUG: All palindromes: ['aa', 'aba', 'aca', 'bab', 'bb', 'cac', 'cc']
+DEBUG: Final best: 'aba' with length 3
+DEBUG: Test case 2 result: 'aba'
+DEBUG: Test case 3/3
+DEBUG: Input a='abc', b='def'
+DEBUG: Starting search with strings of length 3 and 3
+DEBUG: Total palindromes found: 0
+DEBUG: No palindromes found, returning -1
+DEBUG: Test case 3 result: '-1'
+
+==================================================
+
+~/workspace$ 
