@@ -1,5 +1,4 @@
 
-
 #!/bin/python3
 
 import math
@@ -15,22 +14,19 @@ def buildPalindrome(a, b):
     best = None
     max_len = 0
     
-    # Get all substrings from both strings
-    subs_a = set()
-    subs_b = set()
+    # Generate all substrings from both strings
+    subs_a = []
+    subs_b = []
     
     for i in range(len(a)):
         for j in range(i + 1, len(a) + 1):
-            subs_a.add(a[i:j])
+            subs_a.append(a[i:j])
     
     for i in range(len(b)):
         for j in range(i + 1, len(b) + 1):
-            subs_b.add(b[i:j])
+            subs_b.append(b[i:j])
     
-    # Try all possible combinations
-    all_subs = list(subs_a) + list(subs_b)
-    
-    # Try simple concatenations first
+    # Try direct concatenations: sa + sb and sb + sa
     for sa in subs_a:
         for sb in subs_b:
             for candidate in [sa + sb, sb + sa]:
@@ -39,26 +35,32 @@ def buildPalindrome(a, b):
                         best = candidate
                         max_len = len(candidate)
     
-    # Try three-part combinations: part1 + part2 + part3
-    # where parts can come from either string
-    for part1 in all_subs:
-        if len(part1) > 4:  # Reasonable limit
-            continue
-        for part2 in all_subs:
-            if len(part1) + len(part2) > 5:
-                continue
-            for part3 in all_subs:
-                if len(part1) + len(part2) + len(part3) > 8:
+    # Try three-part combinations where middle can be from either string
+    # Format: part_from_one_string + middle + part_from_other_string
+    all_subs = subs_a + subs_b
+    
+    for sa in subs_a:
+        for middle in all_subs:
+            for sb in subs_b:
+                if len(sa) + len(middle) + len(sb) > 10:  # Performance limit
                     continue
-                
-                candidate = part1 + part2 + part3
+                candidate = sa + middle + sb
                 if candidate == candidate[::-1]:
-                    # Verify that we're using substrings from both original strings
-                    if (part1 in subs_a or part2 in subs_a or part3 in subs_a) and \
-                       (part1 in subs_b or part2 in subs_b or part3 in subs_b):
-                        if len(candidate) > max_len or (len(candidate) == max_len and (best is None or candidate < best)):
-                            best = candidate
-                            max_len = len(candidate)
+                    if len(candidate) > max_len or (len(candidate) == max_len and (best is None or candidate < best)):
+                        best = candidate
+                        max_len = len(candidate)
+    
+    # Try with middle from string b and sides from string a
+    for sb in subs_b:
+        for middle in all_subs:
+            for sa in subs_a:
+                if len(sb) + len(middle) + len(sa) > 10:  # Performance limit
+                    continue
+                candidate = sb + middle + sa
+                if candidate == candidate[::-1]:
+                    if len(candidate) > max_len or (len(candidate) == max_len and (best is None or candidate < best)):
+                        best = candidate
+                        max_len = len(candidate)
 
     return best if best else "-1"
 
@@ -69,4 +71,3 @@ if __name__ == '__main__':
         b = input().strip()
         result = buildPalindrome(a, b)
         print(result)
-
