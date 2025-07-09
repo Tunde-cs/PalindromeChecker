@@ -18,8 +18,8 @@ def buildPalindrome(a, b, debug=False):
     if debug:
         print(f"DEBUG: Starting search with a='{a[:20]}...' (len={len(a)}), b='{b[:20]}...' (len={len(b)})")
 
-    # Use a set to avoid duplicate palindromes
-    palindromes = set()
+    best_palindrome = None
+    max_length = 0
 
     # Try all possible substring combinations - exhaustive search
     for len_a in range(1, len(a) + 1):
@@ -30,28 +30,31 @@ def buildPalindrome(a, b, debug=False):
                 for start_b in range(len(b) - len_b + 1):
                     sb = b[start_b:start_b + len_b]
 
-                    # Try both concatenation orders
-                    for candidate in [sa + sb, sb + sa]:
+                    # Try both concatenation orders: sa+sb and sb+sa
+                    candidates = [
+                        (sa + sb, sa, sb, 'a+b'),
+                        (sb + sa, sb, sa, 'b+a')
+                    ]
+                    
+                    for candidate, part1, part2, order in candidates:
                         if is_palindrome(candidate):
-                            palindromes.add(candidate)
+                            candidate_length = len(candidate)
                             
-                            if debug and len(candidate) <= 20:
-                                print(f"DEBUG: Found palindrome: '{candidate}' (len={len(candidate)}) from '{sa}' + '{sb}'")
-
-    if not palindromes:
-        return "-1"
-
-    # Convert to list and sort by length (descending) then lexicographically (ascending)
-    palindromes = list(palindromes)
-    palindromes.sort(key=lambda x: (-len(x), x))
-    best_palindrome = palindromes[0]
+                            if debug and candidate_length <= 20:
+                                print(f"DEBUG: Found valid palindrome: '{candidate}' (len={candidate_length}) from '{part1}' + '{part2}' ({order})")
+                            
+                            # Check if this is better than current best
+                            if (candidate_length > max_length or 
+                                (candidate_length == max_length and (best_palindrome is None or candidate < best_palindrome))):
+                                best_palindrome = candidate
+                                max_length = candidate_length
+                                if debug:
+                                    print(f"DEBUG: New best palindrome: '{candidate}' (length {candidate_length})")
 
     if debug:
-        print(f"DEBUG: All unique palindromes found: {len(palindromes)}")
-        print(f"DEBUG: Top 5 candidates: {palindromes[:5]}")
-        print(f"DEBUG: Final result: '{best_palindrome}' (length: {len(best_palindrome)})")
+        print(f"DEBUG: Final result: '{best_palindrome}' (length: {max_length})")
 
-    return best_palindrome
+    return best_palindrome if best_palindrome else "-1"
 
 if __name__ == '__main__':
     if 'OUTPUT_PATH' in os.environ:
