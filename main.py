@@ -20,20 +20,15 @@ def buildPalindrome(a, b):
     best = None
     max_len = 0
     
-    # Create extended string pools that include reversed versions
-    # This allows us to find palindromes like "abc" + "cba" = "abccba"
-    extended_a = a + a[::-1]  # Original + reverse
-    extended_b = b + b[::-1]  # Original + reverse
-    
-    # Try all possible substring combinations with longer substrings prioritized
+    # Try all possible substring combinations from the original strings only
     # Process in reverse order of length to find longer palindromes first
-    for len_a in range(len(extended_a), 0, -1):
-        for start_a in range(len(extended_a) - len_a + 1):
-            sa = extended_a[start_a:start_a + len_a]
+    for len_a in range(len(a), 0, -1):
+        for start_a in range(len(a) - len_a + 1):
+            sa = a[start_a:start_a + len_a]
             
-            for len_b in range(len(extended_b), 0, -1):
-                for start_b in range(len(extended_b) - len_b + 1):
-                    sb = extended_b[start_b:start_b + len_b]
+            for len_b in range(len(b), 0, -1):
+                for start_b in range(len(b) - len_b + 1):
+                    sb = b[start_b:start_b + len_b]
                     
                     # Try both concatenation orders: sa+sb and sb+sa
                     for candidate in [sa + sb, sb + sa]:
