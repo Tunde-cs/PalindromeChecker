@@ -7,48 +7,49 @@ import random
 import re
 import sys
 
-def is_palindrome(word):
-    """Check if a word is a palindrome."""
-    reversed_word = word[::-1]
-    return word == reversed_word
-
-def all_substrings_of_word(word):
-    """Generate all possible non-empty substrings of a given string."""
-    substrings = []
-    for sub_string_length in range(1, len(word) + 1):
-        for i in range(len(word) - sub_string_length + 1):
-            new_word = word[i:i + sub_string_length]
-            substrings.append(new_word)
-    return substrings
+def is_palindrome(s):
+    """Check if a string is a palindrome."""
+    return s == s[::-1]
 
 def buildPalindrome(a, b):
-    """Attempt to find the longest palindromic string created by concatenating
-    a substring of `a` with a substring of `b`."""
+    """Find the longest palindromic string from concatenating substrings of a and b."""
     # Handle edge cases
     if not a or not b:
         return "-1"
     
-    sub_strings_a = all_substrings_of_word(a)
-    sub_strings_b = all_substrings_of_word(b)
-
-    # Generate all possible concatenations of substrings from `a` and `b`
-    # Try both orders: a+b and b+a
-    multiplexed_array = []
-    for word_a in sub_strings_a:
-        for word_b in sub_strings_b:
-            multiplexed_array.append(word_a + word_b)
-            multiplexed_array.append(word_b + word_a)
-
-    # Find the best palindrome (longest, then lexicographically smallest)
-    best_palindrome = ""
-    for word in multiplexed_array:
-        if is_palindrome(word):
-            if len(word) > len(best_palindrome):
-                best_palindrome = word
-            elif len(word) == len(best_palindrome) and word < best_palindrome:
-                best_palindrome = word
-
-    return best_palindrome if best_palindrome else "-1"
+    best = None
+    max_len = 0
+    
+    # Performance limit to avoid timeout
+    max_limit = min(20, len(a), len(b))
+    
+    # Try all substring combinations with early termination optimizations
+    for len_a in range(1, min(len(a), max_limit) + 1):
+        # Skip if we can't possibly beat current best
+        if best and len_a + len(b) <= max_len:
+            continue
+            
+        for start_a in range(len(a) - len_a + 1):
+            sa = a[start_a:start_a + len_a]
+            
+            for len_b in range(1, min(len(b), max_limit) + 1):
+                # Skip if we can't possibly beat current best
+                if best and len_a + len_b <= max_len:
+                    continue
+                    
+                for start_b in range(len(b) - len_b + 1):
+                    sb = b[start_b:start_b + len_b]
+                    
+                    # Try both concatenation orders
+                    for candidate in [sa + sb, sb + sa]:
+                        if is_palindrome(candidate):
+                            cand_len = len(candidate)
+                            if (cand_len > max_len or 
+                                (cand_len == max_len and (best is None or candidate < best))):
+                                best = candidate
+                                max_len = cand_len
+    
+    return best if best else "-1"
 
 if __name__ == '__main__':
     if 'OUTPUT_PATH' in os.environ:
