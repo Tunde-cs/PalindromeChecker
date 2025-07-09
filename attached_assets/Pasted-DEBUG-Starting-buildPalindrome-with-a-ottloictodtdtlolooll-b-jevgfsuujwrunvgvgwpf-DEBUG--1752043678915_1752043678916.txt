@@ -1,0 +1,50 @@
+DEBUG: Starting buildPalindrome with a='ottloictodtdtlolooll...', b='jevgfsuujwrunvgvgwpf...'
+DEBUG: Using CHARACTER REARRANGEMENT approach (THIS IS WRONG!)
+DEBUG: Available characters: {'o': 12, 't': 13, 'l': 14, 'i': 9, 'c': 10, 'd': 10, 'y': 5, 'a': 5, 'j': 2, 'e': 4, 'v': 5, 'g': 7, 'f': 6, 's': 3, 'u': 7, 'w': 4, 'r': 2, 'n': 2, 'p': 2, 'b': 3, 'k': 4, 'z': 2, 'x': 6, 'm': 1, 'q': 1, 'h': 2}
+DEBUG: Character rearrangement result: 'aabcccccdddddeefffggghiiiijkklllllllnooooooprstttt...'
+DEBUG: Result length: 131
+DEBUG: Now trying CORRECT substring concatenation approach...
+DEBUG: Trying substring concatenation for a='ottloictod...', b='jevgfsuujw...'
+DEBUG: Found 3081 substrings in a, 2016 substrings in b
+DEBUG: No palindromes found through substring concatenation
+DEBUG: Substring concatenation found no result
+Test 1: a='ottloictod...' b='jevgfsuujw...' → aabcccccdddddeefffggghiiiijkklllllllnooooooprsttttttuuuvvwwxxxyyzazyyxxxwwvvuuuttttttsrpoooooonlllllllkkjiiiihgggfffeedddddcccccbaa
+DEBUG: Starting buildPalindrome with a='qquhuwqhdswxxrxuzzfh...', b='jwgzcfabbkoxyjxkatjm...'
+DEBUG: Using CHARACTER REARRANGEMENT approach (THIS IS WRONG!)
+DEBUG: Available characters: {'q': 6, 'u': 10, 'h': 4, 'w': 12, 'd': 7, 's': 8, 'x': 7, 'r': 8, 'z': 11, 'f': 8, 'k': 7, 'p': 7, 'l': 6, 'n': 5, 'a': 7, 'g': 10, 'c': 6, 'o': 10, 'i': 3, 't': 6, 'v': 3, 'e': 6, 'j': 4, 'b': 7, 'm': 4, 'y': 3}
+DEBUG: Character rearrangement result: 'aaabbbcccdddeeeffffggggghhijjkkklllmmnnooooopppqqq...'
+DEBUG: Result length: 165
+DEBUG: Now trying CORRECT substring concatenation approach...
+DEBUG: Trying substring concatenation for a='qquhuwqhds...', b='jwgzcfabbk...'
+DEBUG: Found 4753 substrings in a, 3081 substrings in b
+DEBUG: Found palindrome #1: 'qbq' from 'q' + 'bq'
+DEBUG: Found palindrome #2: 'qq' from 'q' + 'q'
+DEBUG: Found palindrome #3: 'qq' from 'q' + 'q'
+DEBUG: Found palindrome #4: 'qoq' from 'q' + 'qo'
+DEBUG: Found palindrome #5: 'qqq' from 'qq' + 'q'
+DEBUG: Found 1875 total palindromes, 350 unique
+DEBUG: Maximum palindrome length: 9
+DEBUG: Found 1 palindromes with max length
+DEBUG: Substring concatenation result: 'zoootoooz'
+DEBUG: Substring concatenation found: 'zoootoooz'
+DEBUG: ERROR: We should return substring result, not character rearrangement!
+DEBUG: Character rearrangement gives: 'aaabbbcccdddeeeffffggggghhijjkkklllmmnnooooopppqqqrrrrsssstttuuuuuvwwwwwwxxxyzzzzzazzzzzyxxxwwwwwwvuuuuutttssssrrrrqqqpppooooonnmmlllkkkjjihhgggggffffeeedddcccbbbaaa'
+DEBUG: Substring concatenation gives: 'zoootoooz'
+Test 2: a='qquhuwqhds...' b='jwgzcfabbk...' → aaabbbcccdddeeeffffggggghhijjkkklllmmnnooooopppqqqrrrrsssstttuuuuuvwwwwwwxxxyzzzzzazzzzzyxxxwwwwwwvuuuuutttssssrrrrqqqpppooooonnmmlllkkkjjihhgggggffffeeedddcccbbbaaa
+DEBUG: Starting buildPalindrome with a='dczatfarqdkelalxzxil...', b='bqlizijdwtuyfrxolsys...'
+DEBUG: Using CHARACTER REARRANGEMENT approach (THIS IS WRONG!)
+DEBUG: Available characters: {'d': 8, 'c': 6, 'z': 6, 'a': 9, 't': 8, 'f': 7, 'r': 8, 'q': 5, 'k': 6, 'e': 6, 'l': 12, 'x': 8, 'i': 6, 'v': 6, 'p': 7, 'b': 4, 'n': 5, 'g': 4, 's': 6, 'm': 6, 'j': 3, 'w': 3, 'u': 3, 'y': 5, 'o': 4, 'h': 2}
+DEBUG: Character rearrangement result: 'aaaabbcccddddeeefffgghiiijkkkllllllmmmnnoopppqqrrr...'
+DEBUG: Result length: 145
+DEBUG: Now trying CORRECT substring concatenation approach...
+DEBUG: Trying substring concatenation for a='dczatfarqd...', b='bqlizijdwt...'
+DEBUG: Found 1540 substrings in a, 4851 substrings in b
+DEBUG: Found palindrome #1: 'djd' from 'd' + 'jd'
+DEBUG: Found palindrome #2: 'dd' from 'd' + 'd'
+DEBUG: Found palindrome #3: 'dd' from 'd' + 'd'
+DEBUG: Found palindrome #4: 'dwd' from 'd' + 'dw'
+DEBUG: Found palindrome #5: 'dyd' from 'd' + 'yd'
+DEBUG: Found 1390 total palindromes, 269 unique
+DEBUG: Maximum palindrome length: 7
+DEBUG: Found 3 palindromes with max length
+DEBUG: Substring concatenation result: 'lildlil'
