@@ -7,43 +7,52 @@ def is_palindrome(s):
     """Check if a string is a palindrome."""
     return s == s[::-1]
 
-def buildPalindrome(a, b):
-    """
-    Build the longest palindrome from substrings of a and b.
-    For ties in length, return the lexicographically smallest palindrome.
-    """
+def find_all_palindromes(a, b, max_limit=25):
+    """Find all possible palindromes and return them sorted by length and lexicographically."""
     if not a or not b:
-        return "-1"
+        return []
 
-    best_palindrome = None
-    max_length = 0
+    palindromes = []
     
-    # Optimization: limit substring length to avoid timeout
-    max_len_a = min(len(a), 20)
-    max_len_b = min(len(b), 20)
-
     # Try all combinations of substrings from a and b
-    for len_a in range(1, max_len_a + 1):
+    for len_a in range(1, min(len(a), max_limit) + 1):
         for start_a in range(len(a) - len_a + 1):
             sa = a[start_a:start_a + len_a]
             
-            for len_b in range(1, max_len_b + 1):
+            for len_b in range(1, min(len(b), max_limit) + 1):
                 for start_b in range(len(b) - len_b + 1):
                     sb = b[start_b:start_b + len_b]
                     
                     # Try both concatenation orders
                     for candidate in [sa + sb, sb + sa]:
                         if is_palindrome(candidate):
-                            candidate_length = len(candidate)
+                            palindromes.append(candidate)
+    
+    # Remove duplicates and sort
+    unique_palindromes = list(set(palindromes))
+    # Sort by length (descending), then lexicographically (ascending)
+    unique_palindromes.sort(key=lambda x: (-len(x), x))
+    
+    return unique_palindromes
 
-                            # Check if this is better than current best
-                            if (candidate_length > max_length or 
-                                (candidate_length == max_length and 
-                                 (best_palindrome is None or candidate > best_palindrome))):
-                                best_palindrome = candidate
-                                max_length = candidate_length
-
-    return best_palindrome if best_palindrome else "-1"
+def buildPalindrome(a, b):
+    """
+    Build the longest palindrome from substrings of a and b.
+    If there are ties in length, return the lexicographically smallest.
+    """
+    palindromes = find_all_palindromes(a, b)
+    
+    if not palindromes:
+        return "-1"
+    
+    # Find the maximum length
+    max_length = len(palindromes[0])
+    
+    # Get all palindromes with maximum length
+    max_palindromes = [p for p in palindromes if len(p) == max_length]
+    
+    # Return the lexicographically smallest among the longest
+    return min(max_palindromes)
 
 if __name__ == '__main__':
     if 'OUTPUT_PATH' in os.environ:
