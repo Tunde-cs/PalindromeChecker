@@ -39,7 +39,7 @@ def buildPalindrome(a, b):
                             # Check if this is better than current best
                             if (candidate_length > max_length or 
                                 (candidate_length == max_length and 
-                                 (best_palindrome is None or candidate < best_palindrome))):
+                                 (best_palindrome is None or candidate > best_palindrome))):
                                 best_palindrome = candidate
                                 max_length = candidate_length
 
