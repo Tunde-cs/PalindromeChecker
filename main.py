@@ -2,48 +2,40 @@
 #!/bin/python3
 
 import os
-
-def is_palindrome(s):
-    """Check if a string is a palindrome."""
-    return s == s[::-1]
-
-def get_all_substrings(s):
-    """Get all possible substrings of a string."""
-    return [s[i:j] for i in range(len(s)) for j in range(i + 1, len(s) + 1)]
+from collections import Counter
 
 def buildPalindrome(a, b):
-    """Find the longest palindromic string using substring concatenation only."""
+    """Build palindrome using optimal character arrangement from both strings."""
     if not a or not b:
         return "-1"
-
-    all_palindromes = []
-
-    # Strategy 1: Try all substring combinations
-    for sa in get_all_substrings(a):
-        for sb in get_all_substrings(b):
-            for candidate in [sa + sb, sb + sa]:
-                if is_palindrome(candidate):
-                    all_palindromes.append(candidate)
-
-    # Strategy 2: Try full string concatenation (backup)
-    for candidate in [a + b, b + a]:
-        if is_palindrome(candidate):
-            all_palindromes.append(candidate)
-
-    if not all_palindromes:
+    
+    # Get all available characters
+    all_chars = Counter(a + b)
+    
+    # Build the longest possible palindrome
+    left_half = []
+    middle_char = ""
+    
+    # Sort characters to ensure lexicographic order
+    for char in sorted(all_chars.keys()):
+        count = all_chars[char]
+        # Use pairs for the sides
+        pairs = count // 2
+        left_half.extend([char] * pairs)
+        
+        # Keep track of the lexicographically smallest odd-count character for middle
+        if count % 2 == 1 and middle_char == "":
+            middle_char = char
+    
+    # Build palindrome: left + middle + right
+    if not left_half and not middle_char:
         return "-1"
-
-    # Remove duplicates
-    unique_palindromes = list(set(all_palindromes))
-
-    # Find maximum length
-    max_length = max(len(p) for p in unique_palindromes)
     
-    # Get all palindromes with maximum length
-    max_length_palindromes = [p for p in unique_palindromes if len(p) == max_length]
+    left_str = ''.join(left_half)
+    right_str = left_str[::-1]
+    result = left_str + middle_char + right_str
     
-    # Return lexicographically smallest among those with maximum length
-    return min(max_length_palindromes)
+    return result if result else "-1"
 
 if __name__ == '__main__':
     if 'OUTPUT_PATH' in os.environ:
