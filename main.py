@@ -7,7 +7,7 @@ def is_palindrome(s):
     """Check if a string is a palindrome."""
     return s == s[::-1]
 
-def find_all_palindromes(a, b, max_limit=35):
+def find_all_palindromes(a, b, max_limit=50):
     """Find all possible palindromes and return them sorted by length and lexicographically."""
     if not a or not b:
         return []
@@ -38,7 +38,7 @@ def find_all_palindromes(a, b, max_limit=35):
 def buildPalindrome(a, b):
     """
     Build the longest palindrome from substrings of a and b.
-    If there are ties in length, return the lexicographically largest.
+    If there are ties in length, return the lexicographically smallest.
     """
     palindromes = find_all_palindromes(a, b)
     
@@ -51,8 +51,8 @@ def buildPalindrome(a, b):
     # Get all palindromes with maximum length
     max_palindromes = [p for p in palindromes if len(p) == max_length]
     
-    # Return the lexicographically largest among the longest
-    return max(max_palindromes)
+    # Return the lexicographically smallest among the longest
+    return min(max_palindromes)
 
 if __name__ == '__main__':
     if 'OUTPUT_PATH' in os.environ:
