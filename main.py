@@ -17,29 +17,31 @@ def buildPalindrome(a, b):
     if not a or not b:
         return "-1"
     
-    # Try all possible combinations and collect all palindromes
-    palindromes = []
+    best = None
+    max_len = 0
     
-    # Try all possible substring combinations from the original strings only
-    for len_a in range(1, len(a) + 1):
-        for start_a in range(len(a) - len_a + 1):
-            sa = a[start_a:start_a + len_a]
+    # Try all possible substring combinations
+    # For each substring from a
+    for i in range(len(a)):
+        for j in range(i + 1, len(a) + 1):
+            sa = a[i:j]
             
-            for len_b in range(1, len(b) + 1):
-                for start_b in range(len(b) - len_b + 1):
-                    sb = b[start_b:start_b + len_b]
+            # For each substring from b
+            for k in range(len(b)):
+                for l in range(k + 1, len(b) + 1):
+                    sb = b[k:l]
                     
                     # Try both concatenation orders: sa+sb and sb+sa
                     for candidate in [sa + sb, sb + sa]:
                         if is_palindrome(candidate):
-                            palindromes.append(candidate)
+                            cand_len = len(candidate)
+                            # Update if this is longer, or same length but lexicographically smaller
+                            if (cand_len > max_len or 
+                                (cand_len == max_len and (best is None or candidate < best))):
+                                best = candidate
+                                max_len = cand_len
     
-    if not palindromes:
-        return "-1"
-    
-    # Sort by length (descending) then lexicographically (ascending)
-    palindromes.sort(key=lambda x: (-len(x), x))
-    return palindromes[0]
+    return best if best else "-1"
 
 if __name__ == '__main__':
     if 'OUTPUT_PATH' in os.environ:
