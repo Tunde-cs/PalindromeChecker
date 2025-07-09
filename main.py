@@ -1,3 +1,4 @@
+
 #!/bin/python3
 
 import math
@@ -11,18 +12,18 @@ def is_palindrome(s):
     return s == s[::-1]
 
 def buildPalindrome(a, b):
-    """Find the shortest palindromic string from concatenating substrings of a and b."""
+    """Find the longest palindromic string from concatenating substrings of a and b."""
     # Handle edge cases
     if not a or not b:
         return "-1"
 
     best = None
-    min_len = float('inf')
+    max_len = 0
 
     # Performance limit to avoid timeout
     max_limit = min(20, len(a), len(b))
 
-    # Try all substring combinations, looking for the shortest palindrome
+    # Try all substring combinations, looking for the longest palindrome
     for len_a in range(1, min(len(a), max_limit) + 1):
         for start_a in range(len(a) - len_a + 1):
             sa = a[start_a:start_a + len_a]
@@ -36,10 +37,10 @@ def buildPalindrome(a, b):
                     for candidate in candidates:
                         if is_palindrome(candidate):
                             cand_len = len(candidate)
-                            if (cand_len < min_len or 
-                                (cand_len == min_len and (best is None or candidate < best))):
+                            if (cand_len > max_len or 
+                                (cand_len == max_len and (best is None or candidate < best))):
                                 best = candidate
-                                min_len = cand_len
+                                max_len = cand_len
 
     return best if best else "-1"
 
