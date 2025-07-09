@@ -187,10 +187,32 @@ def buildPalindrome(a, b):
             unique_palindromes.append((p, length, method))
             seen.add(p)
 
-    # Sort by length (descending), then lexicographically (ascending)
-    unique_palindromes.sort(key=lambda x: (-x[1], x[0]))
+    if not unique_palindromes:
+        return "-1"
 
-    return unique_palindromes[0][0]
+    # Find the maximum length
+    max_length = max(length for _, length, _ in unique_palindromes)
+    
+    # Filter to only palindromes of maximum length
+    max_length_palindromes = [(p, length, method) for p, length, method in unique_palindromes if length == max_length]
+    
+    # For palindromes of the same length, prioritize by method:
+    # 1. rearrangement (substring + rearranged substring) - highest priority
+    # 2. Other methods - lower priority
+    # Within same method, prefer lexicographically smallest
+    
+    # Separate by method priority
+    rearrangement_palindromes = [(p, length, method) for p, length, method in max_length_palindromes if method == 'rearrangement']
+    other_palindromes = [(p, length, method) for p, length, method in max_length_palindromes if method != 'rearrangement']
+    
+    if rearrangement_palindromes:
+        # Among rearrangement palindromes, choose lexicographically smallest
+        rearrangement_palindromes.sort(key=lambda x: x[0])
+        return rearrangement_palindromes[0][0]
+    else:
+        # Among other palindromes, choose lexicographically smallest
+        other_palindromes.sort(key=lambda x: x[0])
+        return other_palindromes[0][0]
 
 
 if __name__ == '__main__':
