@@ -20,15 +20,13 @@ def buildPalindrome(a, b):
     best = None
     max_len = 0
 
-    # Performance limit to avoid timeout
-    max_limit = min(20, len(a), len(b))
-
-    # Try all substring combinations, looking for the longest palindrome
-    for len_a in range(1, min(len(a), max_limit) + 1):
+    # Try all possible substring combinations from both strings
+    # No artificial limit - let it explore all possibilities
+    for len_a in range(1, len(a) + 1):
         for start_a in range(len(a) - len_a + 1):
             sa = a[start_a:start_a + len_a]
 
-            for len_b in range(1, min(len(b), max_limit) + 1):
+            for len_b in range(1, len(b) + 1):
                 for start_b in range(len(b) - len_b + 1):
                     sb = b[start_b:start_b + len_b]
 
