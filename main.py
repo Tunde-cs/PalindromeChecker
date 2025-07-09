@@ -81,6 +81,27 @@ def try_substring_with_rearrangements(a, b):
     
     return list(set(all_palindromes))  # Remove duplicates
 
+def try_full_string_with_rearrangement(a, b):
+    """Try using full strings where one string might be rearranged."""
+    from itertools import permutations
+    results = []
+    
+    # Try all permutations of b concatenated with a
+    for perm in set(permutations(b)):
+        perm_str = ''.join(perm)
+        for candidate in [a + perm_str, perm_str + a]:
+            if is_palindrome(candidate):
+                results.append(candidate)
+    
+    # Try all permutations of a concatenated with b  
+    for perm in set(permutations(a)):
+        perm_str = ''.join(perm)
+        for candidate in [perm_str + b, b + perm_str]:
+            if is_palindrome(candidate):
+                results.append(candidate)
+    
+    return results
+
 def buildPalindrome(a, b):
     """Find the longest palindromic string using multiple strategies."""
     # Handle edge cases
@@ -89,20 +110,30 @@ def buildPalindrome(a, b):
     
     all_palindromes = []
     
-    # STRATEGY 1: Substring concatenation (all possible combinations)
+    # STRATEGY 1: Direct concatenation (no rearrangement)
+    for candidate in [a + b, b + a]:
+        if is_palindrome(candidate):
+            all_palindromes.append((candidate, len(candidate), 'direct'))
+    
+    # STRATEGY 2: Full string with rearrangement (key for baccab case!)
+    full_rearrange_results = try_full_string_with_rearrangement(a, b)
+    for pattern in full_rearrange_results:
+        all_palindromes.append((pattern, len(pattern), 'full_rearrange'))
+    
+    # STRATEGY 3: Substring concatenation (all possible combinations)
     for sa in get_all_substrings(a):
         for sb in get_all_substrings(b):
             for candidate in [sa + sb, sb + sa]:
                 if is_palindrome(candidate):
                     all_palindromes.append((candidate, len(candidate), 'substring'))
     
-    # STRATEGY 2: Character rearrangement (use all characters)
+    # STRATEGY 4: Character rearrangement (use all characters)
     all_chars = Counter(a + b)
     rearrange_result = build_palindrome_from_chars(all_chars)
     if rearrange_result:
         all_palindromes.append((rearrange_result, len(rearrange_result), 'rearrange'))
     
-    # STRATEGY 3: Substring with rearrangements approach (key for baccab case)
+    # STRATEGY 5: Substring with rearrangements approach
     rearrangement_results = try_substring_with_rearrangements(a, b)
     for pattern in rearrangement_results:
         all_palindromes.append((pattern, len(pattern), 'rearrangement'))
