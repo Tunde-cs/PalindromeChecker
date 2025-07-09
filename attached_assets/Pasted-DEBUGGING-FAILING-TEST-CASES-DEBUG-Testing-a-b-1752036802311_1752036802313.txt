@@ -1,0 +1,47 @@
+DEBUGGING FAILING TEST CASES
+==================================================
+
+DEBUG: Testing a='bac', b='bac'
+DEBUG: Found palindrome 'bb' from 'b' + 'b'
+DEBUG: New best palindrome: 'bb' (length 2)
+DEBUG: Found palindrome 'bb' from 'b' + 'b'
+DEBUG: Found palindrome 'bab' from 'b' + 'ba'
+DEBUG: New best palindrome: 'bab' (length 3)
+DEBUG: Found palindrome 'aa' from 'a' + 'a'
+DEBUG: Found palindrome 'aa' from 'a' + 'a'
+DEBUG: Found palindrome 'aba' from 'a' + 'ba'
+DEBUG: New best palindrome: 'aba' (length 3)
+DEBUG: Found palindrome 'aca' from 'a' + 'ac'
+DEBUG: Found palindrome 'cc' from 'c' + 'c'
+DEBUG: Found palindrome 'cc' from 'c' + 'c'
+DEBUG: Found palindrome 'cac' from 'c' + 'ac'
+DEBUG: Found palindrome 'bab' from 'ba' + 'b'
+DEBUG: Found palindrome 'aba' from 'ba' + 'a'
+DEBUG: Found palindrome 'aca' from 'ac' + 'a'
+DEBUG: Found palindrome 'cac' from 'ac' + 'c'
+DEBUG: All palindromes found: [('aba', 3, 'a', 'ba'), ('aba', 3, 'ba', 'a'), ('aca', 3, 'a', 'ac'), ('aca', 3, 'ac', 'a'), ('bab', 3, 'b', 'ba'), ('bab', 3, 'ba', 'b'), ('cac', 3, 'c', 'ac'), ('cac', 3, 'ac', 'c'), ('aa', 2, 'a', 'a'), ('aa', 2, 'a', 'a'), ('bb', 2, 'b', 'b'), ('bb', 2, 'b', 'b'), ('cc', 2, 'c', 'c'), ('cc', 2, 'c', 'c')]
+DEBUG: Final result: 'aba' (length 3)
+Result: 'aba', Expected: 'baccab'
+
+==================================================
+
+DEBUG: Testing a='abc', b='abc'
+DEBUG: Found palindrome 'aa' from 'a' + 'a'
+DEBUG: New best palindrome: 'aa' (length 2)
+DEBUG: Found palindrome 'aa' from 'a' + 'a'
+DEBUG: Found palindrome 'aba' from 'a' + 'ab'
+DEBUG: New best palindrome: 'aba' (length 3)
+DEBUG: Found palindrome 'bb' from 'b' + 'b'
+DEBUG: Found palindrome 'bb' from 'b' + 'b'
+DEBUG: Found palindrome 'bab' from 'b' + 'ab'
+DEBUG: Found palindrome 'bcb' from 'b' + 'bc'
+DEBUG: Found palindrome 'cc' from 'c' + 'c'
+DEBUG: Found palindrome 'cc' from 'c' + 'c'
+DEBUG: Found palindrome 'cbc' from 'c' + 'bc'
+DEBUG: Found palindrome 'aba' from 'ab' + 'a'
+DEBUG: Found palindrome 'bab' from 'ab' + 'b'
+DEBUG: Found palindrome 'bcb' from 'bc' + 'b'
+DEBUG: Found palindrome 'cbc' from 'bc' + 'c'
+DEBUG: All palindromes found: [('aba', 3, 'a', 'ab'), ('aba', 3, 'ab', 'a'), ('bab', 3, 'b', 'ab'), ('bab', 3, 'ab', 'b'), ('bcb', 3, 'b', 'bc'), ('bcb', 3, 'bc', 'b'), ('cbc', 3, 'c', 'bc'), ('cbc', 3, 'bc', 'c'), ('aa', 2, 'a', 'a'), ('aa', 2, 'a', 'a'), ('bb', 2, 'b', 'b'), ('bb', 2, 'b', 'b'), ('cc', 2, 'c', 'c'), ('cc', 2, 'c', 'c')]
+DEBUG: Final result: 'aba' (length 3)
+Result: 'aba', Expected: 'abccba'
