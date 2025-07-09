@@ -160,7 +160,6 @@ def buildPalindrome(a, b):
     for sa in get_all_substrings(a):
         for sb in get_all_substrings(b):
             for candidate in [sa + sb, sb + sa]:
-                print(f"STR4: Trying sa={sa}, sb={sb}, candidate={candidate}")
                 if is_palindrome(candidate):
                     all_palindromes.append(
                         (candidate, len(candidate), 'substring'))
