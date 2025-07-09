@@ -1,0 +1,56 @@
+MANUAL DEBUG OF FAILED TEST CASES
+================================================================================
+
+================================================================================
+MANUAL DEBUG - TEST CASE 2
+================================================================================
+a = 'qquhuwqhdswxxrxuzzfhkplwunfagppcoildagktgdarveusju' (length: 50)
+b = 'jwgzcfabbkoxyjxkatjmpprswkdkobdagwdwxsufeesrvncbsz' (length: 50)
+Expected: 'oozlzoo' (length: 7)
+Our result: 'zoootoooz' (length: 9)
+
+Is expected result a palindrome? True
+
+Analyzing how 'oozlzoo' could be formed:
+  ❌ No valid decomposition found
+
+Analyzing our result 'zoootoooz':
+Is our result a palindrome? True
+Our result is LONGER (9 vs 7)
+
+================================================================================
+MANUAL DEBUG - TEST CASE 4
+================================================================================
+a = 'kfnfolpcfblpncetyhtrwxkbosccskxbuvcrosavnpxzoeoyyg' (length: 50)
+b = 'qrxpxnloeozxpnvasorcvubxksccsobkxwrthytecnplbfcplo' (length: 50)
+Expected: 'folpcfblpncetyhtrwxkbosccskxbuvcrosavnpxzoeoyyghbbqkflslfkqbbhgyyoeozxpnvasorcvubxksccsobkxwrthytecnplbfcplof' (length: 109)
+Our result: 'fblpncetyhtrwxkbosccskxbuvcrosavnpxzoeoyyghbbqkflslfkqbbhgyyoeozxpnvasorcvubxksccsobkxwrthytecnplbf' (length: 99)
+
+Is expected result a palindrome? True
+
+Analyzing how 'folpcfblpncetyhtrwxkbosccskxbuvcrosavnpxzoeoyyghbbqkflslfkqbbhgyyoeozxpnvasorcvubxksccsobkxwrthytecnplbfcplof' could be formed:
+  ❌ No valid decomposition found
+
+Analyzing our result 'fblpncetyhtrwxkbosccskxbuvcrosavnpxzoeoyyghbbqkflslfkqbbhgyyoeozxpnvasorcvubxksccsobkxwrthytecnplbf':
+Is our result a palindrome? True
+Our result is SHORTER (99 vs 109)
+
+================================================================================
+MANUAL DEBUG - TEST CASE 5
+================================================================================
+a = 'mlfcpidlqrvngnvttaifcbopnwezesomkxhaiafmvkbjaisyr' (length: 49)
+b = 'btultpnxbcrmornqumatserhieqggrivouwfnbnghdfall' (length: 46)
+Expected: 'rvngnvr' (length: 7)
+Our result: 'tvngnvt' (length: 7)
+
+Is expected result a palindrome? True
+
+Analyzing how 'rvngnvr' could be formed:
+  ✓ 'rvngnv' (from a) + 'r' (from b)
+
+Analyzing our result 'tvngnvt':
+Is our result a palindrome? True
+Same length, but lexicographically different
+Our result: 'tvngnvt'
+Expected:   'rvngnvr'
+Ours > Expected: True
