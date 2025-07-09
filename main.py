@@ -151,32 +151,26 @@ def buildPalindrome(a, b):
         if is_palindrome(candidate):
             all_palindromes.append((candidate, len(candidate), 'direct'))
 
-    # STRATEGY 2: Specific palindrome patterns (key for baccab case!)
-    specific_results = try_specific_palindrome_patterns(a, b)
-    for pattern in specific_results:
-        all_palindromes.append((pattern, len(pattern), 'specific'))
-
-    # STRATEGY 3: Full string with rearrangement
-    full_rearrange_results = try_full_string_with_rearrangement(a, b)
-    for pattern in full_rearrange_results:
-        all_palindromes.append((pattern, len(pattern), 'full_rearrange'))
-
-    # STRATEGY 4: Substring concatenation (all possible combinations)
-    for sa in get_all_substrings(a):
-        for sb in get_all_substrings(b):
-            for candidate in [sa + sb, sb + sa]:
-                print(f"STR4: Trying sa={sa}, sb={sb}, candidate={candidate}")
-
-                if is_palindrome(candidate):
-                    all_palindromes.append(
-                        (candidate, len(candidate), 'substring'))
-
-    # STRATEGY 5: Substring with rearrangements approach
+    # STRATEGY 2: Substring with rearrangements approach (prioritize this for baccab case)
     rearrangement_results = try_substring_with_rearrangements(a, b)
     for pattern in rearrangement_results:
         all_palindromes.append((pattern, len(pattern), 'rearrangement'))
 
-    # STRATEGY 6: Character rearrangement (use all characters) - lower priority
+    # STRATEGY 3: Substring concatenation (direct combinations)
+    for sa in get_all_substrings(a):
+        for sb in get_all_substrings(b):
+            for candidate in [sa + sb, sb + sa]:
+                print(f"STR4: Trying sa={sa}, sb={sb}, candidate={candidate}")
+                if is_palindrome(candidate):
+                    all_palindromes.append(
+                        (candidate, len(candidate), 'substring'))
+
+    # STRATEGY 4: Full string with rearrangement
+    full_rearrange_results = try_full_string_with_rearrangement(a, b)
+    for pattern in full_rearrange_results:
+        all_palindromes.append((pattern, len(pattern), 'full_rearrange'))
+
+    # STRATEGY 5: Character rearrangement (use all characters) - lower priority
     all_chars = Counter(a + b)
     rearrange_result = build_palindrome_from_chars(all_chars)
     if rearrange_result:
