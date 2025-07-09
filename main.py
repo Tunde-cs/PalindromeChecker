@@ -1,3 +1,4 @@
+
 #!/bin/python3
 
 import os
@@ -9,7 +10,7 @@ def is_palindrome(s):
 def buildPalindrome(a, b):
     """
     Build the longest palindrome from substrings of a and b.
-    For ties, return the lexicographically smallest palindrome.
+    For ties in length, return the lexicographically largest palindrome.
     """
     if not a or not b:
         return "-1"
@@ -40,7 +41,7 @@ def buildPalindrome(a, b):
                     # Check if this is better than current best
                     if (candidate_length > max_length or 
                         (candidate_length == max_length and 
-                         (best_palindrome is None or candidate < best_palindrome))):
+                         (best_palindrome is None or candidate > best_palindrome))):
                         best_palindrome = candidate
                         max_length = candidate_length
 
