@@ -3,65 +3,68 @@
 
 from main import buildPalindrome
 
-# Test cases from the problem
-test_input = """10
-ottloictodtdtloloollllyocidyiodttoacoctcdcidcdttyoiilocltacdlydaailaiylcttilld
-jevgfsuujwrunvgvgwpfbknkruvwzgxxgksmexqvxbghfffseuugxkwexhzfbpu
-qquhuwqhdswxxrxuzzfhkplwunfagppcoildagktgdarveusjuqfistulgbglwmfgzrnyxryetwzhlnfewczmnoozlqatugmd
-jwgzcfabbkoxyjxkatjmpprswkdkobdagwdwxsufeesrvncbszcepigpbzuzoootorzfskcwbqorvw
-dczatfarqdkelalxzxillkfdvpfpxabqlngdscrentzamztvvcvrtcm
-bqlizijdwtuyfrxolsysxlfebpolcmqsppmrfkyunydtmwbexsngxhwvroandfqjamzkpttslildlrkjoyrpxugiceahgiakev
-kfnfolpcfblpncetyhtrwxkbosccskxbuvcrosavnpxzoeoyyghbbqkflslfkqbbhgyyjj
-qrxpxnloeozxpnvasorcvubxksccsobkxwrthytecnplbfcplofx
-mlfcpidlqrvngnvttaifcbopnwezesomkxhaiafmvkbjaisyr
-btultpnxbcrmornqumatserhieqggrivouwfnbnghdfall
-pb
-kkb
-rfq
-xzj
-zlc
-zdw
-s
-k
-w
-d"""
-
-expected_output = """-1
-oozlzoo
-lxsysxl
-folpcfblpncetyhtrwxkbosccskxbuvcrosavnpxzoeoyyghbbqkflslfkqbbhgyyoeozxpnvasorcvubxksccsobkxwrthytecnplbfcplof
-rvngnvr
-bkkb
--1
-zlz
--1
--1"""
-
-def run_test():
-    lines = test_input.strip().split('\n')
-    t = int(lines[0])
+def run_hackerrank_tests():
+    """Test against actual HackerRank test cases"""
     
-    results = []
-    for i in range(t):
-        a = lines[1 + i * 2]
-        b = lines[2 + i * 2]
+    test_cases = [
+        ("ottloictodtdtloloollllyocidyiodttoacoctcdcidcdttyoiilocltacdlydaailaiylcttilld", 
+         "jevgfsuujwrunvgvgwpfbknkruvwzgxxgksmexqvxbghfffseuugxkwexhzfbpu", 
+         "-1"),
+        
+        ("qquhuwqhdswxxrxuzzfhkplwunfagppcoildagktgdarveusjuqfistulgbglwmfgzrnyxryetwzhlnfewczmnoozlqatugmd", 
+         "jwgzcfabbkoxyjxkatjmpprswkdkobdagwdwxsufeesrvncbszcepigpbzuzoootorzfskcwbqorvw", 
+         "oozlzoo"),
+        
+        ("dczatfarqdkelalxzxillkfdvpfpxabqlngdscrentzamztvvcvrtcm", 
+         "bqlizijdwtuyfrxolsysxlfebpolcmqsppmrfkyunydtmwbexsngxhwvroandfqjamzkpttslildlrkjoyrpxugiceahgiakev", 
+         "lxsysxl"),
+        
+        ("kfnfolpcfblpncetyhtrwxkbosccskxbuvcrosavnpxzoeoyyghbbqkflslfkqbbhgyyjj", 
+         "qrxpxnloeozxpnvasorcvubxksccsobkxwrthytecnplbfcplofx", 
+         "folpcfblpncetyhtrwxkbosccskxbuvcrosavnpxzoeoyyghbbqkflslfkqbbhgyyoeozxpnvasorcvubxksccsobkxwrthytecnplbfcplof"),
+        
+        ("mlfcpidlqrvngnvttaifcbopnwezesomkxhaiafmvkbjaisyr", 
+         "btultpnxbcrmornqumatserhieqggrivouwfnbnghdfall", 
+         "rvngnvr"),
+        
+        ("pb", "kkb", "bkkb"),
+        ("rfq", "xzj", "-1"),
+        ("zlc", "zdw", "zlz"),
+        ("s", "k", "-1"),
+        ("w", "d", "-1")
+    ]
+    
+    print("HACKERRANK TEST RESULTS")
+    print("=" * 60)
+    
+    passed = 0
+    total = len(test_cases)
+    
+    for i, (a, b, expected) in enumerate(test_cases, 1):
+        print(f"\nTest Case {i}:")
+        print(f"a = {a[:50]}{'...' if len(a) > 50 else ''}")
+        print(f"b = {b[:50]}{'...' if len(b) > 50 else ''}")
+        
         result = buildPalindrome(a, b)
-        results.append(result)
-        print(f"Test {i+1}: a='{a[:10]}...' b='{b[:10]}...' → {result}")
+        status = "✓ PASS" if result == expected else "✗ FAIL"
+        
+        if result == expected:
+            passed += 1
+            
+        print(f"Result:   '{result}'")
+        print(f"Expected: '{expected}'")
+        print(f"Status:   {status}")
+        
+        if result != expected:
+            print(f"MISMATCH: Got '{result}', expected '{expected}'")
     
-    print("\nActual output:")
-    for result in results:
-        print(result)
+    print(f"\n{'=' * 60}")
+    print(f"SUMMARY: {passed}/{total} tests passed ({passed/total*100:.1f}%)")
     
-    print("\nExpected output:")
-    print(expected_output)
-    
-    # Compare results
-    expected_lines = expected_output.strip().split('\n')
-    print(f"\nComparison:")
-    for i, (actual, expected) in enumerate(zip(results, expected_lines)):
-        status = "✓" if actual == expected else "✗"
-        print(f"Test {i+1}: {status} {actual} (expected: {expected})")
+    if passed == total:
+        print("🎉 ALL TESTS PASSED! Your algorithm is ready for submission!")
+    else:
+        print(f"❌ {total - passed} tests failed. Algorithm needs adjustment.")
 
 if __name__ == "__main__":
-    run_test()
+    run_hackerrank_tests()
