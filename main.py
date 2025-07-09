@@ -61,14 +61,12 @@ def buildPalindrome(a, b):
     correct_result = try_substring_concatenation(a, b)
     if correct_result != "-1":
         print(f"DEBUG: Substring concatenation found: '{correct_result}'")
-        print(f"DEBUG: ERROR: We should return substring result, not character rearrangement!")
-        # For debugging, let's see both approaches
-        print(f"DEBUG: Character rearrangement gives: '{result}'")
-        print(f"DEBUG: Substring concatenation gives: '{correct_result}'")
+        print(f"DEBUG: RETURNING substring result (correct approach)")
+        return correct_result
     else:
         print(f"DEBUG: Substring concatenation found no result")
-    
-    return result if result else "-1"
+        print(f"DEBUG: Falling back to character rearrangement")
+        return result if result else "-1"
 
 def try_substring_concatenation(a, b):
     """Try the correct approach: substring concatenation."""
@@ -111,6 +109,10 @@ def try_substring_concatenation(a, b):
     # Return lexicographically smallest among those with maximum length
     result = min(max_length_palindromes)
     print(f"DEBUG: Substring concatenation result: '{result}'")
+    
+    # Additional debugging for max length palindromes
+    if len(max_length_palindromes) > 1:
+        print(f"DEBUG: All max length palindromes: {sorted(max_length_palindromes)}")
     
     return result
 
