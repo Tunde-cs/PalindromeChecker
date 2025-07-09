@@ -26,10 +26,6 @@ def find_all_palindromes(a, b, max_limit=60, debug=False):
             sa = a[start_a:start_a + len_a]
             
             for len_b in range(1, min(len(b), max_limit) + 1):
-                # Early termination: if we already have palindromes and current combo can't be longer
-                if palindromes and len_a + len_b <= len(max(palindromes, key=len)):
-                    continue
-                    
                 for start_b in range(len(b) - len_b + 1):
                     sb = b[start_b:start_b + len_b]
                     
