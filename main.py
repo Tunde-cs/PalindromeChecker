@@ -6,47 +6,40 @@ import os
 import random
 import re
 import sys
-from collections import Counter
 
 def is_palindrome(s):
     """Check if a string is a palindrome."""
     return s == s[::-1]
 
 def buildPalindrome(a, b):
-    """Find the longest palindromic string by rearranging all characters from a and b."""
+    """Find the longest palindromic string by concatenating substrings from a and b."""
     # Handle edge cases
     if not a or not b:
         return "-1"
     
-    # Count all available characters
-    char_count = Counter(a + b)
+    best = None
+    max_len = 0
     
-    # Check if we can form a palindrome
-    odd_count = sum(1 for count in char_count.values() if count % 2 == 1)
+    # Try all possible substring combinations
+    for len_a in range(1, len(a) + 1):
+        for start_a in range(len(a) - len_a + 1):
+            sa = a[start_a:start_a + len_a]
+            
+            for len_b in range(1, len(b) + 1):
+                for start_b in range(len(b) - len_b + 1):
+                    sb = b[start_b:start_b + len_b]
+                    
+                    # Try both concatenation orders: sa+sb and sb+sa
+                    for candidate in [sa + sb, sb + sa]:
+                        if is_palindrome(candidate):
+                            cand_len = len(candidate)
+                            # Update if longer, or same length but lexicographically smaller
+                            if (cand_len > max_len or 
+                                (cand_len == max_len and (best is None or candidate < best))):
+                                best = candidate
+                                max_len = cand_len
     
-    # For a palindrome, at most one character can have an odd count
-    if odd_count > 1:
-        return "-1"
-    
-    # Build the longest palindrome
-    left_half = []
-    middle = ""
-    
-    # Sort characters to ensure lexicographically smallest result
-    for char in sorted(char_count.keys()):
-        count = char_count[char]
-        # Add half of the characters to the left side
-        left_half.extend([char] * (count // 2))
-        # If count is odd, this character goes in the middle
-        if count % 2 == 1:
-            middle = char
-    
-    # Create the palindrome: left_half + middle + reversed(left_half)
-    left_str = ''.join(left_half)
-    right_str = left_str[::-1]
-    palindrome = left_str + middle + right_str
-    
-    return palindrome
+    return best if best else "-1"
 
 if __name__ == '__main__':
     if 'OUTPUT_PATH' in os.environ:
