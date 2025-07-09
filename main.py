@@ -18,7 +18,7 @@ def can_form_palindrome(char_count):
     return odd_count <= 1
 
 def build_palindrome_from_chars(char_count):
-    """Build the lexicographically smallest palindrome from character counts."""
+    """Build the lexicographically largest palindrome from character counts."""
     if not can_form_palindrome(char_count):
         return None
     
@@ -26,8 +26,8 @@ def build_palindrome_from_chars(char_count):
     first_half = []
     middle = ""
     
-    # Sort characters to ensure lexicographically smallest result
-    for char in sorted(char_count.keys()):
+    # Sort characters in reverse order to ensure lexicographically largest result
+    for char in sorted(char_count.keys(), reverse=True):
         count = char_count[char]
         # Add half of each character's count to first half
         first_half.extend([char] * (count // 2))
