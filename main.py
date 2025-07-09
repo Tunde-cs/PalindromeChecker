@@ -1,3 +1,4 @@
+
 #!/bin/python3
 
 import os
@@ -15,31 +16,34 @@ def buildPalindrome(a, b):
     if not a or not b:
         return "-1"
 
-    best_palindromes = []
+    all_palindromes = []
 
-    # Strategy 1: Try all substring combinations (ONLY this strategy)
-    # This should be the primary and often only way to form palindromes
+    # Strategy 1: Try all substring combinations
     for sa in get_all_substrings(a):
         for sb in get_all_substrings(b):
             for candidate in [sa + sb, sb + sa]:
                 if is_palindrome(candidate):
-                    best_palindromes.append(candidate)
+                    all_palindromes.append(candidate)
 
     # Strategy 2: Try full string concatenation (backup)
     for candidate in [a + b, b + a]:
         if is_palindrome(candidate):
-            best_palindromes.append(candidate)
+            all_palindromes.append(candidate)
 
-    if not best_palindromes:
+    if not all_palindromes:
         return "-1"
 
-    # Remove duplicates and find the best result
-    unique_palindromes = list(set(best_palindromes))
+    # Remove duplicates
+    unique_palindromes = list(set(all_palindromes))
 
-    # Sort by length (descending) then lexicographically (ascending)
-    unique_palindromes.sort(key=lambda x: (-len(x), x))
-
-    return unique_palindromes[0]
+    # Find maximum length
+    max_length = max(len(p) for p in unique_palindromes)
+    
+    # Get all palindromes with maximum length
+    max_length_palindromes = [p for p in unique_palindromes if len(p) == max_length]
+    
+    # Return lexicographically smallest among those with maximum length
+    return min(max_length_palindromes)
 
 if __name__ == '__main__':
     if 'OUTPUT_PATH' in os.environ:
