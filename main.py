@@ -20,12 +20,13 @@ def buildPalindrome(a, b):
     best = None
     max_len = 0
     
-    # Try all possible substring combinations
-    for len_a in range(1, len(a) + 1):
+    # Try all possible substring combinations with longer substrings prioritized
+    # Process in reverse order of length to find longer palindromes first
+    for len_a in range(len(a), 0, -1):
         for start_a in range(len(a) - len_a + 1):
             sa = a[start_a:start_a + len_a]
             
-            for len_b in range(1, len(b) + 1):
+            for len_b in range(len(b), 0, -1):
                 for start_b in range(len(b) - len_b + 1):
                     sb = b[start_b:start_b + len_b]
                     
