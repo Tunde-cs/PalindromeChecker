@@ -169,14 +169,12 @@ def buildPalindrome(a, b):
     for pattern in full_rearrange_results:
         all_palindromes.append((pattern, len(pattern), 'full_rearrange'))
 
-    # STRATEGY 5: Character rearrangement (use all characters) - lowest priority
-    # Only use this if no other strategies found palindromes
-    if not all_palindromes:
-        all_chars = Counter(a + b)
-        rearrange_result = build_palindrome_from_chars(all_chars)
-        if rearrange_result:
-            all_palindromes.append(
-                (rearrange_result, len(rearrange_result), 'rearrange'))
+    # STRATEGY 5: Character rearrangement (use all characters) - always try this for completeness
+    all_chars = Counter(a + b)
+    rearrange_result = build_palindrome_from_chars(all_chars)
+    if rearrange_result:
+        all_palindromes.append(
+            (rearrange_result, len(rearrange_result), 'rearrange'))
 
     if not all_palindromes:
         return "-1"
