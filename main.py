@@ -1,4 +1,3 @@
-
 #!/bin/python3
 
 import os
@@ -35,17 +34,17 @@ def buildPalindrome(a, b, debug=False):
                         (sa + sb, sa, sb, 'a+b'),
                         (sb + sa, sb, sa, 'b+a')
                     ]
-                    
+
                     for candidate, part1, part2, order in candidates:
                         if is_palindrome(candidate):
                             candidate_length = len(candidate)
-                            
+
                             if debug and candidate_length <= 20:
                                 print(f"DEBUG: Found valid palindrome: '{candidate}' (len={candidate_length}) from '{part1}' + '{part2}' ({order})")
-                            
+
                             # Check if this is better than current best
                             if (candidate_length > max_length or 
-                                (candidate_length == max_length and (best_palindrome is None or candidate > best_palindrome))):
+                                (candidate_length == max_length and (best_palindrome is None or candidate < best_palindrome))):
                                 best_palindrome = candidate
                                 max_length = candidate_length
                                 if debug:
