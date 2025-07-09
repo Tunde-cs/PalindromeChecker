@@ -15,16 +15,13 @@ def buildPalindrome(a, b, debug=False):
     if not a or not b:
         return "-1"
 
-    best_palindrome = None
-    max_length = 0
-
     if debug:
         print(f"DEBUG: Starting search with a='{a[:20]}...' (len={len(a)}), b='{b[:20]}...' (len={len(b)})")
 
-    # Collect all valid palindromes first
-    palindromes = []
+    # Use a set to avoid duplicate palindromes
+    palindromes = set()
 
-    # Try all possible substring combinations
+    # Try all possible substring combinations - exhaustive search
     for len_a in range(1, len(a) + 1):
         for start_a in range(len(a) - len_a + 1):
             sa = a[start_a:start_a + len_a]
@@ -36,7 +33,7 @@ def buildPalindrome(a, b, debug=False):
                     # Try both concatenation orders
                     for candidate in [sa + sb, sb + sa]:
                         if is_palindrome(candidate):
-                            palindromes.append(candidate)
+                            palindromes.add(candidate)
                             
                             if debug and len(candidate) <= 20:
                                 print(f"DEBUG: Found palindrome: '{candidate}' (len={len(candidate)}) from '{sa}' + '{sb}'")
@@ -44,12 +41,13 @@ def buildPalindrome(a, b, debug=False):
     if not palindromes:
         return "-1"
 
-    # Sort by length (descending) then lexicographically (ascending)
+    # Convert to list and sort by length (descending) then lexicographically (ascending)
+    palindromes = list(palindromes)
     palindromes.sort(key=lambda x: (-len(x), x))
     best_palindrome = palindromes[0]
 
     if debug:
-        print(f"DEBUG: All palindromes found: {len(palindromes)}")
+        print(f"DEBUG: All unique palindromes found: {len(palindromes)}")
         print(f"DEBUG: Top 5 candidates: {palindromes[:5]}")
         print(f"DEBUG: Final result: '{best_palindrome}' (length: {len(best_palindrome)})")
 
