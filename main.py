@@ -1,4 +1,3 @@
-
 #!/bin/python3
 
 import math
@@ -12,35 +11,25 @@ def is_palindrome(s):
     return s == s[::-1]
 
 def buildPalindrome(a, b):
-    """Find the longest palindromic string from concatenating substrings of a and b."""
+    """Find the longest palindromic string from concatenating full strings a and b."""
     # Handle edge cases
     if not a or not b:
         return "-1"
 
-    best = None
-    max_len = 0
+    # Try both concatenation orders of the full strings
+    candidates = [a + b, b + a]
 
-    # Try all possible substring combinations from both strings
-    # No artificial limit - let it explore all possibilities
-    for len_a in range(1, len(a) + 1):
-        for start_a in range(len(a) - len_a + 1):
-            sa = a[start_a:start_a + len_a]
+    valid_palindromes = []
+    for candidate in candidates:
+        if is_palindrome(candidate):
+            valid_palindromes.append(candidate)
 
-            for len_b in range(1, len(b) + 1):
-                for start_b in range(len(b) - len_b + 1):
-                    sb = b[start_b:start_b + len_b]
+    if not valid_palindromes:
+        return "-1"
 
-                    # Try both concatenation orders
-                    candidates = [sa + sb, sb + sa]
-                    for candidate in candidates:
-                        if is_palindrome(candidate):
-                            cand_len = len(candidate)
-                            if (cand_len > max_len or 
-                                (cand_len == max_len and (best is None or candidate < best))):
-                                best = candidate
-                                max_len = cand_len
-
-    return best if best else "-1"
+    # Return the longest palindrome, or lexicographically smallest if tied
+    best = max(valid_palindromes, key=lambda x: (len(x), x))
+    return best
 
 if __name__ == '__main__':
     if 'OUTPUT_PATH' in os.environ:
@@ -64,3 +53,4 @@ if __name__ == '__main__':
             b = input().strip()
             result = buildPalindrome(a, b)
             print(result)
+```
