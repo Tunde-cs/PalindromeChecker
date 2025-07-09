@@ -17,33 +17,31 @@ def buildPalindrome(a, b):
 
     best_palindrome = None
     max_length = 0
-
-    # Get all substrings from a
-    substrings_a = []
-    for i in range(len(a)):
-        for j in range(i + 1, len(a) + 1):
-            substrings_a.append(a[i:j])
-
-    # Get all substrings from b
-    substrings_b = []
-    for i in range(len(b)):
-        for j in range(i + 1, len(b) + 1):
-            substrings_b.append(b[i:j])
+    
+    # Optimization: limit substring length to avoid timeout
+    max_len_a = min(len(a), 20)
+    max_len_b = min(len(b), 20)
 
     # Try all combinations of substrings from a and b
-    for sa in substrings_a:
-        for sb in substrings_b:
-            # Try both concatenation orders
-            for candidate in [sa + sb, sb + sa]:
-                if is_palindrome(candidate):
-                    candidate_length = len(candidate)
+    for len_a in range(1, max_len_a + 1):
+        for start_a in range(len(a) - len_a + 1):
+            sa = a[start_a:start_a + len_a]
+            
+            for len_b in range(1, max_len_b + 1):
+                for start_b in range(len(b) - len_b + 1):
+                    sb = b[start_b:start_b + len_b]
+                    
+                    # Try both concatenation orders
+                    for candidate in [sa + sb, sb + sa]:
+                        if is_palindrome(candidate):
+                            candidate_length = len(candidate)
 
-                    # Check if this is better than current best
-                    if (candidate_length > max_length or 
-                        (candidate_length == max_length and 
-                         (best_palindrome is None or candidate < best_palindrome))):
-                        best_palindrome = candidate
-                        max_length = candidate_length
+                            # Check if this is better than current best
+                            if (candidate_length > max_length or 
+                                (candidate_length == max_length and 
+                                 (best_palindrome is None or candidate < best_palindrome))):
+                                best_palindrome = candidate
+                                max_length = candidate_length
 
     return best_palindrome if best_palindrome else "-1"
 
