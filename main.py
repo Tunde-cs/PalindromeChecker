@@ -1,60 +1,40 @@
+def is_palindrome(word):
+    """Check if a word is a palindrome."""
+    reversed_word = word[::-1]
+    return word == reversed_word
 
 
-#!/bin/python3
+def all_substrings_of_word(word):
+    """Generate all possible non-empty substrings of a given string."""
+    substrings = []
+    for sub_string_length in range(1, len(word) + 1):
+        for i in range(len(word) - sub_string_length + 1):
+            new_word = word[i:i + sub_string_length]
+            substrings.append(new_word)
+    return substrings
 
-import math
-import os
-import random
-import re
-import sys
 
 def buildPalindrome(a, b):
-    best = None
-    max_len = 0
+    """Attempt to find the longest palindromic string created by concatenating
+    a substring of `a` with a substring of `b`."""
+    sub_strings_a = all_substrings_of_word(a)
+    sub_strings_b = all_substrings_of_word(b)
 
-    # Try all possible substring combinations
-    # For performance, limit individual substring length but be more systematic
-    max_individual_len = min(100, len(a), len(b))
+    # Generate all possible concatenations of substrings from `a` and `b`
+    multiplexed_array = [
+        word_a + word_b for word_a in sub_strings_a for word_b in sub_strings_b]
 
-    for len_a in range(1, min(len(a) + 1, max_individual_len + 1)):
-        for start_a in range(len(a) - len_a + 1):
-            substr_a = a[start_a:start_a + len_a]
+    # Find the best palindrome (longest, then lexicographically smallest)
+    best_palindrome = ""
+    for word in multiplexed_array:
+        if is_palindrome(word):
+            if len(word) > len(best_palindrome):
+                best_palindrome = word
+            elif len(word) == len(best_palindrome) and word < best_palindrome:
+                best_palindrome = word
 
-            for len_b in range(1, min(len(b) + 1, max_individual_len + 1)):
-                for start_b in range(len(b) - len_b + 1):
-                    substr_b = b[start_b:start_b + len_b]
+    return best_palindrome if best_palindrome else "-1"
 
-                    # Try both concatenation orders
-                    for candidate in [substr_a + substr_b, substr_b + substr_a]:
-                        # Check if it's a palindrome
-                        if candidate == candidate[::-1]:
-                            # Update best if this is better
-                            if (len(candidate) > max_len or 
-                                (len(candidate) == max_len and (best is None or candidate < best))):
-                                best = candidate
-                                max_len = len(candidate)
-
-    return best if best else "-1"
-
-if __name__ == '__main__':
-    if 'OUTPUT_PATH' in os.environ:
-        # Submission environment
-        fptr = open(os.environ['OUTPUT_PATH'], 'w')
-        t = int(input().strip())
-
-        for _ in range(t):
-            a = input().strip()
-            b = input().strip()
-            result = buildPalindrome(a, b)
-            fptr.write(result + '\n')
-
-        fptr.close()
-    else:
-        # Local testing
-        t = int(input().strip())
-        
-        for _ in range(t):
-            a = input().strip()
-            b = input().strip()
-            result = buildPalindrome(a, b)
-            print(result)
+print(buildPalindrome("bac", "bac"))   # EXPECTED OUTPUT -- aba
+print(buildPalindrome("abc", "def"))   # EXPECTED OUTPUT -- -1
+print(buildPalindrome("jdfh", "fds"))   # EXPECTED OUTPUT -- dfhfd
