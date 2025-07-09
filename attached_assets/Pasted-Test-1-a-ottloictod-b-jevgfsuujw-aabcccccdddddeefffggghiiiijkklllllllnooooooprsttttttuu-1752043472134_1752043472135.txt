@@ -1,0 +1,46 @@
+Test 1: a='ottloictod...' b='jevgfsuujw...' → aabcccccdddddeefffggghiiiijkklllllllnooooooprsttttttuuuvvwwxxxyyzazyyxxxwwvvuuuttttttsrpoooooonlllllllkkjiiiihgggfffeedddddcccccbaa
+Test 2: a='qquhuwqhds...' b='jwgzcfabbk...' → aaabbbcccdddeeeffffggggghhijjkkklllmmnnooooopppqqqrrrrsssstttuuuuuvwwwwwwxxxyzzzzzazzzzzyxxxwwwwwwvuuuuutttssssrrrrqqqpppooooonnmmlllkkkjjihhgggggffffeeedddcccbbbaaa
+Test 3: a='dczatfarqd...' b='bqlizijdwt...' → aaaabbcccddddeeefffgghiiijkkkllllllmmmnnoopppqqrrrrsssttttuvvvwxxxxyyzzzazzzyyxxxxwvvvuttttsssrrrrqqpppoonnmmmllllllkkkjiiihggfffeeeddddcccbbaaaa
+Test 4: a='kfnfolpcfb...' b='qrxpxnloeo...' → abbbbbccccceefffghhjkkklllnnnooooopppqrrsssttuvvwxxxxyyyzfzyyyxxxxwvvuttsssrrqpppooooonnnlllkkkjhhgfffeecccccbbbbba
+Test 5: a='mlfcpidlqr...' b='btultpnxbc...' → aaabbcdeeffgghiiikllmmnnnoopqrrrsttuvvwxbxwvvuttsrrrqpoonnnmmllkiiihggffeedcbbaaa
+Test 6: a='pb...' b='kkb...' → bkpkb
+Test 7: a='rfq...' b='xzj...' → f
+Test 8: a='zlc...' b='zdw...' → zcz
+Test 9: a='s...' b='k...' → k
+Test 10: a='w...' b='d...' → d
+
+Actual output:
+aabcccccdddddeefffggghiiiijkklllllllnooooooprsttttttuuuvvwwxxxyyzazyyxxxwwvvuuuttttttsrpoooooonlllllllkkjiiiihgggfffeedddddcccccbaa
+aaabbbcccdddeeeffffggggghhijjkkklllmmnnooooopppqqqrrrrsssstttuuuuuvwwwwwwxxxyzzzzzazzzzzyxxxwwwwwwvuuuuutttssssrrrrqqqpppooooonnmmlllkkkjjihhgggggffffeeedddcccbbbaaa
+aaaabbcccddddeeefffgghiiijkkkllllllmmmnnoopppqqrrrrsssttttuvvvwxxxxyyzzzazzzyyxxxxwvvvuttttsssrrrrqqpppoonnmmmllllllkkkjiiihggfffeeeddddcccbbaaaa
+abbbbbccccceefffghhjkkklllnnnooooopppqrrsssttuvvwxxxxyyyzfzyyyxxxxwvvuttsssrrqpppooooonnnlllkkkjhhgfffeecccccbbbbba
+aaabbcdeeffgghiiikllmmnnnoopqrrrsttuvvwxbxwvvuttsrrrqpoonnnmmllkiiihggffeedcbbaaa
+bkpkb
+f
+zcz
+k
+d
+
+Expected output:
+-1
+oozlzoo
+lxsysxl
+folpcfblpncetyhtrwxkbosccskxbuvcrosavnpxzoeoyyghbbqkflslfkqbbhgyyoeozxpnvasorcvubxksccsobkxwrthytecnplbfcplof
+rvngnvr
+bkkb
+-1
+zlz
+-1
+-1
+
+Comparison:
+Test 1: ✗ aabcccccdddddeefffggghiiiijkklllllllnooooooprsttttttuuuvvwwxxxyyzazyyxxxwwvvuuuttttttsrpoooooonlllllllkkjiiiihgggfffeedddddcccccbaa (expected: -1)
+Test 2: ✗ aaabbbcccdddeeeffffggggghhijjkkklllmmnnooooopppqqqrrrrsssstttuuuuuvwwwwwwxxxyzzzzzazzzzzyxxxwwwwwwvuuuuutttssssrrrrqqqpppooooonnmmlllkkkjjihhgggggffffeeedddcccbbbaaa (expected: oozlzoo)
+Test 3: ✗ aaaabbcccddddeeefffgghiiijkkkllllllmmmnnoopppqqrrrrsssttttuvvvwxxxxyyzzzazzzyyxxxxwvvvuttttsssrrrrqqpppoonnmmmllllllkkkjiiihggfffeeeddddcccbbaaaa (expected: lxsysxl)
+Test 4: ✗ abbbbbccccceefffghhjkkklllnnnooooopppqrrsssttuvvwxxxxyyyzfzyyyxxxxwvvuttsssrrqpppooooonnnlllkkkjhhgfffeecccccbbbbba (expected: folpcfblpncetyhtrwxkbosccskxbuvcrosavnpxzoeoyyghbbqkflslfkqbbhgyyoeozxpnvasorcvubxksccsobkxwrthytecnplbfcplof)
+Test 5: ✗ aaabbcdeeffgghiiikllmmnnnoopqrrrsttuvvwxbxwvvuttsrrrqpoonnnmmllkiiihggffeedcbbaaa (expected: rvngnvr)
+Test 6: ✗ bkpkb (expected: bkkb)
+Test 7: ✗ f (expected: -1)
+Test 8: ✗ zcz (expected: zlz)
+Test 9: ✗ k (expected: -1)
+Test 10: ✗ d (expected: -1)
