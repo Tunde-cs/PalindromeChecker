@@ -1,0 +1,80 @@
+HACKERRANK TEST RESULTS
+============================================================
+
+Test Case 1:
+a = ottloictodtdtloloollllyocidyiodttoacoctcdcidcdttyo...
+b = jevgfsuujwrunvgvgwpfbknkruvwzgxxgksmexqvxbghfffseu...
+Result:   '-1'
+Expected: '-1'
+Status:   ✓ PASS
+
+Test Case 2:
+a = qquhuwqhdswxxrxuzzfhkplwunfagppcoildagktgdarveusju...
+b = jwgzcfabbkoxyjxkatjmpprswkdkobdagwdwxsufeesrvncbsz...
+Result:   'zoootoooz'
+Expected: 'oozlzoo'
+Status:   ✗ FAIL
+MISMATCH: Got 'zoootoooz', expected 'oozlzoo'
+
+Test Case 3:
+a = dczatfarqdkelalxzxillkfdvpfpxabqlngdscrentzamztvvc...
+b = bqlizijdwtuyfrxolsysxlfebpolcmqsppmrfkyunydtmwbexs...
+Result:   'lxsysxl'
+Expected: 'lxsysxl'
+Status:   ✓ PASS
+
+Test Case 4:
+a = kfnfolpcfblpncetyhtrwxkbosccskxbuvcrosavnpxzoeoyyg...
+b = qrxpxnloeozxpnvasorcvubxksccsobkxwrthytecnplbfcplo...
+Result:   'fblpncetyhtrwxkbosccskxbuvcrosavnpxzoeoyyghbbqkflslfkqbbhgyyoeozxpnvasorcvubxksccsobkxwrthytecnplbf'
+Expected: 'folpcfblpncetyhtrwxkbosccskxbuvcrosavnpxzoeoyyghbbqkflslfkqbbhgyyoeozxpnvasorcvubxksccsobkxwrthytecnplbfcplof'
+Status:   ✗ FAIL
+MISMATCH: Got 'fblpncetyhtrwxkbosccskxbuvcrosavnpxzoeoyyghbbqkflslfkqbbhgyyoeozxpnvasorcvubxksccsobkxwrthytecnplbf', expected 'folpcfblpncetyhtrwxkbosccskxbuvcrosavnpxzoeoyyghbbqkflslfkqbbhgyyoeozxpnvasorcvubxksccsobkxwrthytecnplbfcplof'
+
+Test Case 5:
+a = mlfcpidlqrvngnvttaifcbopnwezesomkxhaiafmvkbjaisyr
+b = btultpnxbcrmornqumatserhieqggrivouwfnbnghdfall
+Result:   'tvngnvt'
+Expected: 'rvngnvr'
+Status:   ✗ FAIL
+MISMATCH: Got 'tvngnvt', expected 'rvngnvr'
+
+Test Case 6:
+a = pb
+b = kkb
+Result:   'bkkb'
+Expected: 'bkkb'
+Status:   ✓ PASS
+
+Test Case 7:
+a = rfq
+b = xzj
+Result:   '-1'
+Expected: '-1'
+Status:   ✓ PASS
+
+Test Case 8:
+a = zlc
+b = zdw
+Result:   'zlz'
+Expected: 'zlz'
+Status:   ✓ PASS
+
+Test Case 9:
+a = s
+b = k
+Result:   '-1'
+Expected: '-1'
+Status:   ✓ PASS
+
+Test Case 10:
+a = w
+b = d
+Result:   '-1'
+Expected: '-1'
+Status:   ✓ PASS
+
+============================================================
+SUMMARY: 7/10 tests passed (70.0%)
+❌ 3 tests failed. Algorithm needs adjustment.
+~/workspace$ 
