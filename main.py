@@ -30,30 +30,32 @@ def buildPalindrome(a, b):
     max_limit = min(20, len(a), len(b))
     
     # Try all substring combinations with early termination optimizations
-    for len_a in range(1, min(len(a), max_limit) + 1):
-        # Skip if we can't possibly beat current best
-        if best and len_a + len(b) <= max_len:
+    # Process in order that favors lexicographically smaller results
+    for total_len in range(2, min(len(a) + len(b), max_limit * 2) + 1):
+        if best and total_len <= max_len:
             continue
             
-        for start_a in range(len(a) - len_a + 1):
-            sa = a[start_a:start_a + len_a]
-            
-            for len_b in range(1, min(len(b), max_limit) + 1):
-                # Skip if we can't possibly beat current best
-                if best and len_a + len_b <= max_len:
-                    continue
-                    
+        for len_a in range(1, min(len(a), total_len, max_limit) + 1):
+            len_b = total_len - len_a
+            if len_b < 1 or len_b > len(b) or len_b > max_limit:
+                continue
+                
+            for start_a in range(len(a) - len_a + 1):
+                sa = a[start_a:start_a + len_a]
+                
                 for start_b in range(len(b) - len_b + 1):
                     sb = b[start_b:start_b + len_b]
                     
-                    # Try both concatenation orders
-                    for candidate in [sa + sb, sb + sa]:
+                    # Try both concatenation orders, prioritizing lexicographically smaller
+                    candidates = sorted([sa + sb, sb + sa])
+                    for candidate in candidates:
                         if is_palindrome(candidate):
                             cand_len = len(candidate)
                             if (cand_len > max_len or 
                                 (cand_len == max_len and (best is None or candidate < best))):
                                 best = candidate
                                 max_len = cand_len
+                                break  # Take the first (lexicographically smaller) valid palindrome
     
     return best if best else "-1"
 
