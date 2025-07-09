@@ -81,6 +81,33 @@ def try_substring_with_rearrangements(a, b):
     
     return list(set(all_palindromes))  # Remove duplicates
 
+def try_specific_palindrome_patterns(a, b):
+    """Try to find specific palindrome patterns like 'baccab' from 'bac'+'bac'."""
+    from itertools import permutations
+    results = []
+    
+    # Strategy: For each substring from a, try to find a rearrangement of a substring from b
+    # that when concatenated forms a palindrome
+    
+    for start_a in range(len(a)):
+        for end_a in range(start_a + 1, len(a) + 1):
+            sa = a[start_a:end_a]
+            
+            for start_b in range(len(b)):
+                for end_b in range(start_b + 1, len(b) + 1):
+                    sb = b[start_b:end_b]
+                    
+                    # Try all permutations of sb
+                    for perm in set(permutations(sb)):
+                        perm_str = ''.join(perm)
+                        
+                        # Try both orders: sa + perm_str and perm_str + sa
+                        for candidate in [sa + perm_str, perm_str + sa]:
+                            if is_palindrome(candidate):
+                                results.append(candidate)
+    
+    return results
+
 def try_full_string_with_rearrangement(a, b):
     """Try using full strings where one string might be rearranged."""
     from itertools import permutations
@@ -115,28 +142,33 @@ def buildPalindrome(a, b):
         if is_palindrome(candidate):
             all_palindromes.append((candidate, len(candidate), 'direct'))
     
-    # STRATEGY 2: Full string with rearrangement (key for baccab case!)
+    # STRATEGY 2: Specific palindrome patterns (key for baccab case!)
+    specific_results = try_specific_palindrome_patterns(a, b)
+    for pattern in specific_results:
+        all_palindromes.append((pattern, len(pattern), 'specific'))
+    
+    # STRATEGY 3: Full string with rearrangement
     full_rearrange_results = try_full_string_with_rearrangement(a, b)
     for pattern in full_rearrange_results:
         all_palindromes.append((pattern, len(pattern), 'full_rearrange'))
     
-    # STRATEGY 3: Substring concatenation (all possible combinations)
+    # STRATEGY 4: Substring concatenation (all possible combinations)
     for sa in get_all_substrings(a):
         for sb in get_all_substrings(b):
             for candidate in [sa + sb, sb + sa]:
                 if is_palindrome(candidate):
                     all_palindromes.append((candidate, len(candidate), 'substring'))
     
-    # STRATEGY 4: Character rearrangement (use all characters)
-    all_chars = Counter(a + b)
-    rearrange_result = build_palindrome_from_chars(all_chars)
-    if rearrange_result:
-        all_palindromes.append((rearrange_result, len(rearrange_result), 'rearrange'))
-    
     # STRATEGY 5: Substring with rearrangements approach
     rearrangement_results = try_substring_with_rearrangements(a, b)
     for pattern in rearrangement_results:
         all_palindromes.append((pattern, len(pattern), 'rearrangement'))
+    
+    # STRATEGY 6: Character rearrangement (use all characters) - lower priority
+    all_chars = Counter(a + b)
+    rearrange_result = build_palindrome_from_chars(all_chars)
+    if rearrange_result:
+        all_palindromes.append((rearrange_result, len(rearrange_result), 'rearrange'))
     
     if not all_palindromes:
         return "-1"
