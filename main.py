@@ -46,8 +46,8 @@ def find_all_palindromes(a, b, max_limit=60, debug=False):
         if unique_palindromes:
             print(f"DEBUG: Longest palindrome length: {len(max(unique_palindromes, key=len))}")
     
-    # Sort by length (descending), then lexicographically (ascending)
-    unique_palindromes.sort(key=lambda x: (-len(x), x))
+    # Sort by length (descending), then lexicographically (descending for largest)
+    unique_palindromes.sort(key=lambda x: (-len(x), -ord(x[0]) if x else 0), reverse=False)
     
     return unique_palindromes
 
