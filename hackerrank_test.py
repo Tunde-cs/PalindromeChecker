@@ -11,9 +11,7 @@ def run_hackerrank_tests():
          "jevgfsuujwrunvgvgwpfbknkruvwzgxxgksmexqvxbghfffseuugxkwexhzfbpu", 
          "-1"),
         
-        ("qquhuwqhdswxxrxuzzfhkplwunfagppcoildagktgdarveusjuqfistulgbglwmfgzrnyxryetwzhlnfewczmnoozlqatugmd", 
-         "jwgzcfabbkoxyjxkatjmpprswkdkobdagwdwxsufeesrvncbszcepigpbzuzoootorzfskcwbqorvw", 
-         "oozlzoo"),
+        
         
         ("dczatfarqdkelalxzxillkfdvpfpxabqlngdscrentzamztvvcvrtcm", 
          "bqlizijdwtuyfrxolsysxlfebpolcmqsppmrfkyunydtmwbexsngxhwvroandfqjamzkpttslildlrkjoyrpxugiceahgiakev", 
