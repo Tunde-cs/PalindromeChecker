@@ -17,6 +17,12 @@ def buildPalindrome(a, b):
     if not a or not b:
         return "-1"
     
+    # Special case: if strings are identical, try the full concatenation
+    if a == b:
+        full_concat = a + a[::-1]  # string + reverse
+        if is_palindrome(full_concat):
+            return full_concat
+    
     best = None
     max_len = 0
     
