@@ -1,0 +1,173 @@
+OMPREHENSIVE TEST SUITE FOR HIDDEN TEST CASES
+============================================================
+
+============================================================
+TEST: Basic case from problem
+Input: a='bac', b='bac'
+Result: 'aba'
+Expected: 'baccab' - ✗ FAIL
+Time: 0.000s
+
+============================================================
+TEST: No palindrome possible
+Input: a='abc', b='def'
+Result: '-1'
+Expected: '-1' - ✓ PASS
+Time: 0.000s
+
+============================================================
+TEST: Complex case
+Input: a='jdfh', b='fds'
+Result: 'dfhfd'
+Expected: 'dfhfd' - ✓ PASS
+Time: 0.000s
+
+============================================================
+TEST: Both empty strings
+Input: a='', b=''
+Result: '-1'
+Expected: '-1' - ✓ PASS
+Time: 0.000s
+
+============================================================
+TEST: One empty string
+Input: a='a', b=''
+Result: '-1'
+Expected: '-1' - ✓ PASS
+Time: 0.000s
+
+============================================================
+TEST: Other empty string
+Input: a='', b='b'
+Result: '-1'
+Expected: '-1' - ✓ PASS
+Time: 0.000s
+
+============================================================
+TEST: Same single character
+Input: a='a', b='a'
+Result: 'aa'
+Expected: 'aa' - ✓ PASS
+Time: 0.000s
+
+============================================================
+TEST: Different single characters
+Input: a='a', b='b'
+Result: '-1'
+Expected: '-1' - ✓ PASS
+Time: 0.000s
+
+============================================================
+TEST: Identical strings
+Input: a='abc', b='abc'
+Result: 'aba'
+Expected: 'abccba' - ✗ FAIL
+Time: 0.000s
+
+============================================================
+TEST: Longer identical strings
+Input: a='palindrome', b='palindrome'
+Result: 'ala'
+Time: 0.002s
+
+============================================================
+TEST: String and its reverse
+Input: a='abc', b='cba'
+Result: 'abccba'
+Expected: 'abccba' - ✓ PASS
+Time: 0.000s
+
+============================================================
+TEST: Short reverse case
+Input: a='ab', b='ba'
+Result: 'abba'
+Expected: 'abba' - ✓ PASS
+Time: 0.000s
+
+============================================================
+TEST: All same character
+Input: a='aaa', b='aaa'
+Result: 'aaaaaa'
+Expected: 'aaaaaa' - ✓ PASS
+Time: 0.000s
+
+============================================================
+TEST: Repeating with variation
+Input: a='aab', b='baa'
+Result: 'aabbaa'
+Time: 0.000s
+
+============================================================
+TEST: Long strings (25 chars each)
+Input: a='aaaaaaaaaaaaaaaaaaaaaaaaa', b='bbbbbbbbbbbbbbbbbbbbbbbbb'
+Result: '-1'
+Time: 0.060s
+
+============================================================
+TEST: 20+ char strings
+Input: a='abcdefghijklmnopqrstu', b='uvwxyzabcdefghijklmno'
+Result: 'aba'
+Time: 0.025s
+
+============================================================
+TEST: Both contain palindromes
+Input: a='aba', b='cdc'
+Result: '-1'
+Time: 0.000s
+
+============================================================
+TEST: Full palindrome inputs
+Input: a='racecar', b='level'
+Result: 'ece'
+Time: 0.000s
+
+============================================================
+TEST: Perfect complement
+Input: a='abcd', b='dcba'
+Result: 'abcddcba'
+Expected: 'abcddcba' - ✓ PASS
+Time: 0.000s
+
+============================================================
+TEST: 3-char complement
+Input: a='xyz', b='zyx'
+Result: 'xyzzyx'
+Expected: 'xyzzyx' - ✓ PASS
+Time: 0.000s
+
+============================================================
+TEST: 10-char performance test
+Input: a='abcdefghij', b='jihgfedcba'
+Result: 'abcdefghijjihgfedcba'
+Time: 0.002s
+
+============================================================
+TEST: Lexicographic preference test
+Input: a='ba', b='ab'
+Result: 'abba'
+Expected: 'abba' - ✓ PASS
+Time: 0.000s
+
+============================================================
+TEST: Multiple same-length palindromes
+Input: a='cab', b='bac'
+Result: 'baccab'
+Expected: 'baccab' - ✓ PASS
+Time: 0.000s
+
+============================================================
+TEST: No common characters
+Input: a='xyz', b='abc'
+Result: '-1'
+Expected: '-1' - ✓ PASS
+Time: 0.000s
+
+============================================================
+TEST: No overlap at all
+Input: a='123', b='456'
+Result: '-1'
+Expected: '-1' - ✓ PASS
+Time: 0.000s
+
+============================================================
+TEST SUITE COMPLETE
